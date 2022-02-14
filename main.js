@@ -15,34 +15,34 @@ camera.position.setZ(30)
 renderer.render(scene, camera)
 
 let apps = []
-addApp('./img/screenshots/uuids.png', 40)
-addApp('./img/screenshots/mynotes.png', 140)
-addApp('./img/screenshots/number_systems.png', 240)
-addApp('./img/screenshots/feecalc.png', 340)
+addApp('/img/screenshots/uuids.png', 40)
+addApp('/img/screenshots/mynotes.png', 140)
+addApp('/img/screenshots/number_systems.png', 240)
+addApp('/img/screenshots/feecalc.png', 340)
 
 let skills = []
 if (window.innerWidth > 1000) {
-  addSkill('./img/vue.jpeg', -550, -150, 1000)
-  addSkill('./img/go.png', -750, 50, 600)
-  addSkill('./img/postgres.png', -850, 250, 200)
+  addSkill('/img/vue.jpeg', -550, -150, 1000)
+  addSkill('/img/go.png', -750, 50, 600)
+  addSkill('/img/postgres.png', -850, 250, 200)
 
-  addSkill('./img/docker.jpeg', -550, 50, 1000)
-  addSkill('./img/css.jpeg', -750, 250, 600)
-  addSkill('./img/js.png', -850, -150, 200)
+  addSkill('/img/docker.jpeg', -550, 50, 1000)
+  addSkill('/img/css.jpeg', -750, 250, 600)
+  addSkill('/img/js.png', -850, -150, 200)
 
-  addSkill('./img/gcp.jpeg', -550, 250, 1000)
-  addSkill('./img/bulma.png', -750, -150, 600)
-  addSkill('./img/html.png', -850, 50, 200)
+  addSkill('/img/gcp.jpeg', -550, 250, 1000)
+  addSkill('/img/bulma.png', -750, -150, 600)
+  addSkill('/img/html.png', -850, 50, 200)
 } else {
-  addSkill('./img/vue.jpeg', -650, -50, 600)
-  addSkill('./img/go.png', -650, 150, 600)
-  addSkill('./img/postgres.png', -650, 350, 600)
-  addSkill('./img/docker.jpeg', -650, -250, 600)
+  addSkill('/img/vue.jpeg', -650, -50, 600)
+  addSkill('/img/go.png', -650, 150, 600)
+  addSkill('/img/postgres.png', -650, 350, 600)
+  addSkill('/img/docker.jpeg', -650, -250, 600)
 
-  addSkill('./img/gcp.jpeg', -700, -50, 400)
-  addSkill('./img/js.png', -700, 150, 400)
-  addSkill('./img/bulma.png', -700, 350, 400)
-  addSkill('./img/css.jpeg', -700, -250, 400)
+  addSkill('/img/gcp.jpeg', -700, -50, 400)
+  addSkill('/img/js.png', -700, 150, 400)
+  addSkill('/img/bulma.png', -700, 350, 400)
+  addSkill('/img/css.jpeg', -700, -250, 400)
 }
 
 // Lights
