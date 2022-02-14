@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JLau Apps</title>
+  </head>
+  <body>
+    <canvas id="bg"></canvas>   
+    <div id="info">
+      <h1 id="mainHeader">
+        JLau Apps
+      </h1>
+      <p id="mainSubtitle">
+        Scroll down to discover my apps.
+      </p>
+      <form action="https://formsubmit.co/jlauapps@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="http://localhost:3000">
+        <input
+          type="email"
+          name="email"
+          id="mail-adress"
+          class="hidden"
+          placeholder="Your Email-adress"
+          required
+        >
+        <br>
+        <textarea
+          placeholder="Your message"
+          name="Email Text"
+          class="hidden"
+          id="mail"
+          cols="30"
+          rows="10"
+          required
+        ></textarea>
+        <br>
+        <button type="submit" id="submit" class="button hidden">
+          Submit
+        </button>
+      </form>
+      <button id="skills" class="button">
+        Show Technologies
+      </button>
+      <button id="contact" class="button">
+        Contact
+      </button>
+      <!-- <button id="home" class="button">
+        Go home
+      </button> -->
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
