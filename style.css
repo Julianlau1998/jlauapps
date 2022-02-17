@@ -79,16 +79,19 @@ p {
 }
 
 #mail-adress {
-  margin-top: -5rem;
+  position: relative;
+  top: -12rem;
 }
 
 #mail {
-  margin-top: 1rem;
+  position: relative;
+  top: -11rem;
 }
 
 #submit {
   height: 3.3rem;
-  margin-top: 1rem;
   font-size: 1.3rem;
   padding: 0 1rem 0 1rem;
+  position: relative;
+  top: -9rem;
 }

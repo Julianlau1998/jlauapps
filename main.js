@@ -21,36 +21,16 @@ addApp('/img/screenshots/number_systems.png', 240)
 addApp('/img/screenshots/feecalc.png', 340)
 
 let skills = []
-if (window.innerWidth > 1000) {
-  addSkill('/img/vue.jpeg', -550, -150, 1000)
-  addSkill('/img/go.png', -750, 50, 600)
-  addSkill('/img/postgres.png', -850, 250, 200)
-
-  addSkill('/img/docker.jpeg', -550, 50, 1000)
-  addSkill('/img/css.jpeg', -750, 250, 600)
-  addSkill('/img/js.png', -850, -150, 200)
-
-  addSkill('/img/gcp.jpeg', -550, 250, 1000)
-  addSkill('/img/bulma.png', -750, -150, 600)
-  addSkill('/img/html.png', -850, 50, 200)
-} else {
-  addSkill('/img/vue.jpeg', -650, -50, 600)
-  addSkill('/img/go.png', -650, 150, 600)
-  addSkill('/img/postgres.png', -650, 350, 600)
-  addSkill('/img/docker.jpeg', -650, -250, 600)
-
-  addSkill('/img/gcp.jpeg', -700, -50, 400)
-  addSkill('/img/js.png', -700, 150, 400)
-  addSkill('/img/bulma.png', -700, 350, 400)
-  addSkill('/img/css.jpeg', -700, -250, 400)
-}
+addSkills()
 
 // Lights
 const ambientLight = new THREE.AmbientLight(0xffffff)
 scene.add(ambientLight)
 
 
-Array(6500).fill().forEach(addStar)
+const starGeometry = new THREE.SphereGeometry(0.25, 24, 24);
+const starMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff });
+Array(2000).fill().forEach(addStar)
 animate()
 
 const skillsButton = document.getElementById("skills")
@@ -59,6 +39,9 @@ skillsButton.onclick = rotateCamera
 const contactButton = document.getElementById("contact")
 let contactVisible = false
 contactButton.onclick = showContact
+
+const homeButton = document.getElementById("home")
+homeButton.onclick = goHome
 
 document.body.onscroll = moveCamera;
 
@@ -88,10 +71,7 @@ function addSkill(img, x, y, z) {
 
 //Creates single star element
 function addStar() {
-  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-  const star = new THREE.Mesh(geometry, material);
-
+  const star = new THREE.Mesh(starGeometry, starMaterial);
   const [x, y, z] = Array(3)
     .fill()
     .map(() => THREE.MathUtils.randFloatSpread(1750));
@@ -102,11 +82,9 @@ function addStar() {
 
 // Rotate camera to show skill overview
 function rotateCamera() {
-  if (camera.rotation.y ==0) {
-    document.getElementById('mainHeader').remove()
-    document.getElementById('mainSubtitle').remove()
-    skillsButton.remove()
-    document.getElementById('app').style.height = '5vh'
+  if (camera.rotation.y == 0) {
+    skillsButton.style.zIndex = 0
+    skillsButton.style.opacity = 0
   }
   if (camera.rotation.y <= 2) {
     requestAnimationFrame(rotateCamera)
@@ -115,7 +93,12 @@ function rotateCamera() {
     camera.rotation.y += 0.1
   }
   if (camera.rotation.y >= 2) {
+    window.scroll(0, 0)
     camera.position.z = 200
+    document.getElementById('mainHeader').style.opacity = 0
+    document.getElementById('mainHeader').style.zIndex = 0
+    document.getElementById('mainSubtitle').style.opacity = 0
+    document.getElementById('mainSubtitle').style.zIndex = 0
     document.getElementById('contact').style.opacity = 1
     document.getElementById('contact').style.zIndex = 100
   }
@@ -136,7 +119,7 @@ function showContact() {
       skills[i].rotation.y += 0.05
       skills[i].rotation.x += 0.05
     }
-    if (skills[0].position.y >= 900 && !contactVisible)  {
+    if (skills[0].position.y >= 900)  {
       contactVisible = true
       document.getElementById('mail-adress').style.opacity = 1
       document.getElementById('mail-adress').style.zIndex = 100
@@ -144,15 +127,92 @@ function showContact() {
       document.getElementById('mail').style.opacity = 1
       document.getElementById('mail').style.zIndex = 100
 
+      document.getElementById('contact').style.zIndex = -1
+      document.getElementById('contact').style.opacity = 0
+
+      document.getElementById('home').style.opacity = 1
+      document.getElementById('home').style.zIndex = 100
+
       document.getElementById('submit').style.opacity = 1
       document.getElementById('submit').style.zIndex = 100
 
-      document.getElementById('contact').style.zIndex = -1
-      document.getElementById('contact').style.opacity = 0
+      document.getElementById('contactHeader').style.opacity = 1
+      document.getElementById('contactHeader').style.zIndex = 100
+
+      document.getElementById('app').style.height = '5vh'
     }
     requestAnimationFrame(showContact)
     renderer.render(scene, camera)
   } 
+}
+
+function addSkills () {
+  skills = []
+    if (window.innerWidth > 1000) {
+      addSkill('/img/vue.jpeg', -550, -150, 1000)
+      addSkill('/img/go.png', -750, 50, 600)
+      addSkill('/img/postgres.png', -850, 250, 200)
+    
+      addSkill('/img/docker.jpeg', -550, 50, 1000)
+      addSkill('/img/css.jpeg', -750, 250, 600)
+      addSkill('/img/js.png', -850, -150, 200)
+    
+      addSkill('/img/gcp.jpeg', -550, 250, 1000)
+      addSkill('/img/bulma.png', -750, -150, 600)
+      addSkill('/img/html.png', -850, 50, 200)
+    } else {
+      addSkill('/img/vue.jpeg', -650, -50, 600)
+      addSkill('/img/go.png', -650, 150, 600)
+      addSkill('/img/postgres.png', -650, 350, 600)
+      addSkill('/img/docker.jpeg', -650, -250, 600)
+    
+      addSkill('/img/gcp.jpeg', -700, -50, 400)
+      addSkill('/img/js.png', -700, 150, 400)
+      addSkill('/img/bulma.png', -700, 350, 400)
+      addSkill('/img/css.jpeg', -700, -250, 400)
+    }
+}
+
+function goHome() {
+    document.getElementById('app').style.height = '600vh'
+    document.getElementById('mail-adress').style.opacity = 0
+    document.getElementById('mail-adress').style.zIndex = 0
+
+    document.getElementById('mail').style.opacity = 0
+    document.getElementById('mail').style.zIndex = 0
+
+    document.getElementById('submit').style.opacity = 0
+    document.getElementById('submit').style.zIndex = 0
+
+    document.getElementById('home').style.opacity = 0
+    document.getElementById('home').style.zIndex = 0
+
+    document.getElementById('skills').style.opacity = 1
+    document.getElementById('skills').style.zIndex = 100
+
+    document.getElementById('submit').style.opacity = 0
+    document.getElementById('submit').style.zIndex = 0
+
+    document.getElementById('home').style.opacity = 0
+    document.getElementById('home').style.zIndex = 0
+    
+  if (camera.rotation.y >= 0) {
+    requestAnimationFrame(goHome)
+    renderer.render(scene, camera)
+    camera.rotation.y -= 0.1
+  } else {
+    addSkills()
+    setTimeout(200)
+    window.scroll({
+      top: 10,
+      behavior: "smooth"
+    });
+    document.getElementById('mainHeader').style.opacity = 1
+    document.getElementById('mainHeader').style.zIndex = 100
+
+    document.getElementById('mainSubtitle').style.opacity = 1
+    document.getElementById('mainSubtitle').style.zIndex = 100
+  }
 }
 
 //continously Rerender the screen
