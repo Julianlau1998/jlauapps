@@ -80,12 +80,12 @@ p {
 
 #mail-adress {
   position: relative;
-  top: -12rem;
+  top: -14rem;
 }
 
 #mail {
   position: relative;
-  top: -11rem;
+  top: -13rem;
 }
 
 #submit {
@@ -93,5 +93,9 @@ p {
   font-size: 1.3rem;
   padding: 0 1rem 0 1rem;
   position: relative;
-  top: -9rem;
+  top: -11rem;
+}
+
+#home {
+  z-index: 10 !important;
 }

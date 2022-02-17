@@ -122,19 +122,19 @@ function showContact() {
     if (skills[0].position.y >= 900)  {
       contactVisible = true
       document.getElementById('mail-adress').style.opacity = 1
-      document.getElementById('mail-adress').style.zIndex = 100
+      document.getElementById('mail-adress').style.zIndex = 101
 
       document.getElementById('mail').style.opacity = 1
-      document.getElementById('mail').style.zIndex = 100
+      document.getElementById('mail').style.zIndex = 101
 
       document.getElementById('contact').style.zIndex = -1
       document.getElementById('contact').style.opacity = 0
 
       document.getElementById('home').style.opacity = 1
-      document.getElementById('home').style.zIndex = 100
+      document.getElementById('home').style.zIndex = 10
 
       document.getElementById('submit').style.opacity = 1
-      document.getElementById('submit').style.zIndex = 100
+      document.getElementById('submit').style.zIndex = 101
 
       document.getElementById('contactHeader').style.opacity = 1
       document.getElementById('contactHeader').style.zIndex = 100
