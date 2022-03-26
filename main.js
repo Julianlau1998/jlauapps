@@ -146,17 +146,14 @@ function showContact() {
       document.getElementById('mail-adress').style.opacity = 1
       document.getElementById('mail-adress').style.zIndex = 101
 
-      document.getElementById('mail').style.opacity = 1
-      document.getElementById('mail').style.zIndex = 101
-
       document.getElementById('contact').style.zIndex = -1
       document.getElementById('contact').style.opacity = 0
 
-      document.getElementById('home').style.opacity = 1
-      document.getElementById('home').style.zIndex = 10
-
-      document.getElementById('submit').style.opacity = 1
-      document.getElementById('submit').style.zIndex = 101
+      const contactElements = document.getElementsByClassName('contact')
+      for(let i=0; i<contactElements.length; i++) {
+        contactElements[i].style.opacity = 1
+        contactElements[i].style.zIndex = 101
+      }
 
       // document.getElementById('contactHeader').style.opacity = 1
       // document.getElementById('contactHeader').style.zIndex = 100
@@ -196,30 +193,22 @@ function addSkills () {
 }
 
 function goHome() {
-  scrollingEnabled = true
+    scrollingEnabled = true
     document.getElementById('body').style.overflow = 'visible'
 
     document.getElementById('app').style.height = '600vh'
     document.getElementById('mail-adress').style.opacity = 0
     document.getElementById('mail-adress').style.zIndex = 0
 
-    document.getElementById('mail').style.opacity = 0
-    document.getElementById('mail').style.zIndex = 0
-
-    document.getElementById('submit').style.opacity = 0
-    document.getElementById('submit').style.zIndex = 0
-
-    document.getElementById('home').style.opacity = 0
-    document.getElementById('home').style.zIndex = 0
+    const contactElements = document.getElementsByClassName('contact')
+      for(let i=0; i<contactElements.length; i++) {
+        contactElements[i].style.opacity = 0
+        contactElements[i].style.zIndex = -1
+      }
 
     document.getElementById('skills').style.opacity = 1
     document.getElementById('skills').style.zIndex = 100
 
-    document.getElementById('submit').style.opacity = 0
-    document.getElementById('submit').style.zIndex = 0
-
-    document.getElementById('home').style.opacity = 0
-    document.getElementById('home').style.zIndex = 0
     
   if (camera.rotation.y >= 0) {
     requestAnimationFrame(goHome)
