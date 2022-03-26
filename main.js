@@ -15,10 +15,17 @@ camera.position.setZ(30)
 renderer.render(scene, camera)
 
 let apps = []
-addApp('/img/screenshots/uuids.png', 40)
-addApp('/img/screenshots/mynotes.png', 140)
-addApp('/img/screenshots/number_systems.png', 240)
-addApp('/img/screenshots/feecalc.png', 340)
+let imgArray1 = ['/img/screenshots/mynotes/3.png', '/img/screenshots/mynotes/2.png', '/img/screenshots/mynotes/1.png', '/img/screenshots/mynotes/4.png']
+let imgArray2 = ['/img/screenshots/libria/1.png', '/img/screenshots/libria/2.png', '/img/screenshots/libria/3.png', '/img/screenshots/libria/4.png']
+let imgArray3 = ['/img/screenshots/feecalc/1.png', '/img/screenshots/feecalc/2.png', '/img/screenshots/feecalc/3.png', '/img/screenshots/feecalc/4.png']
+let imgArray4 = ['/img/screenshots/uuids/1.png', '/img/screenshots/uuids/2.png', '/img/screenshots/uuids/3.png', '/img/screenshots/uuids/4.png']
+let imgArray5 = ['/img/screenshots/number_systems/1.png', '/img/screenshots/number_systems/2.png', '/img/screenshots/number_systems/3.png', '/img/screenshots/number_systems/4.png']
+
+addApp(imgArray1, 40)
+addApp(imgArray2, 140)
+addApp(imgArray3, 240)
+addApp(imgArray4, 340)
+addApp(imgArray5, 440)
 
 let skills = []
 addSkills()
@@ -49,12 +56,22 @@ document.body.onscroll = moveCamera;
 moveCamera()
 
 //Creates single App element
-function addApp(img, position) {
-  const appTexture = new THREE.TextureLoader().load(img)
-  const app = new THREE.Mesh(new THREE.BoxGeometry(9, 16, 9), new THREE.MeshBasicMaterial({ map: appTexture }))
+function addApp(imgArray, position) {
+  var geometry = new THREE.BoxGeometry(9, 16, 9)
+            
+  var materialArray = [];
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[0]) }));
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[1] ) }));
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[0] ) }));
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[1] ) }));
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[2] ) }));
+  materialArray.push(new THREE.MeshBasicMaterial( { map: THREE.ImageUtils.loadTexture( imgArray[3] ) }));
+  
+  var material = new THREE.MeshFaceMaterial(materialArray);
+  var app = new THREE.Mesh(geometry, material);
   app.position.z = position
-  // app.on('click', function(ev) {alert('test')})
-  scene.add(app)
+
+  scene.add(app);
   apps.push(app)
 }
 
@@ -229,7 +246,7 @@ function animate() {
   renderer.render(scene, camera)
 
   for (let i=0; i<apps.length; i++) {
-    apps[i].rotation.y += 0.005
+    apps[i].rotation.y += 0.008
   }
   for (let i=0; i<skills.length; i++) {
     if (i%2 === 0) {
