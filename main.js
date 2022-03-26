@@ -43,6 +43,7 @@ contactButton.onclick = showContact
 const homeButton = document.getElementById("home")
 homeButton.onclick = goHome
 
+let scrollingEnabled = true
 document.body.onscroll = moveCamera;
 
 moveCamera()
@@ -82,6 +83,7 @@ function addStar() {
 
 // Rotate camera to show skill overview
 function rotateCamera() {
+  scrollingEnabled = false
   document.getElementById('body').style.overflow = 'hidden'
   if (camera.rotation.y == 0) {
     skillsButton.style.zIndex = 0
@@ -107,12 +109,14 @@ function rotateCamera() {
 
 // Update camera view on scroll
 function moveCamera() {
+  if (!scrollingEnabled) return
   const t = document.body.getBoundingClientRect().top;
   camera.position.z = t * (-0.1)
 }
 
 //Open contact form and animate out the skills elements
 function showContact() {
+  scrollingEnabled = false
   if (skills[0].position.y < 1500) {
     for (let i=0; i<skills.length; i++) {
       skills[i].position.y += 20.1
@@ -175,6 +179,7 @@ function addSkills () {
 }
 
 function goHome() {
+  scrollingEnabled = true
     document.getElementById('body').style.overflow = 'visible'
 
     document.getElementById('app').style.height = '600vh'
