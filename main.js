@@ -82,6 +82,7 @@ function addStar() {
 
 // Rotate camera to show skill overview
 function rotateCamera() {
+  document.getElementById('body').style.overflow = 'hidden'
   if (camera.rotation.y == 0) {
     skillsButton.style.zIndex = 0
     skillsButton.style.opacity = 0
@@ -136,8 +137,8 @@ function showContact() {
       document.getElementById('submit').style.opacity = 1
       document.getElementById('submit').style.zIndex = 101
 
-      document.getElementById('contactHeader').style.opacity = 1
-      document.getElementById('contactHeader').style.zIndex = 100
+      // document.getElementById('contactHeader').style.opacity = 1
+      // document.getElementById('contactHeader').style.zIndex = 100
 
       document.getElementById('app').style.height = '5vh'
     }
@@ -174,6 +175,8 @@ function addSkills () {
 }
 
 function goHome() {
+    document.getElementById('body').style.overflow = 'visible'
+
     document.getElementById('app').style.height = '600vh'
     document.getElementById('mail-adress').style.opacity = 0
     document.getElementById('mail-adress').style.zIndex = 0
