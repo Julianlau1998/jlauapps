@@ -121,6 +121,8 @@ function rotateCamera() {
     document.getElementById('mainSubtitle').style.zIndex = 0
     document.getElementById('contact').style.opacity = 1
     document.getElementById('contact').style.zIndex = 100
+    document.getElementById('info').style.opacity = 1
+    document.getElementById('info').style.zIndex = 100
   }
 }
 

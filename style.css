@@ -1,6 +1,8 @@
 body {
   background-color: black;
   overflow-x: hidden;
+  display: flex;
+  justify-content: center;
 }
 canvas {
   position: fixed;
@@ -33,6 +35,9 @@ h1 {
 
 p {
   font-size: 1rem;
+}
+
+#mainSubtitle {
   margin-top: -2rem;
 }
 
@@ -97,6 +102,11 @@ p {
   top: -11rem;
 }
 
-/* #home {
-  z-index: 10 !important;
-} */
+.description {
+  width: 90%;
+  padding: 5%;
+}
+
+#firstText {
+  margin-top: 60rem;
+}
