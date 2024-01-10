@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> JL Photography </title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<title> JL Photography </title>	
+</head>
+
+<body>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<div class="header" id="headerDiv">
+	<div class="topnav" align="center" id="topnav">
+		<img src= "jlp6.png" class="logo" id="logo">
+		<img src="jlpCut.png" class="logoCut" id="logoCut">
+		<a href=".html">&Uumlber Mich</a>
+		<a href="seminare.html">Kategorien</a>
+		<a href="index.html"> Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    	<i class="fafa-bars"></i></a>
+    </div>
+	</div>
+
+	<a href="makro.html">
+		<img class = "image1" id="gradient" src="Makro.jpg"> 
+	</a>	
+	<h2 class="makro">Makro</h2>
+	<a href="stadt.html">
+		<img class = "image2" id="gradient" src="stadt.JPG">
+	</a>
+	<h2 class="stadt">Stadt</h2>
+	<img class = "image3" id="gradient" src="Abstrakt.jpg">
+	<h2 class="abstrakt">Abstrakt</h2>
+	<img class = "image4" id="gradient" src="Sterne.jpg">
+	<h2 class="astro">Astro</h2>
+	<img class = "image5" id="gradient" src="landschaft.jpg">
+	<h2 class="landschaft">Landschaft</h2>
+
+	</br></br></br></br></br>
+
+	<div class="bottomNav">
+		</br><b>JL Photography<b>
+		<a href="index.html">Datenschutz</a>
+		<a href="rps/rps.html">Impressum</a>
+		<a href="stb/stb.html">Kontakt</a>
+	</div>
+
+</body>
+<script>
+	document.getElementById("headerDiv").style.top = 0;
+	document.getElementById("headerDiv").style.position = 'absolute'
+  	document.getElementById("headerDiv").style.width = '98.2vw'
+  	document.getElementById("headerDiv").style.height = '14.3vw'
+  	document.getElementById("logo").style.opacity = 1;
+  	document.getElementById("logoCut").style.opacity = 0
+  	document.getElementById("gradient").style.marginTop = '18vw'
+
+	window.onscroll = function() {
+
+	  if (window.pageYOffset > 99) {
+	  	document.getElementById("headerDiv").style.top = 0;
+	  	document.getElementById("headerDiv").style.position = 'fixed'
+	  	document.getElementById("headerDiv").style.width = '100vw'
+	  	document.getElementById("headerDiv").style.height = '7vw'
+	  	document.getElementById("logo").style.opacity = 0;
+	  	document.getElementById("logoCut").style.opacity = 1;
+	  	document.getElementById("gradient").style.marginTop = '17vw'
+	  	//document.getElementById
+	  } 
+
+	  else if(window.pageYOffset <101) {
+	  	document.getElementById("headerDiv").style.top = 0;
+		document.getElementById("headerDiv").style.position = 'absolute'
+	  	document.getElementById("headerDiv").style.width = '98.2vw'
+	  	document.getElementById("headerDiv").style.height = '14.3vw'
+	  	document.getElementById("logo").style.opacity = 1;
+	  	document.getElementById("logoCut").style.opacity = 0
+	  	document.getElementById("gradient").style.marginTop = '18vw'
+	  }
+	}
+</script>
+</html>	

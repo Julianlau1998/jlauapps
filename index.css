@@ -1,0 +1,93 @@
+body {
+    background-color: #1a1c1e;
+    color: #c8e2fc;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0 1.5rem;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    margin-bottom: -1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    max-width: 45rem;
+    margin: 2.5rem auto;
+}
+
+hr {
+    opacity: 0.2;
+    max-width: 50rem;
+}
+
+a {
+    color: #EEDCFF;
+    position: relative;
+    top: 1rem;
+    font-size: 1.3rem;
+}
+
+form {
+    margin-top: 16.5rem;
+}
+
+#contact {
+    position: fixed;
+    bottom: 2rem;
+    margin: 0 auto;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: -1;
+  }
+
+
+#mail, #mail-adress {
+    background-color: #1a1c1e;
+    border: 2px solid #94a8bd;
+    border-radius: 10px;
+    padding: 0.7rem;
+    color: #94a8bd;
+  }
+
+  #mail-adress {
+    position: relative;
+    top: -14rem;
+  }
+  
+  #mail {
+    position: relative;
+    top: -13rem;
+  }
+  
+  #submit {
+    height: 2.8rem;
+    font-size: 1.3rem;
+    padding: 0 1rem 0 1rem;
+    position: relative;
+    top: -11rem;
+  }
+
+  .button {
+    height: 4rem;
+    border-radius: 20px;
+    background-color: #1a1c1e;
+    color: #94a8bd;
+    border: 2px solid #94a8bd;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    color: #1a1c1e;
+    background-color: #94a8bd;
+  }
+
+  .mt-2 {
+      margin-top: 2rem;
+  }

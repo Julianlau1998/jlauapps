@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="JL Apps. A collection of my apps. Julian Lau - Web Developer. JL Apps." />
+    <meta name="keywords" content="JL Apps, Julian Lau, JLau Apps, Julian Lau Web Developer, Frontend Developer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="JL Apps" />
+    <meta name="twitter:description" content="Julian Lau - Web Developer. A collection of my apps." />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7FTBWH75G"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-K7FTBWH75G');
+    </script>
+
+    <title>JL Apps - Julian Lau Web Developer</title>
+  </head>
+  <body id="body">
+    <canvas id="bg"></canvas>   
+    <div id="info">
+      <h1 id="mainHeader">
+        JL Apps
+      </h1>
+      <p id="mainSubtitle">
+        Scroll down to discover my apps.
+      </p>
+      <form action="https://formsubmit.co/jlauapps@gmail.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://jlau.netlify.app">
+        <input
+          type="email"
+          name="email"
+          id="mail-adress"
+          class="hidden contact"
+          placeholder="Your Email-adress"
+          required
+        >
+        <br>
+        <textarea
+          placeholder="Your message"
+          name="Email Text"
+          class="hidden contact"
+          id="mail"
+          cols="30"
+          rows="10"
+          required
+        ></textarea>
+        <br>
+        <button type="submit" id="submit" class="button hidden contact">
+          Submit
+        </button>
+      </form>
+      <button id="skills" class="button">
+        Show Technologies
+      </button>
+      <button id="contact" class="button">
+        Contact
+      </button>
+      <button id="home" class="button contact">
+        Go home
+      </button>
+    </div>
+    <div id="app"></div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

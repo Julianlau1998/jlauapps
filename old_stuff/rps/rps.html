@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Julian Lau Apps RPS</title>
+	<link rel="stylesheet" type="text/css" href="rps.css">
+	<link rel="icon" type="image/png" href="../favicon.png">
+</head>
+
+  <body>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<div class = "headDiv" id = "headDiv">
+		<button onclick="location.href='../index.html'" class="homeButton"><img src="icon1.png" class="headerImage"></button><br>
+		<a href="../about.html" class="aRight">Contact</a>
+		<a href="../stb/stb.html">Apps</a>
+		<a href="../index.html">Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i></a>
+	</div>
+
+    <img src="../rps/rps_screenshots/rps_start.jpg" class="screenshot1">
+    <img src="../rps/rps_screenshots/rps_draw.jpg" class="screenshot2">
+
+    <div class="context1">
+		<b>
+			RoockPaperScissors is ,as the name suggests, a small app to play Rock Paper Scissors.
+			After every move, a statistic of all moves is being shown.
+		</b>
+		<!--
+	    	<b>
+				RockPaperScissors ist eine kleine Schere Stein Papier App. </br>
+				Dabei wird nach jedem Zug die Statistik aller gemachter Züge angezeigt.
+			</b>
+		-->
+	</div>
+
+	<button type="button" class="nextApp"  onclick="window.location.href='../stb/stb.html'">
+		<b>Nächste App
+	</button>
+
+	<div class="bottomnav" align = "center">
+		<b> Julian Lau</b>
+	</div>
+
+  </body>
+  <script>
+  	function myFunction() {
+	  var x = document.getElementById("headDiv");
+	  if (x.className === "headDiv") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "headDiv";
+	  }
+	}
+
+	window.onscroll = function() {
+	  if (window.pageYOffset > 120 && window.innerWidth > 700) {
+	  	document.getElementById("headDiv").style.top = "-9vw";
+	  	document.getElementById("headDiv").style.position = 'fixed'
+	  } else if(window.pageYOffset <120) {
+		document.getElementById("headDiv").style.top = "0vw";
+	  		document.getElementById("headDiv").style.top = document.getElementById("headDiv").style.top
+	  		document.getElementById("headDiv").style.position = 'absolute'
+	  		document.getElementById("headDiv").style.opacity = 1
+	  }
+	}
+  </script>
+</html>

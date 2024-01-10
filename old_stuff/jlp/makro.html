@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> JL Photography</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<div class="imageDiv">
+		<img class="imageDivImg" src="fly5.png">
+	</div>
+
+	<div class="header" id="headerDiv">
+		<div class="topnav" align = "center" id = "topnav">
+		<img src= "jlp6.png" class="logo" id="logo">
+		<img src="jlpCut.png" class="logoCut" id="logoCut">
+		<a href=".html">&Uumlber Mich</a>
+		<a href="seminare.html">Kategorien</a>
+		<a href="index.html"> Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    	<i class="fafa-bars"></i></a>
+    </div>
+	</div>
+
+	<h1 class="macroHeader" id="macroHeader">Makro</h1>
+	<p class="macroSubHeader" id="macroSubHeader">Klicken Sie auf das jeweilige Bild um es im Vollbild zu betrachten</p>
+
+	<h2 class="makro"></h2>
+	<img class = "image2" id="gradient" src="daisy.jpg">
+	<h2 class="stadt"></h2>
+	<img class = "image3" id="gradient" src="ant.jpg">
+	<h2 class="abstrakt"></h2>
+	<img class = "image4 id="gradient" src="fly.jpg">
+	<h2 class="astro"></h2>
+	<img class = "category3" id="gradient" src="lights.jpg">
+	<h2 class="landschaft"></h2>
+
+	<button type="button" onclick="location.href='kategorien.html'" class="bilderButton" id="bilderButton"> <b>Meine Bilder </button>
+
+	</br></br></br></br></br>
+
+	<div class="bottomNav">
+		</br><b>JL Photography<b>
+		<a href="index.html">Datenschutz</a>
+		<a href="rps/rps.html">Impressum</a>
+		<a href="stb/stb.html">Kontakt</a>
+	</div>
+
+</body>
+<script>
+	document.getElementById("bilderButton").style.marginLeft = "20vw";
+	document.getElementById("bilderButton").style.top= "10vw";
+
+	window.onscroll = function() {
+
+	  if (window.pageYOffset > 100) {
+	  	document.getElementById("headerDiv").style.top = 0;
+	  	document.getElementById("headerDiv").style.position = 'fixed'
+	  	document.getElementById("headerDiv").style.width = '100vw'
+	  	document.getElementById("headerDiv").style.height = '7vw'
+	  	document.getElementById("logo").style.opacity = 0;
+	  	document.getElementById("logoCut").style.opacity = 1;
+	  	document.getElementById("gradient").style.marginTop = '5vw'
+	  } 
+
+	  else if(window.pageYOffset <100) {
+	  	document.getElementById("headerDiv").style.top = 0;
+		document.getElementById("headerDiv").style.position = 'absolute'
+	  	document.getElementById("headerDiv").style.width = '98.2vw'
+	  	document.getElementById("headerDiv").style.height = '14.3vw'
+	  	document.getElementById("logo").style.opacity = 1;
+	  	document.getElementById("logoCut").style.opacity = 0
+	  	document.getElementById("gradient").style.marginTop = '18vw'
+	  }
+	}
+
+	function fullscreen(){
+
+	}
+</script>
+</html>	

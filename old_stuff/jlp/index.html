@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> JL Photography</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="icon" type="image/png" href="jlp6.png">
+</head>
+
+<body>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<div class="header" id="headerDiv">
+		<div class="topnav" align = "center" id = "topnav">
+		<img src= "jlp6.png" class="logo" id="logo">
+		<img src="jlpCut.png" class="logoCut" id="logoCut">
+		<a href=".html">&Uumlber Mich</a>
+		<a href="kategorien.html">Kategorien</a>
+		<a href="index.html"> Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    	<i class="fafa-bars"></i></a>
+    </div>
+	</div>
+
+	<div class="gradient" id = "gradient">
+		<img class = "pic" id="gradient" src="gb.jpg">
+		<div><h1 class="subHeader"><b>Julian Lau</h1>	
+		<h2 class="secondHeader"> Photography </h2><div>
+	    </img>
+	</div>
+
+	</br> </br> </br>
+	<img class = "pic2" id="gradient" src="London.jpg">
+	<img class = "pic3" id="gradient" src="jlp5.png">
+	</br> </br> </br></br> </br> </br>
+
+	<button type="button" onclick="location.href='kategorien.html'" class="bilderButton"> <b>Meine Bilder </button>
+
+
+
+	<div class="bottomNav">
+		</br><b>JL Photography<b>
+		<a href="index.html">Datenschutz</a>
+		<a href="rps/rps.html">Impressum</a>
+		<a href="stb/stb.html">Kontakt</a>
+	</div>
+
+</body>
+<script>
+	document.getElementById("headerDiv").style.top = 0;
+	document.getElementById("headerDiv").style.position = 'absolute'
+	document.getElementById("headerDiv").style.width = '98.2vw'
+  	document.getElementById("headerDiv").style.height = '14.3vw'
+	document.getElementById("logo").style.opacity = 1;
+	document.getElementById("logoCut").style.opacity = 0
+	document.getElementById("gradient").style.marginTop = '15vw'
+
+	window.onscroll = function() {
+	  if (window.pageYOffset > 99) {  	
+	  	document.getElementById("headerDiv").style.top = 0;
+	  	document.getElementById("headerDiv").style.position = 'fixed'
+	  	document.getElementById("headerDiv").style.width = '100vw'
+	  	document.getElementById("headerDiv").style.height = '7vw'
+	  	document.getElementById("logo").style.opacity = 0;
+	  	document.getElementById("logoCut").style.opacity = 1;
+	  	document.getElementById("gradient").style.marginTop = '15vw'
+	  	//document.getElementById
+	  } 
+
+	  else if(window.pageYOffset <= 101) {
+	  	document.getElementById("headerDiv").style.top = 0;
+		document.getElementById("headerDiv").style.position = 'absolute'
+	  	document.getElementById("headerDiv").style.width = '98.2vw'
+	  	document.getElementById("headerDiv").style.height = '14.3vw'
+	  	document.getElementById("logo").style.opacity = 1;
+	  	document.getElementById("logoCut").style.opacity = 0
+	  	document.getElementById("gradient").style.marginTop = '15vw'
+	  }
+	}
+</script>
+</html>	

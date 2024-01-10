@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168808470-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-168808470-1');
+	</script>
+
+	<meta name="description" content="Julian Lau Frontend Entwickler">
+	<meta name="keywords" content="Julian Lau, Lau, Julian Lau Apps, JLApps, JLauApps, Julian Lau Website, Apps, Frontend Entwickler, Julian Lau Frontend Entwickler, GetTheBubbles, Paypal Gebührenrechner, MyNotes, Webentwickler, Webentwicklung">
+	<meta name="author" content="Julian Lau">
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale = 1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Julian Lau Apps</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<div class = "headDiv" id = "headDiv">
+		<img src="jlApps2.png" class="headerImage">
+		<a href="about.html" class="aRight">Contact</a>
+		<a href="stb/stb.html">Apps</a>
+		<a href="index.html">Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="scroll()">
+			<i class="fa fa-bars"></i></a>
+	</div>	
+	<p class = "concept"> 
+		<b>
+		   This Website is meant to give an overview over some of my recently developed Apps. <br><br>
+		   Just click on one of the images below to get more information about the respctive app.
+		</b>   
+	</p>	
+
+	<a href="mynotes/mynotes.html"><img onmouseover="changeImage1()" 
+	    onmouseout="changeImageBack1()" src="mynotes/screenshots/1.jpg"
+	     class="app1" id="app1"></a>
+
+	<a href="stb/stb.html"><img onmouseover="changeImage2()" 
+		onmouseout="changeImageBack2()" src="stb/stb_screenshots/stb1.jpg"
+		 class="app2" id="app2"></a>
+
+	<a href="ppr/ppr.html"><img onmouseover="changeImage3()"
+	    onmouseout="changeImageBack3()" src="ppr/ppr_screenshots/1.jpg"
+	     class="app3" id="app3"></a>
+
+	<div class="icon1" id="icon1">
+		<a href="mynotes/mynotes.html"><img onmouseover="changeImage1()" 
+			onmouseout="changeImageBack1()" src="mynotes/screenshots/icon.png"  class="app1"></a>
+	</div>	
+
+	<div class="icon2" id="icon2">
+		<a href="stb/stb.html"><img onmouseover="changeImage2()" 
+			onmouseout="changeImageBack2()"  src="stb/icon.png"  class="app2"></a>
+	</div>	
+
+	<div class="icon3" id="icon3">
+		<a href="ppr/ppr.html"><img onmouseover="changeImage3()" 
+			onmouseout="changeImageBack3()"  src="ppr/icon.png"  class="app2"></a>
+	</div>	
+
+	<div class="bottomnav" align = "center">
+		<a><b> Julian Lau</b></a>
+	</div>	
+
+</body>	
+
+<script>
+
+	function scroll() {
+	  var x = document.getElementById("headDiv");
+	  if (x.className === "headDiv") {
+	    x.className += " responsive";
+	  } else {
+	    x.className = "headDiv";
+	  }
+	}
+
+	window.onscroll = function() {
+	  if (window.pageYOffset > 120 && window.innerWidth > 700) {
+	  	document.getElementById("headDiv").style.top = "-9vw";
+	  	document.getElementById("headDiv").style.position = 'fixed'
+	  } else if(window.pageYOffset <120) {
+		document.getElementById("headDiv").style.top = "0vw";
+	  		document.getElementById("headDiv").style.top = document.getElementById("headDiv").style.top
+	  		document.getElementById("headDiv").style.position = 'absolute'
+	  		document.getElementById("headDiv").style.opacity = 1
+	  }
+	}
+
+	function changeImage1(){
+		if(window.innerWidth > 700){
+			document.getElementById("app1").style.opacity = 0;
+			document.getElementById("icon1").style.opacity = 1;
+		}
+	}
+
+	function changeImageBack1(){
+		if(window.innerWidth > 700){
+			document.getElementById("app1").style.opacity = 1;
+			document.getElementById("icon1").style.opacity = 0;
+		}
+	}
+
+	function changeImage2(){
+		if(window.innerWidth > 700){
+			document.getElementById("app2").style.opacity = 0;
+			document.getElementById("icon2").style.opacity = 1;
+		}	
+	}
+
+	function changeImageBack2(){
+		if(window.innerWidth > 700){
+			document.getElementById("app2").style.opacity = 1;
+			document.getElementById("icon2").style.opacity = 0;
+		}
+	}
+
+	function changeImage3(){
+		if(window.innerWidth > 700){
+			document.getElementById("app3").style.opacity = 0;
+			document.getElementById("icon3").style.opacity = 1;
+		}	
+	}
+
+	function changeImageBack3(){
+		if(window.innerWidth > 700){
+			document.getElementById("app3").style.opacity = 1;
+			document.getElementById("icon3").style.opacity = 0;
+		}	
+	}
+
+</script>
+
+</html>

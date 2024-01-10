@@ -1,0 +1,269 @@
+body{
+	margin: 0;
+	background: #ffffff;
+	text-align: center;
+	font-size: 2vw;
+}
+
+hr{
+  color: black;
+}
+.headDiv{
+  position: absolute;
+  top: 0;
+  height: 14vw;
+  width: 100%;
+  background-color: #38444e;
+  opacity: 1;
+  text-align: left;
+  color: rgb(175, 175, 175);
+  font-size: 5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 3px 3px 3px #424242;
+}
+
+.headerImage{
+  width: 7vw;
+  margin-left: 46.5vw;
+  margin-top: 1vw;
+}
+
+.googlePlay{
+  width: 15vw;
+  position: fixed;
+  left: 2vw;
+  top: -0.4vw;
+}
+
+.homeButton{
+  background: none;
+  border: none;
+  outline: none;
+  width: 20vw;
+  margin-left: 41vw;
+}
+
+.headDiv a {
+  font-family: monospace;
+  font-size: 2.15vw;
+  float: right;
+  display: block;
+  color: rgb(218, 218, 218);
+  padding: 0.6vw 2vw;
+  text-decoration: none;
+  z-index: 1;
+  border-radius: 20px; 
+  margin-top: 0.5vw;
+  margin-right: -1.5vw;
+}
+
+.headDiv a:hover {
+  background-color: #8795ad;
+  color: rgb(44, 44, 44);
+  border-radius: 20px;
+}
+
+a.aRight{
+  margin-right: 34vw;
+}
+
+.headDiv .icon {
+  display: none;
+}
+
+.screenshot1{
+  position: absolute;
+  top: 17vw;
+  left: 8.75vw;
+  width: 15vw;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.screenshot2{
+  position: absolute;
+  top: 17vw;
+  left: 31.25vw;
+  width: 15vw;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.context1{
+  width: 30vw;
+  height: 13.5vw;
+  background-color: #f0f0f0;
+  font-family: arial;
+  position: absolute;
+  left: 58vw;
+  top: 17vw;
+  padding-top: 4.2vw;
+  padding-left: 1vw;
+  padding-right: 1vw; 
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 10px #bbbbbb;
+  z-index: -1;
+}
+
+.nextApp{
+  position: absolute;
+  font-family: a;
+  width: 9vw;
+  height: 5vw;
+  top: 41vw;
+  left: 70vw;
+  border-radius: 15px;
+  box-shadow: 1px 1px 1px #424242;
+  outline: none;
+  background-color: #38444e;
+  color: #ECF0F1;
+  font-size: 1.8vw;
+  cursor: pointer;
+  font-family: arial;
+}
+
+.nextApp:hover{
+  background-color: rgb(236, 236, 236);
+  color: #38444e;
+}
+
+.bottomnav {
+  z-index: 100;
+  position: absolute;
+  width: 98.5vw;
+  height: 3vw;
+  top: 60vw;
+  overflow: hidden;
+  background-color: #38444e;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: absolute;
+  color:  black;
+}
+
+.bottomnav b {
+  font-family: monospace;
+  font-size: 1vw;
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 26px;
+  text-decoration: none;
+}
+
+.headDiv .icon {
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .headDiv a:not(:first-child) {display: none;}
+  .headDiv a.icon {
+    float: right;
+    display: block;
+  }
+  .headDiv b:not(:first-child) {display: none;}
+  .headDiv b.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .screenshot1{
+    top: 18vw;
+    width: 18vw;
+  }
+  .context1{
+    top: 18vw;
+  }
+  .nextApp{
+    top: 45vw;
+  }
+
+}  
+
+@media screen and (max-width: 700px) {
+  .headDiv{
+    height: 18vw;
+  }
+
+  .bottomnav b {
+    font-size: 2.5vw;
+    margin-top: -1vw;
+  }
+
+  .googlePlay{
+    margin-top: 1vw;
+    margin-left: -2vw;
+    width: 20vw;
+  }
+
+  .headDiv.responsive {
+    position: relative;
+    height: 75vw;
+  }
+
+  .headDiv.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 22vw;
+  }
+  .headDiv.responsive a {
+    float: none;
+    display: block;
+    text-align: center;
+  }
+
+  .headDiv a{
+    font-size: 11vw;
+    margin: 2vw;
+  }
+
+  .headDiv a.icon{
+    margin-right: 2vw;
+    margin-top: -16vw;
+  } 
+  .headerImage{
+    margin-top: 1vw;
+    margin-left: 42vw;
+    width: 16vw;
+  }
+
+  .bottomnav{
+    top: 325vw;
+    height:7vw;
+  }
+
+  .screenshot1{
+    left: 25vw;
+    width: 50vw;
+    top: 75vw;
+  }
+
+  .screenshot2{
+    left: 25vw;
+    width: 50vw;
+    top: 190vw;
+  }
+
+  .context1{
+    left: 20vw;
+    top: 25vw;
+    width: 60vw;
+    height: 38vw;
+    font-size: 5vw;
+  }
+
+  .nextApp{
+    left: 39vw;
+    top: 305vw;
+    margin-bottom: 2vw;
+    width: 22vw;
+    height: 12vw;
+    font-size: 4vw;
+    font-family: arial;
+    cursor: pointer;
+    text-align: center;
+  }
+}
