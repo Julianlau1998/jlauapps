@@ -1,101 +1,140 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AdNumbers – AdMob &amp; AdSense Dashboard</title>
-<meta name="description" content="AdNumbers zeigt deine Einnahmen aus Google AdMob und Google AdSense auf iPhone, iPad, Mac und Apple Watch.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AdNumbers: AdMob Dashboard – AdMob &amp; AdSense Earnings</title>
+<meta name="description" content="Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.">
+<meta name="keywords" content="ad revenue,ecpm,income,stats,developer,widget,monetization,rpm,ads,blog,website,publisher,watch,ai">
+<link rel="canonical" href="https://jlauapps.com/adnumbers/">
+<link rel="alternate" hreflang="en" href="https://jlauapps.com/adnumbers/">
+<link rel="alternate" hreflang="de" href="https://jlauapps.com/de/adnumbers/">
+<link rel="alternate" hreflang="x-default" href="https://jlauapps.com/adnumbers/">
+<meta name="theme-color" content="#0b0a16">
+<meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<style>
-  body { font-family: -apple-system, system-ui, Arial, Helvetica, sans-serif; line-height: 1.6; max-width: 860px;
-         margin: 0 auto; padding: 48px 24px 80px; color: #c8e2fc; background: #1a1c1e; }
-  h1 { font-size: 2.4rem; line-height: 1.15; font-weight: 600; margin: 0.4em 0 0.1em; }
-  h2 { font-size: 1.3rem; font-weight: 500; margin-top: 2em; }
-  a { color: #eedcff; }
-  .meta { opacity: 0.7; margin-top: 0; }
-  nav { margin: 0 0 2.5em; }
-  nav a { margin-right: 0.6em; }
-  .icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-  .shots { display: flex; gap: 20px; flex-wrap: wrap; margin: 2em 0; }
-  .shots img { width: calc(50% - 10px); min-width: 240px; max-width: 380px; border-radius: 18px; }
-  ul { padding-left: 1.2em; }
-  li { margin: 0.3em 0; }
-  .note { padding: 14px 18px; border: 1px solid rgba(200,226,252,0.25); border-radius: 12px; }
-  hr { border: none; border-top: 1px solid rgba(200,226,252,0.2); margin: 4em 0; }
-</style>
+<link rel="apple-touch-icon" href="/icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AdNumbers: AdMob Dashboard – AdMob &amp; AdSense Earnings">
+<meta property="og:description" content="Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.">
+<meta property="og:url" content="https://jlauapps.com/adnumbers/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://jlauapps.com/assets/apps/adnumbers/en-1.jpg">
+<meta name="apple-itunes-app" content="app-id=6826622598">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "AdNumbers", "alternateName": "AdNumbers: AdMob Dashboard", "description": "Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.", "applicationCategory": "BusinessApplication", "operatingSystem": "iOS, iPadOS, macOS, watchOS", "url": "https://jlauapps.com/adnumbers/", "downloadUrl": "https://apps.apple.com/us/app/id6826622598", "image": "https://jlauapps.com/assets/apps/adnumbers/icon-512.png", "screenshot": ["https://jlauapps.com/assets/apps/adnumbers/en-1.jpg", "https://jlauapps.com/assets/apps/adnumbers/en-2.jpg", "https://jlauapps.com/assets/apps/adnumbers/en-3.jpg", "https://jlauapps.com/assets/apps/adnumbers/en-4.jpg", "https://jlauapps.com/assets/apps/adnumbers/en-5.jpg", "https://jlauapps.com/assets/apps/adnumbers/en-6.jpg"], "inLanguage": "en", "author": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/"}, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 </head>
-<body>
+<body class="app" style="--accent:#f5a524">
+<header class="topbar">
+  <a class="brand" href="/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <nav>
+    <a href="/#apps">Apps</a>
+    <a href="/#contact">Contact</a>
+    <a class="lang" href="/de/adnumbers/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+</header>
+<main>
+  <section class="hero app-hero">
+    <div class="hero-text">
+      <img class="hero-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="112" height="112">
+      <p class="kicker">Business · for iPhone, iPad, Mac, Apple Watch</p>
+      <h1>AdNumbers: AdMob Dashboard</h1>
+      <p class="lead strong">AdMob &amp; AdSense Earnings</p>
+      <p>Your ad revenue. At a glance.</p><p>AdNumbers shows your earnings from Google AdMob and Google AdSense in a clean, fast dashboard – designed like an Apple app, for iPhone, iPad, Mac and Apple Watch.</p>
+      <div class="actions">
+        <a class="store-badge" href="https://apps.apple.com/us/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+      </div>
+      <p class="fine">Free · In-app purchases</p>
+    </div>
+    <div class="phone"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers" width="320" height="695"></div>
+  </section>
 
-<nav><a href="/">JL Apps</a> · <a href="#de">Deutsch</a> · <a href="#en">English</a> · <a href="/adnumbers/privacy/">Datenschutz / Privacy</a></nav>
+  <section class="gallery-section" aria-label="Screenshots">
+    <div class="gallery"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-4.jpg" alt="AdNumbers screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-5.jpg" alt="AdNumbers screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-6.jpg" alt="AdNumbers screenshots 6" loading="lazy" width="320" height="695"></div>
+  </section>
 
-<!-- ============================== DEUTSCH ============================== -->
-<section id="de" lang="de">
-<img class="icon" src="icon.png" alt="AdNumbers App-Icon">
-<h1>AdNumbers</h1>
-<p class="meta">AdMob &amp; AdSense Dashboard für iPhone, iPad, Mac und Apple Watch</p>
+  <section class="features">
+    <h2>Features</h2>
+    <div class="feature-grid"><article class="feature"><h3>AN OVERVIEW THAT THINKS AHEAD</h3><ul><li>Today, yesterday, 7 days, month and year – each compared with the previous period</li><li>Forecast for the current month and a monthly goal with progress</li><li>AdMob and AdSense separately or combined</li><li>Show, hide and reorder sections</li><li>Record day or goal reached? Celebrate it – and share a success card as an image</li></ul></article><article class="feature"><h3>EVERY NUMBER IN DETAIL</h3><ul><li>Interactive bar or line charts with previous period and previous year</li><li>Earnings, impressions, eCPM, clicks, CTR, requests, match rate and show rate</li><li>Breakdowns by apps, websites, ad units, countries, formats, platforms and ad networks</li><li>Every app, country and period has its own detail page</li><li>Custom periods, search, sorting and CSV export</li><li>AdSense balance and payments</li></ul></article><article class="feature"><h3>STATISTICS</h3><ul><li>Calendar heatmap, monthly history with forecast and month comparison</li><li>eCPM trend, strongest weekdays and distribution by source and platform</li><li>Choose the period of every chart</li></ul></article><article class="feature"><h3>ON-DEVICE AI ANALYSIS</h3><p>With Apple Intelligence, AdNumbers analyzes your numbers: what changed, why – and what you can do about it. Concrete suggestions for apps and websites, for the overview, single apps, countries or periods. The analysis runs entirely on your device.</p></article><article class="feature"><h3>ALWAYS WITH YOU</h3><ul><li>Home Screen and Lock Screen widgets – switch the period right in the widget</li><li>A widget for your monthly goal</li><li>Apple Watch app with complications</li><li>Siri and Shortcuts: &quot;How much did I earn with AdNumbers?&quot;</li><li>Notifications with a daily summary, record days and sharp drops</li></ul></article><article class="feature"><h3>MAKE IT YOURS</h3><ul><li>Light and dark mode, background color of your choice</li><li>&quot;Hide Amounts&quot; when you show the app to others</li><li>Supports larger text and VoiceOver</li><li>On iPad and Mac with sidebar, multiple columns and keyboard shortcuts</li></ul></article><article class="feature"><h3>ADNUMBERS PRO</h3><p>The overview, countries, formats, platforms, Siri and notifications are free, plus the top entry of your apps and ad units. AdNumbers Pro adds every app and ad unit, AI analysis, statistics, widgets and the Apple Watch app, custom periods, CSV export and background colors – and removes all ads. Monthly or yearly, cancel anytime.</p></article><article class="feature"><h3>PRIVATE</h3><p>AdNumbers only requests read-only access to your reports. Your data goes straight from Google to your device – no server of our own. Your earnings and reports are never shared, not even for advertising.</p><p>Try it without an account: tap &quot;Try the Demo&quot; on the start screen.</p><p>AdNumbers is not an official Google product. AdMob and AdSense are trademarks of Google LLC.</p></article></div>
+  </section>
 
-<p>AdNumbers zeigt deine Werbeeinnahmen aus <strong>Google AdMob</strong> und <strong>Google AdSense</strong> in einem klaren, schnellen Dashboard: heute, gestern, diese Woche, diesen Monat und dieses Jahr – mit Vergleich zur Vorperiode, Prognose und Monatsziel.</p>
+  <section class="cta">
+    <img src="/assets/apps/adnumbers/icon.png" alt="" width="72" height="72" loading="lazy">
+    <h2>AdNumbers</h2>
+    <p>Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.</p>
+    <a class="store-badge" href="https://apps.apple.com/us/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+  </section>
 
-<div class="shots">
-  <img src="overview.png" alt="Übersicht von AdNumbers mit den heutigen Einnahmen und Zeiträumen">
-  <img src="statistics.png" alt="Statistiken mit Kalender und Monatsverlauf">
-</div>
-
-<h2>Funktionen</h2>
-<ul>
-  <li>Einnahmen, Impressionen, eCPM, Klicks, CTR, Anfragen, Match-Rate und Anzeigenrate</li>
-  <li>Aufschlüsselung nach Apps, Websites, Anzeigenblöcken, Ländern, Formaten, Plattformen und Werbenetzwerken</li>
-  <li>Interaktive Diagramme, Statistiken und eine KI-Analyse, die auf deinem Gerät läuft</li>
-  <li>Widgets, Apple-Watch-App, Siri und Mitteilungen</li>
-  <li>AdSense-Guthaben und Auszahlungen</li>
-</ul>
-
-<h2>So nutzt AdNumbers deine Google-Daten</h2>
-<p>Du meldest dich mit deinem Google-Konto an. AdNumbers fordert dabei ausschließlich <strong>Lesezugriff</strong> an:</p>
-<ul>
-  <li><code>admob.readonly</code> – um deine AdMob-Berichte (Einnahmen, Apps, Anzeigenblöcke, Länder, Mediation) anzuzeigen</li>
-  <li><code>adsense.readonly</code> – um deine AdSense-Berichte und Zahlungen anzuzeigen</li>
-</ul>
-<p>Die Daten werden direkt von Google auf dein Gerät geladen und nur dort angezeigt und gespeichert. Es gibt keinen eigenen Server; deine Daten werden an niemanden weitergegeben und nicht für Werbung verwendet. Die App kann in deinen Konten nichts verändern. Details stehen in der <a href="/adnumbers/privacy/">Datenschutzerklärung</a>.</p>
-
-<p class="note">AdNumbers ist kein offizielles Produkt von Google. AdMob und AdSense sind Marken von Google LLC.</p>
-
-<h2>Kontakt</h2>
-<p>Julian Lau · <a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></p>
-</section>
-
-<hr>
-
-<!-- ============================== ENGLISH ============================== -->
-<section id="en" lang="en">
-<img class="icon" src="icon.png" alt="AdNumbers app icon">
-<h1>AdNumbers</h1>
-<p class="meta">AdMob &amp; AdSense dashboard for iPhone, iPad, Mac and Apple Watch</p>
-
-<p>AdNumbers shows your advertising earnings from <strong>Google AdMob</strong> and <strong>Google AdSense</strong> in a clean, fast dashboard: today, yesterday, this week, this month and this year – compared with the previous period, with a forecast and a monthly goal.</p>
-
-<h2>Features</h2>
-<ul>
-  <li>Earnings, impressions, eCPM, clicks, CTR, requests, match rate and show rate</li>
-  <li>Breakdowns by apps, websites, ad units, countries, formats, platforms and ad networks</li>
-  <li>Interactive charts, statistics and an AI analysis that runs on your device</li>
-  <li>Widgets, an Apple Watch app, Siri and notifications</li>
-  <li>AdSense balance and payments</li>
-</ul>
-
-<h2>How AdNumbers uses your Google data</h2>
-<p>You sign in with your Google account. AdNumbers only requests <strong>read-only</strong> access:</p>
-<ul>
-  <li><code>admob.readonly</code> – to show your AdMob reports (earnings, apps, ad units, countries, mediation)</li>
-  <li><code>adsense.readonly</code> – to show your AdSense reports and payments</li>
-</ul>
-<p>The data is loaded directly from Google to your device and only shown and stored there. There is no server of our own; your data is never shared with anyone and never used for advertising. The app cannot change anything in your accounts. See the <a href="/adnumbers/privacy/">privacy policy</a> for details.</p>
-
-<p class="note">AdNumbers is not an official Google product. AdMob and AdSense are trademarks of Google LLC.</p>
-
-<h2>Contact</h2>
-<p>Julian Lau · <a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></p>
-</section>
-
+  <section class="group more"><h2>More apps</h2><div class="grid"><a class="app-card" href="/howlnight/" style="--accent:#8b5cf6">
+  <img class="app-icon" src="/assets/apps/howlnight/icon.png" alt="HowlNight app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Party game</span>
+    <h3>HowlNight</h3>
+    <p class="subtitle">Werewolf, Impostor &amp; more</p>
+    <p class="blurb">Seven party games for a night with friends – on a single phone. Werewolf with a real narrator voice, Impostor, Ticking Bomb and more.</p>
+  </div>
+</a><a class="app-card" href="/cardfox/" style="--accent:#f97316">
+  <img class="app-icon" src="/assets/apps/cardfox/icon.png" alt="Cardfox app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Learning</span>
+    <h3>Cardfox</h3>
+    <p class="subtitle">Scan words, remember them</p>
+    <p class="blurb">New: vocabulary suggestions, AI memory aids, listening mode, Apple Watch and widgets. Cardfox turns any book page into flashcards – and helps you remember them.</p>
+  </div>
+</a><a class="app-card" href="/code-editor/" style="--accent:#fb6b3c">
+  <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Developer tools</span>
+    <h3>Code Editor</h3>
+    <p class="subtitle">Websites &amp; Scripts on the Go</p>
+    <p class="blurb">New: an AI assistant with Claude, ChatGPT or Gemini that edits your project. Plus a live preview, a console, whole projects, offline Python and 20+ languages.</p>
+  </div>
+</a><a class="app-card" href="/python-editor/" style="--accent:#4f8cff">
+  <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Developer tools</span>
+    <h3>Python Editor</h3>
+    <p class="subtitle">Run Python 3 Code Offline</p>
+    <p class="blurb">New in 2.0: Python runs right on your device – with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
+  </div>
+</a><a class="app-card" href="/latex-editor/" style="--accent:#f43f6b">
+  <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Math &amp; science</span>
+    <h3>Texlet</h3>
+    <p class="subtitle">Math, formulas &amp; documents</p>
+    <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With a live preview, building blocks above the keyboard, syntax highlighting and PDF and image export.</p>
+  </div>
+</a><a class="app-card" href="/markdown-editor/" style="--accent:#6d7cff">
+  <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Writing</span>
+    <h3>Markdown Editor and Reader</h3>
+    <p class="subtitle">Write, preview and share .md</p>
+    <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With syntax highlighting, a formatting bar, live preview, folders and export to PDF and HTML.</p>
+  </div>
+</a><a class="app-card" href="/txt-editor/" style="--accent:#14b8a6">
+  <img class="app-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Notes</span>
+    <h3>txt Editor</h3>
+    <p class="subtitle">Fast, distraction-free notes</p>
+    <p class="blurb">Version 2.0 is here: completely rebuilt, lightning fast and more beautiful than ever. Now with folders, custom sorting, eight designs and a private folder with Face ID.</p>
+  </div>
+</a><a class="app-card" href="/etf-calculator/" style="--accent:#22c55e">
+  <img class="app-icon" src="/assets/apps/etf-calculator/icon.png" alt="ETF Calculator app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">Finance</span>
+    <h3>ETF Calculator</h3>
+    <p class="subtitle">Plan, grow and track your ETFs</p>
+    <p class="blurb">See how your ETF savings plan grows, reach your goal, plan your payout and track your real portfolio – all calculated on your device.</p>
+  </div>
+</a></div></section>
+</main>
+<footer class="footer">
+  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Made by Julian Lau</span></div>
+  <nav><a href="/adnumbers/privacy/">Privacy Policy</a><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
+</footer>
 </body>
 </html>
