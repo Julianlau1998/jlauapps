@@ -49,7 +49,7 @@ APPS = [
 
 # Has its own website; the home page links there instead of a duplicate page.
 EXTERNAL = [
-    dict(slug="yarnspace", url="https://yarnspace.app/", accent="#c06bff", group="create",
+    dict(slug="yarnspace", url="https://yarnspace.app/", accent="#c06bff", group="play",
          name={"en": "YarnSpace", "de": "YarnSpace"},
          subtitle={"en": "Knitting & crochet companion", "de": "Begleiter fürs Stricken & Häkeln"},
          blurb={"en": "Row counters for every project, your yarn stash with label scanning, Ravelry patterns, yarn substitutes and handy calculators.",

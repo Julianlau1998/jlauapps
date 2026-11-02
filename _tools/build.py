@@ -190,6 +190,14 @@ def app_images(app):
     resize(os.path.join(ICONS, f"{slug}.png"), os.path.join(folder, "icon.png"), 256, fmt="png")
     resize(os.path.join(ICONS, f"{slug}.png"), os.path.join(folder, "icon-512.png"), 512, fmt="png")
     shots = {}
+    if not os.path.isdir(app["shots"]):
+        # Source screenshots moved or deleted: keep the web-sized copies from an earlier build.
+        built = sorted(os.listdir(folder))
+        for lang in LANGS:
+            own = [n for n in built if n.startswith(f"{lang}-") and n.endswith(".jpg")]
+            own = own or [n for n in built if n.startswith("en-") and n.endswith(".jpg")]
+            shots[lang] = [f"/assets/apps/{slug}/{n}" for n in own[:SHOTS_PER_APP]]
+        return f"/assets/apps/{slug}/icon.png", shots
     names = sorted(os.listdir(app["shots"]))
     for lang in LANGS:
         own = [n for n in names if n.startswith(f"{lang}-") and n.endswith(".png")]
