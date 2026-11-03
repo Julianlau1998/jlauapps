@@ -1,7 +1,7 @@
 """The apps shown on jlauapps.com: App Store data, colors, screenshots and where their texts live.
 
 Texts come from the "App Store Texte.md" files in ~/Documents/StoreScreenshots <App>, so the website
-says the same as the App Store. Apps without such a file (ETF Calculator) carry their texts here.
+says the same as the App Store. Apps without such a file carry their texts here.
 """
 import os
 
@@ -42,8 +42,8 @@ APPS = [
          shots=f"{DOCS}/StoreScreenshots AdNumbers/iPhone 6.9",
          category="BusinessApplication", genre={"en": "Business", "de": "Business"}),
     dict(slug="etf-calculator", id=6443639781, accent="#22c55e", group="money",
-         texts=None,
-         shots=f"{DOCS}/Code/AppStore/IOS-ETF-Calculator/screenshots/x",
+         texts=f"{DOCS}/StoreScreenshots ETF Calculator/App Store Texte.md",
+         shots=f"{DOCS}/StoreScreenshots ETF Calculator/iPhone 6.9",
          category="FinanceApplication", genre={"en": "Finance", "de": "Finanzen"}),
 ]
 
