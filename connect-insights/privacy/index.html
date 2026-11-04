@@ -25,17 +25,24 @@
 <!-- ============================== DEUTSCH ============================== -->
 <section id="de" lang="de">
 <h1>Datenschutzerklärung für Connect Insights</h1>
-<p class="meta">Stand: 3. November 2026</p>
+<p class="meta">Stand: 4. November 2026</p>
 
-<p>Diese Datenschutzerklärung gilt für die App „Connect Insights“ für iPhone, iPad, Mac und Apple Vision Pro (im Folgenden „App“). Die App zeigt die Verkaufs-, Download- und Abodaten deiner eigenen Apps aus App Store Connect sowie öffentliche Rankings aus dem App Store an. Der Schutz deiner Daten ist mir wichtig: Es gibt keinen eigenen Server, und deine Zahlen werden nie an mich oder an Dritte weitergegeben.</p>
+<p>Diese Datenschutzerklärung gilt für die App „Connect Insights“ für iPhone, iPad, Mac, Apple Watch und Apple Vision Pro samt Widgets (im Folgenden „App“). Die App zeigt die Verkaufs-, Download- und Abodaten deiner eigenen Apps aus App Store Connect sowie öffentliche Rankings aus dem App Store an. Der Schutz deiner Daten ist mir wichtig: Es gibt keinen eigenen Server, und deine Zahlen werden nie an mich oder an Dritte weitergegeben.</p>
 
 <h2>1. Verantwortlicher</h2>
 <p>Julian Lau<br>Weidengarten 1<br>53129 Bonn<br>Deutschland<br>E-Mail: <a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a><br>Web: <a href="https://jlauapps.com/">jlauapps.com</a></p>
 
 <h2>2. App Store Connect API-Schlüssel und deine Berichte</h2>
 <p>Um deine Daten anzuzeigen, gibst du in der App einen eigenen API-Schlüssel für die App Store Connect API von Apple ein (Issuer ID, Key ID, privater Schlüssel und Vendor-Nummer). Diese Zugangsdaten werden ausschließlich verschlüsselt im Schlüsselbund (Keychain) deines Geräts gespeichert und nie an mich übertragen.</p>
-<p>Die App ruft damit direkt bei Apple (<code>api.appstoreconnect.apple.com</code>) deine Verkaufs-, Abo- und Abo-Ereignisberichte, die Liste deiner Apps, deren Versions- und Prüfstatus sowie – je nach Rolle des Schlüssels – Titel, Untertitel, Keywords und Beschreibung deiner Store-Einträge ab und zeigt sie auf deinem Gerät an. Die App greift nur <strong>lesend</strong> zu und ändert nichts in App Store Connect. Die Berichte enthalten von Apple zusammengefasste Werte (z. B. Downloads, Erlöse, Abos und Kündigungen pro Tag und Land) und keine Daten, die einzelne Käufer identifizieren. Berichte werden auf deinem Gerät zwischengespeichert, damit die App schneller lädt.</p>
+<p>Die App ruft damit direkt bei Apple (<code>api.appstoreconnect.apple.com</code>) – je nach Rolle des Schlüssels – deine Verkaufs-, Finanz-, Abo- und Abo-Ereignisberichte, die App-Store-Analyseberichte (z. B. Impressionen, Produktseitenaufrufe, Sitzungen, Installationen, Abstürze), die Liste deiner Apps, deren Versions- und Prüfstatus, TestFlight-Builds und -Feedback, Kundenbewertungen samt Antworten sowie Titel, Untertitel, Keywords und Beschreibung deiner Store-Einträge ab und zeigt sie auf deinem Gerät an. Die Berichte enthalten von Apple zusammengefasste Werte (z. B. Downloads, Erlöse, Abos und Kündigungen pro Tag und Land) und keine Daten, die einzelne Käufer identifizieren. Bewertungen enthalten den öffentlichen Spitznamen des Verfassers, TestFlight-Feedback die Anmerkungen deiner Tester. Alles wird nur auf deinem Gerät angezeigt und zwischengespeichert, damit die App schneller lädt.</p>
+<p>Grundsätzlich greift die App nur <strong>lesend</strong> zu. Nur zwei Aktionen ändern etwas in App Store Connect, beide in deinem Namen: das einmalige Anfordern der App-Store-Analyseberichte für deine Apps (damit Apple sie erstellt) und – nur wenn du es selbst auslöst – das Veröffentlichen, Ändern oder Löschen von Antworten auf Bewertungen. Antworten sind danach für alle im App Store sichtbar.</p>
 <p>Wenn du in den Einstellungen „Verbindung entfernen“ wählst, werden die Zugangsdaten aus dem Schlüsselbund gelöscht. Den Schlüssel selbst kannst du jederzeit in App Store Connect unter <em>Benutzer und Zugriff › Integrationen</em> widerrufen.</p>
+
+<h2>2a. Live-Abos (optional, In-App-Kauf-Schlüssel)</h2>
+<p>Wenn du zusätzlich einen In-App-Kauf-Schlüssel einrichtest, liest die App den Verlauf der App Store Server Notifications über die App Store Server API von Apple (<code>api.storekit.itunes.apple.com</code>). Darin stehen Ereignisse wie neue Abos, Probeabos, Verlängerungen, Kündigungen und Erstattungen mit Produkt, Preis, Land und Zeitpunkt – ohne Namen, E-Mail-Adressen oder andere Angaben, die deine Kunden identifizieren. Der Schlüssel liegt nur im Schlüsselbund deines Geräts; die Ereignisse werden nur lokal angezeigt.</p>
+
+<h2>2b. Widgets, Apple Watch, Mitteilungen und Siri</h2>
+<p>Für Widgets speichert die App eine Zusammenfassung deiner Zahlen in einem geschützten Bereich auf deinem Gerät, den nur die App und ihre Widgets lesen können. An deine gekoppelte Apple Watch wird dieselbe Zusammenfassung über Apples verschlüsselte Verbindung zwischen deinen eigenen Geräten (WatchConnectivity) übertragen. Mitteilungen (z. B. zu neuen Abos, Bewertungen oder ungewöhnlichen Tagen) erzeugt die App selbst auf deinem Gerät, wenn iOS sie im Hintergrund ausführt – es gibt keinen Push-Server. Fragen an Siri und Kurzbefehle werden mit den auf deinem Gerät gespeicherten Zahlen beantwortet.</p>
 
 <h2>3. Öffentliche App-Store-Daten (Rankings, Charts, Bewertungen)</h2>
 <p>Für App-Icons, Keyword-Rankings, Kategorie-Charts, Suchvorschläge, Bewertungen und Rezensionen fragt die App öffentliche Informationen direkt beim Apple App Store ab (u. a. iTunes Search API und RSS-Feeds von Apple). Übermittelt werden dabei nur öffentliche App-IDs, Suchbegriffe und das jeweilige Land – wie bei jedem Aufruf im Internet zusammen mit deiner IP-Adresse. Die Ergebnisse und deine verfolgten Keywords werden nur lokal auf deinem Gerät gespeichert.</p>
@@ -51,7 +58,7 @@
 <p>Connect Insights Pro wird vollständig über Apples App Store abgeschlossen und verwaltet. Ich erhalte keine Zahlungsdaten und keine Informationen, die dich persönlich identifizieren – die App erfährt nur, ob ein aktives Abo besteht.</p>
 
 <h2>6. Keine weiteren Daten</h2>
-<p>Abgesehen von Abschnitt 4 verwendet die App keine Analyse- oder Tracking-Dienste, legt kein Nutzerkonto bei mir an und überträgt keine Daten an mich. Wenn du die App deinstallierst, werden alle lokal gespeicherten Daten gelöscht; Einträge im Schlüsselbund entfernst du zuverlässig über „Verbindung entfernen“ in den Einstellungen.</p>
+<p>Abgesehen von Abschnitt 4 verwendet die App keine Analyse- oder Tracking-Dienste (die App-Store-Analysen aus Abschnitt 2 sind Apples Berichte über <em>deine</em> Apps, keine Analyse deiner Nutzung dieser App), legt kein Nutzerkonto bei mir an und überträgt keine Daten an mich. Wenn du die App deinstallierst, werden alle lokal gespeicherten Daten gelöscht; Einträge im Schlüsselbund entfernst du zuverlässig über „Verbindung entfernen“ in den Einstellungen.</p>
 
 <h2>7. Deine Rechte</h2>
 <p>Du hast nach der DSGVO das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren. Da ich selbst keine personenbezogenen Daten speichere, wende dich zu Daten, die Apple oder Google verarbeiten, bitte auch direkt an diese Anbieter.</p>
@@ -71,17 +78,24 @@
 <!-- ============================== ENGLISH ============================== -->
 <section id="en" lang="en">
 <h1>Privacy Policy for Connect Insights</h1>
-<p class="meta">Last updated: November 3, 2026</p>
+<p class="meta">Last updated: November 4, 2026</p>
 
-<p>This privacy policy applies to the app “Connect Insights” for iPhone, iPad, Mac and Apple Vision Pro (the “App”). The App shows the sales, download and subscription data of your own apps from App Store Connect, along with public rankings from the App Store. Your privacy matters: there is no server of my own, and your numbers are never shared with me or anyone else.</p>
+<p>This privacy policy applies to the app “Connect Insights” for iPhone, iPad, Mac, Apple Watch and Apple Vision Pro including its widgets (the “App”). The App shows the sales, download and subscription data of your own apps from App Store Connect, along with public rankings from the App Store. Your privacy matters: there is no server of my own, and your numbers are never shared with me or anyone else.</p>
 
 <h2>1. Controller</h2>
 <p>Julian Lau<br>Weidengarten 1<br>53129 Bonn<br>Germany<br>Email: <a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a><br>Web: <a href="https://jlauapps.com/">jlauapps.com</a></p>
 
 <h2>2. App Store Connect API key and your reports</h2>
 <p>To show your data, you enter your own API key for Apple's App Store Connect API in the App (issuer ID, key ID, private key and vendor number). These credentials are stored encrypted in your device's Keychain only and are never sent to me.</p>
-<p>With them, the App loads your sales, subscription and subscription event reports, the list of your apps, their version and review status and – depending on the key's role – the title, subtitle, keywords and description of your store listings directly from Apple (<code>api.appstoreconnect.apple.com</code>) and shows them on your device. Access is <strong>read-only</strong>; the App never changes anything in App Store Connect. The reports contain values aggregated by Apple (such as downloads, proceeds, subscriptions and cancellations per day and country) and no data that identifies individual customers. Reports are cached on your device so the App loads faster.</p>
+<p>With them, the App loads – depending on the key's role – your sales, financial, subscription and subscription event reports, the App Store analytics reports (such as impressions, product page views, sessions, installations, crashes), the list of your apps, their version and review status, TestFlight builds and feedback, customer reviews and responses, and the title, subtitle, keywords and description of your store listings directly from Apple (<code>api.appstoreconnect.apple.com</code>) and shows them on your device. The reports contain values aggregated by Apple (such as downloads, proceeds, subscriptions and cancellations per day and country) and no data that identifies individual customers. Reviews include the reviewer's public nickname, TestFlight feedback your testers' comments. Everything is shown and cached only on your device so the App loads faster.</p>
+<p>Access is <strong>read-only</strong> in general. Only two actions change something in App Store Connect, both on your behalf: requesting the App Store analytics reports for your apps once (so Apple creates them) and – only when you trigger it yourself – publishing, editing or deleting responses to reviews. Responses are then visible to everyone on the App Store.</p>
 <p>Choosing “Remove connection” in the settings deletes the credentials from the Keychain. You can revoke the key itself anytime in App Store Connect under <em>Users and Access › Integrations</em>.</p>
+
+<h2>2a. Live subscriptions (optional, In-App Purchase key)</h2>
+<p>If you also set up an In-App Purchase key, the App reads the history of App Store Server Notifications through Apple's App Store Server API (<code>api.storekit.itunes.apple.com</code>). It contains events such as new subscriptions, free trials, renewals, cancellations and refunds with product, price, country and time – without names, email addresses or anything else that identifies your customers. The key is stored only in your device's Keychain; the events are shown only on your device.</p>
+
+<h2>2b. Widgets, Apple Watch, notifications and Siri</h2>
+<p>For widgets, the App stores a summary of your numbers in a protected area on your device that only the App and its widgets can read. The same summary is sent to your paired Apple Watch through Apple's encrypted connection between your own devices (WatchConnectivity). Notifications (e.g. about new subscriptions, reviews or unusual days) are created by the App itself on your device when iOS runs it in the background – there is no push server. Siri and Shortcuts are answered with the numbers stored on your device.</p>
 
 <h2>3. Public App Store data (rankings, charts, ratings)</h2>
 <p>For app icons, keyword rankings, category charts, search suggestions, ratings and reviews, the App queries public information directly from the Apple App Store (including the iTunes Search API and Apple's RSS feeds). Only public app IDs, search terms and the respective country are sent, together with your IP address as with any web request. The results and your tracked keywords are stored only on your device.</p>
@@ -97,7 +111,7 @@
 <p>Connect Insights Pro is purchased and managed entirely through Apple's App Store. I don't receive any payment data or information that identifies you personally – the App only learns whether an active subscription exists.</p>
 
 <h2>6. No other data</h2>
-<p>Apart from section 4, the App uses no analytics or tracking services, creates no account with me and sends no data to me. Uninstalling the App deletes all data stored on your device; to reliably remove Keychain entries, use “Remove connection” in the settings.</p>
+<p>Apart from section 4, the App uses no analytics or tracking services (the App Store analytics in section 2 are Apple's reports about <em>your</em> apps, not an analysis of how you use this App), creates no account with me and sends no data to me. Uninstalling the App deletes all data stored on your device; to reliably remove Keychain entries, use “Remove connection” in the settings.</p>
 
 <h2>7. Your rights</h2>
 <p>Under the GDPR you have the right to access, rectification, erasure, restriction of processing, data portability and objection, and the right to withdraw any consent given at any time with effect for the future. You can also lodge a complaint with a data protection authority. As I don't store any personal data myself, please also contact Apple or Google directly about data they process.</p>
