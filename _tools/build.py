@@ -33,7 +33,7 @@ CONTACT_EMAIL = "jlauapps@gmail.com"
 UI = {
     "en": dict(
         site_title="JL Apps – Apps for iPhone, iPad & Mac by Julian Lau",
-        site_description="Apps for iPhone, iPad and Mac by Julian Lau: HowlNight party games, Cardfox vocabulary flashcards, Code Editor, Python Editor, Texlet LaTeX editor, Markdown Editor, txt Editor, AdNumbers and ETF Calculator.",
+        site_description="Apps for iPhone, iPad and Mac by Julian Lau: HowlNight party games, Cardfox vocabulary flashcards, Code Editor, Python Editor, Texlet LaTeX editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights and ETF Calculator.",
         hero_kicker="Independent apps from Germany",
         hero_title="Apps that just work.",
         hero_text="Fast, focused apps for iPhone, iPad and Mac – for playing, learning, writing, coding and your money. No accounts, no clutter.",
@@ -52,7 +52,7 @@ UI = {
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
-        site_description="Apps für iPhone, iPad und Mac von Julian Lau: HowlNight Partyspiele, Cardfox Vokabel-Karteikarten, Code Editor, Python Editor, Texlet LaTeX-Editor, Markdown Editor, txt Editor, AdNumbers und ETF-Rechner.",
+        site_description="Apps für iPhone, iPad und Mac von Julian Lau: HowlNight Partyspiele, Cardfox Vokabel-Karteikarten, Code Editor, Python Editor, Texlet LaTeX-Editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights und ETF-Rechner.",
         hero_kicker="Unabhängige Apps aus Deutschland",
         hero_title="Apps, die einfach funktionieren.",
         hero_text="Schnelle, durchdachte Apps für iPhone, iPad und Mac – zum Spielen, Lernen, Schreiben, Programmieren und für dein Geld. Ohne Konto, ohne Ballast.",
