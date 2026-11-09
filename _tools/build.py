@@ -67,7 +67,7 @@ UI = {
         guides_text="Rules, explanations and worked examples – free to read, with the app that does it for you.",
         guides_for="Guides for {name}", all_guides="All guides", read_guide="Read guide", more_guides="More guides",
         guide_app="The app for this", screenshot="screenshot",
-        try_in="Do it with {name}", get_short="Get", free_store="Free on the App Store",
+        guide_label="Guide", try_in="Do it with {name}", get_short="Get", free_store="Free on the App Store",
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
@@ -95,7 +95,7 @@ UI = {
         guides_text="Regeln, Erklärungen und Rechenbeispiele – kostenlos zum Nachlesen, mit der passenden App dazu.",
         guides_for="Ratgeber zu {name}", all_guides="Alle Ratgeber", read_guide="Zum Ratgeber", more_guides="Weitere Ratgeber",
         guide_app="Die passende App", screenshot="Screenshot",
-        try_in="Mit {name} geht's einfacher", get_short="Laden", free_store="Gratis im App Store",
+        guide_label="Ratgeber", try_in="Mit {name} geht's einfacher", get_short="Laden", free_store="Gratis im App Store",
     ),
 }
 
@@ -349,6 +349,8 @@ def head(lang, title, description, canonical_path, alternates, extra="", image=N
     ]
     if image:
         tags.append(f'<meta property="og:image" content="{SITE}{image}">')
+        if image.startswith("/assets/og/"):
+            tags += ['<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">']
     return "<head>\n" + "\n".join(tags) + ("\n" + extra if extra else "") + "\n</head>"
 
 
@@ -731,6 +733,68 @@ def home_guides(count=6):
     return firsts[:count]
 
 
+SNAP = os.path.expanduser("~/Documents/StoreScreenshots HowlNight/tools/snap")  # WKWebView → PNG, 2× scale
+
+
+def guide_screen(guide, lang, app):
+    """The app screen for a guide's share image: the one named in the guide's slug, else the app's first."""
+    screens = list(app.get("feature_screens", {}).values())
+    named = [n for n in screens if n.split("-")[0] in guide["slug"]["en"]] + screens
+    for name in named:
+        url = f"/assets/apps/{app['slug']}/screen-{lang}-{name}.jpg"
+        if os.path.exists(os.path.join(ROOT, url.lstrip("/"))):
+            return url
+    return None
+
+
+def og_image(guide, lang, data):
+    """A 1200 × 630 share image: the title on the left, the app screen in a phone frame on the right
+    (title only for apps without a screen). Rendered once and again only when its content changes."""
+    app = next(a for a in APPS if a["slug"] == guide["app"])
+    # "Markdown Editor and Reader" is too long for the label line.
+    short = re.split(r" and | und ", short_name(data[app["slug"]]["texts"][lang]["name"]))[0]
+    screen = guide_screen(guide, lang, app)
+    url = f"/assets/og/{lang}-{guide['slug'][lang]}.jpg"
+    target = os.path.join(ROOT, url.lstrip("/"))
+    if not os.path.exists(SNAP):
+        return url if os.path.exists(target) else f"/assets/apps/{app['slug']}/icon-512.png"
+    local = lambda u: "file://" + os.path.join(ROOT, u.lstrip("/"))
+    accent = app["accent"]
+    phone = (f'<div class="phone"><img src="{local(screen)}"></div>' if screen else "")
+    doc = f"""<!doctype html><html><head><meta charset="utf-8"><style>
+body {{ margin: 0; width: 600px; height: 315px; overflow: hidden; color: #f4f2ff; font-family: -apple-system, "SF Pro Display", sans-serif;
+  background: radial-gradient(420px 260px at 85% -10%, color-mix(in srgb, {accent} 55%, transparent), transparent 70%),
+              radial-gradient(300px 200px at 0% 100%, rgba(91,70,220,.25), transparent 70%), #0b0a16; }}
+.text {{ padding: 40px 0 0 40px; width: {350 if screen else 520}px; }}
+.k {{ display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
+  color: color-mix(in srgb, {accent} 55%, white); }}
+.k img {{ width: 34px; height: 34px; border-radius: 9px; }}
+h1 {{ margin: 16px 0 0; font-size: {34 if screen else 40}px; line-height: 1.08; letter-spacing: -.02em; font-weight: 800; text-wrap: balance; }}
+.f {{ position: absolute; left: 40px; bottom: 28px; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #b7b2d6; font-weight: 600; }}
+.f img {{ width: 22px; height: 22px; }}
+.phone {{ position: absolute; right: 40px; top: 34px; width: 170px; padding: 6px 6px 0; border-radius: 30px 30px 0 0;
+  background: linear-gradient(160deg, #3a3550, #16141f); box-shadow: 0 20px 60px rgba(0,0,0,.6); }}
+.phone img {{ width: 100%; display: block; border-radius: 24px 24px 0 0; }}
+</style></head><body>
+<div class="text"><div class="k"><img src="{local(data[app["slug"]]["icon"])}">{e(short)} · {UI[lang]["guide_label"]}</div><h1>{e(guide[lang]["h1"])}</h1></div>
+<div class="f"><img src="{local("/assets/logo.svg")}">jlauapps.com</div>{phone}
+</body></html>"""
+    stamp = target + ".src"
+    if os.path.exists(target) and os.path.exists(stamp) and open(stamp).read() == doc:
+        return url
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    tmp_html, tmp_png = f"/tmp/jl-og-{lang}-{guide['slug'][lang]}.html", f"/tmp/jl-og-{lang}-{guide['slug'][lang]}.png"
+    with open(tmp_html, "w") as f:
+        f.write(doc)
+    subprocess.run([SNAP, tmp_html, "600", "315", tmp_png], check=True, capture_output=True)
+    subprocess.run(["sips", "-s", "format", "jpeg", "-s", "formatOptions", "85", tmp_png, "--out", target], check=True, capture_output=True)
+    os.remove(tmp_html)
+    os.remove(tmp_png)
+    with open(stamp, "w") as f:
+        f.write(doc)
+    return url
+
+
 def guide_page(guide, lang, data):
     t = UI[lang]
     g = guide[lang]
@@ -845,7 +909,7 @@ def guide_page(guide, lang, data):
 </a>
 {footer(lang)}"""
     write(path, page(lang, head(lang, g["title"], g["description"], path, alternates, extra=extra,
-                                image=f"/assets/apps/{app['slug']}/icon-512.png"),
+                                image=og_image(guide, lang, data)),
                      body, accent=app["accent"], body_class="guide-page"))
 
 
