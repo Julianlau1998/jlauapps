@@ -1,0 +1,1218 @@
+[
+ {
+  "app": "howlnight",
+  "slug": {
+   "en": "werewolf-rules",
+   "de": "werwolf-regeln"
+  },
+  "en": {
+   "title": "Werewolf Game Rules: How to Play & All Roles",
+   "description": "Werewolf rules explained step by step: setup, night, day, voting and win conditions, plus all 16 roles and how to play without a game master.",
+   "h1": "Werewolf Rules: How the Game Works and Every Role Explained",
+   "intro": "Werewolf is a social deduction game for larger groups: a few players are secretly werewolves, everyone else belongs to the village. At night the werewolves strike, during the day the village argues, accuses and votes someone out. Nobody knows who is who – and that is exactly what makes the game so much fun.\n\nThis guide walks you through a full game, from dealing the roles to the final vote. After that you’ll find every role explained, a suggested night order and a way to play without anyone having to sit out as the game master.",
+   "sections": [
+    {
+     "h2": "What you need",
+     "paragraphs": [
+      "Werewolf works best with a big group. HowlNight’s Werewolf Night supports 5 to 24 players. Traditionally, one extra person is the game master (also called the narrator or moderator): they don’t play a role, they lead the night, call the roles and keep track of who is still alive.",
+      "Besides that you need one secret role per player and enough room to sit in a circle. Everyone must be able to close their eyes without peeking."
+     ]
+    },
+    {
+     "h2": "Setup: dealing the roles",
+     "paragraphs": [
+      "Every player secretly receives a role and looks at it without showing anyone. A good rule of thumb is one werewolf per four players – that is also how HowlNight’s presets count. The werewolves must always be fewer than the rest of the players, otherwise the village has lost before the game starts.",
+      "The remaining cards are special roles and plain villagers. For your first game, keep it simple: werewolves, the Seer and villagers. Add more special roles once everyone knows the flow."
+     ]
+    },
+    {
+     "h2": "The night",
+     "paragraphs": [
+      "The game master says that night falls and everyone closes their eyes. Then they call the roles one after another. Only the called role opens their eyes, makes its choice silently – usually by pointing – and closes its eyes again.",
+      "The most important moment is the werewolves’ turn: they wake up together and agree on one victim. Roles that only act in the first night, like Cupid, are called only then. A useful habit for the game master: call a role even if its player is already dead and wait a few seconds, so nobody can tell from the silence who is out."
+     ]
+    },
+    {
+     "h2": "The day and the vote",
+     "paragraphs": [
+      "In the morning everyone opens their eyes and the game master announces who died in the night. The role of the dead player is revealed, and from now on they stay silent.",
+      "Then the village discusses: who acted suspiciously, who defended whom, who is suddenly very quiet? At the end everyone votes by raising hands and the player with the most votes leaves the game and reveals their role. The village may also decide to vote out nobody. Then the next night begins."
+     ]
+    },
+    {
+     "h2": "Who wins",
+     "paragraphs": [
+      "The village wins as soon as no werewolf is left. The werewolves win as soon as they are at least as many as all other living players. There is one special case: if Cupid made a werewolf and a villager fall in love and those two are the last players alive, the lovers win together."
+     ]
+    },
+    {
+     "h2": "All roles explained",
+     "paragraphs": [
+      "HowlNight has 16 roles. The first ten are in the free Core Roles pack, the last six are in the Extra Roles pack. Here is what each one does:"
+     ],
+     "table": {
+      "head": [
+       "Role",
+       "Team",
+       "What it does"
+      ],
+      "rows": [
+       [
+        "Werewolf",
+        "Werewolves",
+        "Wakes every night with the other werewolves and picks a victim together. During the day pretends to be a harmless villager."
+       ],
+       [
+        "Villager",
+        "Village",
+        "No special ability, but the vote counts. Helps the village find the werewolves."
+       ],
+       [
+        "Seer",
+        "Village",
+        "Looks at one player’s role every night."
+       ],
+       [
+        "Witch",
+        "Village",
+        "Has a healing potion and a poison potion, each usable once per game. Learns at night who the werewolves chose and can save them or poison someone else."
+       ],
+       [
+        "Hunter",
+        "Village",
+        "When killed, at night or by the vote, immediately takes another player along with a last shot."
+       ],
+       [
+        "Cupid",
+        "Village",
+        "Makes two players fall in love in the first night. If one of them dies, the other dies of a broken heart."
+       ],
+       [
+        "Guardian",
+        "Village",
+        "Protects one player from the werewolves every night, but never the same player two nights in a row."
+       ],
+       [
+        "Elder",
+        "Village",
+        "Survives the werewolves’ first attack and only dies at the second one – or when voted out."
+       ],
+       [
+        "Fool",
+        "Village",
+        "If the village votes them out, they show their card and stay alive, but may no longer vote."
+       ],
+       [
+        "Medium",
+        "Village",
+        "Learns every night the role of the player who left the game most recently."
+       ],
+       [
+        "Fox",
+        "Village",
+        "Points at a player every night and learns whether there is a werewolf among them and their two neighbors. After a “no”, the Fox loses the ability."
+       ],
+       [
+        "Wolf Cub",
+        "Werewolves",
+        "Wakes with the werewolves. If the cub is killed, the werewolves may choose two victims the following night."
+       ],
+       [
+        "Knight",
+        "Village",
+        "If the werewolves kill the Knight, a werewolf dies the following night. With a human game master, it is the nearest werewolf to the Knight’s left."
+       ],
+       [
+        "Wild Child",
+        "Village",
+        "Secretly picks a role model in the first night. If the role model dies, the Wild Child becomes a werewolf and wakes with them from then on."
+       ],
+       [
+        "Raven",
+        "Village",
+        "Marks a player every night. The next day that player starts the vote with two votes against them."
+       ],
+       [
+        "Bear Tamer",
+        "Village",
+        "If a werewolf sits right next to the Bear Tamer in the morning, the bear growls – without telling who it is."
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Night order",
+     "paragraphs": [
+      "The order matters: the Guardian has to protect before the werewolves attack, and the Witch can only react once she knows the victim. This is the order HowlNight calls the roles in:"
+     ],
+     "list": [
+      "Cupid (first night only), then the two lovers open their eyes to recognize each other",
+      "Wild Child (first night only)",
+      "Guardian",
+      "Werewolves, together with the Wolf Cub",
+      "Witch",
+      "Seer",
+      "Fox",
+      "Raven",
+      "Medium"
+     ]
+    },
+    {
+     "h2": "Which roles for which group",
+     "paragraphs": [
+      "HowlNight offers three presets that fill in the role counts for your number of players:"
+     ],
+     "list": [
+      "Beginner: werewolves, the Seer and villagers – ideal for a first game.",
+      "Classic: the usual mix. The Seer from 5 players, the Witch from 6, the Hunter from 7, Cupid from 8, the Guardian from 10 and the Elder from 12.",
+      "Chaos: as many different special roles as possible, with at least one villager left."
+     ]
+    },
+    {
+     "h2": "Playing without a game master",
+     "paragraphs": [
+      "The classic problem with Werewolf: one person has to lead and never gets to play. In HowlNight the app takes over the narrator. The device lies in the middle of the table, a recorded narrator voice calls the roles, and only the called role opens their eyes and makes its choice on the screen. Then the app waits a few seconds so the player can get back to their seat before the next role is called.",
+      "In the morning the narrator announces the night’s victims and their roles, and a discussion timer tells you when it is time to vote. You vote by raising hands and tap the result. Roles whose players are already dead are still called, and the app only pretends to wait, so nobody can tell from the timing. If you play with the Fox, sit in the order of the player list so the neighbors are correct.",
+      "If you prefer the classic way, one person can still lead: HowlNight then shows the announcements step by step and keeps track of who is alive."
+     ]
+    },
+    {
+     "h2": "Try it at your next game night",
+     "paragraphs": [
+      "HowlNight is a collection of party games played on a single phone or iPad that you pass around. Werewolf Night deals the secret roles, leads the night with a real narrator voice and lets you continue an interrupted game later – so everyone at the table gets to play."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "How many werewolves should there be?",
+     "a": "A good rule is one werewolf per four players. The werewolves always have to be fewer than the other players, otherwise they win immediately."
+    },
+    {
+     "q": "What happens if the vote is a tie?",
+     "a": "Agree before the game how to handle ties, for example with a short second discussion. The village may also choose to vote out nobody that day."
+    },
+    {
+     "q": "Can you play Werewolf without a game master?",
+     "a": "Yes. In HowlNight the app takes over the narrator: the phone lies in the middle, calls the roles and everyone makes their night choice on the screen, so nobody has to sit out."
+    }
+   ]
+  },
+  "de": {
+   "title": "Werwolf Regeln: Ablauf & alle Rollen erklärt",
+   "description": "Werwolf Regeln einfach erklärt: Vorbereitung, Nacht, Tag, Abstimmung und Siegbedingungen, dazu alle 16 Rollen und Spielen ganz ohne Spielleiter.",
+   "h1": "Werwolf Regeln: Ablauf & alle Rollen erklärt",
+   "intro": "Werwolf ist ein Gruppenspiel ums Bluffen und Durchschauen: Ein paar Spieler sind heimlich Werwölfe, alle anderen gehören zum Dorf. Nachts schlagen die Werwölfe zu, tagsüber diskutiert das Dorf, verdächtigt und stimmt jemanden heraus. Niemand weiß, wer wer ist – genau das macht den Reiz aus. Bekannt geworden ist das Genre vor allem durch das Kartenspiel „Die Werwölfe von Düsterwald“.\n\nIn diesem Guide gehst du eine komplette Partie durch, vom Verteilen der Rollen bis zur letzten Abstimmung. Danach findest du alle Rollen erklärt, eine Reihenfolge für die Nacht und eine Möglichkeit, ganz ohne Spielleiter zu spielen.",
+   "sections": [
+    {
+     "h2": "Was du brauchst",
+     "paragraphs": [
+      "Werwolf lebt von einer großen Runde. Die Werwolfnacht in HowlNight ist für 5 bis 24 Spieler gemacht. Klassisch gibt es zusätzlich einen Spielleiter (auch Erzähler genannt): Er bekommt keine Rolle, leitet die Nacht, ruft die Rollen auf und behält den Überblick, wer noch lebt.",
+      "Außerdem brauchst du für jeden Spieler eine geheime Rolle und genug Platz, um im Kreis zu sitzen. Alle müssen die Augen schließen können, ohne zu blinzeln."
+     ]
+    },
+    {
+     "h2": "Vorbereitung: Rollen verteilen",
+     "paragraphs": [
+      "Jeder bekommt heimlich eine Rolle und schaut sie sich an, ohne sie jemandem zu zeigen. Als Faustregel gilt: ein Werwolf auf vier Spieler – so rechnen auch die Vorlagen in HowlNight. Die Werwölfe müssen immer weniger sein als die übrigen Spieler, sonst ist das Dorf schon vor dem Start verloren.",
+      "Die restlichen Karten sind Sonderrollen und einfache Dorfbewohner. Für die erste Runde reicht wenig: Werwölfe, die Seherin und Dorfbewohner. Weitere Sonderrollen nimmst du dazu, sobald alle den Ablauf kennen."
+     ]
+    },
+    {
+     "h2": "Die Nacht",
+     "paragraphs": [
+      "Der Spielleiter verkündet, dass die Nacht hereinbricht, und alle schließen die Augen. Dann ruft er die Rollen nacheinander auf. Nur die aufgerufene Rolle öffnet die Augen, trifft ihre Wahl lautlos – meist durch Zeigen – und schließt die Augen wieder.",
+      "Der wichtigste Moment ist der Auftritt der Werwölfe: Sie erwachen gemeinsam und einigen sich auf ein Opfer. Rollen, die nur in der ersten Nacht handeln, etwa Amor, werden auch nur dann aufgerufen. Ein guter Trick für den Spielleiter: Ruf eine Rolle auch dann auf, wenn ihr Spieler schon tot ist, und warte ein paar Sekunden – so verrät die Stille nicht, wer fehlt."
+     ]
+    },
+    {
+     "h2": "Der Tag und die Abstimmung",
+     "paragraphs": [
+      "Am Morgen öffnen alle die Augen und der Spielleiter verkündet, wer die Nacht nicht überlebt hat. Die Rolle des Toten wird aufgedeckt, und ab jetzt schweigt er.",
+      "Dann diskutiert das Dorf: Wer wirkte verdächtig, wer hat wen verteidigt, wer ist plötzlich auffällig still? Am Ende stimmt ihr per Handzeichen ab, und wer die meisten Stimmen hat, scheidet aus und deckt seine Rolle auf. Das Dorf darf sich auch entscheiden, niemanden herauszustimmen. Danach beginnt die nächste Nacht."
+     ]
+    },
+    {
+     "h2": "Wer gewinnt",
+     "paragraphs": [
+      "Das Dorf gewinnt, sobald kein Werwolf mehr lebt. Die Werwölfe gewinnen, sobald sie mindestens so viele sind wie alle anderen lebenden Spieler. Ein Sonderfall: Hat Amor einen Werwolf und einen Dorfbewohner verliebt und sind die beiden als Letzte übrig, gewinnt das Liebespaar gemeinsam."
+     ]
+    },
+    {
+     "h2": "Alle Rollen erklärt",
+     "paragraphs": [
+      "HowlNight hat 16 Rollen. Die ersten zehn stecken im kostenlosen Paket „Grundrollen“, die letzten sechs im Paket „Zusatzrollen“. Das können sie:"
+     ],
+     "table": {
+      "head": [
+       "Rolle",
+       "Team",
+       "Was sie macht"
+      ],
+      "rows": [
+       [
+        "Werwolf",
+        "Werwölfe",
+        "Erwacht jede Nacht mit den anderen Werwölfen und wählt gemeinsam ein Opfer. Tagsüber tut er so, als wäre er ein harmloser Dorfbewohner."
+       ],
+       [
+        "Dorfbewohner",
+        "Dorf",
+        "Keine besondere Fähigkeit, aber die Stimme zählt. Hilft dem Dorf, die Werwölfe zu finden."
+       ],
+       [
+        "Seherin",
+        "Dorf",
+        "Sieht sich jede Nacht die Rolle eines Spielers an."
+       ],
+       [
+        "Hexe",
+        "Dorf",
+        "Hat einen Heiltrank und einen Gifttrank, jeden nur einmal im Spiel. Erfährt nachts das Opfer der Werwölfe und kann es retten oder jemand anderen vergiften."
+       ],
+       [
+        "Jäger",
+        "Dorf",
+        "Stirbt er, ob nachts oder durch das Dorf, nimmt er mit seinem letzten Schuss sofort einen anderen Spieler mit."
+       ],
+       [
+        "Amor",
+        "Dorf",
+        "Macht in der ersten Nacht zwei Spieler zum Liebespaar. Stirbt einer, stirbt der andere vor Kummer mit."
+       ],
+       [
+        "Beschützer",
+        "Dorf",
+        "Schützt jede Nacht einen Spieler vor den Werwölfen, aber nie zweimal hintereinander denselben."
+       ],
+       [
+        "Dorfälteste",
+        "Dorf",
+        "Überlebt den ersten Angriff der Werwölfe und stirbt erst beim zweiten – oder wenn das Dorf sie herausstimmt."
+       ],
+       [
+        "Narr",
+        "Dorf",
+        "Verurteilt ihn das Dorf, zeigt er seine Karte und bleibt am Leben, darf danach aber nicht mehr abstimmen."
+       ],
+       [
+        "Medium",
+        "Dorf",
+        "Erfährt jede Nacht die Rolle des Spielers, der zuletzt ausgeschieden ist."
+       ],
+       [
+        "Fuchs",
+        "Dorf",
+        "Zeigt jede Nacht auf einen Spieler und erfährt, ob unter ihm und seinen beiden Nachbarn ein Werwolf ist. Nach einem „Nein“ verliert er seine Fähigkeit."
+       ],
+       [
+        "Wolfsjunges",
+        "Werwölfe",
+        "Erwacht mit den Werwölfen. Wird es getötet, dürfen die Werwölfe in der nächsten Nacht zwei Opfer wählen."
+       ],
+       [
+        "Ritter",
+        "Dorf",
+        "Töten ihn die Werwölfe, stirbt in der folgenden Nacht ein Werwolf. Mit menschlichem Spielleiter ist es der nächste Werwolf zur Linken des Ritters."
+       ],
+       [
+        "Wildes Kind",
+        "Dorf",
+        "Wählt in der ersten Nacht heimlich ein Vorbild. Stirbt das Vorbild, wird das Wilde Kind zum Werwolf und erwacht ab dann mit ihnen."
+       ],
+       [
+        "Rabe",
+        "Dorf",
+        "Markiert jede Nacht einen Spieler. Am nächsten Tag beginnt dieser die Abstimmung mit zwei Stimmen gegen sich."
+       ],
+       [
+        "Bärenführer",
+        "Dorf",
+        "Sitzt am Morgen ein Werwolf direkt neben ihm, brummt sein Bär – wer genau es ist, verrät er nicht."
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Reihenfolge in der Nacht",
+     "paragraphs": [
+      "Die Reihenfolge ist wichtig: Der Beschützer muss schützen, bevor die Werwölfe angreifen, und die Hexe kann erst reagieren, wenn sie das Opfer kennt. In dieser Reihenfolge ruft HowlNight die Rollen auf:"
+     ],
+     "list": [
+      "Amor (nur in der ersten Nacht), danach öffnet das Liebespaar die Augen, um sich zu erkennen",
+      "Wildes Kind (nur in der ersten Nacht)",
+      "Beschützer",
+      "Werwölfe, zusammen mit dem Wolfsjungen",
+      "Hexe",
+      "Seherin",
+      "Fuchs",
+      "Rabe",
+      "Medium"
+     ]
+    },
+    {
+     "h2": "Welche Rollen für welche Runde",
+     "paragraphs": [
+      "HowlNight hat drei Vorlagen, die die Rollen passend zur Spielerzahl eintragen:"
+     ],
+     "list": [
+      "Einsteiger: Werwölfe, Seherin und Dorfbewohner – ideal für die erste Partie.",
+      "Klassisch: die übliche Mischung. Die Seherin ab 5 Spielern, die Hexe ab 6, der Jäger ab 7, Amor ab 8, der Beschützer ab 10 und die Dorfälteste ab 12.",
+      "Chaos: so viele verschiedene Sonderrollen wie möglich, mindestens ein Dorfbewohner bleibt."
+     ]
+    },
+    {
+     "h2": "Werwolf ohne Spielleiter spielen",
+     "paragraphs": [
+      "Das klassische Problem bei Werwolf: Eine Person muss leiten und spielt nie mit. In HowlNight übernimmt die App den Erzähler. Das Gerät liegt in der Mitte, eine aufgenommene Erzählerstimme ruft die Rollen auf, und nur die aufgerufene Rolle öffnet die Augen und trifft ihre Wahl auf dem Bildschirm. Danach wartet die App ein paar Sekunden, damit der Spieler zurück an seinen Platz kommt, bevor die nächste Rolle dran ist.",
+      "Am Morgen verkündet die Stimme die Opfer der Nacht und ihre Rollen, und ein Diskussions-Timer sagt euch, wann abgestimmt wird. Ihr stimmt per Handzeichen ab und tippt das Ergebnis an. Rollen, deren Spieler schon tot sind, werden trotzdem aufgerufen, und die App wartet nur zum Schein – so verrät das Timing nichts. Spielt ihr mit dem Fuchs, setzt euch in der Reihenfolge der Spielerliste, damit seine Nachbarn stimmen.",
+      "Lieber klassisch? Dann leitet eine Person: HowlNight zeigt ihr die Ansagen Schritt für Schritt und merkt sich, wer noch lebt."
+     ]
+    },
+    {
+     "h2": "Probier es beim nächsten Spieleabend",
+     "paragraphs": [
+      "HowlNight ist eine Sammlung von Partyspielen auf einem einzigen iPhone oder iPad, das in der Runde weitergegeben wird. Die Werwolfnacht verteilt die geheimen Rollen, leitet die Nacht mit echter Erzählerstimme und lässt dich unterbrochene Spiele später fortsetzen – so kann wirklich jeder am Tisch mitspielen."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Wie viele Werwölfe braucht man?",
+     "a": "Als Faustregel einen Werwolf auf vier Spieler. Die Werwölfe müssen immer weniger sein als die übrigen Spieler, sonst gewinnen sie sofort."
+    },
+    {
+     "q": "Was passiert bei Stimmengleichheit?",
+     "a": "Legt vor dem Spiel fest, wie ihr mit einem Patt umgeht, zum Beispiel mit einer kurzen zweiten Diskussion. Das Dorf darf sich auch entscheiden, an diesem Tag niemanden herauszustimmen."
+    },
+    {
+     "q": "Kann man Werwolf ohne Spielleiter spielen?",
+     "a": "Ja. In HowlNight übernimmt die App den Erzähler: Das Handy liegt in der Mitte, ruft die Rollen auf und alle treffen ihre nächtliche Wahl auf dem Bildschirm. So muss niemand aussetzen."
+    }
+   ]
+  }
+ },
+ {
+  "app": "howlnight",
+  "slug": {
+   "en": "impostor-game-rules",
+   "de": "hochstapler-spiel-regeln"
+  },
+  "en": {
+   "title": "Impostor Game Rules: How to Play & Tips",
+   "description": "Impostor game rules explained: everyone knows the secret word except one. A round step by step, scoring, tips for both sides and variants.",
+   "h1": "Impostor Game: Rules, a Round Step by Step, and Tips",
+   "intro": "The Impostor game is one of the quickest party games there is: everyone gets the same secret word – except one player, the impostor. Going around the circle, each of you says a single word that fits. Then you vote on who is faking it. The impostor tries to blend in, the others try to give hints that are clear enough to prove they know the word, but vague enough that the impostor can’t figure it out.\n\nHere are the rules, a round step by step, how scoring can work, and tips for both sides.",
+   "sections": [
+    {
+     "h2": "The idea in one sentence",
+     "paragraphs": [
+      "Everyone knows the word except one – find the impostor before they find the word.",
+      "You need at least three players; HowlNight’s Impostor mode supports 3 to 20. A round takes only a few minutes, so it works well as a warm-up or between longer games."
+     ]
+    },
+    {
+     "h2": "Setup",
+     "paragraphs": [
+      "One secret word is chosen, together with its category, for example “Animals” and “Penguin”. Every player secretly learns the word – except the impostor. Depending on the version, the impostor sees nothing at all or only the category.",
+      "In HowlNight you simply pass the phone around: you hold the card to peek, let go, and it is hidden again. The impostor’s card says “You are the Impostor!”, everyone else sees the category and the word. Whether the impostor gets the category is a setting you can switch on or off."
+     ]
+    },
+    {
+     "h2": "A round step by step",
+     "list": [
+      "Deal: everyone looks at their card in secret and passes the device on.",
+      "Clues: going around the circle, each player says exactly one word about the secret word. In HowlNight the starting player is never the impostor, so the impostor always gets to listen first.",
+      "Discussion: talk about the clues. Who said something strangely general? Who hesitated?",
+      "Vote: agree together on one player.",
+      "Reveal: if the accused is not the impostor, the impostor wins the round.",
+      "Last chance: if you caught the impostor, they may name the secret word. If they get it right, the impostor still wins."
+     ]
+    },
+    {
+     "h2": "The last-chance rule",
+     "paragraphs": [
+      "This is what keeps the game balanced: a caught impostor can still win by guessing the word. So the group can’t just give obvious clues – if everyone says “ice”, “tuxedo” and “Antarctica”, the impostor will name the penguin even after being caught. Good clues are specific enough to show you know the word, but leave room for several answers."
+     ]
+    },
+    {
+     "h2": "Scoring",
+     "paragraphs": [
+      "You can play single rounds just for fun, or keep score over several rounds. HowlNight uses this system and shows a ranking at the end:"
+     ],
+     "list": [
+      "The group wins (impostor caught and the word not guessed): every player except the impostor gets 1 point.",
+      "The impostor wins (not caught, or caught but guessed the word): every impostor gets 2 points."
+     ]
+    },
+    {
+     "h2": "Tips for the group",
+     "list": [
+      "Don’t be too obvious. Your word should prove you know it, not give it away.",
+      "Think from the impostor’s side: with only the category in mind, which clue would they find useless?",
+      "Pay attention to who repeats or slightly rephrases an earlier clue – that is a typical impostor move.",
+      "Very general words like “nice” or “big” are suspicious. But a careful player may use them too."
+     ]
+    },
+    {
+     "h2": "Tips for the impostor",
+     "list": [
+      "Listen closely. Since the impostor never starts in HowlNight, you will always hear at least one clue first.",
+      "Pick a word that fits several possible answers within the category.",
+      "Stay calm in the discussion and ask questions yourself – the quietest player is often the first suspect.",
+      "If you get caught, don’t give up: go back over all the clues and name the word that connects them."
+     ]
+    },
+    {
+     "h2": "Variants",
+     "paragraphs": [
+      "A few settings change the game noticeably:"
+     ],
+     "list": [
+      "Two impostors: from 7 players, HowlNight lets you play with two impostors. They don’t know each other, which makes the discussion a lot more chaotic.",
+      "Without the category: switch off that the impostor sees the category. Bluffing gets harder, so this suits experienced groups.",
+      "Discussion timer: set a limit of 1, 2, 3 or 5 minutes. When the time is up, it’s straight to the vote.",
+      "Themed word packs: besides the free General pack (150 words in 15 categories), HowlNight has Food & Drink, Sports & Leisure and Travel & Places packs."
+     ]
+    },
+    {
+     "h2": "Playing it at your next party",
+     "paragraphs": [
+      "You can play Impostor with paper slips, but someone has to pick the word and then knows it. In HowlNight the app picks the word and draws the impostor at random each round, so everyone plays. The Impostor mode is one of seven party games in the app, all on one phone that you pass around."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "How many players do you need for the Impostor game?",
+     "a": "At least three. HowlNight supports 3 to 20 players, and from 7 players you can play with two impostors."
+    },
+    {
+     "q": "Does the impostor know the category?",
+     "a": "It depends on the version you play. In HowlNight you choose: the impostor either sees the category or nothing but their role."
+    },
+    {
+     "q": "Can the impostor still win after being caught?",
+     "a": "Yes. A caught impostor gets one last chance to name the secret word. If they get it right, the impostor wins the round."
+    }
+   ]
+  },
+  "de": {
+   "title": "Hochstapler-Spiel: Regeln & Tipps",
+   "description": "Hochstapler-Spiel Regeln erklärt: Alle kennen das geheime Wort, nur einer nicht. Ablauf einer Runde, Punkte, Tipps für beide Seiten und Varianten.",
+   "h1": "Hochstapler-Spiel: Regeln & Tipps",
+   "intro": "Das Hochstapler-Spiel ist eines der schnellsten Partyspiele überhaupt: Alle bekommen dasselbe geheime Wort – nur einer nicht, der Hochstapler. Reihum sagt jeder ein einziges Wort, das dazu passt. Dann stimmt ihr ab, wer nur so tut, als ob. Der Hochstapler versucht, nicht aufzufallen, die anderen geben Hinweise, die deutlich genug zeigen, dass sie das Wort kennen, aber zu vage sind, als dass der Hochstapler es erraten könnte.\n\nHier findest du die Regeln, eine Runde Schritt für Schritt, eine Möglichkeit für die Punktewertung und Tipps für beide Seiten.",
+   "sections": [
+    {
+     "h2": "Die Idee in einem Satz",
+     "paragraphs": [
+      "Alle kennen das Wort, nur einer nicht – findet den Hochstapler, bevor er das Wort findet.",
+      "Du brauchst mindestens drei Spieler; der Hochstapler-Modus in HowlNight ist für 3 bis 20 gemacht. Eine Runde dauert nur ein paar Minuten, deshalb passt das Spiel gut zum Aufwärmen oder zwischen längeren Spielen."
+     ]
+    },
+    {
+     "h2": "Vorbereitung",
+     "paragraphs": [
+      "Es wird ein geheimes Wort mit seiner Kategorie gewählt, zum Beispiel „Tiere“ und „Pinguin“. Alle erfahren das Wort heimlich – außer dem Hochstapler. Je nach Variante sieht er gar nichts oder nur die Kategorie.",
+      "In HowlNight gebt ihr einfach das Handy herum: Karte gedrückt halten zum Ansehen, loslassen, und sie ist wieder verdeckt. Auf der Karte des Hochstaplers steht „Du bist der Hochstapler!“, alle anderen sehen Kategorie und Wort. Ob der Hochstapler die Kategorie sieht, stellst du vor dem Spiel ein."
+     ]
+    },
+    {
+     "h2": "Eine Runde Schritt für Schritt",
+     "list": [
+      "Verteilen: Jeder schaut sich heimlich seine Karte an und gibt das Gerät weiter.",
+      "Hinweise: Reihum sagt jeder genau ein Wort zum geheimen Wort. In HowlNight ist der Startspieler nie der Hochstapler, er hört also immer zuerst zu.",
+      "Diskussion: Sprecht über die Hinweise. Wer war seltsam allgemein? Wer hat gezögert?",
+      "Abstimmung: Einigt euch gemeinsam auf eine Person.",
+      "Auflösung: Ist die beschuldigte Person kein Hochstapler, gewinnt der Hochstapler die Runde.",
+      "Letzte Chance: Habt ihr den Hochstapler erwischt, darf er das geheime Wort nennen. Liegt er richtig, gewinnt er trotzdem."
+     ]
+    },
+    {
+     "h2": "Die Regel mit der letzten Chance",
+     "paragraphs": [
+      "Diese Regel hält das Spiel im Gleichgewicht: Ein erwischter Hochstapler gewinnt trotzdem, wenn er das Wort errät. Die Gruppe darf deshalb nicht zu deutlich werden – sagen alle „Eis“, „Frack“ und „Antarktis“, nennt der Hochstapler den Pinguin auch nach der Entlarvung. Gute Hinweise sind so genau, dass sie zeigen, dass du das Wort kennst, lassen aber mehrere Lösungen offen."
+     ]
+    },
+    {
+     "h2": "Punkte zählen",
+     "paragraphs": [
+      "Du kannst einzelne Runden einfach zum Spaß spielen oder über mehrere Runden Punkte sammeln. HowlNight zählt so und zeigt am Ende eine Rangliste:"
+     ],
+     "list": [
+      "Die Gruppe gewinnt (Hochstapler erwischt und Wort nicht erraten): Alle außer dem Hochstapler bekommen 1 Punkt.",
+      "Der Hochstapler gewinnt (nicht erwischt oder erwischt, aber Wort erraten): Jeder Hochstapler bekommt 2 Punkte."
+     ]
+    },
+    {
+     "h2": "Tipps für die Gruppe",
+     "list": [
+      "Sei nicht zu offensichtlich. Dein Wort soll zeigen, dass du es kennst, nicht es verraten.",
+      "Denk aus Sicht des Hochstaplers: Welcher Hinweis bringt ihm nichts, wenn er nur die Kategorie kennt?",
+      "Achte darauf, wer einen früheren Hinweis wiederholt oder leicht umformuliert – ein typischer Hochstapler-Zug.",
+      "Sehr allgemeine Wörter wie „schön“ oder „groß“ sind verdächtig. Aber auch vorsichtige Spieler greifen mal dazu."
+     ]
+    },
+    {
+     "h2": "Tipps für den Hochstapler",
+     "list": [
+      "Hör genau zu. Weil der Hochstapler in HowlNight nie anfängt, hörst du immer mindestens einen Hinweis vorher.",
+      "Wähl ein Wort, das zu mehreren möglichen Lösungen in der Kategorie passt.",
+      "Bleib in der Diskussion ruhig und stell selbst Fragen – wer am stillsten ist, wird oft zuerst verdächtigt.",
+      "Wirst du erwischt, gib nicht auf: Geh alle Hinweise noch einmal durch und nenn das Wort, das sie verbindet."
+     ]
+    },
+    {
+     "h2": "Varianten",
+     "paragraphs": [
+      "Ein paar Einstellungen verändern das Spiel deutlich:"
+     ],
+     "list": [
+      "Zwei Hochstapler: Ab 7 Spielern sind in HowlNight zwei Hochstapler möglich. Sie kennen sich nicht – das macht die Diskussion deutlich chaotischer.",
+      "Ohne Kategorie: Schalte aus, dass der Hochstapler die Kategorie sieht. Bluffen wird schwerer, das passt zu erfahrenen Runden.",
+      "Diskussionszeit: Begrenze die Diskussion auf 1, 2, 3 oder 5 Minuten. Ist die Zeit um, geht es direkt zur Abstimmung.",
+      "Themenpakete: Neben dem kostenlosen Paket „Allgemein“ (150 Wörter in 15 Kategorien) gibt es in HowlNight die Pakete „Essen & Trinken“, „Sport & Freizeit“ und „Reisen & Orte“."
+     ]
+    },
+    {
+     "h2": "Beim nächsten Spieleabend ausprobieren",
+     "paragraphs": [
+      "Mit Zetteln kannst du Hochstapler auch spielen, aber dann muss jemand das Wort aussuchen und kennt es. In HowlNight wählt die App jede Runde das Wort und lost den Hochstapler zufällig aus, sodass alle mitspielen. Der Hochstapler-Modus ist eines von sieben Partyspielen in der App – alle auf einem Handy, das in der Runde weitergegeben wird."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Wie viele Spieler braucht man für das Hochstapler-Spiel?",
+     "a": "Mindestens drei. HowlNight ist für 3 bis 20 Spieler gemacht, ab 7 Spielern könnt ihr mit zwei Hochstaplern spielen."
+    },
+    {
+     "q": "Kennt der Hochstapler die Kategorie?",
+     "a": "Das hängt von der Variante ab. In HowlNight entscheidest du: Der Hochstapler sieht entweder die Kategorie oder nur seine Rolle."
+    },
+    {
+     "q": "Kann der Hochstapler noch gewinnen, wenn er erwischt wurde?",
+     "a": "Ja. Ein erwischter Hochstapler hat eine letzte Chance, das geheime Wort zu nennen. Liegt er richtig, gewinnt er die Runde."
+    }
+   ]
+  }
+ },
+ {
+  "app": "etf-calculator",
+  "slug": {
+   "en": "vorabpauschale-explained",
+   "de": "vorabpauschale-erklaert"
+  },
+  "en": {
+   "title": "Vorabpauschale explained: Germany's ETF advance tax",
+   "description": "How Germany's Vorabpauschale works: the formula with Basiszins and factor 0.7, partial exemption, saver's allowance and a worked ETF example.",
+   "h1": "Germany's Vorabpauschale explained: how ETF advance lump-sum tax works",
+   "intro": "If you invest in ETFs through a German broker, you may notice a small tax charge in early January even though you did not sell anything. That charge is the Vorabpauschale, which translates roughly to advance lump sum. It mainly affects accumulating ETFs, the ones that reinvest their income instead of paying it out.\n\nThis guide explains why the Vorabpauschale exists, how to calculate it step by step, how the Basiszins (base interest rate), the Teilfreistellung (partial exemption) and the Sparerpauschbetrag (saver's allowance) fit in, and why you do not pay the tax twice when you sell.",
+   "sections": [
+    {
+     "h2": "What the Vorabpauschale is and why it exists",
+     "paragraphs": [
+      "Since Germany's investment tax reform in 2018, every fund is supposed to be taxed on at least a minimum return each year. For distributing ETFs that happens through the dividends they pay out. Accumulating ETFs pay out nothing, so without a special rule the tax office would only collect when you sell, possibly decades later.",
+      "The Vorabpauschale closes that gap. It is a deemed income: the law assumes your fund earned at least a low, risk-free style return and taxes that amount in advance. It is not an extra tax but an earlier one, because it is credited against your gain when you sell."
+     ]
+    },
+    {
+     "h2": "The formula step by step",
+     "paragraphs": [
+      "The calculation has three steps. First you compute the Basisertrag (base return), then you check the cap, and finally you subtract any distributions."
+     ],
+     "list": [
+      "Basisertrag = fund value at the start of the year × Basiszins × 0.7",
+      "Cap: the Basisertrag cannot exceed the actual increase in value during the year plus distributions. If the fund lost value, there is no Vorabpauschale.",
+      "Vorabpauschale = Basisertrag − distributions paid during the year (never below 0 €)",
+      "For shares bought during the year, the Vorabpauschale is reduced by one twelfth for every full month before the purchase."
+     ]
+    },
+    {
+     "h2": "Where the Basiszins comes from",
+     "paragraphs": [
+      "The Basiszins is derived from the yield of long-term German federal securities, based on the Deutsche Bundesbank's yield curve on the first trading day of the year, and is published by the Federal Ministry of Finance. The rate for a given year applies to that year's Vorabpauschale, which is then charged at the start of the following year. If the Basiszins is zero or negative, there is no Vorabpauschale.",
+      "Recent values:"
+     ],
+     "table": {
+      "head": [
+       "Year",
+       "Basiszins",
+       "Charged to your account"
+      ],
+      "rows": [
+       [
+        "2023",
+        "2.55 %",
+        "early January 2024"
+       ],
+       [
+        "2024",
+        "2.29 %",
+        "early January 2025"
+       ],
+       [
+        "2025",
+        "2.53 %",
+        "early January 2026"
+       ],
+       [
+        "2026",
+        "3.20 %",
+        "early January 2027"
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Partial exemption and saver's allowance",
+     "paragraphs": [
+      "The Teilfreistellung compensates for taxes the fund already pays at company level. For equity funds, meaning ETFs that hold more than 50 % stocks, 30 % of the income is tax-free. This applies to distributions, the Vorabpauschale and capital gains alike. Mixed funds get 15 %, pure bond ETFs get no partial exemption.",
+      "Next comes the Sparerpauschbetrag: since 2023, the first 1,000 € of investment income per year is tax-free, or 2,000 € for married couples filing jointly. To have it applied automatically, you file an exemption order (Freistellungsauftrag) with your bank. Anything above that is taxed at the 25 % Abgeltungsteuer (flat withholding tax) plus a 5.5 % solidarity surcharge on that tax, 26.375 % in total, plus church tax if you pay it."
+     ]
+    },
+    {
+     "h2": "When the tax is charged",
+     "paragraphs": [
+      "The Vorabpauschale for a year counts as received on the first working day of the following year. So the Vorabpauschale for 2025 is charged in early January 2026. Your bank usually takes the tax from your cash account. If there is no cash, banks handle it differently, so it is worth keeping a small balance there at the turn of the year.",
+      "As long as your exemption order covers the Vorabpauschale, nothing is deducted. It simply uses up part of your allowance."
+     ]
+    },
+    {
+     "h2": "Worked example: the Vorabpauschale for 2025",
+     "paragraphs": [
+      "The numbers below are deliberately round and purely hypothetical. Assume you bought 20,000 € of an accumulating equity ETF at the end of 2024. On January 1, 2025 it is worth 20,000 €, and by the end of the year it has grown to 21,600 €, an increase of 1,600 €. There are no distributions. The Basiszins for 2025 is 2.53 %."
+     ],
+     "table": {
+      "head": [
+       "Step",
+       "Calculation",
+       "Result"
+      ],
+      "rows": [
+       [
+        "Basisertrag",
+        "20,000 € × 2.53 % × 0.7",
+        "354.20 €"
+       ],
+       [
+        "Cap (actual gain)",
+        "1,600 € > 354.20 €, cap does not apply",
+        "354.20 €"
+       ],
+       [
+        "Vorabpauschale",
+        "354.20 € − 0 € distributions",
+        "354.20 €"
+       ],
+       [
+        "After 30 % partial exemption",
+        "354.20 € × 0.7",
+        "247.94 €"
+       ],
+       [
+        "Tax if your allowance is already used",
+        "247.94 € × 26.375 %",
+        "65.39 €"
+       ]
+      ]
+     },
+     "list": [
+      "If your saver's allowance is still available, you pay nothing; 247.94 € of the allowance is used up.",
+      "If the ETF had only gained 200 € in 2025, the Vorabpauschale would be capped at 200 €, and 140 € would be taxable.",
+      "If a distributing ETF had paid out 150 €, the Vorabpauschale would be 354.20 € − 150 € = 204.20 €. The distribution itself is taxed as usual."
+     ]
+    },
+    {
+     "h2": "How it is credited when you sell",
+     "paragraphs": [
+      "Vorabpauschalen you already paid tax on are deducted from your gain when you sell. Suppose that in the example you sell during 2026 for 23,000 €. The gain is 3,000 €. Subtract the 354.20 € already taxed and you get 2,645.80 €. After the 30 % partial exemption, 1,852.06 € is taxable, which is 488.48 € of tax without any allowance. There is no Vorabpauschale for 2026, because you no longer hold the shares at the end of the year.",
+      "Together with the 65.39 € from January, that is 553.87 €, practically the same as the 553.88 € you would have paid on the sale without any Vorabpauschale (the one cent comes from rounding). The Vorabpauschale only moves part of the tax forward in time."
+     ]
+    },
+    {
+     "h2": "Letting an app do the math",
+     "paragraphs": [
+      "One year is easy to calculate by hand. A savings plan over 20 or 30 years, with a new portfolio value every year and monthly contributions, is not. Owlvest Pro estimates the Vorabpauschale for every year of your plan and shows how much tax is due each year and how much remains for the sale. The app fetches the current Basiszins from the Bundesbank automatically.",
+      "In Owlvest, tax rate, partial exemption and allowance are preset to the German values (26.375 %, 30 %, 1,000 €) and can be changed, for example if you file jointly or pay church tax."
+     ]
+    },
+    {
+     "h2": "Summary",
+     "paragraphs": [
+      "The Vorabpauschale sounds complicated but follows a simple formula: value at the start of the year × Basiszins × 0.7, capped by the actual gain, minus distributions. With the partial exemption and the saver's allowance, it often costs nothing at all for smaller portfolios. If you want to see what it means for your own savings plan over the years, Owlvest Pro calculates it for you on your iPhone.",
+      "Note: this article is general information, not tax or investment advice."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Do I have to report the Vorabpauschale on my tax return?",
+     "a": "With a German broker, the bank withholds the tax automatically and applies your exemption order. With a foreign broker, you have to declare the Vorabpauschale yourself in the Anlage KAP of your German tax return."
+    },
+    {
+     "q": "Does the Vorabpauschale apply to distributing ETFs?",
+     "a": "Yes, but only if the year's distributions are smaller than the Basisertrag. Distributions are subtracted, so for distributing ETFs the Vorabpauschale is often small or zero."
+    },
+    {
+     "q": "Do I pay tax twice when I sell?",
+     "a": "No. Vorabpauschalen that were already taxed are deducted from your gain when you sell. The tax is only due earlier; in total you do not pay more."
+    }
+   ]
+  },
+  "de": {
+   "title": "Vorabpauschale einfach erklärt (mit Rechenbeispiel)",
+   "description": "Vorabpauschale berechnen: Formel mit Basiszins und Faktor 0,7, Teilfreistellung, Sparerpauschbetrag und ein durchgerechnetes Beispiel für deinen ETF.",
+   "h1": "Vorabpauschale einfach erklärt (mit Rechenbeispiel)",
+   "intro": "Anfang Januar wundern sich viele ETF-Sparer: Obwohl sie nichts verkauft haben, bucht der Broker eine kleine Steuer ab. Dahinter steckt die Vorabpauschale. Sie betrifft vor allem thesaurierende ETFs, also Fonds, die ihre Erträge nicht ausschütten, sondern wieder anlegen.\n\nIn diesem Artikel erfährst du, warum es die Vorabpauschale gibt, wie du sie Schritt für Schritt berechnest, welche Rolle Basiszins, Teilfreistellung und Sparerpauschbetrag spielen – und warum du die Steuer beim Verkauf nicht doppelt zahlst.",
+   "sections": [
+    {
+     "h2": "Was ist die Vorabpauschale und warum gibt es sie?",
+     "paragraphs": [
+      "Seit der Investmentsteuerreform 2018 soll jeder Fonds jedes Jahr zumindest einen Mindestertrag versteuern. Bei ausschüttenden ETFs passiert das über die Ausschüttungen. Thesaurierende ETFs schütten aber nichts aus – ohne Vorabpauschale würde der Staat dort erst beim Verkauf, oft nach Jahrzehnten, Steuern sehen.",
+      "Die Vorabpauschale ist deshalb ein fiktiver Ertrag: Das Gesetz unterstellt, dass dein Fonds mindestens eine risikoarme Verzinsung erwirtschaftet hat, und besteuert diesen Betrag schon vorab. Es ist keine zusätzliche Steuer, sondern eine vorgezogene. Beim Verkauf wird sie angerechnet."
+     ]
+    },
+    {
+     "h2": "Die Formel: so berechnest du die Vorabpauschale",
+     "paragraphs": [
+      "Die Berechnung läuft in drei Schritten. Zuerst ermittelst du den Basisertrag, dann prüfst du die Obergrenze, zuletzt ziehst du Ausschüttungen ab."
+     ],
+     "list": [
+      "Basisertrag = Wert des Fonds am Jahresanfang × Basiszins × 0,7",
+      "Obergrenze: Der Basisertrag kann nicht höher sein als der tatsächliche Wertzuwachs im Jahr plus Ausschüttungen. Hat der Fonds an Wert verloren, gibt es keine Vorabpauschale.",
+      "Vorabpauschale = Basisertrag − Ausschüttungen des Jahres (mindestens 0 €)",
+      "Kaufst du Anteile erst im Laufe des Jahres, verringert sich die Vorabpauschale für diese Anteile um ein Zwölftel für jeden vollen Monat vor dem Kauf."
+     ]
+    },
+    {
+     "h2": "Der Basiszins: woher er kommt",
+     "paragraphs": [
+      "Der Basiszins wird aus der Rendite langlaufender Bundeswertpapiere abgeleitet: Maßgeblich ist die Zinsstrukturkurve der Deutschen Bundesbank am ersten Börsentag des Jahres, das Bundesfinanzministerium veröffentlicht den Wert. Der Zins für ein Jahr gilt für die Vorabpauschale dieses Jahres, die dann Anfang des Folgejahres anfällt. Liegt der Basiszins bei null oder darunter, entfällt die Vorabpauschale.",
+      "Die Werte der letzten Jahre:"
+     ],
+     "table": {
+      "head": [
+       "Jahr",
+       "Basiszins",
+       "Belastung im Depot"
+      ],
+      "rows": [
+       [
+        "2023",
+        "2,55 %",
+        "Anfang Januar 2024"
+       ],
+       [
+        "2024",
+        "2,29 %",
+        "Anfang Januar 2025"
+       ],
+       [
+        "2025",
+        "2,53 %",
+        "Anfang Januar 2026"
+       ],
+       [
+        "2026",
+        "3,20 %",
+        "Anfang Januar 2027"
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Teilfreistellung und Sparerpauschbetrag",
+     "paragraphs": [
+      "Die Teilfreistellung gleicht aus, dass ein Fonds auf Ebene der Unternehmen schon Steuern zahlt. Bei Aktienfonds, also ETFs mit mehr als 50 % Aktienanteil, sind 30 % der Erträge steuerfrei. Das gilt für Ausschüttungen, Vorabpauschale und Verkaufsgewinne gleichermaßen. Für Mischfonds gelten 15 %, für reine Anleihe-ETFs gibt es keine Teilfreistellung.",
+      "Danach greift der Sparerpauschbetrag: Seit 2023 bleiben 1.000 € Kapitalerträge pro Jahr steuerfrei, bei Zusammenveranlagung 2.000 €. Damit er automatisch berücksichtigt wird, brauchst du einen Freistellungsauftrag bei deiner Bank. Was darüber liegt, wird mit 25 % Abgeltungsteuer plus 5,5 % Solidaritätszuschlag darauf besteuert, zusammen 26,375 %, gegebenenfalls plus Kirchensteuer."
+     ]
+    },
+    {
+     "h2": "Wann wird die Vorabpauschale fällig?",
+     "paragraphs": [
+      "Die Vorabpauschale für ein Jahr gilt als am ersten Werktag des Folgejahres zugeflossen. Die Vorabpauschale für 2025 wird also Anfang Januar 2026 belastet. Deine Bank zieht die Steuer in der Regel vom Verrechnungskonto ein. Liegt dort kein Geld, gehen Banken unterschiedlich vor – es lohnt sich also, Anfang Januar ein kleines Guthaben stehen zu lassen.",
+      "Solange dein Freistellungsauftrag die Vorabpauschale abdeckt, wird nichts abgebucht. Es wird nur ein Teil deines Freibetrags verbraucht."
+     ]
+    },
+    {
+     "h2": "Rechenbeispiel: Vorabpauschale für 2025",
+     "paragraphs": [
+      "Die folgenden Zahlen sind bewusst rund und frei erfunden, sie dienen nur zur Veranschaulichung. Annahme: Du hast Ende 2024 für 20.000 € Anteile eines thesaurierenden Aktien-ETFs gekauft. Am 1. Januar 2025 ist das Depot 20.000 € wert, bis Jahresende steigt es auf 21.600 €, also um 1.600 €. Ausschüttungen gibt es keine. Der Basiszins für 2025 beträgt 2,53 %."
+     ],
+     "table": {
+      "head": [
+       "Schritt",
+       "Rechnung",
+       "Ergebnis"
+      ],
+      "rows": [
+       [
+        "Basisertrag",
+        "20.000 € × 2,53 % × 0,7",
+        "354,20 €"
+       ],
+       [
+        "Obergrenze (Wertzuwachs)",
+        "1.600 € > 354,20 €, greift nicht",
+        "354,20 €"
+       ],
+       [
+        "Vorabpauschale",
+        "354,20 € − 0 € Ausschüttung",
+        "354,20 €"
+       ],
+       [
+        "Nach 30 % Teilfreistellung",
+        "354,20 € × 0,7",
+        "247,94 €"
+       ],
+       [
+        "Steuer, wenn der Freibetrag schon verbraucht ist",
+        "247,94 € × 26,375 %",
+        "65,39 €"
+       ]
+      ]
+     },
+     "list": [
+      "Ist dein Sparerpauschbetrag noch frei, zahlst du nichts. Es werden nur 247,94 € deines Freibetrags verbraucht.",
+      "Wäre der ETF 2025 nur um 200 € gestiegen, läge die Vorabpauschale bei 200 €, steuerpflichtig wären 140 €.",
+      "Hätte ein ausschüttender ETF 150 € ausgeschüttet, läge die Vorabpauschale bei 354,20 € − 150 € = 204,20 €. Die Ausschüttung selbst wird ganz normal versteuert."
+     ]
+    },
+    {
+     "h2": "Was passiert beim Verkauf?",
+     "paragraphs": [
+      "Bereits versteuerte Vorabpauschalen werden vom Verkaufsgewinn abgezogen. Angenommen, du verkaufst im Beispiel im Laufe des Jahres 2026 für 23.000 €. Der Gewinn beträgt 3.000 €. Davon ziehst du die schon versteuerten 354,20 € ab und kommst auf 2.645,80 €. Nach 30 % Teilfreistellung bleiben 1.852,06 € steuerpflichtig, das sind ohne Freibetrag 488,48 € Steuer. Für 2026 fällt keine Vorabpauschale mehr an, weil du die Anteile zum Jahresende nicht mehr hältst.",
+      "Zusammen mit den 65,39 € aus dem Januar sind das 553,87 € – praktisch genau so viel wie die 553,88 €, die ohne Vorabpauschale beim Verkauf angefallen wären (der Cent Abweichung kommt vom Runden). Die Vorabpauschale verschiebt die Steuer also nur zeitlich nach vorn."
+     ]
+    },
+    {
+     "h2": "Vorabpauschale automatisch berechnen",
+     "paragraphs": [
+      "Für ein einzelnes Jahr ist die Rechnung überschaubar. Bei einem Sparplan über 20 oder 30 Jahre, mit jedes Jahr neuem Depotwert und monatlichen Einzahlungen, wird es mühsam. Owlvest Pro schätzt die Vorabpauschale für jedes Jahr deines Sparplans und zeigt, wie viel Steuer jährlich anfällt und wie viel erst beim Verkauf. Den aktuellen Basiszins holt die App automatisch von der Bundesbank.",
+      "Steuersatz, Teilfreistellung und Freibetrag sind in Owlvest mit den deutschen Werten voreingestellt (26,375 %, 30 %, 1.000 €) und lassen sich anpassen, etwa wenn du zusammen veranlagt wirst oder Kirchensteuer zahlst."
+     ]
+    },
+    {
+     "h2": "Fazit",
+     "paragraphs": [
+      "Die Vorabpauschale klingt kompliziert, folgt aber einer einfachen Formel: Wert am Jahresanfang × Basiszins × 0,7, begrenzt durch den echten Wertzuwachs, abzüglich Ausschüttungen. Mit Teilfreistellung und Sparerpauschbetrag bleibt sie bei kleineren Depots oft ganz steuerfrei. Wenn du sehen willst, was sie für deinen Sparplan über die Jahre bedeutet, rechnet Owlvest Pro das auf deinem iPhone für dich durch.",
+      "Hinweis: Dieser Artikel enthält allgemeine Informationen und ist keine Steuer- oder Anlageberatung."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Muss ich die Vorabpauschale in der Steuererklärung angeben?",
+     "a": "Bei einem deutschen Depot führt die Bank die Steuer automatisch ab und verrechnet den Freistellungsauftrag. Bei ausländischen Depots musst du die Vorabpauschale selbst in der Anlage KAP erklären."
+    },
+    {
+     "q": "Fällt die Vorabpauschale auch bei ausschüttenden ETFs an?",
+     "a": "Ja, aber nur, wenn die Ausschüttungen des Jahres kleiner sind als der Basisertrag. Die Ausschüttungen werden abgezogen, deshalb ist die Vorabpauschale bei ausschüttenden ETFs oft gering oder null."
+    },
+    {
+     "q": "Zahle ich die Steuer beim Verkauf doppelt?",
+     "a": "Nein. Bereits versteuerte Vorabpauschalen werden beim Verkauf vom Gewinn abgezogen. Die Steuer wird nur früher fällig, insgesamt zahlst du nicht mehr."
+    }
+   ]
+  }
+ },
+ {
+  "app": "etf-calculator",
+  "slug": {
+   "en": "etf-savings-plan-calculator",
+   "de": "etf-sparplan-berechnen"
+  },
+  "en": {
+   "title": "ETF savings plan calculator: compound interest explained",
+   "description": "What do 100 € a month grow to? Compound interest for ETF savings plans: 5 % and 7 % examples, plus the effect of time, fees, inflation and volatility.",
+   "h1": "ETF savings plan calculator: how compound interest grows your money",
+   "intro": "A monthly ETF savings plan is one of the simplest ways to start investing: you put in a fixed amount every month, say 100 €, and let it run. But what does that actually add up to?\n\nThis guide explains how compound interest works, how to calculate a savings plan, and why time, fees and inflation make such a big difference. All numbers are examples based on assumed returns, because nobody can predict the stock market.",
+   "sections": [
+    {
+     "h2": "What compound interest means",
+     "paragraphs": [
+      "With compound interest, it is not only your contributions that grow but also the returns you have already earned. With ETFs these are price gains and dividends rather than interest in the strict sense, but the principle is the same: if 1,000 € grows by 7 %, you have 1,070 €. Next year, 1,070 € grows, not 1,000 €.",
+      "At first the effect looks small. Over many years, though, it becomes the largest part of your wealth: at some point your returns contribute more than your own deposits."
+     ]
+    },
+    {
+     "h2": "How a savings plan is calculated",
+     "paragraphs": [
+      "In a savings plan, new money comes in every month. A common way to calculate it: the contribution is invested at the start of the month, then the whole portfolio grows by one twelfth of the annual return. At 7 % a year, that is about 0.58 % a month. Repeat this for every month of the plan.",
+      "By hand that is tedious; a compound interest calculator does it in seconds. Owlvest calculates exactly this way, month by month, and shows your contributions and returns separately in a chart and a year-by-year table."
+     ]
+    },
+    {
+     "h2": "Worked example: what 100 € a month can grow to",
+     "paragraphs": [
+      "Assumption: you start from zero and invest 100 € a month. The table uses an assumed average return of 5 % or 7 % a year, compounded monthly, before fees, taxes and inflation. These are assumptions, not forecasts. Values are rounded to whole euros; the math works the same in dollars."
+     ],
+     "table": {
+      "head": [
+       "Years",
+       "Paid in",
+       "Value at 5 %",
+       "Value at 7 %"
+      ],
+      "rows": [
+       [
+        "10",
+        "12,000 €",
+        "15,593 €",
+        "17,409 €"
+       ],
+       [
+        "20",
+        "24,000 €",
+        "41,275 €",
+        "52,397 €"
+       ],
+       [
+        "30",
+        "36,000 €",
+        "83,573 €",
+        "122,709 €"
+       ],
+       [
+        "40",
+        "48,000 €",
+        "153,238 €",
+        "264,012 €"
+       ]
+      ]
+     },
+     "list": [
+      "After 30 years at 7 %, only 36,000 € of the 122,709 € comes from your contributions; about 86,709 € is returns.",
+      "Two percentage points of return make a difference of more than 110,000 € after 40 years, which is why a realistic assumption matters so much."
+     ]
+    },
+    {
+     "h2": "Time is the biggest lever",
+     "paragraphs": [
+      "Compare 20 and 30 years at 7 %: with 100 € a month you reach about 52,397 € after 20 years and about 122,709 € after 30 years. The extra ten years cost you 12,000 € in contributions but add more than 70,000 €.",
+      "If you start ten years later, doubling your contribution is not enough to catch up: 200 € a month at 7 % for 20 years grows to about 104,793 €, still less than 100 € a month over 30 years. Starting early, even with small amounts, pays off."
+     ]
+    },
+    {
+     "h2": "Fees: the TER adds up",
+     "paragraphs": [
+      "Every ETF has ongoing costs, stated as the TER (total expense ratio) per year. They are taken directly from the fund's assets and reduce your return every year. Over decades this adds up noticeably, because fees compound too.",
+      "Same example, 100 € a month for 30 years at an assumed 7 % return before fees:"
+     ],
+     "table": {
+      "head": [
+       "TER per year",
+       "Final value",
+       "Less than without fees"
+      ],
+      "rows": [
+       [
+        "0.2 %",
+        "117,955 €",
+        "4,754 €"
+       ],
+       [
+        "0.5 %",
+        "111,217 €",
+        "11,492 €"
+       ],
+       [
+        "1.5 %",
+        "91,780 €",
+        "30,929 €"
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Inflation: what your money is worth later",
+     "paragraphs": [
+      "122,709 € in 30 years is not the same as 122,709 € today. With an assumed inflation rate of 2 % a year, the final value from the 7 % example equals only about 67,744 € in today's purchasing power. At a 5 % return it would be about 46,138 €.",
+      "That does not mean saving is pointless; money left in a checking account loses value to inflation just the same. But it helps you set realistic goals. That is why Owlvest also shows your result in today's money."
+     ]
+    },
+    {
+     "h2": "Why your real result will differ",
+     "paragraphs": [
+      "A calculator with a fixed return pretends your ETF grows evenly every year. In reality, stock prices swing a lot: years with gains of more than 20 % can be followed by years with significant losses. The 7 % in the example is an assumed average, not a promise.",
+      "For a savings plan, the order of returns matters too. A crash shortly before the end hits a large portfolio harder than a crash in the early years, when you are still buying cheaply. So it makes sense to look at a range rather than a single number. Owlvest Pro simulates many possible market paths and shows a pessimistic, a middle and an optimistic outcome."
+     ]
+    },
+    {
+     "h2": "Don't forget taxes",
+     "paragraphs": [
+      "The examples above are before taxes. How returns are taxed depends on your country. In Germany, for example, gains are subject to a flat withholding tax plus solidarity surcharge, reduced by a 30 % partial exemption for equity ETFs and an annual saver's allowance, and accumulating ETFs are also taxed a little every year through the Vorabpauschale, explained in our separate guide."
+     ]
+    },
+    {
+     "h2": "Your savings plan in Owlvest",
+     "paragraphs": [
+      "To try your own numbers, enter your starting amount, monthly contribution, return and duration in Owlvest. You can include fees, inflation, a yearly increase in your contribution and one-off payments, save and compare scenarios, work out how much you need to save to reach a goal, and later plan your withdrawals. Everything is calculated on your device.",
+      "Note: this article is general information, not investment or tax advice."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "What return should I assume for an ETF savings plan?",
+     "a": "Nobody knows for sure. Broadly diversified stock ETFs have often returned more than 5 % a year over long periods in the past, but past returns guarantee nothing. Run the numbers with several assumptions, such as 5 % and 7 %, and plan with the more cautious one."
+    },
+    {
+     "q": "How accurate is a compound interest calculator for ETFs?",
+     "a": "It shows what you would get with a steady return. Because prices fluctuate, your actual result will differ, up or down. It is a planning tool, not a forecast."
+    },
+    {
+     "q": "Is 50 or 100 € a month worth it?",
+     "a": "Yes, especially over long periods. In the example, 100 € a month at an assumed 7 % grows to about 122,709 € after 30 years, of which 36,000 € is paid in. Starting early and sticking with it often matters more than the amount."
+    }
+   ]
+  },
+  "de": {
+   "title": "ETF-Sparplan berechnen: So wirkt der Zinseszins",
+   "description": "Wie viel werden 100 € im Monat? ETF-Sparplan mit Zinseszins berechnen: Beispiel mit 5 % und 7 %, Einfluss von Zeit, Kosten, Inflation und Schwankungen.",
+   "h1": "ETF-Sparplan berechnen: So wächst dein Geld mit Zinseszins",
+   "intro": "Ein ETF-Sparplan ist für viele der einfachste Einstieg ins Investieren: Du legst jeden Monat einen festen Betrag an, zum Beispiel 100 €, und der Rest passiert fast von allein. Aber wie viel kommt dabei heraus?\n\nHier erfährst du, wie der Zinseszins funktioniert, wie du deinen Sparplan berechnest und warum Zeit, Kosten und Inflation das Ergebnis so stark beeinflussen. Alle Zahlen sind Beispiele mit angenommenen Renditen – niemand kann die Zukunft der Börse vorhersagen.",
+   "sections": [
+    {
+     "h2": "Was ist der Zinseszins?",
+     "paragraphs": [
+      "Beim Zinseszins wachsen nicht nur deine Einzahlungen, sondern auch die Erträge, die du schon erzielt hast. Bei ETFs sind das keine Zinsen im engeren Sinn, sondern Kursgewinne und Dividenden. Das Prinzip ist aber dasselbe: Wenn 1.000 € um 7 % wachsen, hast du 1.070 €. Im nächsten Jahr wachsen dann 1.070 €, nicht mehr 1.000 €.",
+      "Am Anfang wirkt der Effekt unscheinbar. Über viele Jahre wird er jedoch zum wichtigsten Teil deines Vermögens: Irgendwann bringen die Erträge mehr als deine eigenen Einzahlungen."
+     ]
+    },
+    {
+     "h2": "So rechnest du einen Sparplan",
+     "paragraphs": [
+      "Bei einem Sparplan kommt jeden Monat neues Geld dazu. Eine gängige Rechnung: Am Monatsanfang wird die Sparrate eingezahlt, danach wächst das ganze Depot um ein Zwölftel der Jahresrendite. Bei 7 % pro Jahr sind das also rund 0,58 % pro Monat. Das wiederholst du für jeden Monat der Laufzeit.",
+      "Von Hand ist das mühsam, mit einem Zinseszinsrechner geht es in Sekunden. Owlvest rechnet genau so, Monat für Monat, und zeigt dir Einzahlungen und Erträge getrennt als Diagramm und Jahrestabelle."
+     ]
+    },
+    {
+     "h2": "Rechenbeispiel: Wie viel bei 100 € monatlich?",
+     "paragraphs": [
+      "Annahme: Du startest bei null und sparst 100 € im Monat. Gerechnet ist mit einer angenommenen durchschnittlichen Rendite von 5 % bzw. 7 % pro Jahr, monatlich verzinst, ohne Kosten, Steuern und Inflation. Das sind Annahmen, keine Prognosen. Die Werte sind auf ganze Euro gerundet."
+     ],
+     "table": {
+      "head": [
+       "Laufzeit",
+       "Eingezahlt",
+       "Endwert bei 5 %",
+       "Endwert bei 7 %"
+      ],
+      "rows": [
+       [
+        "10 Jahre",
+        "12.000 €",
+        "15.593 €",
+        "17.409 €"
+       ],
+       [
+        "20 Jahre",
+        "24.000 €",
+        "41.275 €",
+        "52.397 €"
+       ],
+       [
+        "30 Jahre",
+        "36.000 €",
+        "83.573 €",
+        "122.709 €"
+       ],
+       [
+        "40 Jahre",
+        "48.000 €",
+        "153.238 €",
+        "264.012 €"
+       ]
+      ]
+     },
+     "list": [
+      "Nach 30 Jahren bei 7 % stammen von 122.709 € nur 36.000 € aus deinen Einzahlungen, rund 86.709 € sind Erträge.",
+      "Zwei Prozentpunkte mehr Rendite machen nach 40 Jahren über 110.000 € Unterschied. Deshalb ist eine realistische Annahme so wichtig."
+     ]
+    },
+    {
+     "h2": "Zeit ist der stärkste Hebel",
+     "paragraphs": [
+      "Vergleiche 20 und 30 Jahre bei 7 %: Mit 100 € im Monat kommst du nach 20 Jahren auf rund 52.397 €, nach 30 Jahren auf rund 122.709 €. Die zusätzlichen zehn Jahre kosten dich 12.000 € Einzahlungen, bringen aber über 70.000 € mehr.",
+      "Wer zehn Jahre später anfängt, müsste für dasselbe Ergebnis nach 20 Jahren deutlich mehr als das Doppelte sparen: 200 € monatlich ergeben bei 7 % nach 20 Jahren rund 104.793 € – immer noch weniger als 100 € über 30 Jahre. Früh anfangen, auch mit kleinen Beträgen, zahlt sich aus."
+     ]
+    },
+    {
+     "h2": "Kosten: die TER frisst mit",
+     "paragraphs": [
+      "Jeder ETF hat laufende Kosten, angegeben als TER (Total Expense Ratio) pro Jahr. Sie werden direkt aus dem Fondsvermögen entnommen und schmälern deine Rendite jedes Jahr. Über Jahrzehnte summiert sich das spürbar, weil auch die Kosten dem Zinseszins unterliegen.",
+      "Gleiches Beispiel, 100 € monatlich über 30 Jahre bei 7 % angenommener Rendite vor Kosten:"
+     ],
+     "table": {
+      "head": [
+       "TER pro Jahr",
+       "Endwert",
+       "Weniger als ohne Kosten"
+      ],
+      "rows": [
+       [
+        "0,2 %",
+        "117.955 €",
+        "4.754 €"
+       ],
+       [
+        "0,5 %",
+        "111.217 €",
+        "11.492 €"
+       ],
+       [
+        "1,5 %",
+        "91.780 €",
+        "30.929 €"
+       ]
+      ]
+     }
+    },
+    {
+     "h2": "Inflation: was dein Geld später wert ist",
+     "paragraphs": [
+      "122.709 € in 30 Jahren sind nicht dasselbe wie 122.709 € heute. Bei einer angenommenen Inflation von 2 % pro Jahr entspricht der Endwert aus dem 7-%-Beispiel nur rund 67.744 € in heutiger Kaufkraft. Bei 5 % Rendite wären es rund 46.138 €.",
+      "Das heißt nicht, dass sich Sparen nicht lohnt – auf dem Girokonto würde die Inflation dein Geld ebenso entwerten. Es hilft aber, Ziele realistisch zu planen. Owlvest zeigt dir dein Ergebnis deshalb auch in heutigem Geld."
+     ]
+    },
+    {
+     "h2": "Warum dein echtes Ergebnis anders aussieht",
+     "paragraphs": [
+      "Ein Rechner mit fester Rendite tut so, als würde dein ETF jedes Jahr gleichmäßig wachsen. In Wirklichkeit schwanken Aktienkurse stark: Auf Jahre mit über 20 % Plus können Jahre mit deutlichen Verlusten folgen. Die 7 % im Beispiel sind ein angenommener Durchschnitt, kein Versprechen.",
+      "Für einen Sparplan spielt auch die Reihenfolge eine Rolle. Ein Crash kurz vor dem Ende trifft ein großes Depot härter als ein Crash in den ersten Jahren, in denen du noch günstig nachkaufst. Deshalb ist es sinnvoll, nicht nur eine Zahl anzuschauen, sondern eine Spanne. Owlvest Pro simuliert dafür viele mögliche Marktverläufe und zeigt ein pessimistisches, ein mittleres und ein optimistisches Ergebnis."
+     ]
+    },
+    {
+     "h2": "Steuern nicht vergessen",
+     "paragraphs": [
+      "Die Beispiele oben sind vor Steuern gerechnet. In Deutschland fallen auf Erträge Abgeltungsteuer und Solidaritätszuschlag an, bei Aktien-ETFs gemindert durch die Teilfreistellung von 30 % und den Sparerpauschbetrag. Bei thesaurierenden ETFs kommt jedes Jahr die Vorabpauschale hinzu. Wie das genau funktioniert, erklären wir im Artikel zur Vorabpauschale."
+     ]
+    },
+    {
+     "h2": "Dein Sparplan in Owlvest",
+     "paragraphs": [
+      "Wenn du deine eigenen Zahlen durchspielen willst, gib in Owlvest Startkapital, Sparrate, Rendite und Laufzeit ein. Du kannst Kosten, Inflation, eine jährliche Erhöhung der Sparrate und Sonderzahlungen berücksichtigen, Szenarien speichern und vergleichen, ausrechnen, wie viel du für ein Ziel sparen musst, und später einen Entnahmeplan erstellen. Alles wird auf deinem Gerät berechnet.",
+      "Hinweis: Dieser Artikel enthält allgemeine Informationen und ist keine Anlage- oder Steuerberatung."
+     ]
+    }
+   ],
+   "faq": [
+    {
+     "q": "Welche Rendite sollte ich für einen ETF-Sparplan annehmen?",
+     "a": "Das kann niemand sicher sagen. Breit gestreute Aktien-ETFs haben über lange Zeiträume in der Vergangenheit oft mehr als 5 % pro Jahr gebracht, aber vergangene Renditen garantieren nichts. Rechne am besten mit mehreren Annahmen, zum Beispiel 5 % und 7 %, und plane mit der vorsichtigeren."
+    },
+    {
+     "q": "Ist ein Zinseszinsrechner für ETFs genau?",
+     "a": "Er zeigt, was bei einer gleichmäßigen Rendite herauskäme. Da Kurse schwanken, wird dein echtes Ergebnis davon abweichen, nach oben wie nach unten. Er ist ein Planungswerkzeug, keine Prognose."
+    },
+    {
+     "q": "Lohnen sich schon 50 oder 100 € im Monat?",
+     "a": "Ja, gerade über lange Zeiträume. Im Beispiel werden aus 100 € monatlich bei angenommenen 7 % nach 30 Jahren rund 122.709 €, wovon 36.000 € eingezahlt sind. Wichtiger als die Höhe ist oft, früh anzufangen und dabeizubleiben."
+    }
+   ]
+  }
+ }
+]

@@ -1,0 +1,462 @@
+{
+ "howlnight": {
+  "en": [
+   {
+    "q": "Does the HowlNight Werewolf game need a game master?",
+    "a": "No. In Werewolf Night the app leads the night: a real narrator voice calls the roles, the werewolves pick their victim on the device, and in the morning the village learns who didn't make it. If you prefer the classic way, one person can lead the night step by step instead."
+   },
+   {
+    "q": "Do you need one phone per player for HowlNight party games?",
+    "a": "No. You play on a single phone that gets passed around the group, with no extra devices. Secret cards stay hidden: you hold a card to peek, and it covers itself again when you let go."
+   },
+   {
+    "q": "Do I need an account to play HowlNight?",
+    "a": "No. There's no account and no sign-up – you add the players once and start playing."
+   },
+   {
+    "q": "Is HowlNight free, and what does HowlNight Pro add?",
+    "a": "You can play all seven games for free with the basic packs. Pro adds every premium pack in every game, your own packs with on-device AI suggestions from Apple Intelligence, extra app icons and no ads. It comes as a monthly or a yearly plan with one week free."
+   },
+   {
+    "q": "Which party games are in HowlNight, and does it work on iPad?",
+    "a": "HowlNight has seven games: Werewolf Night, Impostor, Ticking Bomb, Say It Differently, Who Am I?, Who Would Rather …? and Draw It. It works on iPhone and iPad, with about 1,950 words, questions and categories in English and German."
+   }
+  ],
+  "de": [
+   {
+    "q": "Braucht das Werwolf-Spiel in HowlNight einen Spielleiter?",
+    "a": "Nein. Bei der Werwolfnacht leitet die App die Nacht: Eine echte Erzählerstimme ruft die Rollen auf, die Werwölfe wählen ihr Opfer direkt am Gerät, und am Morgen erfährt das Dorf, wer es nicht geschafft hat. Wenn ihr es lieber klassisch mögt, führt stattdessen eine Person Schritt für Schritt durch die Nacht."
+   },
+   {
+    "q": "Braucht bei HowlNight jeder Spieler ein eigenes Handy?",
+    "a": "Nein. Ihr spielt mit einem einzigen Handy, das in der Runde weitergegeben wird – ganz ohne Extra-Geräte. Geheime Karten bleiben geheim: gedrückt halten zum Ansehen, loslassen, und sie ist wieder verdeckt."
+   },
+   {
+    "q": "Brauche ich für HowlNight ein Konto?",
+    "a": "Nein. Es gibt kein Konto und keine Anmeldung – du trägst die Spieler einmal ein und es geht los."
+   },
+   {
+    "q": "Ist HowlNight kostenlos und was bringt HowlNight Pro?",
+    "a": "Alle sieben Spiele spielst du kostenlos mit den Basis-Paketen. Pro bringt alle Premium-Pakete in allen Spielen, eigene Pakete mit KI-Vorschlägen von Apple Intelligence direkt auf deinem Gerät, zusätzliche App-Icons und keine Werbung. Es gibt Pro als Monatsabo oder Jahresabo mit einer Woche gratis."
+   },
+   {
+    "q": "Welche Partyspiele hat HowlNight und läuft die App auf dem iPad?",
+    "a": "HowlNight hat sieben Spiele: Werwolfnacht, Hochstapler, Tickende Bombe, Sag’s anders, Wer bin ich?, Wer würde eher …? und Zeichne es. Die App läuft auf iPhone und iPad, mit rund 1.950 Begriffen, Fragen und Kategorien auf Deutsch und Englisch."
+   }
+  ]
+ },
+ "cardfox": {
+  "en": [
+   {
+    "q": "Can Cardfox turn a textbook page into flashcards?",
+    "a": "Yes. Scan a vocabulary page, pick a photo or open a PDF, and Cardfox recognizes each word and its translation, even in columns and on tilted photos. You can check, deselect and swap sides before saving."
+   },
+   {
+    "q": "Does the Cardfox flashcard app use spaced repetition?",
+    "a": "Yes. Cardfox schedules every card with FSRS, a modern spaced repetition algorithm that adapts to your memory, so cards you know well come back less often and hard ones sooner. You can also set an exam date so everything sticks by then."
+   },
+   {
+    "q": "Can I import Anki decks or CSV files into Cardfox?",
+    "a": "Cardfox imports and exports CSV files and Anki text files. You can also add your own cards with images and share decks with friends."
+   },
+   {
+    "q": "Is Cardfox free, and what does Cardfox Pro add?",
+    "a": "For free you get three scans to start, then one a week, and you can try the vocabulary suggestions. Pro adds unlimited scanning and suggestions, AI memory aids and example sentences, statistics, iCloud sync between iPhone and iPad, themes in your favorite color and no ads. It's a monthly subscription, or a yearly one with a 7-day free trial."
+   },
+   {
+    "q": "Does Cardfox work on iPad and Apple Watch?",
+    "a": "Yes. With Pro, your cards sync between iPhone and iPad through iCloud, and the Apple Watch app lets you review a few cards right on your wrist. There are also widgets for the Home Screen and Lock Screen."
+   }
+  ],
+  "de": [
+   {
+    "q": "Kann Cardfox aus einer Schulbuchseite Karteikarten machen?",
+    "a": "Ja. Du scannst eine Vokabelseite, wählst ein Foto aus oder öffnest ein PDF, und Cardfox erkennt Wort und Übersetzung – auch in Spalten und auf schiefen Fotos. Vor dem Speichern kannst du alles prüfen, abwählen und die Seiten tauschen."
+   },
+   {
+    "q": "Nutzt die Vokabel-App Cardfox verteilte Wiederholung?",
+    "a": "Ja. Cardfox plant jede Karte mit FSRS, einem modernen Algorithmus für verteilte Wiederholung, der sich an dein Gedächtnis anpasst: Was du gut kannst, kommt seltener, was schwerfällt, öfter. Mit einem Prüfungsdatum sorgt Cardfox dafür, dass bis dahin alles sitzt."
+   },
+   {
+    "q": "Kann ich Anki-Stapel oder CSV-Dateien in Cardfox importieren?",
+    "a": "Cardfox importiert und exportiert CSV-Dateien und Anki-Textdateien. Du kannst außerdem eigene Karten mit Bild anlegen und Stapel mit Freunden teilen."
+   },
+   {
+    "q": "Ist Cardfox kostenlos und was bringt Cardfox Pro?",
+    "a": "Kostenlos bekommst du drei Scans zum Start und danach einen pro Woche, und du kannst die Vokabel-Vorschläge ausprobieren. Pro bringt unbegrenztes Scannen und unbegrenzte Vorschläge, KI-Eselsbrücken und Beispielsätze, Statistiken, iCloud-Sync zwischen iPhone und iPad, Designs in deiner Lieblingsfarbe und keine Werbung. Es gibt Pro als Monatsabo oder Jahresabo mit 7 Tagen gratis."
+   },
+   {
+    "q": "Funktioniert Cardfox auf dem iPad und der Apple Watch?",
+    "a": "Ja. Mit Pro synchronisieren sich deine Karten per iCloud zwischen iPhone und iPad, und mit der Apple-Watch-App lernst du zwischendurch ein paar Karten direkt am Handgelenk. Dazu gibt es Widgets für Home- und Sperrbildschirm."
+   }
+  ]
+ },
+ "code-editor": {
+  "en": [
+   {
+    "q": "Does Code Editor need an account or an internet connection?",
+    "a": "No. Code Editor opens in an instant, with no account and no internet needed. JavaScript runs right on your device."
+   },
+   {
+    "q": "Can I run Python offline in Code Editor on iPhone?",
+    "a": "Yes, with Code Editor Pro: Python 3 with its standard library runs offline, with print(), input() and error messages in the console. JavaScript runs on your device without Pro."
+   },
+   {
+    "q": "Does Code Editor have a live HTML preview?",
+    "a": "Yes. Your HTML page shows up as you type – below the code on iPhone, next to it on iPad and Mac – and CSS, JavaScript and images from the project load along like on a real web server. A built-in console shows console.log, warnings and errors with their line number."
+   },
+   {
+    "q": "How does the AI assistant in Code Editor work?",
+    "a": "The AI assistant is part of Pro and works with Claude, ChatGPT or Gemini using your own API key from Anthropic, OpenAI or Google. It reads your project's files and proposes changes, which you see highlighted and decide whether to apply. Requests are billed by the provider through your own key."
+   },
+   {
+    "q": "Does Code Editor work on iPad and Mac?",
+    "a": "Yes. Code Editor runs on iPhone, iPad and Mac, and on the Mac it has a menu bar, multiple windows and keyboard shortcuts. One subscription works on all your devices, and Pro adds iCloud sync between them."
+   }
+  ],
+  "de": [
+   {
+    "q": "Braucht Code Editor ein Konto oder Internet?",
+    "a": "Nein. Code Editor öffnet in einem Augenblick, ohne Konto und ohne Internet. JavaScript läuft direkt auf deinem Gerät."
+   },
+   {
+    "q": "Kann ich mit Code Editor Python offline auf dem iPhone ausführen?",
+    "a": "Ja, mit Code Editor Pro: Python 3 mit Standardbibliothek läuft offline, mit print(), input() und Fehlermeldungen in der Konsole. JavaScript läuft auch ohne Pro direkt auf deinem Gerät."
+   },
+   {
+    "q": "Hat Code Editor eine Live-Vorschau für HTML?",
+    "a": "Ja. Deine HTML-Seite erscheint schon beim Tippen – auf dem iPhone unter dem Code, auf iPad und Mac daneben –, und CSS, JavaScript und Bilder aus dem Projekt werden wie auf einem echten Webserver mitgeladen. Die eingebaute Konsole zeigt console.log, Warnungen und Fehler mit Zeilennummer."
+   },
+   {
+    "q": "Wie funktioniert der KI-Assistent in Code Editor?",
+    "a": "Der KI-Assistent gehört zu Pro und arbeitet mit Claude, ChatGPT oder Gemini über deinen eigenen API-Schlüssel von Anthropic, OpenAI oder Google. Er liest die Dateien deines Projekts und schlägt Änderungen vor, die du farbig markiert siehst und selbst übernimmst oder verwirfst. Die Anfragen rechnet der jeweilige Anbieter über deinen Schlüssel ab."
+   },
+   {
+    "q": "Läuft Code Editor auf iPad und Mac?",
+    "a": "Ja. Code Editor läuft auf iPhone, iPad und Mac, auf dem Mac mit Menüleiste, mehreren Fenstern und Tastaturkurzbefehlen. Ein Abo gilt auf allen deinen Geräten, und mit Pro synchronisierst du per iCloud."
+   }
+  ]
+ },
+ "python-editor": {
+  "en": [
+   {
+    "q": "Can I run Python on iPhone without internet?",
+    "a": "Yes. Python 3 runs right in Python Editor, also offline, with numpy and matplotlib built in. Other packages like pandas, scipy or sympy download the first time you import them."
+   },
+   {
+    "q": "Is Python Editor free, and what does Pro add?",
+    "a": "Running Python, packages, notebooks, examples and everything for learning are free. Pro adds an AI assistant with Claude, ChatGPT or Gemini (using your own API key), no ads, iCloud sync, ZIP import and export, eight designs, widgets, version history and an app lock with Face ID, as a monthly or yearly subscription."
+   },
+   {
+    "q": "Does Python Editor support Jupyter notebooks?",
+    "a": "Yes. You can open and write .ipynb files with code cells you run one at a time, with text and output in between. The cells share their variables, just like in Jupyter."
+   },
+   {
+    "q": "Does Python Editor support turtle graphics for school?",
+    "a": "Yes. The turtle module draws stars, spirals and houses just like in computer science class, and matplotlib charts show up right in the console. There are also 20 examples to start from, each becoming a file you can run and change."
+   },
+   {
+    "q": "Do I need an account for Python Editor, and does it work on iPad and Mac?",
+    "a": "No account is needed. Python Editor runs on iPhone, iPad and Mac, and on the Mac it has a menu bar, multiple windows and keyboard shortcuts."
+   }
+  ],
+  "de": [
+   {
+    "q": "Kann ich Python auf dem iPhone ohne Internet ausführen?",
+    "a": "Ja. Python 3 läuft direkt in Python Editor, auch offline, und numpy und matplotlib sind schon dabei. Weitere Pakete wie pandas, scipy oder sympy lädt die App beim ersten import."
+   },
+   {
+    "q": "Ist Python Editor kostenlos und was bringt Pro?",
+    "a": "Python, Pakete, Notebooks, Beispiele und alles zum Lernen sind kostenlos. Pro bringt einen KI-Assistenten mit Claude, ChatGPT oder Gemini (über deinen eigenen API-Schlüssel), keine Werbung, iCloud-Sync, ZIP-Import und -Export, acht Designs, Widgets, Versionsverlauf und eine App-Sperre mit Face ID – als Monats- oder Jahresabo."
+   },
+   {
+    "q": "Unterstützt Python Editor Jupyter-Notebooks?",
+    "a": "Ja. Du öffnest und schreibst .ipynb-Dateien mit Code-Zellen, die du einzeln ausführst, mit Text und Ausgaben dazwischen. Die Zellen teilen ihre Variablen – wie in Jupyter."
+   },
+   {
+    "q": "Kann Python Editor Turtle-Grafik wie im Informatikunterricht?",
+    "a": "Ja. Mit dem turtle-Modul zeichnet die Schildkröte Sterne, Spiralen und Häuser, und Diagramme aus matplotlib erscheinen direkt in der Konsole. Dazu gibt es 20 Beispiele zum Start, die jeweils eine eigene Datei zum Ausführen und Verändern werden."
+   },
+   {
+    "q": "Brauche ich für Python Editor ein Konto und läuft er auf iPad und Mac?",
+    "a": "Ein Konto brauchst du nicht. Python Editor läuft auf iPhone, iPad und Mac, auf dem Mac mit Menüleiste, mehreren Fenstern und Tastaturkurzbefehlen."
+   }
+  ]
+ },
+ "latex-editor": {
+  "en": [
+   {
+    "q": "Does the Texlet LaTeX editor work offline?",
+    "a": "Yes. Texlet needs no account, no setup and no internet, and the live preview typesets your formulas even offline."
+   },
+   {
+    "q": "Can I write whole LaTeX documents in Texlet, or only formulas?",
+    "a": "Both. You can put formulas in text with $…$ or write a whole document with \\section, lists, tables and numbered equations, and your own \\newcommand macros work too. Chemistry formulas with \\ce are typeset as well."
+   },
+   {
+    "q": "Can Texlet export LaTeX formulas as PDF or PNG?",
+    "a": "Yes, with Texlet Pro: you can export as PDF (vector) and PNG, and copy a formula as a sharp image for Keynote, Pages, Notes and more. Copying the LaTeX code itself takes one tap."
+   },
+   {
+    "q": "Is Texlet free, and what does Texlet Pro add?",
+    "a": "Writing with the live preview, the building blocks above the keyboard and your .tex files work without a subscription. Pro adds no ads, image copy, PDF and PNG export, iCloud sync between iPhone and iPad, eight designs, widgets, version history, and an app lock and private folder with Face ID, as a monthly or yearly subscription."
+   },
+   {
+    "q": "Does Texlet work on iPad?",
+    "a": "Yes. On iPad the live preview sits right next to your formula, and on iPhone Duo, half open, the result shows on the other half. With Pro, your formulas sync between iPhone and iPad through iCloud."
+   }
+  ],
+  "de": [
+   {
+    "q": "Funktioniert der LaTeX-Editor Texlet offline?",
+    "a": "Ja. Texlet braucht kein Konto, keine Einrichtung und kein Internet, und die Live-Vorschau setzt deine Formeln auch offline."
+   },
+   {
+    "q": "Kann ich in Texlet ganze LaTeX-Dokumente schreiben oder nur Formeln?",
+    "a": "Beides. Du kannst mit $…$ Formeln in Text setzen oder gleich ein ganzes Dokument mit \\section, Listen, Tabellen und nummerierten Gleichungen schreiben, und eigene Befehle mit \\newcommand funktionieren auch. Chemie-Formeln mit \\ce werden ebenfalls gesetzt."
+   },
+   {
+    "q": "Kann Texlet LaTeX-Formeln als PDF oder PNG exportieren?",
+    "a": "Ja, mit Texlet Pro: Export als PDF (als Vektor) und PNG, und du kannst eine Formel als scharfes Bild für Keynote, Pages, Notizen und mehr kopieren. Den LaTeX-Code selbst kopierst du mit einem Tipp."
+   },
+   {
+    "q": "Ist Texlet kostenlos und was bringt Texlet Pro?",
+    "a": "Schreiben mit Live-Vorschau, die Bausteine über der Tastatur und deine .tex-Dateien funktionieren ohne Abo. Pro bringt keine Werbung, Formel als Bild kopieren, Export als PDF und PNG, iCloud-Sync zwischen iPhone und iPad, acht Designs, Widgets, Versionsverlauf sowie App-Sperre und privaten Ordner mit Face ID – als Monats- oder Jahresabo."
+   },
+   {
+    "q": "Läuft Texlet auf dem iPad?",
+    "a": "Ja. Auf dem iPad steht die Live-Vorschau direkt neben deiner Formel, und auf dem iPhone Duo siehst du halb aufgeklappt das Ergebnis auf der anderen Hälfte. Mit Pro synchronisieren sich deine Formeln per iCloud zwischen iPhone und iPad."
+   }
+  ]
+ },
+ "markdown-editor": {
+  "en": [
+   {
+    "q": "Do I need an account for Markdown Editor?",
+    "a": "No. Markdown Editor opens in an instant, with no account and no setup."
+   },
+   {
+    "q": "Where does Markdown Editor save my .md files?",
+    "a": "Your documents are plain .md files in the Files app under “On My iPhone › Markdown Editor”. You can also open Markdown and text files from iCloud Drive or other apps and edit them right where they are."
+   },
+   {
+    "q": "Does Markdown Editor have a live preview on iPad?",
+    "a": "Yes. On iPad you see your text and the live preview side by side, with tables, checklists, nested lists, code blocks and images. Documents can also open straight in the preview if you mainly want to read."
+   },
+   {
+    "q": "Can Markdown Editor export to PDF and HTML?",
+    "a": "Yes, with Markdown Editor Pro you can export your documents to PDF and HTML, beautifully formatted. Printing is available too."
+   },
+   {
+    "q": "Is Markdown Editor free, and what does Pro add?",
+    "a": "Writing, the formatting bar, the preview, folders and search work without a subscription. Pro adds no ads, iCloud sync between iPhone and iPad, PDF and HTML export, eight designs, widgets, version history, and an app lock and private folder with Face ID, as a monthly or yearly subscription."
+   }
+  ],
+  "de": [
+   {
+    "q": "Brauche ich für Markdown Editor ein Konto?",
+    "a": "Nein. Markdown Editor öffnet in einem Augenblick – ohne Konto und ohne Einrichtung."
+   },
+   {
+    "q": "Wo speichert Markdown Editor meine .md-Dateien?",
+    "a": "Deine Dokumente sind normale .md-Dateien in der Dateien-App unter „Auf meinem iPhone › Markdown Editor“. Du kannst auch Markdown- und Textdateien aus iCloud Drive oder anderen Apps öffnen und direkt dort bearbeiten, wo sie liegen."
+   },
+   {
+    "q": "Hat Markdown Editor eine Live-Vorschau auf dem iPad?",
+    "a": "Ja. Auf dem iPad siehst du Text und Vorschau live nebeneinander, mit Tabellen, Checklisten, verschachtelten Listen, Code-Blöcken und Bildern. Auf Wunsch öffnen sich Dokumente direkt in der Vorschau, ideal zum Lesen."
+   },
+   {
+    "q": "Kann Markdown Editor als PDF und HTML exportieren?",
+    "a": "Ja, mit Markdown Editor Pro exportierst du deine Dokumente schön formatiert als PDF und HTML. Drucken kannst du auch."
+   },
+   {
+    "q": "Ist Markdown Editor kostenlos und was bringt Pro?",
+    "a": "Schreiben, Formatierungsleiste, Vorschau, Ordner und Suche funktionieren ohne Abo. Pro bringt keine Werbung, iCloud-Sync zwischen iPhone und iPad, Export als PDF und HTML, acht Designs, Widgets, Versionsverlauf sowie App-Sperre und privaten Ordner mit Face ID – als Monats- oder Jahresabo."
+   }
+  ]
+ },
+ "txt-editor": {
+  "en": [
+   {
+    "q": "Do I need an account for the txt Editor notepad app?",
+    "a": "No. txt Editor opens in an instant and gives you a blank page, with no account and no setup. Everything saves automatically as you write."
+   },
+   {
+    "q": "Where does txt Editor save my notes?",
+    "a": "Your notes are plain .txt files in the Files app under “On My iPhone › txt Editor”, so nothing is locked in. You can share them to any app."
+   },
+   {
+    "q": "Which file types can txt Editor open?",
+    "a": "You can open text files from iCloud Drive or other apps and edit them right where they are – .txt, .md, .csv, .json, .xml, .log and more."
+   },
+   {
+    "q": "Does txt Editor sync notes between iPhone and iPad?",
+    "a": "Yes, with txt Editor Pro: through iCloud sync, changes show up on iPhone and iPad within seconds."
+   },
+   {
+    "q": "Is txt Editor free, and what does Pro add?",
+    "a": "Writing, folders, search, find and replace and the word and character count work without a subscription. Pro adds no ads, iCloud sync, Markdown with a preview, eight designs, widgets, version history, and an app lock and private folder with Face ID, as a monthly or yearly subscription."
+   }
+  ],
+  "de": [
+   {
+    "q": "Brauche ich für den Notizblock txt Editor ein Konto?",
+    "a": "Nein. txt Editor öffnet in einem Augenblick und zeigt dir eine leere Seite – ohne Konto und ohne Einrichtung. Alles wird automatisch gespeichert, während du schreibst."
+   },
+   {
+    "q": "Wo speichert txt Editor meine Notizen?",
+    "a": "Deine Notizen sind normale .txt-Dateien in der Dateien-App unter „Auf meinem iPhone › txt Editor“, nichts ist eingesperrt. Teilen kannst du sie mit jeder App."
+   },
+   {
+    "q": "Welche Dateien kann txt Editor öffnen?",
+    "a": "Du kannst Textdateien aus iCloud Drive oder anderen Apps öffnen und direkt dort bearbeiten, wo sie liegen – .txt, .md, .csv, .json, .xml, .log und mehr."
+   },
+   {
+    "q": "Synchronisiert txt Editor Notizen zwischen iPhone und iPad?",
+    "a": "Ja, mit txt Editor Pro: Per iCloud-Sync erscheinen Änderungen in Sekunden auf iPhone und iPad."
+   },
+   {
+    "q": "Ist txt Editor kostenlos und was bringt Pro?",
+    "a": "Schreiben, Ordner, Suche, Suchen und Ersetzen sowie der Wort- und Zeichenzähler funktionieren ohne Abo. Pro bringt keine Werbung, iCloud-Sync, Markdown mit Vorschau, acht Designs, Widgets, Versionsverlauf sowie App-Sperre und privaten Ordner mit Face ID – als Monats- oder Jahresabo."
+   }
+  ]
+ },
+ "adnumbers": {
+  "en": [
+   {
+    "q": "Does AdNumbers show both AdMob and AdSense earnings?",
+    "a": "Yes. AdNumbers shows your Google AdMob and Google AdSense earnings separately or combined, with comparisons to the previous period, a forecast for the current month and a monthly goal."
+   },
+   {
+    "q": "Is my AdMob data private in AdNumbers?",
+    "a": "AdNumbers only requests read-only access to your reports, and your data goes straight from Google to your device without a server of its own. Your earnings and reports are never shared, not even for advertising."
+   },
+   {
+    "q": "Can I try AdNumbers without an AdMob or AdSense account?",
+    "a": "Yes. Tap “Try the Demo” on the start screen to look around without an account."
+   },
+   {
+    "q": "Is AdNumbers free, and what does AdNumbers Pro add?",
+    "a": "The overview, countries, formats, platforms, Siri and notifications are free, plus the top entry of your apps and ad units. Pro adds every app and ad unit, AI analysis, statistics, widgets, the Apple Watch app, custom periods, CSV export and background colors, and removes all ads. It's monthly or yearly, and you can cancel anytime."
+   },
+   {
+    "q": "Does AdNumbers work on iPad, Mac and Apple Watch?",
+    "a": "Yes. AdNumbers is made for iPhone, iPad, Mac and Apple Watch, with a sidebar, multiple columns and keyboard shortcuts on iPad and Mac. The Apple Watch app with complications is part of Pro."
+   }
+  ],
+  "de": [
+   {
+    "q": "Zeigt AdNumbers Einnahmen aus AdMob und AdSense an?",
+    "a": "Ja. AdNumbers zeigt deine Einnahmen aus Google AdMob und Google AdSense getrennt oder zusammen – mit Vergleich zur Vorperiode, Prognose für den laufenden Monat und Monatsziel."
+   },
+   {
+    "q": "Sind meine AdMob-Daten in AdNumbers privat?",
+    "a": "AdNumbers fordert nur Lesezugriff auf deine Berichte an, und deine Daten gehen ohne eigenen Server direkt von Google auf dein Gerät. Deine Einnahmen und Berichte werden nie weitergegeben, auch nicht für Werbung."
+   },
+   {
+    "q": "Kann ich AdNumbers ohne AdMob- oder AdSense-Konto ausprobieren?",
+    "a": "Ja. Tippe auf dem Startbildschirm auf „Demo ansehen“, dann kannst du dich ohne Konto umsehen."
+   },
+   {
+    "q": "Ist AdNumbers kostenlos und was bringt AdNumbers Pro?",
+    "a": "Die Übersicht, Länder, Formate, Plattformen, Siri und Mitteilungen sind kostenlos, bei Apps und Anzeigenblöcken jeweils der stärkste Eintrag. Pro bringt alle Apps und Anzeigenblöcke, KI-Analyse, Statistiken, Widgets, die Apple-Watch-App, eigene Zeiträume, CSV-Export und Hintergrundfarben – und keine Werbung. Monatlich oder jährlich, jederzeit kündbar."
+   },
+   {
+    "q": "Läuft AdNumbers auf iPad, Mac und Apple Watch?",
+    "a": "Ja. AdNumbers ist für iPhone, iPad, Mac und Apple Watch gemacht, auf iPad und Mac mit Seitenleiste, mehreren Spalten und Tastenkürzeln. Die Apple-Watch-App mit Komplikationen gehört zu Pro."
+   }
+  ]
+ },
+ "connect-insights": {
+  "en": [
+   {
+    "q": "How does Connect Insights get my App Store Connect data?",
+    "a": "Connect Insights uses your own API key for the App Store Connect API. The key stays in your device's keychain, and your data goes straight from Apple to your device without a server of its own."
+   },
+   {
+    "q": "Can Connect Insights change anything in App Store Connect?",
+    "a": "Only what you trigger yourself: requesting the analytics reports once and replying to reviews. Otherwise the app doesn't change anything in App Store Connect."
+   },
+   {
+    "q": "Can I try Connect Insights without an API key?",
+    "a": "Yes. Tap “Explore the Demo First” at launch to try it without an account."
+   },
+   {
+    "q": "Is Connect Insights free, and what does Pro add?",
+    "a": "The overview, apps, countries, subscriptions and app status are free, plus ASO for your most important app and the 7- and 30-day periods. Pro adds live subscriptions, App Store analytics, widgets and Apple Watch, notifications, goals, payouts, review replies, ASO for every app, listing suggestions, longer periods and CSV export, without ads. It's monthly or yearly, each with a free one-week trial."
+   },
+   {
+    "q": "Does Connect Insights show new subscriptions in real time?",
+    "a": "With Pro, new subscriptions, trials, renewals and cancellations show up within minutes instead of a day later. Connect Insights runs on iPhone, iPad, Mac and Apple Watch, and Pro also sends notifications for new subscriptions."
+   }
+  ],
+  "de": [
+   {
+    "q": "Wie bekommt Connect Insights meine Daten aus App Store Connect?",
+    "a": "Connect Insights nutzt deinen eigenen API-Schlüssel für die App Store Connect API. Er bleibt im Schlüsselbund deines Geräts, und deine Daten gehen ohne eigenen Server direkt von Apple auf dein Gerät."
+   },
+   {
+    "q": "Kann Connect Insights etwas in App Store Connect ändern?",
+    "a": "Nur das, was du selbst auslöst: das einmalige Anfordern der Analyseberichte und Antworten auf Bewertungen. Sonst ändert die App nichts in App Store Connect."
+   },
+   {
+    "q": "Kann ich Connect Insights ohne API-Schlüssel ausprobieren?",
+    "a": "Ja. Tippe beim Start auf „Erst die Demo ansehen“, dann probierst du die App ohne Konto aus."
+   },
+   {
+    "q": "Ist Connect Insights kostenlos und was bringt Pro?",
+    "a": "Übersicht, Apps, Länder, Abos und App-Status sind kostenlos, dazu ASO für deine wichtigste App und die Zeiträume 7 und 30 Tage. Pro bringt Live-Abos, App-Store-Analysen, Widgets und Apple Watch, Mitteilungen, Ziele, Auszahlungen, Antworten auf Bewertungen, ASO für alle Apps, Eintrags-Vorschläge, längere Zeiträume und CSV-Export – ohne Werbung. Monatlich oder jährlich, jeweils mit einer kostenlosen Testwoche."
+   },
+   {
+    "q": "Zeigt Connect Insights neue Abos in Echtzeit?",
+    "a": "Mit Pro erscheinen neue Abos, Probeabos, Verlängerungen und Kündigungen innerhalb von Minuten – nicht erst einen Tag später. Connect Insights läuft auf iPhone, iPad, Mac und Apple Watch, und mit Pro bekommst du auch Mitteilungen zu neuen Abos."
+   }
+  ]
+ },
+ "etf-calculator": {
+  "en": [
+   {
+    "q": "Does the Owlvest ETF calculator consider German taxes?",
+    "a": "Yes, with Owlvest Premium. It covers taxes for Germany, including the Vorabpauschale with the official base rate, as well as the US (taxable, Roth, Traditional) and other countries."
+   },
+   {
+    "q": "Can Owlvest import my portfolio from my broker?",
+    "a": "Yes. Share your broker's CSV export with the app to import your positions, then see your real cost basis, gain so far, dividends and allocation. You can also compare your portfolio with your savings plan."
+   },
+   {
+    "q": "Do I need an account for the Owlvest ETF savings plan calculator?",
+    "a": "No. No account is needed, and the calculations run on your device. With iCloud sync, your data stays in step between iPhone and iPad."
+   },
+   {
+    "q": "Is Owlvest free, and what does Owlvest Premium add?",
+    "a": "A monthly or yearly subscription removes all ads and unlocks taxes, a payout plan and forecast for your real portfolio, market fluctuations from 500 simulations, positions with cost basis, cost check, target allocation and rebalancing, plus unlimited scenarios, CSV export, color themes and widgets. You can try it free for 3 days."
+   },
+   {
+    "q": "Is the Owlvest ETF calculator investment advice?",
+    "a": "No. Owlvest is a simplified model based on constant returns and is not investment or tax advice. Past performance is no guarantee of future results."
+   }
+  ],
+  "de": [
+   {
+    "q": "Berücksichtigt der ETF-Rechner Owlvest deutsche Steuern?",
+    "a": "Ja, mit Owlvest Premium. Es rechnet Steuern für Deutschland inklusive Vorabpauschale mit dem amtlichen Basiszins, außerdem für die USA und weitere Länder."
+   },
+   {
+    "q": "Kann Owlvest mein Depot vom Broker importieren?",
+    "a": "Ja. Teile den CSV-Export deines Brokers mit der App, dann siehst du echten Einstandswert, Gewinn bisher, Dividenden und deine Aufteilung. Außerdem kannst du dein Depot mit deinem Sparplan vergleichen."
+   },
+   {
+    "q": "Brauche ich für den ETF-Sparplan-Rechner Owlvest ein Konto?",
+    "a": "Nein. Du brauchst kein Konto, und alles wird auf deinem Gerät berechnet. Per iCloud-Sync bleiben iPhone und iPad auf dem gleichen Stand."
+   },
+   {
+    "q": "Ist Owlvest kostenlos und was bringt Owlvest Premium?",
+    "a": "Mit dem Monats- oder Jahresabo entfernst du alle Werbung und schaltest Steuern, Entnahmeplan und Prognose für dein echtes Depot, Marktschwankungen aus 500 Simulationen, Positionen mit Einstandswert, Kosten-Check, Ziel-Aufteilung und Rebalancing sowie unbegrenzte Szenarien, CSV-Export, Farbthemen und Widgets frei. Du kannst Premium 3 Tage kostenlos testen."
+   },
+   {
+    "q": "Ist der ETF-Rechner Owlvest eine Anlageberatung?",
+    "a": "Nein. Owlvest ist ein vereinfachtes Modell mit konstanter Rendite und keine Anlage- oder Steuerberatung. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für künftige Ergebnisse."
+   }
+  ]
+ }
+}

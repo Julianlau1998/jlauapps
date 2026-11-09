@@ -29,11 +29,21 @@ ICONS = "/tmp/site-icons"  # 1024 px icons, collected beforehand (App Store artw
 LANGS = ("en", "de")
 SHOTS_PER_APP = 6
 CONTACT_EMAIL = "jlauapps@gmail.com"
+DEVELOPER_URL = "https://apps.apple.com/developer/julian-lau/id1603050262"
+SAME_AS = [DEVELOPER_URL, "https://github.com/Julianlau1998", "https://yarnspace.app/"]
+GUIDES_PUBLISHED = "2026-11-09"
+
+# FAQ per app and the guide articles, written from the store texts and the apps' code.
+CONTENT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "content")
+with open(os.path.join(CONTENT, "faq.json")) as f:
+    FAQ = json.load(f)
+with open(os.path.join(CONTENT, "guides.json")) as f:
+    GUIDES = json.load(f)
 
 UI = {
     "en": dict(
         site_title="JL Apps – Apps for iPhone, iPad & Mac by Julian Lau",
-        site_description="Apps for iPhone, iPad and Mac by Julian Lau: HowlNight party games, Cardfox vocabulary flashcards, Code Editor, Python Editor, Texlet LaTeX editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights and ETF Calculator.",
+        site_description="Apps for iPhone, iPad and Mac by Julian Lau: HowlNight party games, Cardfox vocabulary flashcards, Code Editor, Python Editor, Texlet LaTeX editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights and Owlvest.",
         hero_kicker="Independent apps from Germany",
         hero_title="Apps that just work.",
         hero_text="Fast, focused apps for iPhone, iPad and Mac – for playing, learning, writing, coding and your money. No accounts, no clutter.",
@@ -51,10 +61,16 @@ UI = {
         back_home="Back to all apps",
         facts="iPhone, iPad, Mac & Apple Watch",
         free_short="Free", get_app="Get {name}",
+        faq="Frequently asked questions", guides="Guides", guides_path="guides",
+        guides_title="Guides – game rules, ETF taxes and more | JL Apps",
+        guides_description="Guides by JL Apps: Werewolf and Impostor game rules, the German Vorabpauschale explained, ETF savings plans with compound interest.",
+        guides_text="Rules, explanations and worked examples – free to read, with the app that does it for you.",
+        guides_for="Guides for {name}", all_guides="All guides", read_guide="Read guide", more_guides="More guides",
+        guide_app="The app for this", screenshot="screenshot",
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
-        site_description="Apps für iPhone, iPad und Mac von Julian Lau: HowlNight Partyspiele, Cardfox Vokabel-Karteikarten, Code Editor, Python Editor, Texlet LaTeX-Editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights und ETF-Rechner.",
+        site_description="Apps für iPhone, iPad und Mac von Julian Lau: HowlNight Partyspiele, Cardfox Vokabel-Karteikarten, Code Editor, Python Editor, Texlet LaTeX-Editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights und Owlvest.",
         hero_kicker="Unabhängige Apps aus Deutschland",
         hero_title="Apps, die einfach funktionieren.",
         hero_text="Schnelle, durchdachte Apps für iPhone, iPad und Mac – zum Spielen, Lernen, Schreiben, Programmieren und für dein Geld. Ohne Konto, ohne Ballast.",
@@ -72,6 +88,12 @@ UI = {
         back_home="Zu allen Apps",
         facts="iPhone, iPad, Mac & Apple Watch",
         free_short="Gratis", get_app="{name} laden",
+        faq="Häufige Fragen", guides="Ratgeber", guides_path="ratgeber",
+        guides_title="Ratgeber – Spielregeln, ETF-Steuern und mehr | JL Apps",
+        guides_description="Ratgeber von JL Apps: Werwolf- und Hochstapler-Regeln, die Vorabpauschale einfach erklärt, ETF-Sparplan mit Zinseszins berechnen.",
+        guides_text="Regeln, Erklärungen und Rechenbeispiele – kostenlos zum Nachlesen, mit der passenden App dazu.",
+        guides_for="Ratgeber zu {name}", all_guides="Alle Ratgeber", read_guide="Zum Ratgeber", more_guides="Weitere Ratgeber",
+        guide_app="Die passende App", screenshot="Screenshot",
     ),
 }
 
@@ -192,12 +214,16 @@ SHOT_SIZE = 1400
 
 def resize(src, dst, width, fmt="jpeg", quality=82):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
-    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src) and max_side(dst) == min(width, max_side(src)):
+    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src) and max_side(dst) == min(width, max_side(src)) \
+            and (fmt != "jpeg" or os.path.exists(dst[:-4] + ".webp")):
         return
     args = ["sips", "-Z", str(width), src, "--out", dst]
     if fmt == "jpeg":
         args = ["sips", "-s", "format", "jpeg", "-s", "formatOptions", str(quality), "-Z", str(width), src, "--out", dst]
     subprocess.run(args, check=True, capture_output=True)
+    if fmt == "jpeg":
+        # A WebP copy for browsers that take it (about a third smaller).
+        subprocess.run(["cwebp", "-quiet", "-q", "80", dst, "-o", dst[:-4] + ".webp"], check=True, capture_output=True)
 
 
 def app_images(app):
@@ -254,6 +280,41 @@ def e(text):
     return html.escape(text, quote=True)
 
 
+def picture(url, attrs):
+    """An <img> with its WebP twin as <source>, when there is one (CSS treats <picture> as transparent)."""
+    img = f'<img src="{url}" {attrs}>'
+    if url.endswith(".jpg") and os.path.exists(os.path.join(ROOT, url.lstrip("/")[:-4] + ".webp")):
+        return f'<picture><source srcset="{url[:-4]}.webp" type="image/webp">{img}</picture>'
+    return img
+
+
+def faq_ld(items):
+    return {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": x["q"], "acceptedAnswer": {"@type": "Answer", "text": x["a"]}} for x in items]}
+
+
+def faq_section(items, title):
+    if not items:
+        return ""
+    entries = "".join(f'<details><summary>{e(x["q"])}</summary><p>{e(x["a"])}</p></details>' for x in items)
+    return f'<section class="faq"><h2>{e(title)}</h2><div class="faq-list">{entries}</div></section>'
+
+
+def guide_path(lang, slug=""):
+    return path_for(lang, UI[lang]["guides_path"]) + (f"{slug}/" if slug else "")
+
+
+def guide_card(guide, lang, data):
+    g = guide[lang]
+    app = next(a for a in APPS if a["slug"] == guide["app"])
+    return f"""<a class="guide-card" href="{guide_path(lang, guide["slug"][lang])}" style="--accent:{app["accent"]}">
+  <span class="genre"><img src="{data[app["slug"]]["icon"]}" alt="" width="22" height="22" loading="lazy">{e(short_name(data[app["slug"]]["texts"][lang]["name"]))}</span>
+  <h3>{e(g["h1"])}</h3>
+  <p>{e(g["description"])}</p>
+  <span class="more-link">{UI[lang]["read_guide"]} →</span>
+</a>"""
+
+
 def path_for(lang, slug=""):
     base = "/" if lang == "en" else "/de/"
     return base + (f"{slug}/" if slug else "")
@@ -297,6 +358,7 @@ def header(lang, alternate_path):
   <a class="brand" href="{home}" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="{home}#apps">{t["apps"]}</a>
+    <a href="{guide_path(lang)}">{t["guides"]}</a>
     <a href="{home}#contact">{t["contact"]}</a>
     <a class="lang" href="{alternate_path}" hreflang="{other}" lang="{other}">{t["lang_switch"]}</a>
   </nav>
@@ -441,7 +503,7 @@ def home(lang, data, external_icons, external_shots):
               "name": short_name(data[app["slug"]]["texts"][lang]["name"])} for i, app in enumerate(APPS)]
     ld = [
         {"@context": "https://schema.org", "@type": "Person", "name": "Julian Lau", "url": SITE + "/",
-         "email": CONTACT_EMAIL, "address": {"@type": "PostalAddress", "addressCountry": "DE"}},
+         "email": CONTACT_EMAIL, "address": {"@type": "PostalAddress", "addressCountry": "DE"}, "sameAs": SAME_AS},
         {"@context": "https://schema.org", "@type": "ItemList", "name": t["apps"], "itemListElement": items},
     ]
     extra = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
@@ -459,6 +521,8 @@ def home(lang, data, external_icons, external_shots):
     <div class="showcase" aria-hidden="true">{showcase}</div>
   </section>
   <div id="apps" class="apps">{groups}</div>
+  <section class="guides-block home-guides"><h2>{t["guides"]}</h2><div class="guide-grid">{"".join(guide_card(g, lang, data) for g in GUIDES)}</div>
+    <p><a class="text-link" href="{guide_path(lang)}">{t["all_guides"]} →</a></p></section>
   {contact_form(lang)}
 </main>
 {footer(lang)}"""
@@ -518,11 +582,15 @@ def app_page(app, lang, data):
         "operatingSystem": ", ".join({"iPhone": "iOS", "iPad": "iPadOS", "Mac": "macOS", "Apple Watch": "watchOS"}[p] for p in plats),
         "url": f"{SITE}{path_for(lang, app['slug'])}", "downloadUrl": store_url(app, lang),
         "image": f"{SITE}/assets/apps/{app['slug']}/icon-512.png", "screenshot": [f"{SITE}{u}" for u in d["shots"][lang]],
-        "inLanguage": lang, "author": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/"},
+        "inLanguage": lang, "author": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/", "sameAs": SAME_AS},
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR" if lang == "de" else "USD"},
     }
+    faq = FAQ.get(app["slug"], {}).get(lang, [])
     extra = (f'<meta name="apple-itunes-app" content="app-id={app["id"]}">\n'
-             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
+             f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
+             + (f'\n<script type="application/ld+json">{json.dumps(faq_ld(faq), ensure_ascii=False)}</script>' if faq else ""))
+    guides = [g for g in GUIDES if g["app"] == app["slug"]]
+    guide_cards = "".join(guide_card(g, lang, data) for g in guides)
 
     # Tiles read row by row in the store's order (in columns they read top to bottom and looked
     # random; as a plain list without tiles they looked bare); tiles with many points are twice
@@ -566,10 +634,11 @@ def app_page(app, lang, data):
     # bottom edge (an even number of them, so no row is half empty); the rest as tiles below.
     showcase = [f for f in features if f["screen"]]
     showcase = showcase[:len(showcase) // 2 * 2]
-    showcase_cards = "".join(
-        f'<article class="feature shot"><h3>{e(f["title"])}</h3><div class="feature-body">{f["body"]}</div>'
-        f'<div class="rise"><div class="device"><img src="{f["screen"]}" alt="{e(f["title"].title())}" loading="lazy" width="700" height="1521"></div></div></article>'
-        for f in showcase)
+    showcase_cards = ""
+    for f in showcase:
+        screen = picture(f["screen"], f'alt="{e(short)} – {e(f["title"].title())}" loading="lazy" width="700" height="1521"')
+        showcase_cards += (f'<article class="feature shot"><h3>{e(f["title"])}</h3><div class="feature-body">{f["body"]}</div>'
+                           f'<div class="rise"><div class="device">{screen}</div></div></article>')
     feature_rows = "".join(
         f'<article class="feature span-{f["span"]}"><h3>{e(f["title"])}</h3><div class="feature-body">{f["body"]}</div></article>'
         for f in pack_features([f for f in features if f not in showcase]))
@@ -579,12 +648,12 @@ def app_page(app, lang, data):
     shots = d["shots"][lang]
     # Not the first one again: it's the big one beside the title.
     gallery = "".join(
-        f'<img src="{u}" alt="{e(short)} {t["screenshots"].lower()} {i}" loading="lazy" width="320" height="695">'
+        picture(u, f'alt="{e(name)} – {t["screenshot"]} {i}" loading="lazy" width="320" height="695"')
         for i, u in enumerate(shots[1:], start=2))
     # The first screenshot big in the hero, the next two fanned out behind it.
-    hero_shots = "".join(f'<img class="{c}" src="{shots[i]}" alt="{e(short)}" width="320" height="695">'
+    hero_shots = "".join(picture(shots[i], f'class="{c}" alt="{e(name)} – {t["screenshot"]} {i + 1}" width="320" height="695"')
                          for c, i in (("left", 1), ("middle", 0), ("right", 2))) if len(shots) >= 3 else (
-        f'<img src="{shots[0]}" alt="{e(short)}" width="320" height="695">' if shots else "")
+        picture(shots[0], f'alt="{e(name)}" width="320" height="695"') if shots else "")
     chips = "".join(f'<span class="chip">{e(p)}</span>' for p in plats) + f'<span class="chip">{t["free_short"]}</span>'
     others = "".join(app_card(a, lang, data[a["slug"]]) for a in APPS if a["slug"] != app["slug"])
 
@@ -618,6 +687,9 @@ def app_page(app, lang, data):
     {pro_card}
   </section>
 
+  {faq_section(faq, t["faq"])}
+  {f'<section class="guides-block"><h2>{e(t["guides_for"].format(name=short))}</h2><div class="guide-grid">{guide_cards}</div></section>' if guide_cards else ""}
+
   <section class="cta">
     <img src="{d["icon"]}" alt="" width="72" height="72" loading="lazy">
     <h2>{e(t["get_app"].format(name=short))}</h2>
@@ -639,6 +711,92 @@ def store_badge(lang, label):
     """Apple's official "Download on the App Store" badge in the page's language (same artwork as yarnspace.app)."""
     file = "badge-de-de.svg" if lang == "de" else "badge-en-us.svg"
     return f'<img src="/assets/badges/{file}" width="162" height="54" alt="{label}">'
+
+
+def guide_page(guide, lang, data):
+    t = UI[lang]
+    g = guide[lang]
+    other = "de" if lang == "en" else "en"
+    app = next(a for a in APPS if a["slug"] == guide["app"])
+    d = data[app["slug"]]
+    texts = d["texts"][lang]
+    short = short_name(texts["name"])
+    path = guide_path(lang, guide["slug"][lang])
+    alternates = [("en", guide_path("en", guide["slug"]["en"])), ("de", guide_path("de", guide["slug"]["de"])),
+                  ("x-default", guide_path("en", guide["slug"]["en"]))]
+
+    sections = ""
+    for section in g["sections"]:
+        body = "".join(f"<p>{e(p)}</p>" for p in section.get("paragraphs", []))
+        if section.get("list"):
+            body += "<ul>" + "".join(f"<li>{e(x)}</li>" for x in section["list"]) + "</ul>"
+        if section.get("table"):
+            table = section["table"]
+            body += ('<div class="table-wrap"><table><thead><tr>' + "".join(f"<th>{e(h)}</th>" for h in table["head"])
+                     + "</tr></thead><tbody>" + "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in row) + "</tr>" for row in table["rows"])
+                     + "</tbody></table></div>")
+        sections += f'<section><h2>{e(section["h2"])}</h2>{body}</section>'
+    intro = "".join(f"<p>{e(p)}</p>" for p in g["intro"].split("\n\n") if p.strip())
+    others = "".join(guide_card(x, lang, data) for x in GUIDES if x is not guide)
+
+    ld = [
+        {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["description"],
+         "inLanguage": lang, "datePublished": GUIDES_PUBLISHED, "dateModified": GUIDES_PUBLISHED,
+         "mainEntityOfPage": f"{SITE}{path}", "image": f"{SITE}/assets/apps/{app['slug']}/icon-512.png",
+         "author": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/", "sameAs": SAME_AS},
+         "publisher": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/"},
+         "about": {"@type": "SoftwareApplication", "name": short, "url": f"{SITE}{path_for(lang, app['slug'])}"}},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "JL Apps", "item": f"{SITE}{path_for(lang)}"},
+            {"@type": "ListItem", "position": 2, "name": t["guides"], "item": f"{SITE}{guide_path(lang)}"},
+            {"@type": "ListItem", "position": 3, "name": g["h1"], "item": f"{SITE}{path}"}]},
+    ]
+    if g.get("faq"):
+        ld.append(faq_ld(g["faq"]))
+    extra = (f'<meta name="apple-itunes-app" content="app-id={app["id"]}">\n'
+             + "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld))
+
+    body = f"""{header(lang, alternates[1 if lang == "en" else 0][1])}
+<main class="guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="{path_for(lang)}">JL Apps</a> › <a href="{guide_path(lang)}">{t["guides"]}</a></nav>
+  <article>
+    <p class="kicker">{e(t["guides_for"].format(name=short))}</p>
+    <h1>{e(g["h1"])}</h1>
+    <div class="guide-intro">{intro}</div>
+    {sections}
+    {faq_section(g.get("faq", []), t["faq"])}
+  </article>
+  <aside class="guide-app">
+    <img src="{d["icon"]}" alt="{e(short)} app icon" width="72" height="72" loading="lazy">
+    <div>
+      <p class="kicker">{t["guide_app"]}</p>
+      <h2><a href="{path_for(lang, app["slug"])}">{e(texts["name"])}</a></h2>
+      <p>{e(texts["promo"] or texts["subtitle"])}</p>
+      <a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>
+      <a class="text-link" href="{path_for(lang, app["slug"])}">{t["learn_more"]} →</a>
+    </div>
+  </aside>
+  <section class="guides-block"><h2>{t["more_guides"]}</h2><div class="guide-grid">{others}</div></section>
+</main>
+{footer(lang)}"""
+    write(path, page(lang, head(lang, g["title"], g["description"], path, alternates, extra=extra,
+                                image=f"/assets/apps/{app['slug']}/icon-512.png"),
+                     body, accent=app["accent"], body_class="guide-page"))
+
+
+def guides_index(lang, data):
+    t = UI[lang]
+    other = "de" if lang == "en" else "en"
+    path = guide_path(lang)
+    alternates = [("en", guide_path("en")), ("de", guide_path("de")), ("x-default", guide_path("en"))]
+    cards = "".join(guide_card(g, lang, data) for g in GUIDES)
+    body = f"""{header(lang, guide_path(other))}
+<main>
+  <section class="legal guides-head"><h1>{t["guides"]}</h1><p class="lead">{t["guides_text"]}</p></section>
+  <section class="guides-block"><div class="guide-grid">{cards}</div></section>
+</main>
+{footer(lang)}"""
+    write(path, page(lang, head(lang, t["guides_title"], t["guides_description"], path, alternates), body, body_class="guides-index"))
 
 
 def imprint(lang):
@@ -680,12 +838,14 @@ def not_found(data):
 
 def sitemap():
     today = datetime.date.today().isoformat()
-    urls = ["/", "/de/", "/imprint/", "/de/impressum/"]
+    urls = ["/", "/de/", "/imprint/", "/de/impressum/", guide_path("en"), guide_path("de")]
+    for guide in GUIDES:
+        urls += [guide_path("en", guide["slug"]["en"]), guide_path("de", guide["slug"]["de"])]
     for app in APPS:
         urls += [path_for("en", app["slug"]), path_for("de", app["slug"])]
         if os.path.exists(os.path.join(ROOT, app["slug"], "privacy", "index.html")):
             urls.append(f"/{app['slug']}/privacy/")
-    for extra in ("code-editor", "python-editor", "markdown-editor", "latex-editor", "txt-editor"):
+    for extra in ("code-editor", "python-editor", "markdown-editor", "latex-editor", "txt-editor", "netora"):
         p = f"/{extra}/privacy/"
         if p not in urls and os.path.exists(os.path.join(ROOT, extra, "privacy", "index.html")):
             urls.append(p)
@@ -712,9 +872,12 @@ def main():
         for app in APPS:
             app_page(app, lang, data)
         imprint(lang)
+        guides_index(lang, data)
+        for guide in GUIDES:
+            guide_page(guide, lang, data)
     not_found(data)
     sitemap()
-    print("built", len(APPS) * 2 + 4, "pages")
+    print("built", len(APPS) * 2 + 6 + len(GUIDES) * 2, "pages")
 
 
 if __name__ == "__main__":

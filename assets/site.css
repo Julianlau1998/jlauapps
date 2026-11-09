@@ -427,6 +427,80 @@ h1, h2, h3, .lead { text-wrap: balance; }
 .contact .button { justify-self: start; }
 .honey { position: absolute; left: -9999px; }
 
+/* ---------- FAQ and guides ---------- */
+
+picture { display: contents; }
+
+.faq { padding: 40px 0 8px; }
+.faq h2 { margin-bottom: 18px; }
+.faq-list { display: grid; gap: 10px; }
+.faq details {
+  border-radius: 20px; background: var(--glass); border: 1px solid var(--line);
+  transition: border-color .18s ease;
+}
+.faq details[open] { border-color: color-mix(in srgb, var(--accent) 40%, transparent); }
+.faq summary {
+  list-style: none; cursor: pointer; padding: 18px 56px 18px 22px; position: relative;
+  font-weight: 650; color: var(--text);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  font-size: 1.4rem; font-weight: 400; color: color-mix(in srgb, var(--accent) 60%, white); transition: transform .2s;
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq details p { margin: 0; padding: 0 22px 20px; color: var(--muted); }
+
+.guides-block { padding: 40px 0 8px; }
+.guides-block h2 { margin-bottom: 18px; }
+.guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 18px; }
+.guide-card {
+  display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: var(--radius); text-decoration: none;
+  background: radial-gradient(400px 160px at 0% 0%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%), var(--glass);
+  border: 1px solid var(--line); transition: transform .18s ease, border-color .18s ease;
+}
+.guide-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+.guide-card .genre {
+  display: flex; align-items: center; gap: 8px; font-size: 0.8rem; font-weight: 650; letter-spacing: 0.06em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--accent) 60%, white);
+}
+.guide-card .genre img { border-radius: 6px; }
+.guide-card h3 { font-size: 1.1rem; line-height: 1.3; }
+.guide-card p { margin: 0; color: var(--muted); font-size: 0.93rem; }
+.guide-card .more-link { margin-top: auto; padding-top: 6px; font-size: 0.88rem; font-weight: 650; color: color-mix(in srgb, var(--accent) 55%, white); }
+.text-link { color: color-mix(in srgb, var(--accent) 55%, white); font-weight: 650; text-decoration: none; }
+.home-guides > p { margin-top: 16px; }
+
+.guide { max-width: 860px; margin: 0 auto; padding-top: 40px; }
+.crumbs { font-size: 0.9rem; color: var(--faint); margin-bottom: 26px; }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.guide h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.1; margin-bottom: 22px; }
+.guide-intro p { font-size: 1.15rem; color: var(--text); }
+.guide article section { margin-top: 38px; }
+.guide article h2 { font-size: 1.5rem; margin-bottom: 12px; }
+.guide article p, .guide article li { color: var(--muted); }
+.guide article ul { padding-left: 20px; }
+.guide article li { margin: 6px 0; }
+.table-wrap { overflow-x: auto; margin: 18px 0; border-radius: 18px; border: 1px solid var(--line); }
+.guide table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+.guide th, .guide td { text-align: left; padding: 12px 16px; vertical-align: top; border-bottom: 1px solid var(--line); }
+.guide th { color: var(--text); background: var(--glass-strong); font-weight: 700; }
+.guide td { color: var(--muted); }
+.guide td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+.guide tr:last-child td { border-bottom: 0; }
+.guide-app {
+  display: flex; gap: 22px; align-items: flex-start; margin: 48px 0 8px; padding: 28px; border-radius: 28px;
+  background: radial-gradient(500px 220px at 0% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), var(--glass-strong);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.guide-app > img { flex: none; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,.45); }
+.guide-app h2 { font-size: 1.35rem; margin: 2px 0 6px; }
+.guide-app h2 a { color: var(--text); text-decoration: none; }
+.guide-app p:not(.kicker) { color: var(--muted); margin: 0 0 16px; }
+.guide-app .kicker { margin: 0; }
+.guide-app .store-badge { margin-right: 18px; vertical-align: middle; }
+.guides-head { padding-bottom: 8px; }
+
 /* ---------- legal ---------- */
 
 .legal { max-width: 760px; padding: 64px 0; }
@@ -476,6 +550,8 @@ h1, h2, h3, .lead { text-wrap: balance; }
 }
 
 @media (max-width: 560px) {
+  .guide-app { flex-direction: column; padding: 22px; }
+  .guide td:first-child { white-space: normal; }
   body { font-size: 16px; }
   main { padding: 0 18px; }
   .topbar nav a:not(.lang) { display: none; }
