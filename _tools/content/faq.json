@@ -458,5 +458,51 @@
     "a": "Nein. Owlvest ist ein vereinfachtes Modell mit konstanter Rendite und keine Anlage- oder Steuerberatung. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für künftige Ergebnisse."
    }
   ]
+ },
+ "netora": {
+  "en": [
+   {
+    "q": "How accurate is the Netora paycheck calculator?",
+    "a": "Netora uses the official formulas of each country – for example the German Federal Ministry of Finance's wage tax algorithm, IRS and state withholding rules in the US and PAYE with National Insurance in the UK – and calculates to the cent. Results are estimates and can differ from your actual payslip, for example because of company-specific benefits; they are not tax advice."
+   },
+   {
+    "q": "Which countries does Netora support?",
+    "a": "Germany, Austria, Switzerland, the United States (all 50 states and DC), the United Kingdom, Canada, Australia, Ireland, the Netherlands, Spain and France. New annual tax values are delivered automatically, without an app update."
+   },
+   {
+    "q": "Can I calculate the gross salary I need for a certain net pay?",
+    "a": "Yes. Tap the net amount in the calculator and enter the take-home pay you want – Netora works out the gross salary you need, like a currency converter in both directions."
+   },
+   {
+    "q": "How does the job comparison work?",
+    "a": "Enter a job offer and Netora compares it with your current job: net pay per month after commuting costs and net pay per hour including commuting time, plus vacation, home office days and weekly hours. Choose whether more money, more free time or a balance matters most and Netora recommends the offer that suits you. The job comparison is part of Netora Pro."
+   },
+   {
+    "q": "Is my salary data sent anywhere?",
+    "a": "No. All calculations run on your device, there is no account and your salary data never leaves your iPhone or iPad."
+   }
+  ],
+  "de": [
+   {
+    "q": "Wie genau ist der Netora Brutto-Netto-Rechner?",
+    "a": "Netora rechnet mit den amtlichen Formeln der Länder – für Deutschland mit dem Programmablaufplan des Bundesfinanzministeriums inklusive Soli, Kirchensteuer und Sozialversicherung – und centgenau. Die Ergebnisse sind Schätzungen und können von deiner tatsächlichen Abrechnung abweichen, etwa durch Besonderheiten deines Arbeitgebers; sie ersetzen keine Steuerberatung."
+   },
+   {
+    "q": "Für welche Länder funktioniert Netora?",
+    "a": "Für Deutschland, Österreich, die Schweiz, die USA (alle Bundesstaaten), Großbritannien, Kanada, Australien, Irland, die Niederlande, Spanien und Frankreich. Neue Jahreswerte kommen automatisch, ohne App-Update."
+   },
+   {
+    "q": "Kann ich ausrechnen, welches Brutto ich für ein Wunsch-Netto brauche?",
+    "a": "Ja. Tippe im Rechner auf das Netto und gib dein Wunschgehalt ein – Netora rechnet aus, welches Brutto du dafür brauchst. Brutto und Netto sind wie bei einem Währungsrechner in beide Richtungen verbunden."
+   },
+   {
+    "q": "Wie funktioniert der Jobvergleich?",
+    "a": "Du gibst ein Jobangebot ein, und Netora vergleicht es mit deinem aktuellen Job: Netto pro Monat nach Fahrtkosten und Netto pro Stunde inklusive Pendelzeit, dazu Urlaub, Homeoffice-Tage und Wochenstunden. Du wählst, ob dir mehr Geld, mehr Freizeit oder beides ausgewogen wichtiger ist, und Netora empfiehlt das passende Angebot. Der Jobvergleich gehört zu Netora Pro."
+   },
+   {
+    "q": "Werden meine Gehaltsdaten irgendwohin übertragen?",
+    "a": "Nein. Alle Berechnungen laufen auf deinem Gerät, es gibt kein Konto, und deine Gehaltsdaten verlassen dein iPhone oder iPad nie."
+   }
+  ]
  }
 }
