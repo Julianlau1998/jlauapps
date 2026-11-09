@@ -1,0 +1,7 @@
+# Netlify: let browsers keep images and the logo for a week (names stay the same when they change, so not immutable).
+/assets/apps/*
+  Cache-Control: public, max-age=604800
+/assets/badges/*
+  Cache-Control: public, max-age=604800
+/assets/logo.svg
+  Cache-Control: public, max-age=604800

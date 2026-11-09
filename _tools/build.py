@@ -449,6 +449,9 @@ def contact_form(lang):
 def write(path, content):
     full = os.path.join(ROOT, path.lstrip("/"), "index.html") if not path.endswith(".html") else os.path.join(ROOT, path.lstrip("/"))
     os.makedirs(os.path.dirname(full), exist_ok=True)
+    # Unchanged pages keep their file date, which the sitemap reports as the last change.
+    if os.path.exists(full) and open(full).read() == content:
+        return
     with open(full, "w") as f:
         f.write(content)
 
@@ -917,7 +920,12 @@ def sitemap():
         p = f"/{extra}/privacy/"
         if p not in urls and os.path.exists(os.path.join(ROOT, extra, "privacy", "index.html")):
             urls.append(p)
-    entries = "".join(f"<url><loc>{SITE}{u}</loc><lastmod>{today}</lastmod></url>\n" for u in urls)
+    def lastmod(url):
+        page_file = os.path.join(ROOT, url.strip("/"), "index.html")
+        if not os.path.exists(page_file):
+            return today
+        return datetime.date.fromtimestamp(os.path.getmtime(page_file)).isoformat()
+    entries = "".join(f"<url><loc>{SITE}{u}</loc><lastmod>{lastmod(u)}</lastmod></url>\n" for u in urls)
     with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
         f.write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{entries}</urlset>\n')
     with open(os.path.join(ROOT, "robots.txt"), "w") as f:
