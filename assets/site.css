@@ -148,20 +148,20 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 .hero-text p:not(.kicker):not(.lead):not(.fine) { color: var(--muted); max-width: 38rem; }
 .hero-icon {
   border-radius: 26px;
-  box-shadow: 0 20px 50px color-mix(in srgb, var(--accent) 45%, transparent), 0 0 0 1px var(--line);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .3), 0 0 0 1px var(--line);
   margin-bottom: 22px;
 }
 
 .phone img, .showcase img, .gallery img {
   border-radius: 34px;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, .55), 0 0 0 1px var(--line);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .22), 0 0 0 1px var(--line);
   height: auto;
 }
 .phone { display: flex; justify-content: center; position: relative; }
 .phone::before {
   /* The app's color glowing behind its screenshot. */
   content: ""; position: absolute; inset: 8% 4%; z-index: -1; border-radius: 50%;
-  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 55%, transparent), transparent);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 28%, transparent), transparent);
   filter: blur(30px);
 }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
@@ -174,7 +174,7 @@ main { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
 /* Three screenshots fanned out: the first one big in front, two tilted behind it. */
 .phone.fan { height: 650px; }
 .phone.fan img { position: absolute; top: 0; left: 50%; }
-.phone.fan .middle { width: 300px; margin-left: -150px; z-index: 2; box-shadow: 0 40px 100px rgba(0,0,0,.6), 0 0 0 1px var(--line); }
+.phone.fan .middle { width: 300px; margin-left: -150px; z-index: 2; box-shadow: 0 10px 24px rgba(0,0,0,.3), 0 0 0 1px var(--line); }
 .phone.fan .left, .phone.fan .right { width: 215px; top: 70px; opacity: .9; }
 .phone.fan .left { margin-left: -235px; transform: rotate(-7deg); }
 .phone.fan .right { margin-left: 20px; transform: rotate(7deg); }
@@ -265,7 +265,7 @@ h1, h2, h3, .lead { text-wrap: balance; }
   scroll-snap-type: x mandatory;
   padding: 10px 0 34px;
   scrollbar-width: none;
-  --fade-l: 60px; --fade-r: 60px;
+  --fade-l: 24px; --fade-r: 24px;
   -webkit-mask: linear-gradient(90deg, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
           mask: linear-gradient(90deg, transparent, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent);
 }
@@ -619,6 +619,9 @@ picture { display: contents; }
   .showcase img { width: 150px; border-radius: 22px; }
   .showcase img:nth-child(2) { width: 180px; }
   .gallery img { width: 210px; border-radius: 26px; }
+  /* On phones the strip runs to the screen edges and isn't faded (the fade read as a dark shadow). */
+  .gallery-section { margin: 8px -18px 0; }
+  .gallery { padding: 8px 18px 28px; scroll-padding-left: 18px; -webkit-mask: none; mask: none; }
   .gallery-arrows { display: none !important; }
   .phone.fan { height: 440px; }
   .phone.fan .middle { width: 200px; margin-left: -100px; border-radius: 24px; }
