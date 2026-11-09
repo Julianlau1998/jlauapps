@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0b0a16">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AdNumbers: AdMob Dashboard – AdMob &amp; AdSense Einnahmen">
@@ -27,7 +28,7 @@
 </head>
 <body class="app" style="--accent:#f5a524">
 <header class="topbar">
-  <a class="brand" href="/de/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="/de/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="/de/#apps">Apps</a>
     <a href="/de/#contact">Kontakt</a>
@@ -38,32 +39,56 @@
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="112" height="112">
-      <p class="kicker">Business · für iPhone, iPad, Mac, Apple Watch</p>
+      <p class="kicker">Business</p>
       <h1>AdNumbers: AdMob Dashboard</h1>
       <p class="lead strong">AdMob &amp; AdSense Einnahmen</p>
       <p>Deine Werbeeinnahmen. Auf einen Blick.</p><p>AdNumbers zeigt deine Einnahmen aus Google AdMob und Google AdSense in einem klaren, schnellen Dashboard – gestaltet wie eine App von Apple, für iPhone, iPad, Mac und Apple Watch.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/de/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-de-de.svg" width="162" height="54" alt="Laden im App Store"></a>
       </div>
-      <p class="fine">Gratis · In-App-Käufe</p>
+      <div class="chips" aria-label="für"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Mac</span><span class="chip">Apple Watch</span><span class="chip">Gratis</span></div>
     </div>
-    <div class="phone"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers" width="320" height="695"></div>
+    <div class="phone fan"><img class="left" src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers" width="320" height="695"><img class="middle" src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers" width="320" height="695"><img class="right" src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers" width="320" height="695"></div>
   </section>
 
-  <section class="gallery-section" aria-label="Screenshots">
-    <div class="gallery"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-4.jpg" alt="AdNumbers screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-5.jpg" alt="AdNumbers screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-6.jpg" alt="AdNumbers screenshots 6" loading="lazy" width="320" height="695"></div>
+  <section class="gallery-section at-start" aria-label="Screenshots">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
+    <div class="gallery"><img src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-4.jpg" alt="AdNumbers screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-5.jpg" alt="AdNumbers screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-6.jpg" alt="AdNumbers screenshots 6" loading="lazy" width="320" height="695"></div>
   </section>
+  <script>(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();</script>
 
   <section class="features">
     <h2>Funktionen</h2>
-    <div class="feature-grid"><article class="feature"><h3>ÜBERSICHT, DIE MITDENKT</h3><ul><li>Heute, gestern, 7 Tage, Monat und Jahr – jeweils mit Vergleich zur Vorperiode</li><li>Prognose für den laufenden Monat und Monatsziel mit Fortschritt</li><li>AdMob und AdSense getrennt oder zusammen</li><li>Bereiche ein- und ausblenden und neu anordnen</li><li>Rekordtag oder Ziel erreicht? Feiere es – und teile eine Erfolgskarte als Bild</li></ul></article><article class="feature"><h3>ALLE ZAHLEN IM DETAIL</h3><ul><li>Interaktive Diagramme als Balken oder Linie, mit Vorperiode und Vorjahr</li><li>Einnahmen, Impressionen, eCPM, Klicks, CTR, Anfragen, Match-Rate und Anzeigenrate</li><li>Aufschlüsselung nach Apps, Websites, Anzeigenblöcken, Ländern, Formaten, Plattformen und Werbenetzwerken</li><li>Jede App, jedes Land und jeder Zeitraum hat eine eigene Detailseite</li><li>Eigene Zeiträume, Suche, Sortierung und CSV-Export</li><li>AdSense-Guthaben und Auszahlungen</li></ul></article><article class="feature"><h3>STATISTIKEN</h3><ul><li>Kalender-Heatmap, Monatsverlauf mit Prognose und Monatsvergleich</li><li>eCPM-Entwicklung, stärkste Wochentage und Verteilung nach Quelle und Plattform</li><li>Für jedes Diagramm frei wählbare Zeiträume</li></ul></article><article class="feature"><h3>KI-ANALYSE AUF DEM GERÄT</h3><p>Mit Apple Intelligence wertet AdNumbers deine Zahlen aus: Was hat sich verändert, warum – und was kannst du tun? Konkrete Vorschläge für Apps und Websites, für die Übersicht, einzelne Apps, Länder oder Zeiträume. Die Analyse läuft vollständig auf deinem Gerät.</p></article><article class="feature"><h3>IMMER DABEI</h3><ul><li>Widgets für Home- und Sperrbildschirm – Zeitraum direkt im Widget umschalten</li><li>Widget für dein Monatsziel</li><li>Apple-Watch-App mit Komplikationen</li><li>Siri und Kurzbefehle: „Wie viel habe ich mit AdNumbers verdient?“</li><li>Mitteilungen mit Tageszusammenfassung, Rekordtagen und starken Rückgängen</li></ul></article><article class="feature"><h3>GANZ DEINS</h3><ul><li>Hell- und Dunkelmodus, Hintergrundfarbe nach Wahl</li><li>„Beträge ausblenden“, wenn du die App anderen zeigst</li><li>Große Schrift und VoiceOver werden unterstützt</li><li>Auf iPad und Mac mit Seitenleiste, mehreren Spalten und Tastenkürzeln</li></ul></article><article class="feature"><h3>ADNUMBERS PRO</h3><p>Die Übersicht, Länder, Formate, Plattformen, Siri und Mitteilungen sind kostenlos, bei Apps und Anzeigenblöcken jeweils der stärkste Eintrag. Mit AdNumbers Pro bekommst du dazu alle Apps und Anzeigenblöcke, KI-Analyse, Statistiken, Widgets und die Apple-Watch-App, eigene Zeiträume, CSV-Export und Hintergrundfarben – und keine Werbung. Monatlich oder jährlich, jederzeit kündbar.</p></article><article class="feature"><h3>PRIVAT</h3><p>AdNumbers fordert nur Lesezugriff auf deine Berichte an. Deine Daten gehen direkt von Google auf dein Gerät – ohne eigenen Server. Deine Einnahmen und Berichte werden nie weitergegeben, auch nicht für Werbung.</p><p>Ohne Konto ausprobieren: Tippe auf dem Startbildschirm auf „Demo ansehen“.</p><p>AdNumbers ist kein offizielles Produkt von Google. AdMob und AdSense sind Marken von Google LLC.</p></article></div>
+    <div class="feature-showcase"><article class="feature shot"><h3>ÜBERSICHT, DIE MITDENKT</h3><div class="feature-body"><ul class=""><li>Heute, gestern, 7 Tage, Monat und Jahr – jeweils mit Vergleich zur Vorperiode</li><li>Prognose für den laufenden Monat und Monatsziel mit Fortschritt</li><li>AdMob und AdSense getrennt oder zusammen</li><li>Bereiche ein- und ausblenden und neu anordnen</li><li>Rekordtag oder Ziel erreicht? Feiere es – und teile eine Erfolgskarte als Bild</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-de-overview.jpg" alt="Übersicht, Die Mitdenkt" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>ALLE ZAHLEN IM DETAIL</h3><div class="feature-body"><ul class=""><li>Interaktive Diagramme als Balken oder Linie, mit Vorperiode und Vorjahr</li><li>Einnahmen, Impressionen, eCPM, Klicks, CTR, Anfragen, Match-Rate und Anzeigenrate</li><li>Aufschlüsselung nach Apps, Websites, Anzeigenblöcken, Ländern, Formaten, Plattformen und Werbenetzwerken</li><li>Jede App, jedes Land und jeder Zeitraum hat eine eigene Detailseite</li><li>Eigene Zeiträume, Suche, Sortierung und CSV-Export</li><li>AdSense-Guthaben und Auszahlungen</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-de-period.jpg" alt="Alle Zahlen Im Detail" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>STATISTIKEN</h3><div class="feature-body"><ul class=""><li>Kalender-Heatmap, Monatsverlauf mit Prognose und Monatsvergleich</li><li>eCPM-Entwicklung, stärkste Wochentage und Verteilung nach Quelle und Plattform</li><li>Für jedes Diagramm frei wählbare Zeiträume</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-de-statistics.jpg" alt="Statistiken" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>GANZ DEINS</h3><div class="feature-body"><ul class=""><li>Hell- und Dunkelmodus, Hintergrundfarbe nach Wahl</li><li>„Beträge ausblenden“, wenn du die App anderen zeigst</li><li>Große Schrift und VoiceOver werden unterstützt</li><li>Auf iPad und Mac mit Seitenleiste, mehreren Spalten und Tastenkürzeln</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-de-design.jpg" alt="Ganz Deins" loading="lazy" width="700" height="1521"></div></div></article></div>
+    <div class="feature-grid"><article class="feature span-1"><h3>KI-ANALYSE AUF DEM GERÄT</h3><div class="feature-body"><p>Mit Apple Intelligence wertet AdNumbers deine Zahlen aus: Was hat sich verändert, warum – und was kannst du tun? Konkrete Vorschläge für Apps und Websites, für die Übersicht, einzelne Apps, Länder oder Zeiträume. Die Analyse läuft vollständig auf deinem Gerät.</p></div></article><article class="feature span-2"><h3>IMMER DABEI</h3><div class="feature-body"><ul class=""><li>Widgets für Home- und Sperrbildschirm – Zeitraum direkt im Widget umschalten</li><li>Widget für dein Monatsziel</li><li>Apple-Watch-App mit Komplikationen</li><li>Siri und Kurzbefehle: „Wie viel habe ich mit AdNumbers verdient?“</li><li>Mitteilungen mit Tageszusammenfassung, Rekordtagen und starken Rückgängen</li></ul></div></article><article class="feature span-3"><h3>PRIVAT</h3><div class="feature-body"><p>AdNumbers fordert nur Lesezugriff auf deine Berichte an. Deine Daten gehen direkt von Google auf dein Gerät – ohne eigenen Server. Deine Einnahmen und Berichte werden nie weitergegeben, auch nicht für Werbung.</p><p>Ohne Konto ausprobieren: Tippe auf dem Startbildschirm auf „Demo ansehen“.</p><p>AdNumbers ist kein offizielles Produkt von Google. AdMob und AdSense sind Marken von Google LLC.</p></div></article></div>
+    <article class="pro-card"><div class="pro-head"><span class="pro-badge">PRO</span><h3>ADNUMBERS PRO</h3></div><p>Die Übersicht, Länder, Formate, Plattformen, Siri und Mitteilungen sind kostenlos, bei Apps und Anzeigenblöcken jeweils der stärkste Eintrag. Mit AdNumbers Pro bekommst du dazu alle Apps und Anzeigenblöcke, KI-Analyse, Statistiken, Widgets und die Apple-Watch-App, eigene Zeiträume, CSV-Export und Hintergrundfarben – und keine Werbung. Monatlich oder jährlich, jederzeit kündbar.</p></article>
   </section>
 
   <section class="cta">
     <img src="/assets/apps/adnumbers/icon.png" alt="" width="72" height="72" loading="lazy">
-    <h2>AdNumbers</h2>
+    <h2>AdNumbers laden</h2>
     <p>Werbeeinnahmen live im Blick: AdMob und AdSense in einer App – mit Prognose, Monatsziel, Statistiken und KI-Analyse direkt auf deinem Gerät.</p>
     <a class="store-badge" href="https://apps.apple.com/de/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-de-de.svg" width="162" height="54" alt="Laden im App Store"></a>
+    <p class="fine">Gratis · In-App-Käufe</p>
   </section>
 
   <section class="group more"><h2>Weitere Apps</h2><div class="grid"><a class="app-card" href="/de/howlnight/" style="--accent:#8b5cf6">
@@ -73,6 +98,7 @@
     <h3>HowlNight</h3>
     <p class="subtitle">Werwolf, Hochstapler &amp; mehr</p>
     <p class="blurb">Sieben Partyspiele für einen Abend mit Freunden – mit einem einzigen Handy. Werwolf mit echter Erzählerstimme, Hochstapler, Tickende Bombe und mehr.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/cardfox/" style="--accent:#f97316">
   <img class="app-icon" src="/assets/apps/cardfox/icon.png" alt="Cardfox app icon" width="88" height="88" loading="lazy">
@@ -81,6 +107,7 @@
     <h3>Cardfox</h3>
     <p class="subtitle">Vokabeln scannen &amp; behalten</p>
     <p class="blurb">Neu: Vokabel-Vorschläge, KI-Eselsbrücken, Hörmodus, Apple Watch und Widgets. Cardfox macht aus jeder Buchseite Karteikarten – und hilft dir, sie zu behalten.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/code-editor/" style="--accent:#fb6b3c">
   <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
@@ -89,6 +116,7 @@
     <h3>Code Editor</h3>
     <p class="subtitle">Websites &amp; Skripte unterwegs</p>
     <p class="blurb">Neu: ein KI-Assistent mit Claude, ChatGPT oder Gemini, der dein Projekt bearbeitet. Dazu Live-Vorschau, Konsole, ganze Projekte, Python offline und 20+ Sprachen.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/python-editor/" style="--accent:#4f8cff">
   <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
@@ -97,6 +125,7 @@
     <h3>Python Editor</h3>
     <p class="subtitle">Python 3 offline ausführen</p>
     <p class="blurb">Neu in 2.0: Python läuft direkt auf deinem Gerät – mit numpy, matplotlib, Turtle-Grafik, Jupyter-Notebooks, 20 Beispielen und verständlichen Fehlerhinweisen.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/latex-editor/" style="--accent:#f43f6b">
   <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
@@ -105,6 +134,7 @@
     <h3>Texlet</h3>
     <p class="subtitle">Mathe, Formeln &amp; Dokumente</p>
     <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Live-Vorschau, Bausteinen über der Tastatur, Syntax-Highlighting und Export als PDF und Bild.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/markdown-editor/" style="--accent:#6d7cff">
   <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
@@ -113,6 +143,7 @@
     <h3>Markdown Editor and Reader</h3>
     <p class="subtitle">.md schreiben, ansehen, teilen</p>
     <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Syntax-Highlighting, Formatierungsleiste, Live-Vorschau, Ordnern und Export als PDF und HTML.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/txt-editor/" style="--accent:#14b8a6">
   <img class="app-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="88" height="88" loading="lazy">
@@ -121,6 +152,7 @@
     <h3>txt Editor</h3>
     <p class="subtitle">Notizen, Listen &amp; Tagebuch</p>
     <p class="blurb">Version 2.0 ist da: komplett neu gebaut, blitzschnell und schöner denn je. Jetzt mit Ordnern, eigener Sortierung, acht Designs und einem privaten Ordner mit Face ID.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/connect-insights/" style="--accent:#4f7cff">
   <img class="app-icon" src="/assets/apps/connect-insights/icon.png" alt="Connect Insights app icon" width="88" height="88" loading="lazy">
@@ -129,6 +161,7 @@
     <h3>Connect Insights</h3>
     <p class="subtitle">App Sales, Abos &amp; ASO</p>
     <p class="blurb">Downloads, Erlöse, Abos und Rankings all deiner Apps – neue Abos live in Minuten, auf iPhone, iPad, Mac und Apple Watch. Ohne eigenen Server, direkt von Apple.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/etf-calculator/" style="--accent:#22c55e">
   <img class="app-icon" src="/assets/apps/etf-calculator/icon.png" alt="Owlvest app icon" width="88" height="88" loading="lazy">
@@ -137,11 +170,12 @@
     <h3>Owlvest</h3>
     <p class="subtitle">Zinseszins, Steuern &amp; Rente</p>
     <p class="blurb">Komplett neu für iOS: Sieh deinen Sparplan wachsen, erreiche dein Sparziel, plane deine Entnahme und verfolge dein echtes Depot – direkt per CSV von deinem Broker.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a></div></section>
 </main>
 <footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Entwickelt von Julian Lau</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/adnumbers/privacy/">Datenschutz</a><a href="/de/#contact">Kontakt</a><a href="/de/impressum/">Impressum</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
 </body>

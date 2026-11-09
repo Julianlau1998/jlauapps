@@ -7,53 +7,66 @@ import os
 
 DOCS = os.path.expanduser("~/Documents")
 
-# Order on the home page; `group` decides the section.
+# Order on the home page; `group` decides the section. `feature_screens` pairs a feature (its index
+# in the store description) with a plain app screen from the app's raw/ captures ("<lang>-iphone-<name>.png").
 APPS = [
     dict(slug="howlnight", id=6829856365, accent="#8b5cf6", group="play",
          texts=f"{DOCS}/StoreScreenshots HowlNight/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots HowlNight/iPhone 6.9",
+         feature_screens={0: "werewolf", 1: "impostor", 2: "bomb", 3: "explain"},
          category="GameApplication", genre={"en": "Party game", "de": "Partyspiel"}),
     dict(slug="cardfox", id=6826939608, accent="#f97316", group="play",
          texts=f"{DOCS}/StoreScreenshots Cardfox/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots Cardfox/iPhone 6.9",
+         feature_screens={0: "scan", 1: "study", 5: "stats", 6: "design"},
          category="EducationalApplication", genre={"en": "Learning", "de": "Lernen"}),
     dict(slug="code-editor", id=6448794019, accent="#fb6b3c", group="create",
          texts=f"{DOCS}/StoreScreenshots Code Editor/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots Code Editor/iPhone 6.9",
+         feature_screens={1: "console", 2: "assistant", 5: "keyboard", 6: "project"},
          category="DeveloperApplication", genre={"en": "Developer tools", "de": "Entwicklung"}),
     dict(slug="python-editor", id=6450125642, accent="#4f8cff", group="create",
          texts=f"{DOCS}/StoreScreenshots Python Editor/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots Python Editor/iPhone 6.9",
+         feature_screens={0: "console", 1: "turtle", 2: "notebook", 3: "examples"},
          category="DeveloperApplication", genre={"en": "Developer tools", "de": "Entwicklung"}),
     dict(slug="latex-editor", id=1621591035, accent="#f43f6b", group="create",
          texts=f"{DOCS}/StoreScreenshots LaTeX Editor/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots LaTeX Editor/iPhone 6.9",
+         feature_screens={0: "preview", 1: "keyboard", 3: "source", 4: "home"},
          category="EducationalApplication", genre={"en": "Math & science", "de": "Mathe & Wissenschaft"}),
     dict(slug="markdown-editor", id=1617814051, accent="#6d7cff", group="create",
          texts=f"{DOCS}/StoreScreenshots Markdown Editor/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots Markdown Editor/iPhone 6.9",
+         feature_screens={0: "editor", 2: "markdown"},
          category="ProductivityApplication", genre={"en": "Writing", "de": "Schreiben"}),
     dict(slug="txt-editor", id=6447488397, accent="#14b8a6", group="create",
          texts=f"{DOCS}/StoreScreenshots txt Editor/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots txt Editor/iPhone 6.9",
+         feature_screens={0: "editor", 1: "home"},
          category="ProductivityApplication", genre={"en": "Notes", "de": "Notizen"}),
     dict(slug="adnumbers", id=6826622598, accent="#f5a524", group="money",
          texts=f"{DOCS}/StoreScreenshots AdNumbers/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots AdNumbers/iPhone 6.9",
+         feature_screens={0: "overview", 1: "period", 2: "statistics", 5: "design"},
          category="BusinessApplication", genre={"en": "Business", "de": "Business"}),
     dict(slug="connect-insights", id=6830901660, accent="#4f7cff", group="money",
          texts=f"{DOCS}/StoreScreenshots Connect Insights/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots Connect Insights/iPhone 6.9",
+         feature_screens={1: "live", 2: "analytics", 3: "app-detail", 4: "aso"},
          category="DeveloperApplication", genre={"en": "Developer tools", "de": "Entwicklung"}),
     dict(slug="etf-calculator", id=6443639781, accent="#22c55e", group="money",
          texts=f"{DOCS}/StoreScreenshots ETF Calculator/App Store Texte.md",
          shots=f"{DOCS}/StoreScreenshots ETF Calculator/iPhone 6.9",
+         feature_screens={1: "goal", 2: "payout", 3: "scenarios", 4: "portfolio"},
          category="FinanceApplication", genre={"en": "Finance", "de": "Finanzen"}),
 ]
 
 # Has its own website; the home page links there instead of a duplicate page.
 EXTERNAL = [
     dict(slug="yarnspace", url="https://yarnspace.app/", accent="#c06bff", group="play",
+         # The big screenshot in the middle of the home page (the counter, no Ravelry photos).
+         shot=f"{DOCS}/StoreScreenshots/iPhone 6.9/{{lang}}-01-project.png",
          name={"en": "YarnSpace", "de": "YarnSpace"},
          subtitle={"en": "Knitting & crochet companion", "de": "Begleiter fürs Stricken & Häkeln"},
          blurb={"en": "Row counters for every project, your yarn stash with label scanning, Ravelry patterns, yarn substitutes and handy calculators.",

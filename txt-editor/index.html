@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0b0a16">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="txt Editor – Text &amp; Notepad – Notepad for plain .txt notes">
@@ -27,7 +28,7 @@
 </head>
 <body class="app" style="--accent:#14b8a6">
 <header class="topbar">
-  <a class="brand" href="/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="/#apps">Apps</a>
     <a href="/#contact">Contact</a>
@@ -38,32 +39,56 @@
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="112" height="112">
-      <p class="kicker">Notes · for iPhone, iPad</p>
+      <p class="kicker">Notes</p>
       <h1>txt Editor – Text &amp; Notepad</h1>
       <p class="lead strong">Notepad for plain .txt notes</p>
       <p>Just start writing. txt Editor opens in an instant and gives you a blank page – no account, no setup, no clutter. For shopping lists, ideas, journaling, drafts or code snippets.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6447488397" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
       </div>
-      <p class="fine">Free · In-app purchases</p>
+      <div class="chips" aria-label="for"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Free</span></div>
     </div>
-    <div class="phone"><img src="/assets/apps/txt-editor/en-1.jpg" alt="txt Editor" width="320" height="695"></div>
+    <div class="phone fan"><img class="left" src="/assets/apps/txt-editor/en-2.jpg" alt="txt Editor" width="320" height="695"><img class="middle" src="/assets/apps/txt-editor/en-1.jpg" alt="txt Editor" width="320" height="695"><img class="right" src="/assets/apps/txt-editor/en-3.jpg" alt="txt Editor" width="320" height="695"></div>
   </section>
 
-  <section class="gallery-section" aria-label="Screenshots">
-    <div class="gallery"><img src="/assets/apps/txt-editor/en-1.jpg" alt="txt Editor screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-2.jpg" alt="txt Editor screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-3.jpg" alt="txt Editor screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-4.jpg" alt="txt Editor screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-5.jpg" alt="txt Editor screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-6.jpg" alt="txt Editor screenshots 6" loading="lazy" width="320" height="695"></div>
+  <section class="gallery-section at-start" aria-label="Screenshots">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
+    <div class="gallery"><img src="/assets/apps/txt-editor/en-2.jpg" alt="txt Editor screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-3.jpg" alt="txt Editor screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-4.jpg" alt="txt Editor screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-5.jpg" alt="txt Editor screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/txt-editor/en-6.jpg" alt="txt Editor screenshots 6" loading="lazy" width="320" height="695"></div>
   </section>
+  <script>(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();</script>
 
   <section class="features">
     <h2>Features</h2>
-    <div class="feature-grid"><article class="feature"><h3>AS FAST AS PAPER</h3><p>Tap New Document, type, done. Everything saves automatically as you write, and the editor stays smooth even with long texts.</p></article><article class="feature"><h3>ORGANIZED YOUR WAY</h3><ul><li>Folders with their own color and icon</li><li>Pin what matters to the top</li><li>Sort by date, name, or your own order with drag and drop</li><li>Search finds every word across all your documents</li></ul></article><article class="feature"><h3>REAL FILES, NOTHING LOCKED IN</h3><p>Your notes are plain .txt files in the Files app under “On My iPhone › txt Editor”. You can also open text files from iCloud Drive or other apps and edit them right where they are – .txt, .md, .csv, .json, .xml, .log and more.</p></article><article class="feature"><h3>HANDY TOOLS</h3><ul><li>Find and replace</li><li>Words, characters and reading time at a glance</li><li>Choose your font and text size</li><li>Share to any app</li></ul></article><article class="feature"><h3>TXT EDITOR PRO</h3><p>For when you want more – as a monthly or yearly subscription:</p><p>txt Editor is built by an independent developer. If you enjoy it, a rating means a lot!</p><ul><li>No ads</li><li>iCloud sync: changes show up on iPhone and iPad within seconds</li><li>Markdown with a beautiful preview</li><li>Eight designs, from warm paper to deep black midnight</li><li>Widgets for your Home Screen and Lock Screen</li><li>Version history: bring back any earlier draft</li><li>App lock and a private folder with Face ID</li></ul></article></div>
+    <div class="feature-showcase"><article class="feature shot"><h3>AS FAST AS PAPER</h3><div class="feature-body"><p>Tap New Document, type, done. Everything saves automatically as you write, and the editor stays smooth even with long texts.</p></div><div class="rise"><div class="device"><img src="/assets/apps/txt-editor/screen-en-editor.jpg" alt="As Fast As Paper" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>ORGANIZED YOUR WAY</h3><div class="feature-body"><ul class=""><li>Folders with their own color and icon</li><li>Pin what matters to the top</li><li>Sort by date, name, or your own order with drag and drop</li><li>Search finds every word across all your documents</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/txt-editor/screen-en-home.jpg" alt="Organized Your Way" loading="lazy" width="700" height="1521"></div></div></article></div>
+    <div class="feature-grid"><article class="feature span-1"><h3>REAL FILES, NOTHING LOCKED IN</h3><div class="feature-body"><p>Your notes are plain .txt files in the Files app under “On My iPhone › txt Editor”. You can also open text files from iCloud Drive or other apps and edit them right where they are – .txt, .md, .csv, .json, .xml, .log and more.</p></div></article><article class="feature span-2"><h3>HANDY TOOLS</h3><div class="feature-body"><ul class=""><li>Find and replace</li><li>Words, characters and reading time at a glance</li><li>Choose your font and text size</li><li>Share to any app</li></ul></div></article></div>
+    <article class="pro-card split"><div class="pro-main"><div class="pro-head"><span class="pro-badge">PRO</span><h3>TXT EDITOR PRO</h3></div><p>For when you want more – as a monthly or yearly subscription:</p></div><div class="pro-perks"><ul class="checks"><li>No ads</li><li>iCloud sync: changes show up on iPhone and iPad within seconds</li><li>Markdown with a beautiful preview</li><li>Eight designs, from warm paper to deep black midnight</li><li>Widgets for your Home Screen and Lock Screen</li><li>Version history: bring back any earlier draft</li><li>App lock and a private folder with Face ID</li></ul></div><div class=pro-foot><p>txt Editor is built by an independent developer. If you enjoy it, a rating means a lot!</p></div></article>
   </section>
 
   <section class="cta">
     <img src="/assets/apps/txt-editor/icon.png" alt="" width="72" height="72" loading="lazy">
-    <h2>txt Editor</h2>
+    <h2>Get txt Editor</h2>
     <p>Version 2.0 is here: completely rebuilt, lightning fast and more beautiful than ever. Now with folders, custom sorting, eight designs and a private folder with Face ID.</p>
     <a class="store-badge" href="https://apps.apple.com/us/app/id6447488397" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+    <p class="fine">Free · In-app purchases</p>
   </section>
 
   <section class="group more"><h2>More apps</h2><div class="grid"><a class="app-card" href="/howlnight/" style="--accent:#8b5cf6">
@@ -73,6 +98,7 @@
     <h3>HowlNight</h3>
     <p class="subtitle">Werewolf, Impostor &amp; more</p>
     <p class="blurb">Seven party games for a night with friends – on a single phone. Werewolf with a real narrator voice, Impostor, Ticking Bomb and more.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/cardfox/" style="--accent:#f97316">
   <img class="app-icon" src="/assets/apps/cardfox/icon.png" alt="Cardfox app icon" width="88" height="88" loading="lazy">
@@ -81,6 +107,7 @@
     <h3>Cardfox</h3>
     <p class="subtitle">Scan words, remember them</p>
     <p class="blurb">New: vocabulary suggestions, AI memory aids, listening mode, Apple Watch and widgets. Cardfox turns any book page into flashcards – and helps you remember them.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/code-editor/" style="--accent:#fb6b3c">
   <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
@@ -89,6 +116,7 @@
     <h3>Code Editor</h3>
     <p class="subtitle">Websites &amp; Scripts on the Go</p>
     <p class="blurb">New: an AI assistant with Claude, ChatGPT or Gemini that edits your project. Plus a live preview, a console, whole projects, offline Python and 20+ languages.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/python-editor/" style="--accent:#4f8cff">
   <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
@@ -97,6 +125,7 @@
     <h3>Python Editor</h3>
     <p class="subtitle">Run Python 3 Code Offline</p>
     <p class="blurb">New in 2.0: Python runs right on your device – with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/latex-editor/" style="--accent:#f43f6b">
   <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
@@ -105,6 +134,7 @@
     <h3>Texlet</h3>
     <p class="subtitle">Math, formulas &amp; documents</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With a live preview, building blocks above the keyboard, syntax highlighting and PDF and image export.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/markdown-editor/" style="--accent:#6d7cff">
   <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
@@ -113,6 +143,7 @@
     <h3>Markdown Editor and Reader</h3>
     <p class="subtitle">Write, preview and share .md</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With syntax highlighting, a formatting bar, live preview, folders and export to PDF and HTML.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/adnumbers/" style="--accent:#f5a524">
   <img class="app-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="88" height="88" loading="lazy">
@@ -121,14 +152,16 @@
     <h3>AdNumbers</h3>
     <p class="subtitle">AdMob &amp; AdSense Earnings</p>
     <p class="blurb">Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/connect-insights/" style="--accent:#4f7cff">
   <img class="app-icon" src="/assets/apps/connect-insights/icon.png" alt="Connect Insights app icon" width="88" height="88" loading="lazy">
   <div>
     <span class="genre">Developer tools</span>
     <h3>Connect Insights</h3>
-    <p class="subtitle">App Sales, Downloads &amp; ASO</p>
+    <p class="subtitle">Downloads, Subscriptions &amp; ASO</p>
     <p class="blurb">Downloads, proceeds, subscriptions and rankings of all your apps – new subscriptions live within minutes, on iPhone, iPad, Mac and Apple Watch. Straight from Apple.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/etf-calculator/" style="--accent:#22c55e">
   <img class="app-icon" src="/assets/apps/etf-calculator/icon.png" alt="Owlvest app icon" width="88" height="88" loading="lazy">
@@ -137,11 +170,12 @@
     <h3>Owlvest</h3>
     <p class="subtitle">Compound Interest &amp; Portfolio</p>
     <p class="blurb">Rebuilt from the ground up for iOS: see your savings plan grow, reach your goal, plan your payout and track your real portfolio – right from your broker&#x27;s CSV.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a></div></section>
 </main>
 <footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Made by Julian Lau</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/txt-editor/privacy/">Privacy Policy</a><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
 </body>

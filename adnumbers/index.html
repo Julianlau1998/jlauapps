@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0b0a16">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AdNumbers: AdMob Dashboard – AdMob &amp; AdSense Earnings">
@@ -27,7 +28,7 @@
 </head>
 <body class="app" style="--accent:#f5a524">
 <header class="topbar">
-  <a class="brand" href="/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="/#apps">Apps</a>
     <a href="/#contact">Contact</a>
@@ -38,32 +39,56 @@
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="112" height="112">
-      <p class="kicker">Business · for iPhone, iPad, Mac, Apple Watch</p>
+      <p class="kicker">Business</p>
       <h1>AdNumbers: AdMob Dashboard</h1>
       <p class="lead strong">AdMob &amp; AdSense Earnings</p>
       <p>Your ad revenue. At a glance.</p><p>AdNumbers shows your earnings from Google AdMob and Google AdSense in a clean, fast dashboard – designed like an Apple app, for iPhone, iPad, Mac and Apple Watch.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
       </div>
-      <p class="fine">Free · In-app purchases</p>
+      <div class="chips" aria-label="for"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Mac</span><span class="chip">Apple Watch</span><span class="chip">Free</span></div>
     </div>
-    <div class="phone"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers" width="320" height="695"></div>
+    <div class="phone fan"><img class="left" src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers" width="320" height="695"><img class="middle" src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers" width="320" height="695"><img class="right" src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers" width="320" height="695"></div>
   </section>
 
-  <section class="gallery-section" aria-label="Screenshots">
-    <div class="gallery"><img src="/assets/apps/adnumbers/en-1.jpg" alt="AdNumbers screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-4.jpg" alt="AdNumbers screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-5.jpg" alt="AdNumbers screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-6.jpg" alt="AdNumbers screenshots 6" loading="lazy" width="320" height="695"></div>
+  <section class="gallery-section at-start" aria-label="Screenshots">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
+    <div class="gallery"><img src="/assets/apps/adnumbers/en-2.jpg" alt="AdNumbers screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-3.jpg" alt="AdNumbers screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-4.jpg" alt="AdNumbers screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-5.jpg" alt="AdNumbers screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/adnumbers/en-6.jpg" alt="AdNumbers screenshots 6" loading="lazy" width="320" height="695"></div>
   </section>
+  <script>(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();</script>
 
   <section class="features">
     <h2>Features</h2>
-    <div class="feature-grid"><article class="feature"><h3>AN OVERVIEW THAT THINKS AHEAD</h3><ul><li>Today, yesterday, 7 days, month and year – each compared with the previous period</li><li>Forecast for the current month and a monthly goal with progress</li><li>AdMob and AdSense separately or combined</li><li>Show, hide and reorder sections</li><li>Record day or goal reached? Celebrate it – and share a success card as an image</li></ul></article><article class="feature"><h3>EVERY NUMBER IN DETAIL</h3><ul><li>Interactive bar or line charts with previous period and previous year</li><li>Earnings, impressions, eCPM, clicks, CTR, requests, match rate and show rate</li><li>Breakdowns by apps, websites, ad units, countries, formats, platforms and ad networks</li><li>Every app, country and period has its own detail page</li><li>Custom periods, search, sorting and CSV export</li><li>AdSense balance and payments</li></ul></article><article class="feature"><h3>STATISTICS</h3><ul><li>Calendar heatmap, monthly history with forecast and month comparison</li><li>eCPM trend, strongest weekdays and distribution by source and platform</li><li>Choose the period of every chart</li></ul></article><article class="feature"><h3>ON-DEVICE AI ANALYSIS</h3><p>With Apple Intelligence, AdNumbers analyzes your numbers: what changed, why – and what you can do about it. Concrete suggestions for apps and websites, for the overview, single apps, countries or periods. The analysis runs entirely on your device.</p></article><article class="feature"><h3>ALWAYS WITH YOU</h3><ul><li>Home Screen and Lock Screen widgets – switch the period right in the widget</li><li>A widget for your monthly goal</li><li>Apple Watch app with complications</li><li>Siri and Shortcuts: &quot;How much did I earn with AdNumbers?&quot;</li><li>Notifications with a daily summary, record days and sharp drops</li></ul></article><article class="feature"><h3>MAKE IT YOURS</h3><ul><li>Light and dark mode, background color of your choice</li><li>&quot;Hide Amounts&quot; when you show the app to others</li><li>Supports larger text and VoiceOver</li><li>On iPad and Mac with sidebar, multiple columns and keyboard shortcuts</li></ul></article><article class="feature"><h3>ADNUMBERS PRO</h3><p>The overview, countries, formats, platforms, Siri and notifications are free, plus the top entry of your apps and ad units. AdNumbers Pro adds every app and ad unit, AI analysis, statistics, widgets and the Apple Watch app, custom periods, CSV export and background colors – and removes all ads. Monthly or yearly, cancel anytime.</p></article><article class="feature"><h3>PRIVATE</h3><p>AdNumbers only requests read-only access to your reports. Your data goes straight from Google to your device – no server of our own. Your earnings and reports are never shared, not even for advertising.</p><p>Try it without an account: tap &quot;Try the Demo&quot; on the start screen.</p><p>AdNumbers is not an official Google product. AdMob and AdSense are trademarks of Google LLC.</p></article></div>
+    <div class="feature-showcase"><article class="feature shot"><h3>AN OVERVIEW THAT THINKS AHEAD</h3><div class="feature-body"><ul class=""><li>Today, yesterday, 7 days, month and year – each compared with the previous period</li><li>Forecast for the current month and a monthly goal with progress</li><li>AdMob and AdSense separately or combined</li><li>Show, hide and reorder sections</li><li>Record day or goal reached? Celebrate it – and share a success card as an image</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-en-overview.jpg" alt="An Overview That Thinks Ahead" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>EVERY NUMBER IN DETAIL</h3><div class="feature-body"><ul class=""><li>Interactive bar or line charts with previous period and previous year</li><li>Earnings, impressions, eCPM, clicks, CTR, requests, match rate and show rate</li><li>Breakdowns by apps, websites, ad units, countries, formats, platforms and ad networks</li><li>Every app, country and period has its own detail page</li><li>Custom periods, search, sorting and CSV export</li><li>AdSense balance and payments</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-en-period.jpg" alt="Every Number In Detail" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>STATISTICS</h3><div class="feature-body"><ul class=""><li>Calendar heatmap, monthly history with forecast and month comparison</li><li>eCPM trend, strongest weekdays and distribution by source and platform</li><li>Choose the period of every chart</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-en-statistics.jpg" alt="Statistics" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>MAKE IT YOURS</h3><div class="feature-body"><ul class=""><li>Light and dark mode, background color of your choice</li><li>&quot;Hide Amounts&quot; when you show the app to others</li><li>Supports larger text and VoiceOver</li><li>On iPad and Mac with sidebar, multiple columns and keyboard shortcuts</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/adnumbers/screen-en-design.jpg" alt="Make It Yours" loading="lazy" width="700" height="1521"></div></div></article></div>
+    <div class="feature-grid"><article class="feature span-1"><h3>ON-DEVICE AI ANALYSIS</h3><div class="feature-body"><p>With Apple Intelligence, AdNumbers analyzes your numbers: what changed, why – and what you can do about it. Concrete suggestions for apps and websites, for the overview, single apps, countries or periods. The analysis runs entirely on your device.</p></div></article><article class="feature span-2"><h3>ALWAYS WITH YOU</h3><div class="feature-body"><ul class=""><li>Home Screen and Lock Screen widgets – switch the period right in the widget</li><li>A widget for your monthly goal</li><li>Apple Watch app with complications</li><li>Siri and Shortcuts: &quot;How much did I earn with AdNumbers?&quot;</li><li>Notifications with a daily summary, record days and sharp drops</li></ul></div></article><article class="feature span-3"><h3>PRIVATE</h3><div class="feature-body"><p>AdNumbers only requests read-only access to your reports. Your data goes straight from Google to your device – no server of our own. Your earnings and reports are never shared, not even for advertising.</p><p>Try it without an account: tap &quot;Try the Demo&quot; on the start screen.</p><p>AdNumbers is not an official Google product. AdMob and AdSense are trademarks of Google LLC.</p></div></article></div>
+    <article class="pro-card"><div class="pro-head"><span class="pro-badge">PRO</span><h3>ADNUMBERS PRO</h3></div><p>The overview, countries, formats, platforms, Siri and notifications are free, plus the top entry of your apps and ad units. AdNumbers Pro adds every app and ad unit, AI analysis, statistics, widgets and the Apple Watch app, custom periods, CSV export and background colors – and removes all ads. Monthly or yearly, cancel anytime.</p></article>
   </section>
 
   <section class="cta">
     <img src="/assets/apps/adnumbers/icon.png" alt="" width="72" height="72" loading="lazy">
-    <h2>AdNumbers</h2>
+    <h2>Get AdNumbers</h2>
     <p>Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.</p>
     <a class="store-badge" href="https://apps.apple.com/us/app/id6826622598" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+    <p class="fine">Free · In-app purchases</p>
   </section>
 
   <section class="group more"><h2>More apps</h2><div class="grid"><a class="app-card" href="/howlnight/" style="--accent:#8b5cf6">
@@ -73,6 +98,7 @@
     <h3>HowlNight</h3>
     <p class="subtitle">Werewolf, Impostor &amp; more</p>
     <p class="blurb">Seven party games for a night with friends – on a single phone. Werewolf with a real narrator voice, Impostor, Ticking Bomb and more.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/cardfox/" style="--accent:#f97316">
   <img class="app-icon" src="/assets/apps/cardfox/icon.png" alt="Cardfox app icon" width="88" height="88" loading="lazy">
@@ -81,6 +107,7 @@
     <h3>Cardfox</h3>
     <p class="subtitle">Scan words, remember them</p>
     <p class="blurb">New: vocabulary suggestions, AI memory aids, listening mode, Apple Watch and widgets. Cardfox turns any book page into flashcards – and helps you remember them.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/code-editor/" style="--accent:#fb6b3c">
   <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
@@ -89,6 +116,7 @@
     <h3>Code Editor</h3>
     <p class="subtitle">Websites &amp; Scripts on the Go</p>
     <p class="blurb">New: an AI assistant with Claude, ChatGPT or Gemini that edits your project. Plus a live preview, a console, whole projects, offline Python and 20+ languages.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/python-editor/" style="--accent:#4f8cff">
   <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
@@ -97,6 +125,7 @@
     <h3>Python Editor</h3>
     <p class="subtitle">Run Python 3 Code Offline</p>
     <p class="blurb">New in 2.0: Python runs right on your device – with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/latex-editor/" style="--accent:#f43f6b">
   <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
@@ -105,6 +134,7 @@
     <h3>Texlet</h3>
     <p class="subtitle">Math, formulas &amp; documents</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With a live preview, building blocks above the keyboard, syntax highlighting and PDF and image export.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/markdown-editor/" style="--accent:#6d7cff">
   <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
@@ -113,6 +143,7 @@
     <h3>Markdown Editor and Reader</h3>
     <p class="subtitle">Write, preview and share .md</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With syntax highlighting, a formatting bar, live preview, folders and export to PDF and HTML.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/txt-editor/" style="--accent:#14b8a6">
   <img class="app-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="88" height="88" loading="lazy">
@@ -121,14 +152,16 @@
     <h3>txt Editor</h3>
     <p class="subtitle">Notepad for plain .txt notes</p>
     <p class="blurb">Version 2.0 is here: completely rebuilt, lightning fast and more beautiful than ever. Now with folders, custom sorting, eight designs and a private folder with Face ID.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/connect-insights/" style="--accent:#4f7cff">
   <img class="app-icon" src="/assets/apps/connect-insights/icon.png" alt="Connect Insights app icon" width="88" height="88" loading="lazy">
   <div>
     <span class="genre">Developer tools</span>
     <h3>Connect Insights</h3>
-    <p class="subtitle">App Sales, Downloads &amp; ASO</p>
+    <p class="subtitle">Downloads, Subscriptions &amp; ASO</p>
     <p class="blurb">Downloads, proceeds, subscriptions and rankings of all your apps – new subscriptions live within minutes, on iPhone, iPad, Mac and Apple Watch. Straight from Apple.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/etf-calculator/" style="--accent:#22c55e">
   <img class="app-icon" src="/assets/apps/etf-calculator/icon.png" alt="Owlvest app icon" width="88" height="88" loading="lazy">
@@ -137,11 +170,12 @@
     <h3>Owlvest</h3>
     <p class="subtitle">Compound Interest &amp; Portfolio</p>
     <p class="blurb">Rebuilt from the ground up for iOS: see your savings plan grow, reach your goal, plan your payout and track your real portfolio – right from your broker&#x27;s CSV.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a></div></section>
 </main>
 <footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Made by Julian Lau</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/adnumbers/privacy/">Privacy Policy</a><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
 </body>

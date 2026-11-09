@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0b0a16">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="HowlNight: Party Games – Werewolf, Impostor &amp; more">
@@ -27,7 +28,7 @@
 </head>
 <body class="app" style="--accent:#8b5cf6">
 <header class="topbar">
-  <a class="brand" href="/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="/#apps">Apps</a>
     <a href="/#contact">Contact</a>
@@ -38,32 +39,56 @@
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="/assets/apps/howlnight/icon.png" alt="HowlNight app icon" width="112" height="112">
-      <p class="kicker">Party game · for iPhone, iPad</p>
+      <p class="kicker">Party game</p>
       <h1>HowlNight: Party Games</h1>
       <p class="lead strong">Werewolf, Impostor &amp; more</p>
       <p>Seven party games, one phone, zero setup: just pass HowlNight around the group. No extra devices, no account, no sign-up – add the players once and start playing.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6829856365" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
       </div>
-      <p class="fine">Free · In-app purchases</p>
+      <div class="chips" aria-label="for"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Free</span></div>
     </div>
-    <div class="phone"><img src="/assets/apps/howlnight/en-1.jpg" alt="HowlNight" width="320" height="695"></div>
+    <div class="phone fan"><img class="left" src="/assets/apps/howlnight/en-2.jpg" alt="HowlNight" width="320" height="695"><img class="middle" src="/assets/apps/howlnight/en-1.jpg" alt="HowlNight" width="320" height="695"><img class="right" src="/assets/apps/howlnight/en-3.jpg" alt="HowlNight" width="320" height="695"></div>
   </section>
 
-  <section class="gallery-section" aria-label="Screenshots">
-    <div class="gallery"><img src="/assets/apps/howlnight/en-1.jpg" alt="HowlNight screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-2.jpg" alt="HowlNight screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-3.jpg" alt="HowlNight screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-4.jpg" alt="HowlNight screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-5.jpg" alt="HowlNight screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-6.jpg" alt="HowlNight screenshots 6" loading="lazy" width="320" height="695"></div>
+  <section class="gallery-section at-start" aria-label="Screenshots">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
+    <div class="gallery"><img src="/assets/apps/howlnight/en-2.jpg" alt="HowlNight screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-3.jpg" alt="HowlNight screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-4.jpg" alt="HowlNight screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-5.jpg" alt="HowlNight screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/howlnight/en-6.jpg" alt="HowlNight screenshots 6" loading="lazy" width="320" height="695"></div>
   </section>
+  <script>(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();</script>
 
   <section class="features">
     <h2>Features</h2>
-    <div class="feature-grid"><article class="feature"><h3>WEREWOLF NIGHT</h3><p>The app leads the night: a real narrator voice calls the roles, the werewolves pick their victim right on the device, and in the morning the village learns who didn&#x27;t make it. So everyone gets to play – nobody has to be the game master. Prefer it the classic way? Then one person leads the night step by step.</p><ul><li>16 roles, from Seer and Witch to Wild Child and Bear Tamer</li><li>Presets for Beginner, Classic and Chaos</li><li>Two narrator voices, night ambience and a discussion timer</li><li>Continue interrupted games later</li></ul></article><article class="feature"><h3>IMPOSTOR</h3><p>Everyone knows the secret word – except one. Each of you says one word about it, then you vote. But watch out: a caught Impostor still wins by guessing the word.</p></article><article class="feature"><h3>TICKING BOMB</h3><p>A category and a bomb that ticks faster and faster. Name something that fits and pass the phone on before it blows.</p></article><article class="feature"><h3>SAY IT DIFFERENTLY</h3><p>Explain words without using the forbidden ones – in teams, against the clock. Also as charades.</p></article><article class="feature"><h3>WHO AM I?</h3><p>Ask yes-or-no questions to find out who you are – the classic way or with the phone on your forehead.</p></article><article class="feature"><h3>WHO WOULD RATHER …?</h3><p>One question, everyone points at someone at once. Perfect to warm up.</p></article><article class="feature"><h3>DRAW IT!</h3><p>Draw the word, the others guess. No letters, no numbers.</p></article><article class="feature"><h3>MADE FOR EVERY GROUP</h3><ul><li>About 1,950 words, questions and categories in English and German</li><li>Secret cards: hold to peek, let go – and it&#x27;s hidden again</li><li>Player photos, seating order and statistics: who&#x27;s tonight&#x27;s champion?</li><li>A result card with your own photo to share</li><li>Large text, haptics and sounds, for iPhone and iPad</li></ul></article><article class="feature"><h3>HOWLNIGHT PRO</h3><p>For free, you play all seven games with the basic packs. With Pro you get:</p><p>As a monthly plan or a yearly plan with one week free.</p><ul><li>Every premium pack in every game</li><li>Create your own packs – with AI suggestions from Apple Intelligence right on your device</li><li>Extra app icons</li><li>No ads</li></ul></article></div>
+    <div class="feature-showcase"><article class="feature shot"><h3>WEREWOLF NIGHT</h3><div class="feature-body"><p>The app leads the night: a real narrator voice calls the roles, the werewolves pick their victim right on the device, and in the morning the village learns who didn&#x27;t make it. So everyone gets to play – nobody has to be the game master. Prefer it the classic way? Then one person leads the night step by step.</p><ul class=""><li>16 roles, from Seer and Witch to Wild Child and Bear Tamer</li><li>Presets for Beginner, Classic and Chaos</li><li>Two narrator voices, night ambience and a discussion timer</li><li>Continue interrupted games later</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/howlnight/screen-en-werewolf.jpg" alt="Werewolf Night" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>IMPOSTOR</h3><div class="feature-body"><p>Everyone knows the secret word – except one. Each of you says one word about it, then you vote. But watch out: a caught Impostor still wins by guessing the word.</p></div><div class="rise"><div class="device"><img src="/assets/apps/howlnight/screen-en-impostor.jpg" alt="Impostor" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>TICKING BOMB</h3><div class="feature-body"><p>A category and a bomb that ticks faster and faster. Name something that fits and pass the phone on before it blows.</p></div><div class="rise"><div class="device"><img src="/assets/apps/howlnight/screen-en-bomb.jpg" alt="Ticking Bomb" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>SAY IT DIFFERENTLY</h3><div class="feature-body"><p>Explain words without using the forbidden ones – in teams, against the clock. Also as charades.</p></div><div class="rise"><div class="device"><img src="/assets/apps/howlnight/screen-en-explain.jpg" alt="Say It Differently" loading="lazy" width="700" height="1521"></div></div></article></div>
+    <div class="feature-grid"><article class="feature span-1"><h3>WHO AM I?</h3><div class="feature-body"><p>Ask yes-or-no questions to find out who you are – the classic way or with the phone on your forehead.</p></div></article><article class="feature span-1"><h3>WHO WOULD RATHER …?</h3><div class="feature-body"><p>One question, everyone points at someone at once. Perfect to warm up.</p></div></article><article class="feature span-1"><h3>DRAW IT!</h3><div class="feature-body"><p>Draw the word, the others guess. No letters, no numbers.</p></div></article><article class="feature span-3"><h3>MADE FOR EVERY GROUP</h3><div class="feature-body"><ul class=""><li>About 1,950 words, questions and categories in English and German</li><li>Secret cards: hold to peek, let go – and it&#x27;s hidden again</li><li>Player photos, seating order and statistics: who&#x27;s tonight&#x27;s champion?</li><li>A result card with your own photo to share</li><li>Large text, haptics and sounds, for iPhone and iPad</li></ul></div></article></div>
+    <article class="pro-card split"><div class="pro-main"><div class="pro-head"><span class="pro-badge">PRO</span><h3>HOWLNIGHT PRO</h3></div><p>For free, you play all seven games with the basic packs. With Pro you get:</p></div><div class="pro-perks"><ul class="checks"><li>Every premium pack in every game</li><li>Create your own packs – with AI suggestions from Apple Intelligence right on your device</li><li>Extra app icons</li><li>No ads</li></ul></div><div class=pro-foot><p>As a monthly plan or a yearly plan with one week free.</p></div></article>
   </section>
 
   <section class="cta">
     <img src="/assets/apps/howlnight/icon.png" alt="" width="72" height="72" loading="lazy">
-    <h2>HowlNight</h2>
+    <h2>Get HowlNight</h2>
     <p>Seven party games for a night with friends – on a single phone. Werewolf with a real narrator voice, Impostor, Ticking Bomb and more.</p>
     <a class="store-badge" href="https://apps.apple.com/us/app/id6829856365" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+    <p class="fine">Free · In-app purchases</p>
   </section>
 
   <section class="group more"><h2>More apps</h2><div class="grid"><a class="app-card" href="/cardfox/" style="--accent:#f97316">
@@ -73,6 +98,7 @@
     <h3>Cardfox</h3>
     <p class="subtitle">Scan words, remember them</p>
     <p class="blurb">New: vocabulary suggestions, AI memory aids, listening mode, Apple Watch and widgets. Cardfox turns any book page into flashcards – and helps you remember them.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/code-editor/" style="--accent:#fb6b3c">
   <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
@@ -81,6 +107,7 @@
     <h3>Code Editor</h3>
     <p class="subtitle">Websites &amp; Scripts on the Go</p>
     <p class="blurb">New: an AI assistant with Claude, ChatGPT or Gemini that edits your project. Plus a live preview, a console, whole projects, offline Python and 20+ languages.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/python-editor/" style="--accent:#4f8cff">
   <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
@@ -89,6 +116,7 @@
     <h3>Python Editor</h3>
     <p class="subtitle">Run Python 3 Code Offline</p>
     <p class="blurb">New in 2.0: Python runs right on your device – with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/latex-editor/" style="--accent:#f43f6b">
   <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
@@ -97,6 +125,7 @@
     <h3>Texlet</h3>
     <p class="subtitle">Math, formulas &amp; documents</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With a live preview, building blocks above the keyboard, syntax highlighting and PDF and image export.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/markdown-editor/" style="--accent:#6d7cff">
   <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
@@ -105,6 +134,7 @@
     <h3>Markdown Editor and Reader</h3>
     <p class="subtitle">Write, preview and share .md</p>
     <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With syntax highlighting, a formatting bar, live preview, folders and export to PDF and HTML.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/txt-editor/" style="--accent:#14b8a6">
   <img class="app-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="88" height="88" loading="lazy">
@@ -113,6 +143,7 @@
     <h3>txt Editor</h3>
     <p class="subtitle">Notepad for plain .txt notes</p>
     <p class="blurb">Version 2.0 is here: completely rebuilt, lightning fast and more beautiful than ever. Now with folders, custom sorting, eight designs and a private folder with Face ID.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/adnumbers/" style="--accent:#f5a524">
   <img class="app-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="88" height="88" loading="lazy">
@@ -121,14 +152,16 @@
     <h3>AdNumbers</h3>
     <p class="subtitle">AdMob &amp; AdSense Earnings</p>
     <p class="blurb">Your ad revenue at a glance: AdMob and AdSense in one app – with forecasts, a monthly goal, statistics and on-device AI analysis.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/connect-insights/" style="--accent:#4f7cff">
   <img class="app-icon" src="/assets/apps/connect-insights/icon.png" alt="Connect Insights app icon" width="88" height="88" loading="lazy">
   <div>
     <span class="genre">Developer tools</span>
     <h3>Connect Insights</h3>
-    <p class="subtitle">App Sales, Downloads &amp; ASO</p>
+    <p class="subtitle">Downloads, Subscriptions &amp; ASO</p>
     <p class="blurb">Downloads, proceeds, subscriptions and rankings of all your apps – new subscriptions live within minutes, on iPhone, iPad, Mac and Apple Watch. Straight from Apple.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/etf-calculator/" style="--accent:#22c55e">
   <img class="app-icon" src="/assets/apps/etf-calculator/icon.png" alt="Owlvest app icon" width="88" height="88" loading="lazy">
@@ -137,11 +170,12 @@
     <h3>Owlvest</h3>
     <p class="subtitle">Compound Interest &amp; Portfolio</p>
     <p class="blurb">Rebuilt from the ground up for iOS: see your savings plan grow, reach your goal, plan your payout and track your real portfolio – right from your broker&#x27;s CSV.</p>
+    <span class="more-link">Learn more →</span>
   </div>
 </a></div></section>
 </main>
 <footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Made by Julian Lau</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/howlnight/privacy/">Privacy Policy</a><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
 </body>

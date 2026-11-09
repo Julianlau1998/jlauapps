@@ -49,6 +49,8 @@ UI = {
         on="for", lang_switch="Deutsch", platforms_join=", ",
         not_found_title="Page not found", not_found_text="This page doesn't exist (anymore). Here are my apps instead.",
         back_home="Back to all apps",
+        facts="iPhone, iPad, Mac & Apple Watch",
+        free_short="Free", get_app="Get {name}",
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
@@ -68,6 +70,8 @@ UI = {
         on="für", lang_switch="English", platforms_join=", ",
         not_found_title="Seite nicht gefunden", not_found_text="Diese Seite gibt es nicht (mehr). Hier sind stattdessen meine Apps.",
         back_home="Zu allen Apps",
+        facts="iPhone, iPad, Mac & Apple Watch",
+        free_short="Gratis", get_app="{name} laden",
     ),
 }
 
@@ -121,7 +125,7 @@ def parse_description(text):
         first = lines[0]
         letters = re.sub(r"[^A-Za-zÄÖÜäöüß]", "", first)
         if letters and letters.upper() == letters and len(first) < 60 and not first.startswith("•"):
-            current = dict(title=first, items=[], text=[])
+            current = dict(title=first, items=[], text=[], blocks=[])
             sections.append(current)
             lines = lines[1:]
         for line in lines:
@@ -129,9 +133,13 @@ def parse_description(text):
                 continue
             target = current if current else None
             if line.startswith(("•", "-", "–")):
-                (target["items"] if target else intro).append(line.lstrip("•-– ").strip())
+                item = line.lstrip("•-– ").strip()
+                (target["items"] if target else intro).append(item)
+                if target:
+                    target["blocks"].append(("li", item))
             elif target:
                 target["text"].append(line)
+                target["blocks"].append(("p", line))
             else:
                 intro.append(line)
     return intro, sections
@@ -173,9 +181,18 @@ def platforms(description, lang):
 
 # ---------------------------------------------------------------- images
 
+def max_side(path):
+    out = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", path], capture_output=True, text=True).stdout
+    return max([int(n) for n in re.findall(r"pixel(?:Width|Height): (\d+)", out)] or [0])
+
+
+# Screenshots are shown up to ~340 pt wide, so they need ~700 px for Retina screens (640 px tall was blurry).
+SHOT_SIZE = 1400
+
+
 def resize(src, dst, width, fmt="jpeg", quality=82):
     os.makedirs(os.path.dirname(dst), exist_ok=True)
-    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src):
+    if os.path.exists(dst) and os.path.getmtime(dst) >= os.path.getmtime(src) and max_side(dst) == min(width, max_side(src)):
         return
     args = ["sips", "-Z", str(width), src, "--out", dst]
     if fmt == "jpeg":
@@ -207,7 +224,7 @@ def app_images(app):
         for index, name in enumerate(own[:SHOTS_PER_APP], start=1):
             target_lang = lang if name.startswith(f"{lang}-") else "en"
             target = os.path.join(folder, f"{target_lang}-{index}.jpg")
-            resize(os.path.join(app["shots"], name), target, 640)
+            resize(os.path.join(app["shots"], name), target, SHOT_SIZE)
             urls.append(f"/assets/apps/{slug}/{target_lang}-{index}.jpg")
         shots[lang] = urls
     return f"/assets/apps/{slug}/icon.png", shots
@@ -217,6 +234,18 @@ def external_icon(item):
     slug = item["slug"]
     resize(os.path.join(ICONS, f"{slug}.png"), os.path.join(ROOT, "assets", "apps", slug, "icon.png"), 256, fmt="png")
     return f"/assets/apps/{slug}/icon.png"
+
+
+def external_shot(item):
+    """An app with its own website: one screenshot per language for the home page."""
+    urls = {}
+    for lang in LANGS:
+        src = item.get("shot", "").format(lang=lang)
+        target = os.path.join(ROOT, "assets", "apps", item["slug"], f"{lang}-1.jpg")
+        if src and os.path.exists(src):
+            resize(src, target, SHOT_SIZE)
+        urls[lang] = f"/assets/apps/{item['slug']}/{lang}-1.jpg" if os.path.exists(target) else None
+    return urls
 
 
 # ---------------------------------------------------------------- page parts
@@ -245,7 +274,8 @@ def head(lang, title, description, canonical_path, alternates, extra="", image=N
         '<meta name="theme-color" content="#0b0a16">',
         '<meta name="color-scheme" content="dark">',
         '<link rel="icon" type="image/png" href="/favicon.png">',
-        '<link rel="apple-touch-icon" href="/icon.png">',
+        '<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">',
+        '<link rel="apple-touch-icon" href="/apple-touch-icon.png">',
         '<link rel="stylesheet" href="/assets/site.css">',
         '<meta property="og:type" content="website">',
         f'<meta property="og:title" content="{e(title)}">',
@@ -264,7 +294,7 @@ def header(lang, alternate_path):
     home = path_for(lang)
     other = "de" if lang == "en" else "en"
     return f"""<header class="topbar">
-  <a class="brand" href="{home}" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="{home}" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="{home}#apps">{t["apps"]}</a>
     <a href="{home}#contact">{t["contact"]}</a>
@@ -279,7 +309,7 @@ def footer(lang, privacy_path=None):
     imprint = "/imprint/" if lang == "en" else "/de/impressum/"
     privacy = f'<a href="{privacy_path}">{t["privacy"]}</a>' if privacy_path else ""
     return f"""<footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© {year} Julian Lau · {t["made_by"]}</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© {year} Julian Lau</span></div>
   <nav>{privacy}<a href="{path_for(lang)}#contact">{t["contact"]}</a><a href="{imprint}">{t["imprint"]}</a><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></nav>
 </footer>"""
 
@@ -298,6 +328,7 @@ def app_card(app, lang, data):
     <h3>{e(short_name(texts["name"]))}</h3>
     <p class="subtitle">{e(texts["subtitle"])}</p>
     <p class="blurb">{e(blurb)}</p>
+    <span class="more-link">{UI[lang]["learn_more"]} →</span>
   </div>
 </a>"""
 
@@ -310,6 +341,7 @@ def external_card(item, lang, icon):
     <h3>{e(item["name"][lang])}</h3>
     <p class="subtitle">{e(item["subtitle"][lang])}</p>
     <p class="blurb">{e(item["blurb"][lang])}</p>
+    <span class="more-link">{UI[lang]["visit_site"]} ↗</span>
   </div>
 </a>"""
 
@@ -357,6 +389,30 @@ def write(path, content):
         f.write(content)
 
 
+# Gallery arrows scroll by one screenshot; the edges fade only where there's more to see,
+# and the arrows hide when everything fits.
+GALLERY_JS = """(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();"""
+
+
 def page(lang, head_html, body, accent="#8b5cf6", body_class=""):
     return f"""<!doctype html>
 <html lang="{lang}">
@@ -370,7 +426,7 @@ def page(lang, head_html, body, accent="#8b5cf6", body_class=""):
 
 # ---------------------------------------------------------------- pages
 
-def home(lang, data, external_icons):
+def home(lang, data, external_icons, external_shots):
     t = UI[lang]
     groups = ""
     for key, label in GROUPS.items():
@@ -378,10 +434,9 @@ def home(lang, data, external_icons):
         cards += [external_card(item, lang, external_icons[item["slug"]]) for item in EXTERNAL if item["group"] == key]
         groups += f'<section class="group"><h2>{label[lang]}</h2><div class="grid">{"".join(cards)}</div></section>\n'
 
-    showcase = "".join(
-        f'<img src="{data[slug]["shots"][lang][0]}" alt="" loading="lazy" width="320" height="695">'
-        for slug in ("cardfox", "howlnight", "etf-calculator") if data[slug]["shots"][lang]
-    )
+    # YarnSpace on the left (where Cardfox was), HowlNight big in the middle, Owlvest on the right.
+    shots = [external_shots["yarnspace"][lang], data["howlnight"]["shots"][lang][0], (data["etf-calculator"]["shots"][lang] or [None])[0]]
+    showcase = "".join(f'<img src="{u}" alt="" loading="lazy" width="320" height="695">' for u in shots if u)
     items = [{"@type": "ListItem", "position": i + 1, "url": f"{SITE}{path_for(lang, app['slug'])}",
               "name": short_name(data[app["slug"]]["texts"][lang]["name"])} for i, app in enumerate(APPS)]
     ld = [
@@ -399,6 +454,7 @@ def home(lang, data, external_icons):
       <h1>{t["hero_title"]}</h1>
       <p class="lead">{t["hero_text"]}</p>
       <div class="actions"><a class="button" href="#apps">{t["see_apps"]}</a><a class="button ghost" href="#contact">{t["contact"]}</a></div>
+      <p class="facts">{t["facts"]}</p>
     </div>
     <div class="showcase" aria-hidden="true">{showcase}</div>
   </section>
@@ -408,6 +464,36 @@ def home(lang, data, external_icons):
 {footer(lang)}"""
     write(path_for(lang), page(lang, head(lang, t["site_title"], t["site_description"], path_for(lang), alternates,
                                           extra=extra, image=data["howlnight"]["shots"][lang][0]), body, body_class="home"))
+
+
+def feature_screen(app, lang, index):
+    """The plain app screen (without the store caption) shown with a feature, from the app's raw
+    captures; None when there's none for this feature in this language."""
+    name = app.get("feature_screens", {}).get(index)
+    src = os.path.join(os.path.dirname(app["shots"]), "raw", f"{lang}-iphone-{name}.png")
+    if not name or not os.path.exists(src):
+        return None
+    resize(src, os.path.join(ROOT, "assets", "apps", app["slug"], f"screen-{lang}-{name}.jpg"), 1520)
+    return f"/assets/apps/{app['slug']}/screen-{lang}-{name}.jpg"
+
+
+def pack_features(features, columns=3):
+    """Lays the tiles out in rows of three columns, in the store's order, without holes: a long tile
+    takes two columns, and when a row would end with a free column, the longest tile in it grows
+    into it (a long tile that doesn't fit any more starts the next row)."""
+    rows, row = [], []
+    for feature in features:
+        if sum(f["span"] for f in row) + feature["span"] > columns:
+            rows.append(row)
+            row = []
+        row.append(feature)
+    if row:
+        rows.append(row)
+    for row in rows:
+        free = columns - sum(f["span"] for f in row)
+        if free:
+            max(row, key=lambda f: f["weight"] / f["span"])["span"] += free
+    return [f for row in rows for f in row]
 
 
 def app_page(app, lang, data):
@@ -438,19 +524,68 @@ def app_page(app, lang, data):
     extra = (f'<meta name="apple-itunes-app" content="app-id={app["id"]}">\n'
              f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>')
 
-    feature_cards = ""
-    for section in sections:
-        bullets = "".join(f"<li>{e(item)}</li>" for item in section["items"])
-        text = "".join(f"<p>{e(p)}</p>" for p in section["text"])
-        feature_cards += (f'<article class="feature"><h3>{e(section["title"])}</h3>{text}'
-                          f'{"<ul>" + bullets + "</ul>" if bullets else ""}</article>')
+    # Tiles read row by row in the store's order (in columns they read top to bottom and looked
+    # random; as a plain list without tiles they looked bare); tiles with many points are twice
+    # as wide, so a row's tiles stay about as tall. The Pro section as an offer
+    # card of its own below, its text in the store's order with the perks as a checklist (the
+    # download follows right after it, in the closing card).
+    features, pro_card = [], ""
+    for index, section in enumerate(sections):
+        is_pro = re.search(r"\bPRO\b|PREMIUM|PLUS\b", section["title"]) is not None
+        body, bullets, foot = "", [], ""
+        for kind, value in section["blocks"] + [("end", "")]:
+            if kind == "li":
+                bullets.append(value)
+                continue
+            if bullets:
+                body += f'<ul class="{"checks" if is_pro else ""}">' + "".join(f"<li>{e(b)}</li>" for b in bullets) + "</ul>"
+                bullets = []
+            if kind == "p":
+                # In the Pro card the text after the checklist (plans, trial) goes into the footer strip.
+                if is_pro and "<ul" in body:
+                    foot += f"<p>{e(value)}</p>"
+                else:
+                    body += f"<p>{e(value)}</p>"
+        if is_pro:
+            # With a checklist: intro on the left, the perks in a dark panel on the right.
+            pro_head = f'<div class="pro-head"><span class="pro-badge">PRO</span><h3>{e(section["title"])}</h3></div>'
+            lists = "".join(re.findall(r"<ul.*?</ul>", body, re.S))
+            if lists:
+                pro_intro = re.sub(r"<ul.*?</ul>", "", body, flags=re.S)
+                inner = f'<div class="pro-main">{pro_head}{pro_intro}</div><div class="pro-perks">{lists}</div>'
+            else:
+                inner = pro_head + body
+            pro_card += (f'<article class="pro-card{" split" if lists else ""}">{inner}'
+                         f'{f"<div class=pro-foot>{foot}</div>" if foot else ""}</article>')
+        else:
+            # Rough height of the tile's text: characters plus a line's worth per bullet point.
+            weight = sum(len(x) for x in section["text"]) + 70 * len(section["items"])
+            features.append(dict(title=section["title"], body=body, weight=weight, span=2 if weight > 320 else 1,
+                                 screen=feature_screen(app, lang, index)))
+    # Features with an app screen first, two cards per row, the screen rising out of the card's
+    # bottom edge (an even number of them, so no row is half empty); the rest as tiles below.
+    showcase = [f for f in features if f["screen"]]
+    showcase = showcase[:len(showcase) // 2 * 2]
+    showcase_cards = "".join(
+        f'<article class="feature shot"><h3>{e(f["title"])}</h3><div class="feature-body">{f["body"]}</div>'
+        f'<div class="rise"><div class="device"><img src="{f["screen"]}" alt="{e(f["title"].title())}" loading="lazy" width="700" height="1521"></div></div></article>'
+        for f in showcase)
+    feature_rows = "".join(
+        f'<article class="feature span-{f["span"]}"><h3>{e(f["title"])}</h3><div class="feature-body">{f["body"]}</div></article>'
+        for f in pack_features([f for f in features if f not in showcase]))
     intro_html = "".join(f"<p>{e(p)}</p>" for p in intro if not p.startswith("•"))
     intro_bullets = [p for p in intro if p not in intro_html]
 
     shots = d["shots"][lang]
+    # Not the first one again: it's the big one beside the title.
     gallery = "".join(
         f'<img src="{u}" alt="{e(short)} {t["screenshots"].lower()} {i}" loading="lazy" width="320" height="695">'
-        for i, u in enumerate(shots, start=1))
+        for i, u in enumerate(shots[1:], start=2))
+    # The first screenshot big in the hero, the next two fanned out behind it.
+    hero_shots = "".join(f'<img class="{c}" src="{shots[i]}" alt="{e(short)}" width="320" height="695">'
+                         for c, i in (("left", 1), ("middle", 0), ("right", 2))) if len(shots) >= 3 else (
+        f'<img src="{shots[0]}" alt="{e(short)}" width="320" height="695">' if shots else "")
+    chips = "".join(f'<span class="chip">{e(p)}</span>' for p in plats) + f'<span class="chip">{t["free_short"]}</span>'
     others = "".join(app_card(a, lang, data[a["slug"]]) for a in APPS if a["slug"] != app["slug"])
 
     body = f"""{header(lang, path_for(other, app["slug"]))}
@@ -458,32 +593,37 @@ def app_page(app, lang, data):
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="{d["icon"]}" alt="{e(short)} app icon" width="112" height="112">
-      <p class="kicker">{e(app["genre"][lang])} · {t["on"]} {e(", ".join(plats))}</p>
+      <p class="kicker">{e(app["genre"][lang])}</p>
       <h1>{e(name)}</h1>
       <p class="lead strong">{e(texts["subtitle"])}</p>
       {intro_html}
       <div class="actions">
         <a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>
       </div>
-      <p class="fine">{t["free"]}</p>
+      <div class="chips" aria-label="{t["on"]}">{chips}</div>
     </div>
-    <div class="phone">{f'<img src="{shots[0]}" alt="{e(short)}" width="320" height="695">' if shots else ""}</div>
+    <div class="phone{" fan" if len(shots) >= 3 else ""}">{hero_shots}</div>
   </section>
 
-  <section class="gallery-section" aria-label="{t["screenshots"]}">
+  <section class="gallery-section at-start" aria-label="{t["screenshots"]}">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
     <div class="gallery">{gallery}</div>
   </section>
+  <script>{GALLERY_JS}</script>
 
   <section class="features">
     <h2>{t["features"]}</h2>
-    <div class="feature-grid">{feature_cards}</div>
+    {f'<div class="feature-showcase">{showcase_cards}</div>' if showcase_cards else ""}
+    <div class="feature-grid">{feature_rows}</div>
+    {pro_card}
   </section>
 
   <section class="cta">
     <img src="{d["icon"]}" alt="" width="72" height="72" loading="lazy">
-    <h2>{e(short)}</h2>
+    <h2>{e(t["get_app"].format(name=short))}</h2>
     <p>{e(texts["promo"] or texts["subtitle"])}</p>
     <a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>
+    <p class="fine">{t["free"]}</p>
   </section>
 
   <section class="group more"><h2>{t["more_apps"]}</h2><div class="grid">{others}</div></section>
@@ -566,8 +706,9 @@ def main():
         icon, shots = app_images(app)
         data[app["slug"]] = dict(texts=texts, icon=icon, shots=shots)
     external_icons = {item["slug"]: external_icon(item) for item in EXTERNAL}
+    external_shots = {item["slug"]: external_shot(item) for item in EXTERNAL}
     for lang in LANGS:
-        home(lang, data, external_icons)
+        home(lang, data, external_icons, external_shots)
         for app in APPS:
             app_page(app, lang, data)
         imprint(lang)

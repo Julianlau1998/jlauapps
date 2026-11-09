@@ -13,7 +13,8 @@
 <meta name="theme-color" content="#0b0a16">
 <meta name="color-scheme" content="dark">
 <link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/icon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Owlvest: ETF-Sparplan Rechner – Zinseszins, Steuern &amp; Rente">
@@ -27,7 +28,7 @@
 </head>
 <body class="app" style="--accent:#22c55e">
 <header class="topbar">
-  <a class="brand" href="/de/" aria-label="JL Apps"><img src="/icon.png" alt="" width="32" height="32"><span>JL Apps</span></a>
+  <a class="brand" href="/de/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
   <nav>
     <a href="/de/#apps">Apps</a>
     <a href="/de/#contact">Kontakt</a>
@@ -38,32 +39,56 @@
   <section class="hero app-hero">
     <div class="hero-text">
       <img class="hero-icon" src="/assets/apps/etf-calculator/icon.png" alt="Owlvest app icon" width="112" height="112">
-      <p class="kicker">Finanzen · für iPhone, iPad</p>
+      <p class="kicker">Finanzen</p>
       <h1>Owlvest: ETF-Sparplan Rechner</h1>
       <p class="lead strong">Zinseszins, Steuern &amp; Rente</p>
       <p>Sieh, wie dein Geld wächst – schön, übersichtlich und in Sekunden.</p><p>Owlvest macht aus deinem ETF-Sparplan ein klares Bild: Gib Startkapital, monatliche Sparrate, Laufzeit und erwartete Rendite ein und sieh sofort dein Endkapital, wie viel davon aus dem Zinseszins stammt und wann du deinen nächsten Meilenstein erreichst.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/de/app/id6443639781" rel="noopener"><img src="/assets/badges/badge-de-de.svg" width="162" height="54" alt="Laden im App Store"></a>
       </div>
-      <p class="fine">Gratis · In-App-Käufe</p>
+      <div class="chips" aria-label="für"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Gratis</span></div>
     </div>
-    <div class="phone"><img src="/assets/apps/etf-calculator/de-1.jpg" alt="Owlvest" width="320" height="695"></div>
+    <div class="phone fan"><img class="left" src="/assets/apps/etf-calculator/de-2.jpg" alt="Owlvest" width="320" height="695"><img class="middle" src="/assets/apps/etf-calculator/de-1.jpg" alt="Owlvest" width="320" height="695"><img class="right" src="/assets/apps/etf-calculator/de-3.jpg" alt="Owlvest" width="320" height="695"></div>
   </section>
 
-  <section class="gallery-section" aria-label="Screenshots">
-    <div class="gallery"><img src="/assets/apps/etf-calculator/de-1.jpg" alt="Owlvest screenshots 1" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-2.jpg" alt="Owlvest screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-3.jpg" alt="Owlvest screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-4.jpg" alt="Owlvest screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-5.jpg" alt="Owlvest screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-6.jpg" alt="Owlvest screenshots 6" loading="lazy" width="320" height="695"></div>
+  <section class="gallery-section at-start" aria-label="Screenshots">
+    <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
+    <div class="gallery"><img src="/assets/apps/etf-calculator/de-2.jpg" alt="Owlvest screenshots 2" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-3.jpg" alt="Owlvest screenshots 3" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-4.jpg" alt="Owlvest screenshots 4" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-5.jpg" alt="Owlvest screenshots 5" loading="lazy" width="320" height="695"><img src="/assets/apps/etf-calculator/de-6.jpg" alt="Owlvest screenshots 6" loading="lazy" width="320" height="695"></div>
   </section>
+  <script>(() => {
+  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
+  if (!strip) return;
+  const update = () => {
+    const max = strip.scrollWidth - strip.clientWidth;
+    section.classList.toggle("scrollable", max > 4);
+    section.classList.toggle("at-start", strip.scrollLeft < 4);
+    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
+  };
+  const step = dir => {
+    const img = strip.querySelector("img");
+    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
+  };
+  section.querySelector(".prev").onclick = () => step(-1);
+  section.querySelector(".next").onclick = () => step(1);
+  strip.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+  addEventListener("load", update);
+  update();
+})();</script>
 
   <section class="features">
     <h2>Funktionen</h2>
-    <div class="feature-grid"><article class="feature"><h3>SPARPLAN BERECHNEN</h3><ul><li>Interaktives Wachstumsdiagramm – fahre darüber, um jedes Jahr zu sehen</li><li>Endkapital, Einzahlungen und Rendite auf einen Blick</li><li>Dynamik, Fondskosten (TER), Inflation und heutige Kaufkraft</li><li>Sonderzahlungen und Sparpausen, z. B. Weihnachtsgeld oder Elternzeit</li><li>Meilensteine: Wann knackst du 100.000 € oder die erste Million?</li><li>Jahresübersicht als Tabelle</li></ul></article><article class="feature"><h3>SPARZIEL ERREICHEN</h3><ul><li>Finde heraus, wie viel du monatlich sparen musst, um dein Ziel zu erreichen</li><li>Vergleiche Strategien als gespeicherte Szenarien direkt miteinander</li></ul></article><article class="feature"><h3>ENTNAHME PLANEN</h3><ul><li>Sieh, wie lange dein Geld im Ruhestand reicht – auch mit steigenden Entnahmen</li><li>Ewige Rente: wie viel du entnehmen kannst, ohne dein Kapital anzutasten</li></ul></article><article class="feature"><h3>ECHTES DEPOT VERFOLGEN</h3><p>GEMACHT FÜR iOS</p><ul><li>Importiere Positionen direkt vom Broker: Teile den CSV-Export (z. B. von Trade Republic) mit der App</li><li>Echter Einstandswert, Gewinn bisher, Dividenden und Aufteilung nach Positionen oder Anlageklassen</li><li>Vergleiche dein Depot mit deinem Sparplan – liegst du vorn oder hinten?</li><li>Monatliche Erinnerung und Feier, wenn du einen Meilenstein überschreitest</li><li>Natives Design mit Liquid Glass, Dunkelmodus und dynamischer Schriftgröße</li><li>Widgets für Home- und Sperrbildschirm</li><li>Siri &amp; Kurzbefehle: „Wie viel habe ich mit Owlvest?“</li><li>iCloud-Sync zwischen iPhone und iPad</li><li>Teile deinen Plan als schönes Bild</li></ul></article><article class="feature"><h3>OWLVEST PREMIUM</h3><p>Mit dem Monats- oder Jahresabo entfernst du alle Werbung und schaltest frei:</p><p>3 Tage kostenlos testen.</p><p>Owlvest ist ein vereinfachtes Modell mit konstanter Rendite und keine Anlage- oder Steuerberatung. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für künftige Ergebnisse.</p><ul><li>Steuern für Deutschland (inkl. Vorabpauschale mit dem amtlichen Basiszins), die USA und weitere Länder</li><li>Entnahmeplan und Prognose für dein echtes Depot</li><li>Marktschwankungen: pessimistisches, typisches und optimistisches Ergebnis aus 500 Simulationen</li><li>Positionen mit Einstandswert, Kosten-Check, Ziel-Aufteilung und Rebalancing</li><li>Unbegrenzte Szenarien, CSV-Export, Farbthemen und Widgets</li></ul></article></div>
+    <div class="feature-showcase"><article class="feature shot"><h3>SPARZIEL ERREICHEN</h3><div class="feature-body"><ul class=""><li>Finde heraus, wie viel du monatlich sparen musst, um dein Ziel zu erreichen</li><li>Vergleiche Strategien als gespeicherte Szenarien direkt miteinander</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/etf-calculator/screen-de-goal.jpg" alt="Sparziel Erreichen" loading="lazy" width="700" height="1521"></div></div></article><article class="feature shot"><h3>ENTNAHME PLANEN</h3><div class="feature-body"><ul class=""><li>Sieh, wie lange dein Geld im Ruhestand reicht – auch mit steigenden Entnahmen</li><li>Ewige Rente: wie viel du entnehmen kannst, ohne dein Kapital anzutasten</li></ul></div><div class="rise"><div class="device"><img src="/assets/apps/etf-calculator/screen-de-payout.jpg" alt="Entnahme Planen" loading="lazy" width="700" height="1521"></div></div></article></div>
+    <div class="feature-grid"><article class="feature span-3"><h3>SPARPLAN BERECHNEN</h3><div class="feature-body"><ul class=""><li>Interaktives Wachstumsdiagramm – fahre darüber, um jedes Jahr zu sehen</li><li>Endkapital, Einzahlungen und Rendite auf einen Blick</li><li>Dynamik, Fondskosten (TER), Inflation und heutige Kaufkraft</li><li>Sonderzahlungen und Sparpausen, z. B. Weihnachtsgeld oder Elternzeit</li><li>Meilensteine: Wann knackst du 100.000 € oder die erste Million?</li><li>Jahresübersicht als Tabelle</li></ul></div></article><article class="feature span-3"><h3>ECHTES DEPOT VERFOLGEN</h3><div class="feature-body"><ul class=""><li>Importiere Positionen direkt vom Broker: Teile den CSV-Export (z. B. von Trade Republic) mit der App</li><li>Echter Einstandswert, Gewinn bisher, Dividenden und Aufteilung nach Positionen oder Anlageklassen</li><li>Vergleiche dein Depot mit deinem Sparplan – liegst du vorn oder hinten?</li><li>Monatliche Erinnerung und Feier, wenn du einen Meilenstein überschreitest</li></ul><p>GEMACHT FÜR iOS</p><ul class=""><li>Natives Design mit Liquid Glass, Dunkelmodus und dynamischer Schriftgröße</li><li>Widgets für Home- und Sperrbildschirm</li><li>Siri &amp; Kurzbefehle: „Wie viel habe ich mit Owlvest?“</li><li>iCloud-Sync zwischen iPhone und iPad</li><li>Teile deinen Plan als schönes Bild</li></ul></div></article></div>
+    <article class="pro-card split"><div class="pro-main"><div class="pro-head"><span class="pro-badge">PRO</span><h3>OWLVEST PREMIUM</h3></div><p>Mit dem Monats- oder Jahresabo entfernst du alle Werbung und schaltest frei:</p></div><div class="pro-perks"><ul class="checks"><li>Steuern für Deutschland (inkl. Vorabpauschale mit dem amtlichen Basiszins), die USA und weitere Länder</li><li>Entnahmeplan und Prognose für dein echtes Depot</li><li>Marktschwankungen: pessimistisches, typisches und optimistisches Ergebnis aus 500 Simulationen</li><li>Positionen mit Einstandswert, Kosten-Check, Ziel-Aufteilung und Rebalancing</li><li>Unbegrenzte Szenarien, CSV-Export, Farbthemen und Widgets</li></ul></div><div class=pro-foot><p>3 Tage kostenlos testen.</p><p>Owlvest ist ein vereinfachtes Modell mit konstanter Rendite und keine Anlage- oder Steuerberatung. Vergangene Wertentwicklungen sind kein verlässlicher Indikator für künftige Ergebnisse.</p></div></article>
   </section>
 
   <section class="cta">
     <img src="/assets/apps/etf-calculator/icon.png" alt="" width="72" height="72" loading="lazy">
-    <h2>Owlvest</h2>
+    <h2>Owlvest laden</h2>
     <p>Komplett neu für iOS: Sieh deinen Sparplan wachsen, erreiche dein Sparziel, plane deine Entnahme und verfolge dein echtes Depot – direkt per CSV von deinem Broker.</p>
     <a class="store-badge" href="https://apps.apple.com/de/app/id6443639781" rel="noopener"><img src="/assets/badges/badge-de-de.svg" width="162" height="54" alt="Laden im App Store"></a>
+    <p class="fine">Gratis · In-App-Käufe</p>
   </section>
 
   <section class="group more"><h2>Weitere Apps</h2><div class="grid"><a class="app-card" href="/de/howlnight/" style="--accent:#8b5cf6">
@@ -73,6 +98,7 @@
     <h3>HowlNight</h3>
     <p class="subtitle">Werwolf, Hochstapler &amp; mehr</p>
     <p class="blurb">Sieben Partyspiele für einen Abend mit Freunden – mit einem einzigen Handy. Werwolf mit echter Erzählerstimme, Hochstapler, Tickende Bombe und mehr.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/cardfox/" style="--accent:#f97316">
   <img class="app-icon" src="/assets/apps/cardfox/icon.png" alt="Cardfox app icon" width="88" height="88" loading="lazy">
@@ -81,6 +107,7 @@
     <h3>Cardfox</h3>
     <p class="subtitle">Vokabeln scannen &amp; behalten</p>
     <p class="blurb">Neu: Vokabel-Vorschläge, KI-Eselsbrücken, Hörmodus, Apple Watch und Widgets. Cardfox macht aus jeder Buchseite Karteikarten – und hilft dir, sie zu behalten.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/code-editor/" style="--accent:#fb6b3c">
   <img class="app-icon" src="/assets/apps/code-editor/icon.png" alt="Code Editor app icon" width="88" height="88" loading="lazy">
@@ -89,6 +116,7 @@
     <h3>Code Editor</h3>
     <p class="subtitle">Websites &amp; Skripte unterwegs</p>
     <p class="blurb">Neu: ein KI-Assistent mit Claude, ChatGPT oder Gemini, der dein Projekt bearbeitet. Dazu Live-Vorschau, Konsole, ganze Projekte, Python offline und 20+ Sprachen.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/python-editor/" style="--accent:#4f8cff">
   <img class="app-icon" src="/assets/apps/python-editor/icon.png" alt="Python Editor app icon" width="88" height="88" loading="lazy">
@@ -97,6 +125,7 @@
     <h3>Python Editor</h3>
     <p class="subtitle">Python 3 offline ausführen</p>
     <p class="blurb">Neu in 2.0: Python läuft direkt auf deinem Gerät – mit numpy, matplotlib, Turtle-Grafik, Jupyter-Notebooks, 20 Beispielen und verständlichen Fehlerhinweisen.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/latex-editor/" style="--accent:#f43f6b">
   <img class="app-icon" src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="88" height="88" loading="lazy">
@@ -105,6 +134,7 @@
     <h3>Texlet</h3>
     <p class="subtitle">Mathe, Formeln &amp; Dokumente</p>
     <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Live-Vorschau, Bausteinen über der Tastatur, Syntax-Highlighting und Export als PDF und Bild.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/markdown-editor/" style="--accent:#6d7cff">
   <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
@@ -113,6 +143,7 @@
     <h3>Markdown Editor and Reader</h3>
     <p class="subtitle">.md schreiben, ansehen, teilen</p>
     <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Syntax-Highlighting, Formatierungsleiste, Live-Vorschau, Ordnern und Export als PDF und HTML.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/txt-editor/" style="--accent:#14b8a6">
   <img class="app-icon" src="/assets/apps/txt-editor/icon.png" alt="txt Editor app icon" width="88" height="88" loading="lazy">
@@ -121,6 +152,7 @@
     <h3>txt Editor</h3>
     <p class="subtitle">Notizen, Listen &amp; Tagebuch</p>
     <p class="blurb">Version 2.0 ist da: komplett neu gebaut, blitzschnell und schöner denn je. Jetzt mit Ordnern, eigener Sortierung, acht Designs und einem privaten Ordner mit Face ID.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/adnumbers/" style="--accent:#f5a524">
   <img class="app-icon" src="/assets/apps/adnumbers/icon.png" alt="AdNumbers app icon" width="88" height="88" loading="lazy">
@@ -129,6 +161,7 @@
     <h3>AdNumbers</h3>
     <p class="subtitle">AdMob &amp; AdSense Einnahmen</p>
     <p class="blurb">Werbeeinnahmen live im Blick: AdMob und AdSense in einer App – mit Prognose, Monatsziel, Statistiken und KI-Analyse direkt auf deinem Gerät.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/connect-insights/" style="--accent:#4f7cff">
   <img class="app-icon" src="/assets/apps/connect-insights/icon.png" alt="Connect Insights app icon" width="88" height="88" loading="lazy">
@@ -137,11 +170,12 @@
     <h3>Connect Insights</h3>
     <p class="subtitle">App Sales, Abos &amp; ASO</p>
     <p class="blurb">Downloads, Erlöse, Abos und Rankings all deiner Apps – neue Abos live in Minuten, auf iPhone, iPad, Mac und Apple Watch. Ohne eigenen Server, direkt von Apple.</p>
+    <span class="more-link">Mehr erfahren →</span>
   </div>
 </a></div></section>
 </main>
 <footer class="footer">
-  <div><img src="/icon.png" alt="" width="28" height="28"><span>© 2026 Julian Lau · Entwickelt von Julian Lau</span></div>
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/etf-calculator/privacy/">Datenschutz</a><a href="/de/#contact">Kontakt</a><a href="/de/impressum/">Impressum</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
 </body>
