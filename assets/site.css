@@ -471,7 +471,40 @@ picture { display: contents; }
 .text-link { color: color-mix(in srgb, var(--accent) 55%, white); font-weight: 650; text-decoration: none; }
 .home-guides > p { margin-top: 16px; }
 
-.guide { max-width: 860px; margin: 0 auto; padding-top: 40px; }
+.guide { max-width: 1120px; margin: 0 auto; padding-top: 40px; }
+/* The article with the app riding along on the right. */
+.guide-layout { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 56px; align-items: start; }
+.guide-side {
+  position: sticky; top: 100px; display: grid; justify-items: center; gap: 10px; text-align: center;
+  padding: 26px 20px; border-radius: 26px;
+  background: radial-gradient(300px 200px at 50% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), var(--glass-strong);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+.guide-side > img { border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,.45); }
+.guide-side .name { font-weight: 750; font-size: 1.15rem; color: var(--text); text-decoration: none; }
+.guide-side p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.4; }
+.guide-side .store-badge { margin-top: 6px; }
+.guide-side .fine { color: var(--faint); font-size: 0.8rem; }
+.guide-app-inline {
+  display: flex; align-items: center; gap: 16px; margin: 26px 0 8px; padding: 16px 18px; border-radius: 22px;
+  background: radial-gradient(400px 160px at 0% 0%, color-mix(in srgb, var(--accent) 24%, transparent), transparent 70%), var(--glass);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.guide-app-inline > img { flex: none; border-radius: 14px; }
+.guide-app-inline > div { flex: 1; min-width: 0; }
+.guide-app-inline .kicker { margin: 0; font-size: 0.8rem; }
+.guide-app-inline .name { font-weight: 700; color: var(--text); text-decoration: none; }
+.guide-app-inline p:not(.kicker) { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.guide-app-inline .store-badge img { height: 44px; }
+.guide-strip {
+  display: flex; align-items: center; gap: 12px; margin-top: 38px; padding: 12px 18px; border-radius: 16px; text-decoration: none;
+  background: color-mix(in srgb, var(--accent) 14%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+}
+.guide-strip img { border-radius: 8px; }
+.guide-strip span { flex: 1; color: var(--text); font-weight: 600; }
+.guide-strip b { color: color-mix(in srgb, var(--accent) 55%, white); font-size: 0.9rem; }
+.app-mention { color: color-mix(in srgb, var(--accent) 55%, white); font-weight: 600; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); }
+.guide-bar { display: none; }
 .crumbs { font-size: 0.9rem; color: var(--faint); margin-bottom: 26px; }
 .crumbs a { color: var(--muted); text-decoration: none; }
 .guide h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.1; margin-bottom: 22px; }
@@ -488,6 +521,12 @@ picture { display: contents; }
 .guide td { color: var(--muted); }
 .guide td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
 .guide tr:last-child td { border-bottom: 0; }
+.guide pre {
+  margin: 16px 0; padding: 18px 20px; overflow-x: auto; border-radius: 16px;
+  background: #0d0b19; border: 1px solid var(--line); font-size: 0.88rem; line-height: 1.55;
+}
+.guide code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.92em; color: #e9e4ff; }
+.guide td code { white-space: nowrap; padding: 2px 6px; border-radius: 6px; background: rgba(255,255,255,.07); }
 .guide-app {
   display: flex; gap: 22px; align-items: flex-start; margin: 48px 0 8px; padding: 28px; border-radius: 28px;
   background: radial-gradient(500px 220px at 0% 0%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), var(--glass-strong);
@@ -531,6 +570,25 @@ picture { display: contents; }
 /* ---------- small screens ---------- */
 
 @media (max-width: 900px) {
+  .guide-layout { grid-template-columns: minmax(0, 1fr); }
+  .guide-side { display: none; }
+  /* On phones the app sits in a bar at the bottom instead. */
+  .guide-bar {
+    display: flex; align-items: center; gap: 12px; position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom));
+    z-index: 20; padding: 10px 10px 10px 12px; border-radius: 20px; text-decoration: none;
+    background: rgba(20, 17, 38, .92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+    border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  }
+  .guide-bar img { border-radius: 10px; }
+  .guide-bar span { flex: 1; min-width: 0; display: grid; line-height: 1.2; }
+  .guide-bar b, .guide-bar small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .guide-bar b { color: var(--text); }
+  .guide-bar small { color: var(--muted); font-size: 0.78rem; }
+  .guide-bar em { font-style: normal; font-weight: 700; color: #fff; padding: 9px 18px; border-radius: 999px; background: var(--accent); }
+  .guide-page .footer { padding-bottom: 110px; }
+  .guide-app-inline { flex-wrap: wrap; }
+  .guide-app-inline > div { flex-basis: calc(100% - 72px); }
+  .guide-app-inline .store-badge { margin-left: 72px; }
   .hero { grid-template-columns: 1fr; padding-top: 44px; gap: 36px; }
   .feature-grid { grid-template-columns: 1fr; }
   .feature-showcase { grid-template-columns: 1fr; }

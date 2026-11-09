@@ -62,11 +62,12 @@ UI = {
         facts="iPhone, iPad, Mac & Apple Watch",
         free_short="Free", get_app="Get {name}",
         faq="Frequently asked questions", guides="Guides", guides_path="guides",
-        guides_title="Guides – game rules, ETF taxes and more | JL Apps",
-        guides_description="Guides by JL Apps: Werewolf and Impostor game rules, the German Vorabpauschale explained, ETF savings plans with compound interest.",
+        guides_title="Guides – game rules, LaTeX, Markdown, Python, ETF taxes | JL Apps",
+        guides_description="Free guides: party game rules, vocabulary learning, coding on iPad, LaTeX and Markdown cheat sheets, ETF taxes, AdMob and App Store metrics.",
         guides_text="Rules, explanations and worked examples – free to read, with the app that does it for you.",
         guides_for="Guides for {name}", all_guides="All guides", read_guide="Read guide", more_guides="More guides",
         guide_app="The app for this", screenshot="screenshot",
+        try_in="Do it with {name}", get_short="Get", free_store="Free on the App Store",
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
@@ -89,11 +90,12 @@ UI = {
         facts="iPhone, iPad, Mac & Apple Watch",
         free_short="Gratis", get_app="{name} laden",
         faq="Häufige Fragen", guides="Ratgeber", guides_path="ratgeber",
-        guides_title="Ratgeber – Spielregeln, ETF-Steuern und mehr | JL Apps",
-        guides_description="Ratgeber von JL Apps: Werwolf- und Hochstapler-Regeln, die Vorabpauschale einfach erklärt, ETF-Sparplan mit Zinseszins berechnen.",
+        guides_title="Ratgeber – Spielregeln, LaTeX, Markdown, Python, ETF | JL Apps",
+        guides_description="Kostenlose Ratgeber: Partyspiel-Regeln, Vokabeln lernen, Programmieren auf dem iPad, LaTeX- und Markdown-Spickzettel, ETF-Steuern, AdMob, App Store.",
         guides_text="Regeln, Erklärungen und Rechenbeispiele – kostenlos zum Nachlesen, mit der passenden App dazu.",
         guides_for="Ratgeber zu {name}", all_guides="Alle Ratgeber", read_guide="Zum Ratgeber", more_guides="Weitere Ratgeber",
         guide_app="Die passende App", screenshot="Screenshot",
+        try_in="Mit {name} geht's einfacher", get_short="Laden", free_store="Gratis im App Store",
     ),
 }
 
@@ -521,7 +523,7 @@ def home(lang, data, external_icons, external_shots):
     <div class="showcase" aria-hidden="true">{showcase}</div>
   </section>
   <div id="apps" class="apps">{groups}</div>
-  <section class="guides-block home-guides"><h2>{t["guides"]}</h2><div class="guide-grid">{"".join(guide_card(g, lang, data) for g in GUIDES)}</div>
+  <section class="guides-block home-guides"><h2>{t["guides"]}</h2><div class="guide-grid">{"".join(guide_card(g, lang, data) for g in home_guides())}</div>
     <p><a class="text-link" href="{guide_path(lang)}">{t["all_guides"]} →</a></p></section>
   {contact_form(lang)}
 </main>
@@ -713,6 +715,19 @@ def store_badge(lang, label):
     return f'<img src="/assets/badges/{file}" width="162" height="54" alt="{label}">'
 
 
+def cell(text):
+    """A table cell; one wrapped in backticks is shown as code (LaTeX/Markdown syntax in the cheat sheets)."""
+    if len(text) > 1 and text.startswith("`") and text.endswith("`"):
+        return f"<code>{e(text[1:-1])}</code>"
+    return e(text)
+
+
+def home_guides(count=6):
+    """The first guide of each app, in the apps' order, for the home page."""
+    firsts = [next(g for g in GUIDES if g["app"] == app["slug"]) for app in APPS if any(g["app"] == app["slug"] for g in GUIDES)]
+    return firsts[:count]
+
+
 def guide_page(guide, lang, data):
     t = UI[lang]
     g = guide[lang]
@@ -725,19 +740,53 @@ def guide_page(guide, lang, data):
     alternates = [("en", guide_path("en", guide["slug"]["en"])), ("de", guide_path("de", guide["slug"]["de"])),
                   ("x-default", guide_path("en", guide["slug"]["en"]))]
 
+    app_url = path_for(lang, app["slug"])
+    linked = False
+
+    def text(value):
+        """Escaped text; the first mention of the app in the article links to its page."""
+        nonlocal linked
+        out = e(value)
+        if not linked:
+            # "Markdown Editor and Reader" is written as "Markdown Editor" in the articles.
+            for mention in (short, re.split(r" and | und ", short)[0]):
+                if e(mention) in out:
+                    out = out.replace(e(mention), f'<a class="app-mention" href="{app_url}">{e(mention)}</a>', 1)
+                    linked = True
+                    break
+        return out
+
+    intro = "".join(f"<p>{text(p)}</p>" for p in g["intro"].split("\n\n") if p.strip())
+    badge = f'<a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>'
+    # Right below the intro: the app, so readers see it before the long part.
+    top_card = f"""<div class="guide-app-inline">
+      <img src="{d["icon"]}" alt="{e(short)} app icon" width="56" height="56">
+      <div><p class="kicker">{t["guide_app"]}</p><a class="name" href="{app_url}">{e(texts["name"])}</a><p>{e(texts["subtitle"])}</p></div>
+      {badge}
+    </div>"""
+    # Halfway through: a slim reminder.
+    middle_strip = (f'<a class="guide-strip" href="{app_url}"><img src="{d["icon"]}" alt="" width="32" height="32" loading="lazy">'
+                    f'<span>{e(t["try_in"].format(name=short))}</span><b>{t["learn_more"]} →</b></a>')
+
     sections = ""
-    for section in g["sections"]:
-        body = "".join(f"<p>{e(p)}</p>" for p in section.get("paragraphs", []))
+    for index, section in enumerate(g["sections"]):
+        if index == len(g["sections"]) // 2:
+            sections += middle_strip
+        body = "".join(f"<p>{text(p)}</p>" for p in section.get("paragraphs", []))
+        if section.get("code"):
+            body += f'<pre><code>{e(section["code"])}</code></pre>'
         if section.get("list"):
-            body += "<ul>" + "".join(f"<li>{e(x)}</li>" for x in section["list"]) + "</ul>"
+            body += "<ul>" + "".join(f"<li>{text(x)}</li>" for x in section["list"]) + "</ul>"
         if section.get("table"):
             table = section["table"]
             body += ('<div class="table-wrap"><table><thead><tr>' + "".join(f"<th>{e(h)}</th>" for h in table["head"])
-                     + "</tr></thead><tbody>" + "".join("<tr>" + "".join(f"<td>{e(c)}</td>" for c in row) + "</tr>" for row in table["rows"])
+                     + "</tr></thead><tbody>" + "".join("<tr>" + "".join(f"<td>{cell(c)}</td>" for c in row) + "</tr>" for row in table["rows"])
                      + "</tbody></table></div>")
         sections += f'<section><h2>{e(section["h2"])}</h2>{body}</section>'
-    intro = "".join(f"<p>{e(p)}</p>" for p in g["intro"].split("\n\n") if p.strip())
-    others = "".join(guide_card(x, lang, data) for x in GUIDES if x is not guide)
+    # Same app first, then others, four in all.
+    related = [x for x in GUIDES if x is not guide and x["app"] == guide["app"]]
+    related += [x for x in GUIDES if x is not guide and x["app"] != guide["app"]][:4 - len(related)] if len(related) < 4 else []
+    others = "".join(guide_card(x, lang, data) for x in related[:4])
 
     ld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["description"],
@@ -759,25 +808,38 @@ def guide_page(guide, lang, data):
     body = f"""{header(lang, alternates[1 if lang == "en" else 0][1])}
 <main class="guide">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="{path_for(lang)}">JL Apps</a> › <a href="{guide_path(lang)}">{t["guides"]}</a></nav>
+  <div class="guide-layout">
   <article>
     <p class="kicker">{e(t["guides_for"].format(name=short))}</p>
     <h1>{e(g["h1"])}</h1>
     <div class="guide-intro">{intro}</div>
+    {top_card}
     {sections}
+    <aside class="guide-app">
+      <img src="{d["icon"]}" alt="{e(short)} app icon" width="72" height="72" loading="lazy">
+      <div>
+        <p class="kicker">{t["guide_app"]}</p>
+        <h2><a href="{app_url}">{e(texts["name"])}</a></h2>
+        <p>{e(texts["promo"] or texts["subtitle"])}</p>
+        {badge}
+        <a class="text-link" href="{app_url}">{t["learn_more"]} →</a>
+      </div>
+    </aside>
     {faq_section(g.get("faq", []), t["faq"])}
   </article>
-  <aside class="guide-app">
-    <img src="{d["icon"]}" alt="{e(short)} app icon" width="72" height="72" loading="lazy">
-    <div>
-      <p class="kicker">{t["guide_app"]}</p>
-      <h2><a href="{path_for(lang, app["slug"])}">{e(texts["name"])}</a></h2>
-      <p>{e(texts["promo"] or texts["subtitle"])}</p>
-      <a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>
-      <a class="text-link" href="{path_for(lang, app["slug"])}">{t["learn_more"]} →</a>
-    </div>
+  <aside class="guide-side" aria-label="{e(short)}">
+    <img src="{d["icon"]}" alt="" width="64" height="64">
+    <a class="name" href="{app_url}">{e(short)}</a>
+    <p>{e(texts["subtitle"])}</p>
+    {badge}
+    <span class="fine">{t["free_store"]}</span>
   </aside>
+  </div>
   <section class="guides-block"><h2>{t["more_guides"]}</h2><div class="guide-grid">{others}</div></section>
 </main>
+<a class="guide-bar" href="{store_url(app, lang)}" rel="noopener">
+  <img src="{d["icon"]}" alt="" width="40" height="40"><span><b>{e(short)}</b><small>{t["free_store"]}</small></span><em>{t["get_short"]}</em>
+</a>
 {footer(lang)}"""
     write(path, page(lang, head(lang, g["title"], g["description"], path, alternates, extra=extra,
                                 image=f"/assets/apps/{app['slug']}/icon-512.png"),
@@ -789,11 +851,17 @@ def guides_index(lang, data):
     other = "de" if lang == "en" else "en"
     path = guide_path(lang)
     alternates = [("en", guide_path("en")), ("de", guide_path("de")), ("x-default", guide_path("en"))]
-    cards = "".join(guide_card(g, lang, data) for g in GUIDES)
+    groups = ""
+    for app in APPS:
+        own = [g for g in GUIDES if g["app"] == app["slug"]]
+        if own:
+            name = short_name(data[app["slug"]]["texts"][lang]["name"])
+            groups += (f'<section class="guides-block" style="--accent:{app["accent"]}"><h2>{e(t["guides_for"].format(name=name))}</h2>'
+                       f'<div class="guide-grid">{"".join(guide_card(g, lang, data) for g in own)}</div></section>')
     body = f"""{header(lang, guide_path(other))}
 <main>
   <section class="legal guides-head"><h1>{t["guides"]}</h1><p class="lead">{t["guides_text"]}</p></section>
-  <section class="guides-block"><div class="guide-grid">{cards}</div></section>
+  {groups}
 </main>
 {footer(lang)}"""
     write(path, page(lang, head(lang, t["guides_title"], t["guides_description"], path, alternates), body, body_class="guides-index"))
