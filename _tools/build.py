@@ -909,7 +909,7 @@ def guide_page(guide, lang, data):
 
     ld = [
         {"@context": "https://schema.org", "@type": "Article", "headline": g["h1"], "description": g["description"],
-         "inLanguage": lang, "datePublished": GUIDES_PUBLISHED, "dateModified": GUIDES_PUBLISHED,
+         "inLanguage": lang, "datePublished": GUIDES_PUBLISHED, "dateModified": guide.get("modified", GUIDES_PUBLISHED),
          "mainEntityOfPage": f"{SITE}{path}", "image": f"{SITE}{large_icon(app)}",
          "author": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/", "sameAs": SAME_AS},
          "publisher": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/"},

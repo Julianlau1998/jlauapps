@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Matrix, align und cases in LaTeX: so geht&#x27;s</title>
-<meta name="description" content="Matrizen in LaTeX mit pmatrix, bmatrix und vmatrix, Gleichungen mit align und aligned ausrichten, Gleichungssysteme und Fallunterscheidungen schreiben.">
+<title>LaTeX Matrix, Gleichungssystem &amp; Fallunterscheidung</title>
+<meta name="description" content="Matrix in LaTeX schreiben: pmatrix, bmatrix, vmatrix, erweiterte Koeffizientenmatrix, Gleichungssystem, align und cases – mit Code zum Kopieren.">
 <link rel="canonical" href="https://jlauapps.com/de/ratgeber/latex-matrix/">
 <link rel="alternate" hreflang="en" href="https://jlauapps.com/guides/latex-matrix/">
 <link rel="alternate" hreflang="de" href="https://jlauapps.com/de/ratgeber/latex-matrix/">
@@ -16,8 +16,8 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Matrix, align und cases in LaTeX: so geht&#x27;s">
-<meta property="og:description" content="Matrizen in LaTeX mit pmatrix, bmatrix und vmatrix, Gleichungen mit align und aligned ausrichten, Gleichungssysteme und Fallunterscheidungen schreiben.">
+<meta property="og:title" content="LaTeX Matrix, Gleichungssystem &amp; Fallunterscheidung">
+<meta property="og:description" content="Matrix in LaTeX schreiben: pmatrix, bmatrix, vmatrix, erweiterte Koeffizientenmatrix, Gleichungssystem, align und cases – mit Code zum Kopieren.">
 <meta property="og:url" content="https://jlauapps.com/de/ratgeber/latex-matrix/">
 <meta property="og:locale" content="de_DE">
 <meta name="twitter:card" content="summary_large_image">
@@ -25,9 +25,9 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="apple-itunes-app" content="app-id=1621591035">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Matrix und ausgerichtete Gleichungen in LaTeX", "description": "Matrizen in LaTeX mit pmatrix, bmatrix und vmatrix, Gleichungen mit align und aligned ausrichten, Gleichungssysteme und Fallunterscheidungen schreiben.", "inLanguage": "de", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://jlauapps.com/de/ratgeber/latex-matrix/", "image": "https://jlauapps.com/assets/apps/latex-editor/icon-512.png", "author": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/", "sameAs": ["https://apps.apple.com/developer/julian-lau/id1603050262", "https://github.com/Julianlau1998", "https://yarnspace.app/"]}, "publisher": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/"}, "about": {"@type": "SoftwareApplication", "name": "Texlet", "url": "https://jlauapps.com/de/latex-editor/"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JL Apps", "item": "https://jlauapps.com/de/"}, {"@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "https://jlauapps.com/de/ratgeber/"}, {"@type": "ListItem", "position": 3, "name": "Matrix und ausgerichtete Gleichungen in LaTeX", "item": "https://jlauapps.com/de/ratgeber/latex-matrix/"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Was ist der Unterschied zwischen pmatrix und bmatrix?", "acceptedAnswer": {"@type": "Answer", "text": "Nur die Klammern: pmatrix setzt runde, bmatrix eckige Klammern. vmatrix setzt senkrechte Striche wie bei Determinanten. Alle drei gehören zu amsmath."}}, {"@type": "Question", "name": "Warum gibt align innerhalb von \\[ … \\] einen Fehler?", "acceptedAnswer": {"@type": "Answer", "text": "align erzeugt bereits eine eigene abgesetzte Formel. Innerhalb von \\[ … \\] oder equation nimmst du stattdessen aligned, das einen ausgerichteten Block in einer bestehenden Formel setzt."}}, {"@type": "Question", "name": "Wie schreibe ich ein Gleichungssystem in LaTeX?", "acceptedAnswer": {"@type": "Answer", "text": "Mit \\left\\{ \\begin{aligned} … \\end{aligned} \\right. und einem & vor jedem Gleichheitszeichen. Für abschnittsweise definierte Funktionen nimmst du die Umgebung cases."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Matrix, Gleichungssystem und Fallunterscheidung in LaTeX", "description": "Matrix in LaTeX schreiben: pmatrix, bmatrix, vmatrix, erweiterte Koeffizientenmatrix, Gleichungssystem, align und cases – mit Code zum Kopieren.", "inLanguage": "de", "datePublished": "2026-11-09", "dateModified": "2026-11-10", "mainEntityOfPage": "https://jlauapps.com/de/ratgeber/latex-matrix/", "image": "https://jlauapps.com/assets/apps/latex-editor/icon-512.png", "author": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/", "sameAs": ["https://apps.apple.com/developer/julian-lau/id1603050262", "https://github.com/Julianlau1998", "https://yarnspace.app/"]}, "publisher": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/"}, "about": {"@type": "SoftwareApplication", "name": "Texlet", "url": "https://jlauapps.com/de/latex-editor/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JL Apps", "item": "https://jlauapps.com/de/"}, {"@type": "ListItem", "position": 2, "name": "Ratgeber", "item": "https://jlauapps.com/de/ratgeber/"}, {"@type": "ListItem", "position": 3, "name": "Matrix, Gleichungssystem und Fallunterscheidung in LaTeX", "item": "https://jlauapps.com/de/ratgeber/latex-matrix/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Was ist der Unterschied zwischen pmatrix und bmatrix?", "acceptedAnswer": {"@type": "Answer", "text": "Nur die Klammern: pmatrix setzt runde, bmatrix eckige Klammern. vmatrix setzt senkrechte Striche wie bei Determinanten. Alle drei gehören zu amsmath."}}, {"@type": "Question", "name": "Wie schreibe ich einen Spaltenvektor in LaTeX?", "acceptedAnswer": {"@type": "Answer", "text": "Mit einer Matrix aus einer Spalte, bei der jeder Eintrag außer dem letzten mit \\\\ endet, zum Beispiel \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}."}}, {"@type": "Question", "name": "Wie schreibe ich eine transponierte Matrix?", "acceptedAnswer": {"@type": "Answer", "text": "Mit A^T oder typografisch sauberer mit A^\\top. Mit amssymb geht auch A^\\intercal."}}, {"@type": "Question", "name": "Warum gibt align innerhalb von \\[ … \\] einen Fehler?", "acceptedAnswer": {"@type": "Answer", "text": "align erzeugt bereits eine eigene abgesetzte Formel. Innerhalb von \\[ … \\] oder equation nimmst du stattdessen aligned, das einen ausgerichteten Block in einer bestehenden Formel setzt."}}, {"@type": "Question", "name": "Wie schreibe ich ein Gleichungssystem in LaTeX?", "acceptedAnswer": {"@type": "Answer", "text": "Mit \\left\\{ \\begin{aligned} … \\end{aligned} \\right. und einem & vor jedem Gleichheitszeichen. Für abschnittsweise definierte Funktionen nimmst du die Umgebung cases."}}, {"@type": "Question", "name": "Wie bekomme ich eine Matrix mit mehr als 10 Spalten?", "acceptedAnswer": {"@type": "Answer", "text": "amsmath-Matrizen erlauben standardmäßig 10 Spalten. Ergänze \\setcounter{MaxMatrixCols}{20} (oder eine höhere Zahl) in der Präambel oder nimm die Umgebung array."}}]}</script>
 </head>
 <body class="guide-page" style="--accent:#f43f6b">
 <header class="topbar">
@@ -44,8 +44,8 @@
   <div class="guide-layout">
   <article>
     <p class="kicker">Ratgeber zu Texlet</p>
-    <h1>Matrix und ausgerichtete Gleichungen in LaTeX</h1>
-    <div class="guide-intro"><p>Matrizen, mehrzeilige Umformungen und Gleichungssysteme folgen in LaTeX derselben Idee: Eine Umgebung ordnet den Inhalt in Zeilen und Spalten, &amp; trennt die Spalten, und \\ beendet eine Zeile. Wenn du das einmal verinnerlicht hast, sind pmatrix, align und cases ganz einfach.</p><p>Alle Umgebungen in dieser Anleitung stammen aus dem Paket amsmath. In einem vollständigen Dokument ergänzt du \usepackage{amsmath} in der Präambel; ohne das Paket bekommst du Fehler wie „Environment pmatrix undefined“.</p></div>
+    <h1>Matrix, Gleichungssystem und Fallunterscheidung in LaTeX</h1>
+    <div class="guide-intro"><p>Matrizen, mehrzeilige Umformungen und Gleichungssysteme folgen in LaTeX derselben Idee: Eine Umgebung ordnet den Inhalt in Zeilen und Spalten, &amp; trennt die Spalten, und \\ beendet eine Zeile. Wenn du das einmal verinnerlicht hast, sind pmatrix, align und cases ganz einfach.</p><p>Bis auf array, das zum LaTeX-Kern gehört, stammen alle Umgebungen in dieser Anleitung aus dem Paket amsmath. In einem vollständigen Dokument ergänzt du \usepackage{amsmath} in der Präambel; ohne das Paket bekommst du Fehler wie „Environment pmatrix undefined“.</p></div>
     <div class="guide-app-inline">
       <img src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="56" height="56">
       <div><p class="kicker">Die passende App</p><a class="name" href="/de/latex-editor/">Texlet: LaTeX Editor</a><p>Mathe, Formeln &amp; Dokumente</p></div>
@@ -65,7 +65,7 @@
 \det(A) = \begin{vmatrix}
   a &amp; b \\
   c &amp; d
-\end{vmatrix} = ad - bc</code></pre></section><section><h2>Große Matrizen mit Pünktchen</h2><p>Für allgemeine m × n-Matrizen setzt \cdots waagerechte Punkte auf Mitte, \vdots senkrechte und \ddots diagonale Punkte. Standardmäßig erlauben die amsmath-Matrizen bis zu 10 Spalten; für mehr schreibst du \setcounter{MaxMatrixCols}{20} in die Präambel.</p><pre><code>A = \begin{pmatrix}
+\end{vmatrix} = ad - bc</code></pre></section><section><h2>Große Matrizen mit Pünktchen</h2><p>Für allgemeine m × n-Matrizen setzt \cdots waagerechte Punkte auf Mitte, \vdots senkrechte und \ddots diagonale Punkte. Standardmäßig erlauben die amsmath-Matrizen bis zu 10 Spalten; für mehr schreibst du \setcounter{MaxMatrixCols}{20} in die Präambel. Befehle für die Einträge selbst, etwa griechische Buchstaben, Brüche und Indizes, stehen im <a href="/de/ratgeber/latex-formeln-spickzettel/">LaTeX-Spickzettel</a>.</p><pre><code>A = \begin{pmatrix}
   a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} \\
   a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} \\
   \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
@@ -96,7 +96,7 @@
   2x + 3y &amp;= 7 \\
    x -  y &amp;= 1
 \end{aligned}
-\right.</code></pre></section><section><h2>Häufige Fehler</h2><ul><li>„Misplaced alignment tab character &amp;“: ein &amp; außerhalb einer Matrix-, align- oder cases-Umgebung oder ein Tippfehler im Umgebungsnamen.</li><li>„Environment pmatrix undefined“: amsmath ist nicht geladen.</li><li>Jedes \begin{…} braucht ein \end{…} mit genau demselben Namen.</li><li>Kein \\ nach der letzten Zeile – das kann eine leere Zeile oder zusätzlichen Abstand erzeugen.</li><li>Ein fehlendes \right. nach \left\{ verhindert, dass die Formel gesetzt wird.</li></ul></section><section><h2>Matrizen auf dem iPhone und iPad schreiben</h2><p>&amp; und \\ auf der Bildschirmtastatur zu tippen, ist mühsam. <a class="app-mention" href="/de/latex-editor/">Texlet</a> hat über der Tastatur Bausteine für Matrizen und Umgebungen, und Return nach \begin{…} ergänzt das passende \end{…} – damit entfällt der häufigste Fehler dieser Liste. Die Live-Vorschau setzt Matrizen und Fallunterscheidungen schon beim Tippen, auch offline, sodass du sofort siehst, ob in einer Zeile ein Eintrag fehlt. Mit Texlet Pro exportierst du das Ergebnis als PDF oder PNG oder kopierst es als Bild.</p></section>
+\right.</code></pre></section><section><h2>Häufige Fehler</h2><ul><li>„Misplaced alignment tab character &amp;“: ein &amp; außerhalb einer Matrix-, align-, cases- oder array-Umgebung – etwa in einer normalen equation – oder ein &amp; im Fließtext, das als \&amp; geschrieben werden muss.</li><li>„Environment pmatrix undefined“: amsmath ist nicht geladen.</li><li>Jedes \begin{…} braucht ein \end{…} mit genau demselben Namen.</li><li>Kein \\ nach der letzten Zeile – das kann eine leere Zeile oder zusätzlichen Abstand erzeugen.</li><li>Ein fehlendes \right. nach \left\{ verhindert, dass die Formel gesetzt wird.</li></ul></section><section><h2>Matrizen auf dem iPhone und iPad schreiben</h2><p>&amp; und \\ auf der Bildschirmtastatur zu tippen, ist mühsam. <a class="app-mention" href="/de/latex-editor/">Texlet</a> hat über der Tastatur Bausteine für Matrizen und Umgebungen, und Return nach \begin{…} ergänzt das passende \end{…} – damit entfällt der häufigste Fehler dieser Liste. Die Live-Vorschau setzt Matrizen und Fallunterscheidungen schon beim Tippen, auch offline, sodass du sofort siehst, ob in einer Zeile ein Eintrag fehlt. Mit Texlet Pro exportierst du das Ergebnis als PDF oder PNG oder kopierst es als Bild. Weitere Tipps für den Touchscreen: <a href="/de/ratgeber/latex-auf-dem-ipad/">LaTeX auf dem iPad schreiben</a>.</p></section>
     <aside class="guide-app">
       <img src="/assets/apps/latex-editor/icon.png" alt="Texlet app icon" width="72" height="72" loading="lazy">
       <div>
@@ -107,7 +107,7 @@
         <a class="text-link" href="/de/latex-editor/">Mehr erfahren →</a>
       </div>
     </aside>
-    <section class="faq"><h2>Häufige Fragen</h2><div class="faq-list"><details><summary>Was ist der Unterschied zwischen pmatrix und bmatrix?</summary><p>Nur die Klammern: pmatrix setzt runde, bmatrix eckige Klammern. vmatrix setzt senkrechte Striche wie bei Determinanten. Alle drei gehören zu amsmath.</p></details><details><summary>Warum gibt align innerhalb von \[ … \] einen Fehler?</summary><p>align erzeugt bereits eine eigene abgesetzte Formel. Innerhalb von \[ … \] oder equation nimmst du stattdessen aligned, das einen ausgerichteten Block in einer bestehenden Formel setzt.</p></details><details><summary>Wie schreibe ich ein Gleichungssystem in LaTeX?</summary><p>Mit \left\{ \begin{aligned} … \end{aligned} \right. und einem &amp; vor jedem Gleichheitszeichen. Für abschnittsweise definierte Funktionen nimmst du die Umgebung cases.</p></details></div></section>
+    <section class="faq"><h2>Häufige Fragen</h2><div class="faq-list"><details><summary>Was ist der Unterschied zwischen pmatrix und bmatrix?</summary><p>Nur die Klammern: pmatrix setzt runde, bmatrix eckige Klammern. vmatrix setzt senkrechte Striche wie bei Determinanten. Alle drei gehören zu amsmath.</p></details><details><summary>Wie schreibe ich einen Spaltenvektor in LaTeX?</summary><p>Mit einer Matrix aus einer Spalte, bei der jeder Eintrag außer dem letzten mit \\ endet, zum Beispiel \begin{pmatrix} x \\ y \\ z \end{pmatrix}.</p></details><details><summary>Wie schreibe ich eine transponierte Matrix?</summary><p>Mit A^T oder typografisch sauberer mit A^\top. Mit amssymb geht auch A^\intercal.</p></details><details><summary>Warum gibt align innerhalb von \[ … \] einen Fehler?</summary><p>align erzeugt bereits eine eigene abgesetzte Formel. Innerhalb von \[ … \] oder equation nimmst du stattdessen aligned, das einen ausgerichteten Block in einer bestehenden Formel setzt.</p></details><details><summary>Wie schreibe ich ein Gleichungssystem in LaTeX?</summary><p>Mit \left\{ \begin{aligned} … \end{aligned} \right. und einem &amp; vor jedem Gleichheitszeichen. Für abschnittsweise definierte Funktionen nimmst du die Umgebung cases.</p></details><details><summary>Wie bekomme ich eine Matrix mit mehr als 10 Spalten?</summary><p>amsmath-Matrizen erlauben standardmäßig 10 Spalten. Ergänze \setcounter{MaxMatrixCols}{20} (oder eine höhere Zahl) in der Präambel oder nimm die Umgebung array.</p></details></div></section>
   </article>
   <aside class="guide-side" aria-label="Texlet">
     <img src="/assets/apps/latex-editor/icon.png" alt="" width="64" height="64">
@@ -117,25 +117,25 @@
     <span class="fine">Gratis im App Store</span>
   </aside>
   </div>
-  <section class="guides-block"><h2>Weitere Ratgeber</h2><div class="guide-grid"><a class="guide-card" href="/de/ratgeber/latex-auf-dem-ipad/" style="--accent:#f43f6b">
-  <span class="genre"><img src="/assets/apps/latex-editor/icon.png" alt="" width="22" height="22" loading="lazy">Texlet</span>
-  <h3>LaTeX auf dem iPad schreiben</h3>
-  <p>LaTeX auf dem iPad und iPhone: Aufbau eines Dokuments, Formeln im Text und abgesetzt, Arbeiten mit Live-Vorschau, offline und mit Export.</p>
-  <span class="more-link">Zum Ratgeber →</span>
-</a><a class="guide-card" href="/de/ratgeber/latex-formeln-spickzettel/" style="--accent:#f43f6b">
+  <section class="guides-block"><h2>Weitere Ratgeber</h2><div class="guide-grid"><a class="guide-card" href="/de/ratgeber/latex-formeln-spickzettel/" style="--accent:#f43f6b">
   <span class="genre"><img src="/assets/apps/latex-editor/icon.png" alt="" width="22" height="22" loading="lazy">Texlet</span>
   <h3>LaTeX Formeln: Spickzettel für Brüche, Wurzeln, Integrale</h3>
-  <p>LaTeX-Spickzettel mit Tabellen: Bruch, Wurzel, Summe, Integral, griechische Buchstaben, Relationen, Pfeile, Akzente und Klammern – mit amsmath-Hinweisen.</p>
+  <p>LaTeX Symbole und Formeln im Spickzettel: Bruch, Wurzel, Summe, Integral, griechische Buchstaben, Pfeile und Klammern – mit amsmath-Hinweisen. Zum Nachschlagen.</p>
+  <span class="more-link">Zum Ratgeber →</span>
+</a><a class="guide-card" href="/de/ratgeber/latex-auf-dem-ipad/" style="--accent:#f43f6b">
+  <span class="genre"><img src="/assets/apps/latex-editor/icon.png" alt="" width="22" height="22" loading="lazy">Texlet</span>
+  <h3>LaTeX auf dem iPad schreiben</h3>
+  <p>LaTeX auf dem iPad und iPhone schreiben: Aufbau eines Dokuments, Formeln im Text und abgesetzt, Live-Vorschau, offline arbeiten und exportieren. So geht’s.</p>
   <span class="more-link">Zum Ratgeber →</span>
 </a><a class="guide-card" href="/de/ratgeber/werwolf-regeln/" style="--accent:#8b5cf6">
   <span class="genre"><img src="/assets/apps/howlnight/icon.png" alt="" width="22" height="22" loading="lazy">HowlNight</span>
   <h3>Werwolf Regeln: Ablauf &amp; alle Rollen erklärt</h3>
-  <p>Werwolf Regeln einfach erklärt: Vorbereitung, Nacht, Tag, Abstimmung und Siegbedingungen, dazu alle 16 Rollen und Spielen ganz ohne Spielleiter.</p>
+  <p>Werwolf Spielregeln einfach erklärt: Vorbereitung, Nacht, Tag, Abstimmung und wer gewinnt, dazu alle Rollen und die Reihenfolge der Nacht. Gleich loslegen!</p>
   <span class="more-link">Zum Ratgeber →</span>
 </a><a class="guide-card" href="/de/ratgeber/hochstapler-spiel-regeln/" style="--accent:#8b5cf6">
   <span class="genre"><img src="/assets/apps/howlnight/icon.png" alt="" width="22" height="22" loading="lazy">HowlNight</span>
-  <h3>Hochstapler-Spiel: Regeln &amp; Tipps</h3>
-  <p>Hochstapler-Spiel Regeln erklärt: Alle kennen das geheime Wort, nur einer nicht. Ablauf einer Runde, Punkte, Tipps für beide Seiten und Varianten.</p>
+  <h3>Hochstapler-Spiel (Imposter): Regeln, Ablauf &amp; Tipps</h3>
+  <p>Hochstapler-Spiel (Imposter) Regeln: Alle kennen das geheime Wort, nur einer nicht. Ablauf, letzte Chance, Punkte und Tipps für beide Seiten – direkt loslegen.</p>
   <span class="more-link">Zum Ratgeber →</span>
 </a></div></section>
 </main>
