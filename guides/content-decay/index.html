@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Content Decay: Find and Refresh Pages Losing Traffic</title>
+<meta name="description" content="Content decay explained: find pages that slowly lose Google traffic with Search Console, understand why it happens and refresh them step by step – free.">
+<link rel="canonical" href="https://jlauapps.com/guides/content-decay/">
+<link rel="alternate" hreflang="en" href="https://jlauapps.com/guides/content-decay/">
+<link rel="alternate" hreflang="de" href="https://jlauapps.com/de/ratgeber/content-decay/">
+<link rel="alternate" hreflang="x-default" href="https://jlauapps.com/guides/content-decay/">
+<meta name="theme-color" content="#0b0a16">
+<meta name="color-scheme" content="dark">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Content Decay: Find and Refresh Pages Losing Traffic">
+<meta property="og:description" content="Content decay explained: find pages that slowly lose Google traffic with Search Console, understand why it happens and refresh them step by step – free.">
+<meta property="og:url" content="https://jlauapps.com/guides/content-decay/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://jlauapps.com/assets/og/en-content-decay.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Content decay: how to find and refresh pages that slowly lose traffic", "description": "Content decay explained: find pages that slowly lose Google traffic with Search Console, understand why it happens and refresh them step by step – free.", "inLanguage": "en", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://jlauapps.com/guides/content-decay/", "image": "https://jlauapps.com/assets/apps/rankpilot/icon.png", "author": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/", "sameAs": ["https://apps.apple.com/developer/julian-lau/id1603050262", "https://github.com/Julianlau1998", "https://yarnspace.app/"]}, "publisher": {"@type": "Person", "name": "Julian Lau", "url": "https://jlauapps.com/"}, "about": {"@type": "SoftwareApplication", "name": "Rankpilot", "url": "https://jlauapps.com/rankpilot/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "JL Apps", "item": "https://jlauapps.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://jlauapps.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Content decay: how to find and refresh pages that slowly lose traffic", "item": "https://jlauapps.com/guides/content-decay/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is content decay?", "acceptedAnswer": {"@type": "Answer", "text": "Content decay is the gradual loss of search traffic on a page that used to perform well. It usually develops over months, caused by outdated content, stronger competitors or changes in search results."}}, {"@type": "Question", "name": "How do I find content decay in Google Search Console?", "acceptedAnswer": {"@type": "Answer", "text": "In Performance, compare the last 3 months with the previous 3 months and with the same period last year, then sort the Pages tab by click difference. Pages that lose clicks in both comparisons are likely decaying."}}, {"@type": "Question", "name": "How often should I update old content?", "acceptedAnswer": {"@type": "Answer", "text": "There’s no fixed rule. Check your most important pages every few months and update them when clicks decline or the information is outdated, not just to change the date."}}, {"@type": "Question", "name": "Should I change the URL when I update an article?", "acceptedAnswer": {"@type": "Answer", "text": "No, keep the URL whenever possible. That way existing links, rankings and bookmarks stay with the page."}}, {"@type": "Question", "name": "Does updating the date improve rankings?", "acceptedAnswer": {"@type": "Answer", "text": "Changing only the date doesn’t make a page better. Update the visible date when you’ve made substantial changes to the content."}}]}</script>
+</head>
+<body class="guide-page" style="--accent:#5b59fa">
+<header class="topbar">
+  <a class="brand" href="/" aria-label="JL Apps"><img src="/assets/logo.svg" alt="" width="34" height="34"><span>JL Apps</span></a>
+  <nav>
+    <a href="/#apps">Apps</a>
+    <a href="/guides/">Guides</a>
+    <a href="/#contact">Contact</a>
+    <a class="lang" href="/de/ratgeber/content-decay/" hreflang="de" lang="de">Deutsch</a>
+  </nav>
+</header>
+<main class="guide">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">JL Apps</a> › <a href="/guides/">Guides</a></nav>
+  <div class="guide-layout">
+  <article>
+    <p class="kicker">Guides for Rankpilot</p>
+    <h1>Content decay: how to find and refresh pages that slowly lose traffic</h1>
+    <div class="guide-intro"><p>Content decay is the slow decline of a page that once brought steady traffic from Google. There’s no sudden crash, just a little less every month: positions slip, clicks fade and one day your best article from two years ago barely shows up. Because it happens slowly, it’s easy to miss until a lot of traffic is gone.</p><p>This guide shows you how to find decaying pages in Google Search Console, how to work out why a page is losing traffic, and how to refresh it so it can recover – or decide that it’s better to merge or remove it.</p></div>
+    <div class="guide-app-inline">
+      <img src="/assets/apps/rankpilot/icon.png" alt="Rankpilot app icon" width="56" height="56">
+      <div><p class="kicker">The app for this</p><a class="name" href="/rankpilot/">Rankpilot: SEO Check</a><p>Website score &amp; Search Console</p></div>
+      <a class="button" href="/rankpilot/">Coming soon to the App Store</a>
+    </div>
+    <section><h2>Content decay vs. a sudden drop</h2><p>If clicks for your whole site fall off a cliff within a few days, that’s usually not decay. Technical errors, a Google core update or a tracking change are more likely – the guide on <a href="/guides/google-clicks-dropped/">Google clicks dropping</a> covers those causes.</p><p>Content decay is different: it affects individual pages, develops over months and often goes unnoticed because other pages make up for it. That’s why you need to look at pages one by one, not just at the overall chart.</p></section><section><h2>Find decaying pages in Search Console</h2><p>The Performance report in Google Search Console has everything you need. New to it? Start with the <a href="/guides/google-search-console-guide/">Search Console guide</a>.</p><ul><li>Open Performance → Search results and click the date filter.</li><li>Choose the Compare tab and compare the last 3 months with the previous 3 months.</li><li>Run a second comparison: the last 3 months vs. the same period last year. This rules out seasonal effects, like a Christmas recipe that always drops in spring.</li><li>Switch to the Pages tab and sort by the difference in clicks to see the biggest losers.</li><li>Note pages that lose clicks in both comparisons – those are your decay candidates.</li><li>Export the table if you want to track the list in a spreadsheet.</li></ul></section><section><h2>Look at queries, position and CTR</h2><p>Click on a candidate page and open the Queries tab with the same comparison. Now you can see which searches lost clicks. Often it’s a handful of important queries, not everything.</p><p>Then compare position and CTR. If the average position dropped, the page lost rankings to other results. If the position stayed roughly the same but CTR fell, something changed on the results page – for example an AI Overview, more ads or other features pushing your result down. If impressions fell while position and CTR are stable, people may simply be searching less for the topic; Google Trends helps you check that.</p></section><section><h2>Common causes</h2><p>Once you know what changed, the cause is usually one of these:</p><ul><li>Outdated information: old prices, versions, years or screenshots</li><li>Stronger competitors: newer, more detailed or better-structured pages</li><li>Search intent shift: people now want a comparison, a video or a tool instead of a long text</li><li>SERP changes: AI Overviews or other features take away clicks</li><li>Lost backlinks: pages that linked to you were removed or changed</li><li>Cannibalization: a newer page of your own competes for the same queries</li><li>Technical issues: a noindex tag, broken canonical, slower loading or changed internal links</li></ul></section><a class="guide-strip" href="/rankpilot/"><img src="/assets/apps/rankpilot/icon.png" alt="" width="32" height="32" loading="lazy"><span>Do it with Rankpilot</span><b>Learn more →</b></a><section><h2>How to refresh a decaying page</h2><p>First rule out technical causes with URL Inspection: is the page indexed, and is the Google-selected canonical the page itself? If a newer article of yours competes for the same queries, read the guide on <a href="/guides/keyword-cannibalization/">keyword cannibalization</a> first.</p><p>Then update the content itself. Search the results for your main query and look at what the top pages cover that yours doesn’t. Use the queries your page already gets impressions for but ranks poorly on – those are subtopics Google already connects with your page.</p><ul><li>Update facts, numbers, examples and screenshots.</li><li>Add sections for subtopics from the queries the page already gets impressions for.</li><li>Remove outdated or repetitive parts – longer isn’t automatically better.</li><li>Improve the title and meta description so they match today’s search intent.</li><li>Add internal links from newer, related pages to the refreshed page.</li><li>Keep the URL, so existing links and signals stay with the page.</li></ul></section><section><h2>Dates, reindexing and measuring</h2><p>Only change the visible “updated” date when the update is substantial. Changing the date without real changes doesn’t fool anyone and can make your site look less trustworthy.</p><p>After publishing, request indexing for the URL in URL Inspection so Google recrawls it sooner. Then wait several weeks and compare a similar period before and after the update. Example with made-up numbers: if a page went from 400 to 250 clicks a month and is at 330 six weeks after the refresh, it’s recovering – keep watching rather than changing it again right away.</p></section><section><h2>When to merge or remove instead</h2><p>Not every page is worth saving. If a topic is no longer relevant to your business, or another page of yours covers it better, merge the useful parts into that page and set a 301 redirect. Pages with no traffic, no links and no purpose can also be removed. That keeps your site focused and saves your time for pages that matter.</p></section><section><h2>Spot content decay early with Rankpilot</h2><p><a class="app-mention" href="/rankpilot/">Rankpilot</a> is an iPhone and iPad app that is coming soon to the App Store. Once you connect Google Search Console, it shows pages with content decay, so you don’t have to run period comparisons by hand, and it can alert you when clicks drop. Index watch warns you when pages drop out of the index.</p><p>Competing pages help you spot cannibalization behind a decline, and SEO experiments compare clicks before and after your refresh. Rankpilot is free; the optional Rankpilot Pro subscription adds 90 days of data and background monitoring.</p></section>
+    <aside class="guide-app">
+      <img src="/assets/apps/rankpilot/icon.png" alt="Rankpilot app icon" width="72" height="72" loading="lazy">
+      <div>
+        <p class="kicker">The app for this</p>
+        <h2><a href="/rankpilot/">Rankpilot: SEO Check</a></h2>
+        <p>Check your website’s SEO in under a minute: a score from 0 to 100, concrete fixes and your Google Search Console numbers – right on your iPhone.</p>
+        <a class="button" href="/rankpilot/">Coming soon to the App Store</a>
+        <a class="text-link" href="/rankpilot/">Learn more →</a>
+      </div>
+    </aside>
+    <section class="faq"><h2>Frequently asked questions</h2><div class="faq-list"><details><summary>What is content decay?</summary><p>Content decay is the gradual loss of search traffic on a page that used to perform well. It usually develops over months, caused by outdated content, stronger competitors or changes in search results.</p></details><details><summary>How do I find content decay in Google Search Console?</summary><p>In Performance, compare the last 3 months with the previous 3 months and with the same period last year, then sort the Pages tab by click difference. Pages that lose clicks in both comparisons are likely decaying.</p></details><details><summary>How often should I update old content?</summary><p>There’s no fixed rule. Check your most important pages every few months and update them when clicks decline or the information is outdated, not just to change the date.</p></details><details><summary>Should I change the URL when I update an article?</summary><p>No, keep the URL whenever possible. That way existing links, rankings and bookmarks stay with the page.</p></details><details><summary>Does updating the date improve rankings?</summary><p>Changing only the date doesn’t make a page better. Update the visible date when you’ve made substantial changes to the content.</p></details></div></section>
+  </article>
+  <aside class="guide-side" aria-label="Rankpilot">
+    <img src="/assets/apps/rankpilot/icon.png" alt="" width="64" height="64">
+    <a class="name" href="/rankpilot/">Rankpilot</a>
+    <p>Website score &amp; Search Console</p>
+    <a class="button" href="/rankpilot/">Coming soon to the App Store</a>
+    <span class="fine">Free · In-app purchases</span>
+  </aside>
+  </div>
+  <section class="guides-block"><h2>More guides</h2><div class="guide-grid"><a class="guide-card" href="/guides/keyword-cannibalization/" style="--accent:#5b59fa">
+  <span class="genre"><img src="/assets/apps/rankpilot/icon.png" alt="" width="22" height="22" loading="lazy">Rankpilot</span>
+  <h3>Keyword cannibalization: how to find and fix pages that compete with each other</h3>
+  <p>Keyword cannibalization explained: find pages competing for the same search in Google Search Console, decide if it’s a real problem and fix it step by step.</p>
+  <span class="more-link">Read guide →</span>
+</a><a class="guide-card" href="/guides/google-clicks-dropped/" style="--accent:#5b59fa">
+  <span class="genre"><img src="/assets/apps/rankpilot/icon.png" alt="" width="22" height="22" loading="lazy">Rankpilot</span>
+  <h3>Google Clicks Dropped Suddenly: Causes and How to Find Them</h3>
+  <p>Google clicks dropped suddenly? A step-by-step Search Console check to tell ranking losses from seasonality, CTR changes, tracking errors and technical issues.</p>
+  <span class="more-link">Read guide →</span>
+</a><a class="guide-card" href="/guides/google-search-console-guide/" style="--accent:#5b59fa">
+  <span class="genre"><img src="/assets/apps/rankpilot/icon.png" alt="" width="22" height="22" loading="lazy">Rankpilot</span>
+  <h3>Google Search Console for beginners: set it up and read the reports</h3>
+  <p>Google Search Console guide for beginners: set up your property, verify your site, submit a sitemap and understand the Performance and Page indexing reports.</p>
+  <span class="more-link">Read guide →</span>
+</a><a class="guide-card" href="/guides/website-seo-check/" style="--accent:#5b59fa">
+  <span class="genre"><img src="/assets/apps/rankpilot/icon.png" alt="" width="22" height="22" loading="lazy">Rankpilot</span>
+  <h3>Website SEO check: how to check your site for free, step by step</h3>
+  <p>Do a free website SEO check yourself: indexing, technical basics, titles, content, speed, mobile and structured data – with free tools and a clear order.</p>
+  <span class="more-link">Read guide →</span>
+</a></div></section>
+</main>
+<a class="guide-bar" href="/rankpilot/">
+  <img src="/assets/apps/rankpilot/icon.png" alt="" width="40" height="40"><span><b>Rankpilot</b><small>Coming soon to the App Store</small></span><em>Learn more</em>
+</a>
+<footer class="footer">
+  <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
+  <nav><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
+</footer>
+</body>
+</html>
