@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "updated": "2026-11-11",
+  "countries": {
+    "AT": {
+      "rates": [
+        "20",
+        "13",
+        "10"
+      ],
+      "currency": "EUR"
+    },
+    "BE": {
+      "rates": [
+        "21",
+        "12",
+        "6"
+      ],
+      "currency": "EUR"
+    },
+    "BG": {
+      "rates": [
+        "20",
+        "9"
+      ],
+      "currency": "EUR"
+    },
+    "CH": {
+      "rates": [
+        "8.1",
+        "3.8",
+        "2.6"
+      ],
+      "currency": "CHF"
+    },
+    "CY": {
+      "rates": [
+        "19",
+        "9",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "CZ": {
+      "rates": [
+        "21",
+        "12"
+      ],
+      "currency": "CZK"
+    },
+    "DE": {
+      "rates": [
+        "19",
+        "7"
+      ],
+      "currency": "EUR"
+    },
+    "DK": {
+      "rates": [
+        "25"
+      ],
+      "currency": "DKK"
+    },
+    "EE": {
+      "rates": [
+        "24",
+        "13",
+        "9"
+      ],
+      "currency": "EUR"
+    },
+    "ES": {
+      "rates": [
+        "21",
+        "10",
+        "4"
+      ],
+      "currency": "EUR"
+    },
+    "FI": {
+      "rates": [
+        "25.5",
+        "13.5",
+        "10"
+      ],
+      "currency": "EUR"
+    },
+    "FR": {
+      "rates": [
+        "20",
+        "10",
+        "5.5",
+        "2.1"
+      ],
+      "currency": "EUR"
+    },
+    "GB": {
+      "rates": [
+        "20",
+        "5"
+      ],
+      "currency": "GBP"
+    },
+    "GR": {
+      "rates": [
+        "24",
+        "13",
+        "6"
+      ],
+      "currency": "EUR"
+    },
+    "HR": {
+      "rates": [
+        "25",
+        "13",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "HU": {
+      "rates": [
+        "27",
+        "18",
+        "5"
+      ],
+      "currency": "HUF"
+    },
+    "IE": {
+      "rates": [
+        "23",
+        "13.5",
+        "9",
+        "4.8"
+      ],
+      "currency": "EUR"
+    },
+    "IS": {
+      "rates": [
+        "24",
+        "11"
+      ],
+      "currency": "ISK"
+    },
+    "IT": {
+      "rates": [
+        "22",
+        "10",
+        "5",
+        "4"
+      ],
+      "currency": "EUR"
+    },
+    "LI": {
+      "rates": [
+        "8.1",
+        "3.8",
+        "2.6"
+      ],
+      "currency": "CHF"
+    },
+    "LT": {
+      "rates": [
+        "21",
+        "9",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "LU": {
+      "rates": [
+        "17",
+        "14",
+        "8",
+        "3"
+      ],
+      "currency": "EUR"
+    },
+    "LV": {
+      "rates": [
+        "21",
+        "12",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "MT": {
+      "rates": [
+        "18",
+        "7",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "NL": {
+      "rates": [
+        "21",
+        "9"
+      ],
+      "currency": "EUR"
+    },
+    "NO": {
+      "rates": [
+        "25",
+        "15",
+        "12"
+      ],
+      "currency": "NOK"
+    },
+    "PL": {
+      "rates": [
+        "23",
+        "8",
+        "5"
+      ],
+      "currency": "PLN"
+    },
+    "PT": {
+      "rates": [
+        "23",
+        "13",
+        "6"
+      ],
+      "currency": "EUR"
+    },
+    "RO": {
+      "rates": [
+        "21",
+        "11"
+      ],
+      "currency": "RON"
+    },
+    "SE": {
+      "rates": [
+        "25",
+        "12",
+        "6"
+      ],
+      "currency": "SEK"
+    },
+    "SI": {
+      "rates": [
+        "22",
+        "9.5",
+        "5"
+      ],
+      "currency": "EUR"
+    },
+    "SK": {
+      "rates": [
+        "23",
+        "19",
+        "5"
+      ],
+      "currency": "EUR"
+    }
+  }
+}
