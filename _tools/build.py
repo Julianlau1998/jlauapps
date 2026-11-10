@@ -44,7 +44,8 @@ with open(os.path.join(CONTENT, "guides.json")) as f:
 # but guides can already belong to them. Their guides point to that page instead of the store.
 # Once an app is out, it moves to APPS in apps.py and leaves this list.
 UPCOMING = [
-    dict(slug="rankpilot", accent="#5b59fa", icon="/assets/apps/rankpilot/icon.png", texts={
+    dict(slug="rankpilot", accent="#5b59fa", icon="/assets/apps/rankpilot/icon.png", group="money",
+         genre={"en": "SEO", "de": "SEO"}, texts={
         "en": dict(name="Rankpilot: SEO Check", subtitle="Website score & Search Console",
                    promo="Check your website’s SEO in under a minute: a score from 0 to 100, concrete fixes and your Google Search Console numbers – right on your iPhone."),
         "de": dict(name="Rankpilot: SEO-Check", subtitle="Website-Score & Search Console",
@@ -440,6 +441,22 @@ def external_card(item, lang, icon):
 </a>"""
 
 
+def upcoming_card(app, lang):
+    """Card for an app that isn't in the App Store yet; links to its own page."""
+    texts = app["texts"][lang]
+    soon = "Coming soon" if lang == "en" else "Bald verfügbar"
+    return f"""<a class="app-card" href="{path_for(lang, app["slug"])}" style="--accent:{app["accent"]}">
+  <img class="app-icon" src="{app["icon"]}" alt="{e(short_name(texts["name"]))} app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">{e(app["genre"][lang])} · {soon}</span>
+    <h3>{e(short_name(texts["name"]))}</h3>
+    <p class="subtitle">{e(texts["subtitle"])}</p>
+    <p class="blurb">{e(texts["promo"])}</p>
+    <span class="more-link">{UI[lang]["learn_more"]} →</span>
+  </div>
+</a>"""
+
+
 def short_name(name):
     """"Cardfox: Vocabulary Cards" → "Cardfox"; names without a colon stay."""
     for sep in (":", " - ", " – "):
@@ -529,6 +546,7 @@ def home(lang, data, external_icons, external_shots):
     for key, label in GROUPS.items():
         cards = [app_card(app, lang, data[app["slug"]]) for app in APPS if app["group"] == key]
         cards += [external_card(item, lang, external_icons[item["slug"]]) for item in EXTERNAL if item["group"] == key]
+        cards += [upcoming_card(app, lang) for app in UPCOMING if app.get("group") == key]
         groups += f'<section class="group"><h2>{label[lang]}</h2><div class="grid">{"".join(cards)}</div></section>\n'
 
     # YarnSpace on the left (where Cardfox was), HowlNight big in the middle, Owlvest on the right.
@@ -757,7 +775,7 @@ def cell(text):
 
 def home_guides(count=6):
     """The first guide of each app, in the apps' order, for the home page."""
-    firsts = [next(g for g in GUIDES if g["app"] == app["slug"]) for app in APPS if any(g["app"] == app["slug"] for g in GUIDES)]
+    firsts = [next(g for g in GUIDES if g["app"] == app["slug"]) for app in APPS + UPCOMING if any(g["app"] == app["slug"] for g in GUIDES)]
     return firsts[:count]
 
 
