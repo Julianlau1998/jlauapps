@@ -1,2 +1,4 @@
 /about.html  /  301
 /about       /  301
+/rankpilot/*  /ranktutor/:splat  301
+/de/rankpilot/*  /de/ranktutor/:splat  301

@@ -44,11 +44,11 @@ with open(os.path.join(CONTENT, "guides.json")) as f:
 # but guides can already belong to them. Their guides point to that page instead of the store.
 # Once an app is out, it moves to APPS in apps.py and leaves this list.
 UPCOMING = [
-    dict(slug="rankpilot", accent="#5b59fa", icon="/assets/apps/rankpilot/icon.png", group="money",
+    dict(slug="ranktutor", accent="#5b59fa", icon="/assets/apps/ranktutor/icon.png", group="money",
          genre={"en": "SEO", "de": "SEO"}, texts={
-        "en": dict(name="Rankpilot: SEO Check", subtitle="Website score & Search Console",
+        "en": dict(name="RankTutor: SEO Check", subtitle="Website score & Search Console",
                    promo="Check your website’s SEO in under a minute: a score from 0 to 100, concrete fixes and your Google Search Console numbers – right on your iPhone."),
-        "de": dict(name="Rankpilot: SEO-Check", subtitle="Website-Score & Search Console",
+        "de": dict(name="RankTutor: SEO-Check", subtitle="Website-Score & Search Console",
                    promo="Prüfe die SEO deiner Website in unter einer Minute: ein Score von 0 bis 100, konkrete Tipps und deine Zahlen aus der Google Search Console – direkt auf dem iPhone."),
     }),
 ]
