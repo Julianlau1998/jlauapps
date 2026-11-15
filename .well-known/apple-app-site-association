@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["HNRK32U6CL.com.finance-tracker-jl.app"],
+        "components": [
+          { "/": "/finance-tracker/join/*", "comment": "Finance Tracker: household book invitations" }
+        ]
+      }
+    ]
+  }
+}

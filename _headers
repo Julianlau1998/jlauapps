@@ -5,3 +5,6 @@
   Cache-Control: public, max-age=604800
 /assets/logo.svg
   Cache-Control: public, max-age=604800
+# Universal links: iOS fetches this without a file extension and wants JSON.
+/.well-known/apple-app-site-association
+  Content-Type: application/json

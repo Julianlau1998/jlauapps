@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Einladung zum Haushaltsbuch – Finance Tracker</title>
+<meta name="description" content="Du wurdest zu einem gemeinsamen Haushaltsbuch in Finance Tracker eingeladen.">
+<meta name="robots" content="noindex">
+<!-- Link preview in WhatsApp, Signal, Messages … -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Finance Tracker">
+<meta property="og:title" content="Einladung zum Haushaltsbuch">
+<meta property="og:description" content="Öffne den Link, um dem gemeinsamen Haushaltsbuch in Finance Tracker beizutreten.">
+<meta property="og:image" content="https://jlauapps.com/finance-tracker/join/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<!-- Safari's banner: "Open" / "Get" Finance Tracker -->
+<meta name="apple-itunes-app" content="app-id=6444390143">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, system-ui, Arial, Helvetica, sans-serif; margin: 0; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;
+         background: linear-gradient(180deg, #dfe7ff 0%, #f4f5f8 60%); color: #0e1a33; }
+  @media (prefers-color-scheme: dark) {
+    body { background: linear-gradient(180deg, #1c2340 0%, #0f1115 60%); color: #eef1f8; }
+    .card { background: #1c1f26 !important; }
+    .hint { color: #a3abbd !important; }
+    .secondary { background: #2a2f3a !important; color: #eef1f8 !important; }
+  }
+  .card { background: #fff; border-radius: 28px; padding: 36px 28px; max-width: 420px; width: 100%; text-align: center;
+          box-shadow: 0 20px 60px rgba(40, 60, 190, 0.15); }
+  .icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 8px 24px rgba(0,0,0,0.18); }
+  h1 { font-size: 1.5rem; margin: 20px 0 8px; line-height: 1.25; }
+  p { margin: 0 0 22px; line-height: 1.5; }
+  .hint { color: #5b6478; font-size: 0.92rem; margin-top: 18px; margin-bottom: 0; }
+  a.button { display: block; text-decoration: none; font-weight: 600; font-size: 1.05rem; padding: 15px; border-radius: 999px; margin-top: 10px; }
+  .primary { background: #3b6cf6; color: #fff; }
+  .secondary { background: #eef1f8; color: #0e1a33; }
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="icon" src="/finance-tracker/join/icon.png" alt="">
+  <h1 id="title">Einladung zum Haushaltsbuch</h1>
+  <p id="text">Du wurdest zu einem gemeinsamen Haushaltsbuch in <strong>Finance Tracker</strong> eingeladen. Lade die App und öffne danach diesen Link erneut.</p>
+  <a class="button primary" id="store" href="https://apps.apple.com/app/id6444390143">Finance Tracker laden</a>
+  <a class="button secondary" id="open" href="#" hidden>Ich habe die App – Einladung öffnen</a>
+  <p class="hint" id="hint">Finance Tracker ist kostenlos für iPhone und iPad. Das Buch wird über iCloud geteilt.</p>
+</main>
+<script>
+  // The invitation is the iCloud share link in ?s=…; the app opens this page's link itself (universal link)
+  // when it's installed, so whoever sees this page most likely doesn't have the app yet.
+  const params = new URLSearchParams(location.search);
+  const share = params.get('s');
+  const open = document.getElementById('open');
+  if (share && /^https:\/\/www\.icloud\.com\/share\//.test(share)) {
+    open.href = share;
+    open.hidden = false;
+  }
+  if (!(navigator.language || 'de').toLowerCase().startsWith('de')) {
+    document.documentElement.lang = 'en';
+    document.title = 'Household book invitation – Finance Tracker';
+    document.getElementById('title').textContent = 'Household book invitation';
+    document.getElementById('text').innerHTML = 'You were invited to a shared household book in <strong>Finance Tracker</strong>. Get the app, then open this link again.';
+    document.getElementById('store').textContent = 'Get Finance Tracker';
+    open.textContent = 'I have the app – open invitation';
+    document.getElementById('hint').textContent = 'Finance Tracker is free for iPhone and iPad. The book is shared through iCloud.';
+  }
+  // On iPhone and iPad: straight to the App Store the first time; coming back after installing shows the page.
+  const isApple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (isApple && !sessionStorage.getItem('ft-store-shown')) {
+    sessionStorage.setItem('ft-store-shown', '1');
+    setTimeout(() => { location.href = 'https://apps.apple.com/app/id6444390143'; }, 1200);
+  }
+</script>
+</body>
+</html>
