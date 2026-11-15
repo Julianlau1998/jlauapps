@@ -68,11 +68,13 @@
     open.textContent = 'I have the app – open invitation';
     document.getElementById('hint').textContent = 'Finance Tracker is free for iPhone and iPad. The book is shared through iCloud.';
   }
-  // On iPhone and iPad: straight to the App Store the first time; coming back after installing shows the page.
+  // On iPhone and iPad: hand the invitation to iOS right away. With the app installed, the iCloud link
+  // opens Finance Tracker and joins the book; without it, Apple's iCloud page offers the App Store.
+  // Coming back (e.g. after installing) shows this page with both buttons instead of looping.
   const isApple = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-  if (isApple && !sessionStorage.getItem('ft-store-shown')) {
-    sessionStorage.setItem('ft-store-shown', '1');
-    setTimeout(() => { location.href = 'https://apps.apple.com/app/id6444390143'; }, 1200);
+  if (isApple && !open.hidden && !sessionStorage.getItem('ft-opened')) {
+    sessionStorage.setItem('ft-opened', '1');
+    setTimeout(() => { location.href = share; }, 300);
   }
 </script>
 </body>
