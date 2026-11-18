@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Einladung zu Ferrum</title>
+<meta name="description" content="Trainiere gemeinsam mit deinen Freunden in Ferrum.">
+<meta name="robots" content="noindex">
+<!-- Link preview in WhatsApp, Signal, Messages … -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ferrum">
+<meta property="og:title" content="Trainier mit mir auf Ferrum">
+<meta property="og:description" content="Öffne den Link, um dich in Ferrum mit mir zu verbinden: Trainings teilen, High Fives geben, Bestleistungen vergleichen.">
+<meta property="og:image" content="https://jlauapps.com/ferrum/invite/icon.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: -apple-system, system-ui, Arial, Helvetica, sans-serif; margin: 0; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box;
+         background: radial-gradient(120% 60% at 50% 0%, #4a2a14 0%, #0d0c0c 65%); color: #f3eee9; }
+  .card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: 28px;
+          padding: 36px 28px; max-width: 420px; width: 100%; text-align: center; box-sizing: border-box; }
+  .icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(255,122,26,0.25); }
+  h1 { font-size: 1.55rem; margin: 20px 0 8px; line-height: 1.25; }
+  p { margin: 0 0 22px; line-height: 1.5; color: #c9c1b9; }
+  ul { list-style: none; padding: 0; margin: 0 0 24px; text-align: left; }
+  li { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; color: #e6dfd8; line-height: 1.4; }
+  li span { flex: 0 0 28px; height: 28px; border-radius: 8px; background: rgba(255,122,26,0.18); color: #ff9a4d;
+            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; }
+  .hint { color: #8f877f; font-size: 0.88rem; margin-top: 18px; margin-bottom: 0; }
+  a.button { display: block; text-decoration: none; font-weight: 600; font-size: 1.05rem; padding: 15px; border-radius: 999px; margin-top: 10px; }
+  .primary { background: #ff7a1a; color: #fff; }
+  .secondary { background: rgba(255,255,255,0.1); color: #f3eee9; }
+  .soon { display: block; padding: 15px; border-radius: 999px; margin-top: 10px; background: rgba(255,255,255,0.06); color: #8f877f; font-weight: 600; }
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="icon" src="/ferrum/invite/icon.png" alt="">
+  <h1 id="title">Trainier mit mir auf Ferrum</h1>
+  <p id="text">Du wurdest eingeladen, dich in <strong>Ferrum</strong> zu verbinden.</p>
+  <ul id="features">
+    <li><span>1</span><div id="f1">Teilt eure Trainings und Rekorde</div></li>
+    <li><span>2</span><div id="f2">Gebt euch High Fives und kommentiert</div></li>
+    <li><span>3</span><div id="f3">Vergleicht eure Bestleistungen</div></li>
+  </ul>
+  <a class="button primary" id="store" href="#" hidden>Ferrum laden</a>
+  <span class="soon" id="soon" hidden>Bald im App Store</span>
+  <a class="button secondary" id="open" href="#" hidden>Ich habe die App – Einladung öffnen</a>
+  <p class="hint" id="hint">Hast du Ferrum schon, öffnet sich die Einladung direkt in der App. Sonst lade die App und öffne danach diesen Link erneut.</p>
+</main>
+<script>
+  // Set once Ferrum is in the App Store (numeric ID from App Store Connect).
+  const APP_STORE_ID = '';
+
+  // The invite lives in the fragment (#id=…&t=…&n=…), so it never reaches the server's logs.
+  // With the app installed, iOS opens this link in Ferrum directly (universal link); this page is the fallback.
+  const params = new URLSearchParams(location.hash.slice(1));
+  const id = params.get('id') || '';
+  const token = params.get('t') || '';
+  const name = (params.get('n') || '').slice(0, 40);
+  const valid = /^[0-9a-f-]{36}$/i.test(id) && /^[0-9a-z]{16,128}$/i.test(token);
+  const english = !(navigator.language || 'de').toLowerCase().startsWith('de');
+
+  const store = document.getElementById('store');
+  const soon = document.getElementById('soon');
+  const open = document.getElementById('open');
+  if (APP_STORE_ID) {
+    store.href = 'https://apps.apple.com/app/id' + APP_STORE_ID;
+    store.hidden = false;
+  } else {
+    soon.hidden = false;
+  }
+  if (valid) {
+    open.href = 'ferrum://friend?id=' + encodeURIComponent(id) + '&t=' + encodeURIComponent(token);
+    open.hidden = false;
+  }
+
+  if (english) {
+    document.documentElement.lang = 'en';
+    document.title = 'Invitation to Ferrum';
+    document.getElementById('title').textContent = 'Train with me on Ferrum';
+    document.getElementById('f1').textContent = 'Share your workouts and records';
+    document.getElementById('f2').textContent = 'Give each other high fives and comments';
+    document.getElementById('f3').textContent = 'Compare your best lifts';
+    store.textContent = 'Get Ferrum';
+    soon.textContent = 'Coming soon to the App Store';
+    open.textContent = 'I have the app – open invitation';
+    document.getElementById('hint').textContent = 'If you have Ferrum, the invitation opens right in the app. Otherwise get the app, then open this link again.';
+  }
+  // The name comes from the link and is only shown as text; the app checks the invitation with the server.
+  const text = document.getElementById('text');
+  text.textContent = '';
+  const strong = document.createElement('strong');
+  strong.textContent = 'Ferrum';
+  if (name) {
+    const who = document.createElement('strong');
+    who.textContent = name;
+    text.append(who, english ? ' invited you to connect on ' : ' hat dich eingeladen, euch in ', strong, english ? '.' : ' zu verbinden.');
+  } else {
+    text.append(english ? 'You were invited to connect on ' : 'Du wurdest eingeladen, dich in ', strong, english ? '.' : ' zu verbinden.');
+  }
+</script>
+</body>
+</html>
