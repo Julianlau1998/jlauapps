@@ -47,6 +47,7 @@
       <p>Schreib HTML, CSS, JavaScript und Python auf iPhone, iPad und Mac – und sieh sofort, was dein Code macht. Code Editor öffnet in einem Augenblick, ohne Konto und ohne Internet. Für Webseiten, Skripte, Hausaufgaben, Programmierkurse und alles, was du unterwegs schnell ändern willst.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/de/app/id6448794019" rel="noopener"><img src="/assets/badges/badge-de-de.svg" width="162" height="54" alt="Laden im App Store"></a>
+        
       </div>
       <div class="chips" aria-label="für"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Mac</span><span class="chip">Gratis</span></div>
     </div>
@@ -57,26 +58,6 @@
     <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
     <div class="gallery"><picture><source srcset="/assets/apps/code-editor/de-2.webp" type="image/webp"><img src="/assets/apps/code-editor/de-2.jpg" alt="Code Editor: HTML, Python, JS – Screenshot 2" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/code-editor/de-3.webp" type="image/webp"><img src="/assets/apps/code-editor/de-3.jpg" alt="Code Editor: HTML, Python, JS – Screenshot 3" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/code-editor/de-4.webp" type="image/webp"><img src="/assets/apps/code-editor/de-4.jpg" alt="Code Editor: HTML, Python, JS – Screenshot 4" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/code-editor/de-5.webp" type="image/webp"><img src="/assets/apps/code-editor/de-5.jpg" alt="Code Editor: HTML, Python, JS – Screenshot 5" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/code-editor/de-6.webp" type="image/webp"><img src="/assets/apps/code-editor/de-6.jpg" alt="Code Editor: HTML, Python, JS – Screenshot 6" loading="lazy" width="320" height="695"></picture></div>
   </section>
-  <script>(() => {
-  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
-  if (!strip) return;
-  const update = () => {
-    const max = strip.scrollWidth - strip.clientWidth;
-    section.classList.toggle("scrollable", max > 4);
-    section.classList.toggle("at-start", strip.scrollLeft < 4);
-    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
-  };
-  const step = dir => {
-    const img = strip.querySelector("img");
-    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
-  };
-  section.querySelector(".prev").onclick = () => step(-1);
-  section.querySelector(".next").onclick = () => step(1);
-  strip.addEventListener("scroll", update, { passive: true });
-  addEventListener("resize", update);
-  addEventListener("load", update);
-  update();
-})();</script>
 
   <section class="features">
     <h2>Funktionen</h2>
@@ -125,7 +106,7 @@
   <div>
     <span class="genre">Lernen</span>
     <h3>Cardfox</h3>
-    <p class="subtitle">Vokabeln scannen &amp; behalten</p>
+    <p class="subtitle">Vokabeltrainer mit Scan &amp; KI</p>
     <p class="blurb">Neu: Vokabel-Vorschläge, KI-Eselsbrücken, Hörmodus, Apple Watch und Widgets. Cardfox macht aus jeder Buchseite Karteikarten – und hilft dir, sie zu behalten.</p>
     <span class="more-link">Mehr erfahren →</span>
   </div>
@@ -134,8 +115,8 @@
   <div>
     <span class="genre">Entwicklung</span>
     <h3>Python Editor</h3>
-    <p class="subtitle">Python 3 offline ausführen</p>
-    <p class="blurb">Neu in 2.0: Python läuft direkt auf deinem Gerät – mit numpy, matplotlib, Turtle-Grafik, Jupyter-Notebooks, 20 Beispielen und verständlichen Fehlerhinweisen.</p>
+    <p class="subtitle">Programmieren ohne Internet</p>
+    <p class="blurb">Python 3 direkt auf iPhone, iPad und Mac – offline, mit numpy, matplotlib, Turtle-Grafik, Jupyter-Notebooks, 20 Beispielen und verständlichen Fehlerhinweisen.</p>
     <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/latex-editor/" style="--accent:#f43f6b">
@@ -143,17 +124,17 @@
   <div>
     <span class="genre">Mathe &amp; Wissenschaft</span>
     <h3>Texlet</h3>
-    <p class="subtitle">Mathe, Formeln &amp; Dokumente</p>
-    <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Live-Vorschau, Bausteinen über der Tastatur, Syntax-Highlighting und Export als PDF und Bild.</p>
+    <p class="subtitle">Formel-Editor für Gleichungen</p>
+    <p class="blurb">Tipp LaTeX und sieh es sofort gesetzt – mit Live-Vorschau, Bausteinen über der Tastatur, auch offline. Mit Texlet Pro: Formeln als Bild kopieren oder als PDF exportieren.</p>
     <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/markdown-editor/" style="--accent:#6d7cff">
-  <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor and Reader app icon" width="88" height="88" loading="lazy">
+  <img class="app-icon" src="/assets/apps/markdown-editor/icon.png" alt="Markdown Editor &amp; Reader app icon" width="88" height="88" loading="lazy">
   <div>
     <span class="genre">Schreiben</span>
-    <h3>Markdown Editor and Reader</h3>
-    <p class="subtitle">.md schreiben, ansehen, teilen</p>
-    <p class="blurb">Version 2.0 ist da: komplett neu als native App. Mit Syntax-Highlighting, Formatierungsleiste, Live-Vorschau, Ordnern und Export als PDF und HTML.</p>
+    <h3>Markdown Editor &amp; Reader</h3>
+    <p class="subtitle">Notizen schreiben mit Vorschau</p>
+    <p class="blurb">Markdown schreiben mit Syntax-Highlighting, Formatierungsleiste und Live-Vorschau. Echte .md-Dateien, Ordner und Export als PDF und HTML – ganz ohne Konto.</p>
     <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/txt-editor/" style="--accent:#14b8a6">
@@ -179,8 +160,17 @@
   <div>
     <span class="genre">Entwicklung</span>
     <h3>Connect Insights</h3>
-    <p class="subtitle">App Sales, Abos &amp; ASO</p>
-    <p class="blurb">Downloads, Erlöse, Abos und Rankings all deiner Apps – neue Abos live in Minuten, auf iPhone, iPad, Mac und Apple Watch. Ohne eigenen Server, direkt von Apple.</p>
+    <p class="subtitle">Umsatz &amp; ASO für Entwickler</p>
+    <p class="blurb">Sieh, wo deine Apps ranken, was du als Nächstes ändern solltest und was es bringt – dazu Downloads, Erlöse und Live-Abos. ASO geht auch ohne API-Schlüssel.</p>
+    <span class="more-link">Mehr erfahren →</span>
+  </div>
+</a><a class="app-card" href="/de/ranktutor/" style="--accent:#5b59fa">
+  <img class="app-icon" src="/assets/apps/ranktutor/icon.png" alt="RankTutor app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">SEO</span>
+    <h3>RankTutor</h3>
+    <p class="subtitle">Besser bei Google gefunden</p>
+    <p class="blurb">Prüfe deine Website in einer Minute und sieh genau, was als Nächstes zu tun ist – für mehr Besucher über Google und KI-Antworten. Mit deinen Search-Console-Zahlen.</p>
     <span class="more-link">Mehr erfahren →</span>
   </div>
 </a><a class="app-card" href="/de/netora/" style="--accent:#2f6fe0">
@@ -207,5 +197,6 @@
   <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/code-editor/privacy/">Datenschutz</a><a href="/de/#contact">Kontakt</a><a href="/de/impressum/">Impressum</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>

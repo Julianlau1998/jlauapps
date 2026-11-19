@@ -43,20 +43,12 @@ with open(os.path.join(CONTENT, "guides.json")) as f:
 # Apps that aren't in the App Store yet: their page is hand-written (and left alone by this script),
 # but guides can already belong to them. Their guides point to that page instead of the store.
 # Once an app is out, it moves to APPS in apps.py and leaves this list.
-UPCOMING = [
-    dict(slug="ranktutor", accent="#5b59fa", icon="/assets/apps/ranktutor/icon.png", group="money",
-         genre={"en": "SEO", "de": "SEO"}, texts={
-        "en": dict(name="RankTutor: SEO Check", subtitle="Website score & Search Console",
-                   promo="Check your website’s SEO in under a minute: a score from 0 to 100, concrete fixes and your Google Search Console numbers – right on your iPhone."),
-        "de": dict(name="RankTutor: SEO-Check", subtitle="Website-Score & Search Console",
-                   promo="Prüfe die SEO deiner Website in unter einer Minute: ein Score von 0 bis 100, konkrete Tipps und deine Zahlen aus der Google Search Console – direkt auf dem iPhone."),
-    }),
-]
+UPCOMING = []
 
 UI = {
     "en": dict(
         site_title="JL Apps – Apps for iPhone, iPad & Mac by Julian Lau",
-        site_description="Apps for iPhone, iPad and Mac by Julian Lau: HowlNight party games, Cardfox vocabulary flashcards, Code Editor, Python Editor, Texlet LaTeX editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights, Netora salary calculator and Owlvest.",
+        site_description="Apps for iPhone, iPad and Mac by Julian Lau: party games, vocabulary flashcards, code and LaTeX editors, SEO, finance and App Store tools.",
         hero_kicker="Independent apps from Germany",
         hero_title="Apps that just work.",
         hero_text="Fast, focused apps for iPhone, iPad and Mac – for playing, learning, writing, coding and your money. No accounts, no clutter.",
@@ -85,7 +77,7 @@ UI = {
     ),
     "de": dict(
         site_title="JL Apps – Apps für iPhone, iPad & Mac von Julian Lau",
-        site_description="Apps für iPhone, iPad und Mac von Julian Lau: HowlNight Partyspiele, Cardfox Vokabel-Karteikarten, Code Editor, Python Editor, Texlet LaTeX-Editor, Markdown Editor, txt Editor, AdNumbers, Connect Insights, Netora Brutto-Netto-Rechner und Owlvest.",
+        site_description="Apps für iPhone, iPad und Mac von Julian Lau: Partyspiele, Vokabelkarten, Code- und LaTeX-Editoren, SEO-, Finanz- und App-Store-Tools.",
         hero_kicker="Unabhängige Apps aus Deutschland",
         hero_title="Apps, die einfach funktionieren.",
         hero_text="Schnelle, durchdachte Apps für iPhone, iPad und Mac – zum Spielen, Lernen, Schreiben, Programmieren und für dein Geld. Ohne Konto, ohne Ballast.",
@@ -128,7 +120,9 @@ def store_texts(path):
     sections = re.split(r"\n## ", "\n" + source)
     for section in sections:
         head = section.split("\n", 1)[0].lower()
-        lang = "de" if head.startswith("deutsch") else "en" if head.startswith(("englisch", "english")) else None
+        # "## Deutsch (de-DE)" / "## English (en-US)", or just the locale ("## de-DE", "## en-US").
+        lang = ("de" if head.startswith(("deutsch", "de-de")) else
+                "en" if head.startswith(("englisch", "english", "en-us")) else None)
         if not lang or lang in result:
             continue
         result[lang] = dict(
@@ -376,6 +370,7 @@ def head(lang, title, description, canonical_path, alternates, extra="", image=N
         f'<meta property="og:locale" content="{"de_DE" if lang == "de" else "en_US"}">',
         '<meta name="twitter:card" content="summary_large_image">',
     ]
+    image = image or "/icon.png"  # pages without their own picture share the JL Apps icon
     if image:
         tags.append(f'<meta property="og:image" content="{SITE}{image}">')
         if image.startswith("/assets/og/"):
@@ -489,8 +484,7 @@ def contact_form(lang):
     <label>{t["message_label"]}<textarea name="Email Text" rows="6" required></textarea></label>
     <button type="submit" class="button">{t["send"]}</button>
   </form>
-</section>
-<script>if (location.search.includes("sent=1")) document.querySelector(".sent").hidden = false;</script>"""
+</section>"""
 
 
 def write(path, content):
@@ -503,36 +497,13 @@ def write(path, content):
         f.write(content)
 
 
-# Gallery arrows scroll by one screenshot; the edges fade only where there's more to see,
-# and the arrows hide when everything fits.
-GALLERY_JS = """(() => {
-  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
-  if (!strip) return;
-  const update = () => {
-    const max = strip.scrollWidth - strip.clientWidth;
-    section.classList.toggle("scrollable", max > 4);
-    section.classList.toggle("at-start", strip.scrollLeft < 4);
-    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
-  };
-  const step = dir => {
-    const img = strip.querySelector("img");
-    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
-  };
-  section.querySelector(".prev").onclick = () => step(-1);
-  section.querySelector(".next").onclick = () => step(1);
-  strip.addEventListener("scroll", update, { passive: true });
-  addEventListener("resize", update);
-  addEventListener("load", update);
-  update();
-})();"""
-
-
 def page(lang, head_html, body, accent="#8b5cf6", body_class=""):
     return f"""<!doctype html>
 <html lang="{lang}">
 {head_html}
 <body class="{body_class}" style="--accent:{accent}">
 {body}
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
 """
@@ -623,6 +594,8 @@ def app_page(app, lang, data):
     plats = platforms(texts["description"], lang)
     # Name and subtitle, like in the App Store – short enough for search results (~60 characters).
     title = f"{name} – {texts['subtitle']}"
+    if len(title) > 60:
+        title = name if len(name) >= 30 else f"{name} – JL Apps"
     description = texts["promo"] or first_sentence(texts["description"])
     description = description if len(description) <= 160 else description[:157].rsplit(" ", 1)[0] + "…"
     privacy = f"/{app['slug']}/privacy/"
@@ -638,6 +611,8 @@ def app_page(app, lang, data):
         "inLanguage": lang, "author": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/", "sameAs": SAME_AS},
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR" if lang == "de" else "USD"},
     }
+    if app.get("website"):
+        ld["sameAs"] = [app["website"]]
     faq = FAQ.get(app["slug"], {}).get(lang, [])
     extra = (f'<meta name="apple-itunes-app" content="app-id={app["id"]}">\n'
              f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
@@ -721,6 +696,7 @@ def app_page(app, lang, data):
       {intro_html}
       <div class="actions">
         <a class="store-badge" href="{store_url(app, lang)}" rel="noopener">{store_badge(lang, t["download"])}</a>
+        {f'<a class="text-link" href="{app["website"]}{"de/" if lang == "de" else ""}">{t["visit_site"]} ↗</a>' if app.get("website") else ""}
       </div>
       <div class="chips" aria-label="{t["on"]}">{chips}</div>
     </div>
@@ -731,7 +707,6 @@ def app_page(app, lang, data):
     <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
     <div class="gallery">{gallery}</div>
   </section>
-  <script>{GALLERY_JS}</script>
 
   <section class="features">
     <h2>{t["features"]}</h2>
@@ -985,29 +960,70 @@ def guides_index(lang, data):
   {groups}
 </main>
 {footer(lang)}"""
-    write(path, page(lang, head(lang, t["guides_title"], t["guides_description"], path, alternates), body, body_class="guides-index"))
+    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": t["guides"], "description": t["guides_description"],
+           "url": f"{SITE}{path}", "inLanguage": lang,
+           "hasPart": [{"@type": "Article", "headline": g[lang]["h1"], "url": f"{SITE}{guide_path(lang, g['slug'][lang])}"} for g in GUIDES]},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "JL Apps", "item": f"{SITE}{path_for(lang)}"},
+              {"@type": "ListItem", "position": 2, "name": t["guides"], "item": f"{SITE}{path}"}]}]
+    extra = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
+    write(path, page(lang, head(lang, t["guides_title"], t["guides_description"], path, alternates, extra=extra), body, body_class="guides-index"))
+
+
+IMPRINT = {
+    "en": dict(
+        title="Imprint – JL Apps by Julian Lau, Bonn",
+        description="Imprint of jlauapps.com: Julian Lau, Bonn, Germany. Contact, responsibility for the content, liability, copyright and the privacy policies of the apps.",
+        info="Information according to § 5 DDG (German law)", country="Germany", email="Email",
+        sections=[
+            ("Consumer dispute resolution", "I am neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board."),
+            ("Responsible for the content", "Responsible for the content of this website according to § 18 (2) MStV: Julian Lau, address as above."),
+            ("About JL Apps", "JL Apps is the name under which I, Julian Lau, develop and publish apps for iPhone, iPad and Mac: party games, a vocabulary trainer, code, Python, LaTeX and Markdown editors, SEO, finance and App Store tools. I write the apps, this website and its guides myself. Questions, feedback and bug reports are welcome by email or through the contact form on the home page."),
+            ("Privacy", "Every app has its own privacy policy, linked on its page and in the App Store. It explains what data the app processes, for example when it shows ads through Google AdMob or syncs through iCloud. This website sets no tracking cookies. Messages from the contact form are delivered by email through formsubmit.co."),
+            ("Liability for content", "The content of this website was written with great care. I cannot, however, guarantee that it is correct, complete and up to date. The guides explain topics such as taxes or SEO in general terms and are no substitute for individual advice. As a service provider I am responsible for my own content on these pages under the general laws."),
+            ("Liability for links", "This website links to external websites, such as the App Store, whose content I have no control over. The respective provider or operator is always responsible for the content of linked pages. If I become aware of any legal violations, I will remove such links immediately."),
+            ("Copyright", "The texts, images, screenshots and graphics on this website are subject to German copyright law. Copying, editing or distributing them beyond the limits of copyright law requires written permission. Apple, iPhone, iPad, Mac and App Store are trademarks of Apple Inc.; Google is a trademark of Google LLC."),
+        ]),
+    "de": dict(
+        title="Impressum – JL Apps von Julian Lau, Bonn",
+        description="Impressum von jlauapps.com: Julian Lau, Bonn. Kontakt, Verantwortlicher für den Inhalt, Haftung, Urheberrecht und die Datenschutzerklärungen der Apps.",
+        info="Angaben gemäß § 5 DDG", country="Deutschland", email="E-Mail",
+        sections=[
+            ("Verbraucherstreitbeilegung", "Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."),
+            ("Verantwortlich für den Inhalt", "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV: Julian Lau, Anschrift wie oben."),
+            ("Über JL Apps", "Unter dem Namen JL Apps entwickle und veröffentliche ich, Julian Lau, Apps für iPhone, iPad und Mac: Partyspiele, einen Vokabeltrainer, Editoren für Code, Python, LaTeX und Markdown sowie Werkzeuge für SEO, Finanzen und den App Store. Die Apps, diese Website und die Ratgeber schreibe ich selbst. Fragen, Feedback und Fehlermeldungen sind per E-Mail oder über das Kontaktformular auf der Startseite jederzeit willkommen."),
+            ("Datenschutz", "Jede App hat eine eigene Datenschutzerklärung, verlinkt auf ihrer Seite und im App Store. Dort steht, welche Daten die App verarbeitet, etwa wenn sie Werbung über Google AdMob zeigt oder über iCloud synchronisiert. Diese Website setzt keine Tracking-Cookies. Nachrichten aus dem Kontaktformular werden über formsubmit.co per E-Mail zugestellt."),
+            ("Haftung für Inhalte", "Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität kann ich jedoch keine Gewähr übernehmen. Die Ratgeber erklären Themen wie Steuern oder SEO allgemein und ersetzen keine individuelle Beratung. Als Diensteanbieter bin ich für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich."),
+            ("Haftung für Links", "Diese Website enthält Links zu externen Websites, etwa zum App Store, auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich. Werden mir Rechtsverletzungen bekannt, entferne ich solche Links umgehend."),
+            ("Urheberrecht", "Die Texte, Bilder, Screenshots und Grafiken auf dieser Website unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung und Verbreitung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung. Apple, iPhone, iPad, Mac und App Store sind Marken der Apple Inc., Google ist eine Marke der Google LLC."),
+        ]),
+}
 
 
 def imprint(lang):
     t = UI[lang]
+    i = IMPRINT[lang]
     title = "Imprint" if lang == "en" else "Impressum"
     path = "/imprint/" if lang == "en" else "/de/impressum/"
     other = "/de/impressum/" if lang == "en" else "/imprint/"
-    responsible = "Responsible for the content" if lang == "en" else "Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV"
-    info = "Information according to § 5 DDG" if lang == "en" else "Angaben gemäß § 5 DDG"
+    sections = "\n".join(f"  <h2>{e(h)}</h2>\n  <p>{e(p)}</p>" for h, p in i["sections"])
     body = f"""{header(lang, other)}
 <main class="legal">
   <h1>{title}</h1>
-  <h2>{info}</h2>
-  <p>Julian Lau<br>Weidengarten 1<br>53129 Bonn<br>{"Germany" if lang == "en" else "Deutschland"}</p>
+  <h2>{i["info"]}</h2>
+  <p>Julian Lau<br>Weidengarten 1<br>53129 Bonn<br>{i["country"]}</p>
   <h2>{t["contact"]}</h2>
-  <p>E-Mail: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>
-  <h2>{responsible}</h2>
-  <p>Julian Lau, {"address as above" if lang == "en" else "Anschrift wie oben"}</p>
+  <p>{i["email"]}: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>
+{sections}
 </main>
 {footer(lang)}"""
     alternates = [("en", "/imprint/"), ("de", "/de/impressum/"), ("x-default", "/imprint/")]
-    write(path, page(lang, head(lang, f"{title} – JL Apps", title, path, alternates), body, body_class="legal-page"))
+    ld = {"@context": "https://schema.org", "@type": "AboutPage", "name": i["title"], "url": f"{SITE}{path}", "inLanguage": lang,
+          "about": {"@type": "Person", "name": "Julian Lau", "url": SITE + "/", "email": CONTACT_EMAIL, "sameAs": SAME_AS,
+                    "address": {"@type": "PostalAddress", "streetAddress": "Weidengarten 1", "postalCode": "53129",
+                                "addressLocality": "Bonn", "addressCountry": "DE"}}}
+    extra = f'<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>'
+    write(path, page(lang, head(lang, i["title"], i["description"], path, alternates, extra=extra), body, body_class="legal-page"))
 
 
 def not_found(data):

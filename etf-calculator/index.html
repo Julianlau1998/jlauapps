@@ -47,6 +47,7 @@
       <p>See how your money grows – beautifully, clearly and in seconds.</p><p>Owlvest turns your ETF savings plan into a clear picture: enter your initial investment, monthly contribution, duration and expected return, and instantly see your final value, how much comes from compound interest and when you reach your next milestone.</p>
       <div class="actions">
         <a class="store-badge" href="https://apps.apple.com/us/app/id6443639781" rel="noopener"><img src="/assets/badges/badge-en-us.svg" width="162" height="54" alt="Download on the App Store"></a>
+        
       </div>
       <div class="chips" aria-label="for"><span class="chip">iPhone</span><span class="chip">iPad</span><span class="chip">Free</span></div>
     </div>
@@ -57,26 +58,6 @@
     <div class="gallery-arrows"><button type="button" class="prev" aria-label="‹">‹</button><button type="button" class="next" aria-label="›">›</button></div>
     <div class="gallery"><picture><source srcset="/assets/apps/etf-calculator/en-2.webp" type="image/webp"><img src="/assets/apps/etf-calculator/en-2.jpg" alt="Owlvest: ETF Calculator – screenshot 2" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/etf-calculator/en-3.webp" type="image/webp"><img src="/assets/apps/etf-calculator/en-3.jpg" alt="Owlvest: ETF Calculator – screenshot 3" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/etf-calculator/en-4.webp" type="image/webp"><img src="/assets/apps/etf-calculator/en-4.jpg" alt="Owlvest: ETF Calculator – screenshot 4" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/etf-calculator/en-5.webp" type="image/webp"><img src="/assets/apps/etf-calculator/en-5.jpg" alt="Owlvest: ETF Calculator – screenshot 5" loading="lazy" width="320" height="695"></picture><picture><source srcset="/assets/apps/etf-calculator/en-6.webp" type="image/webp"><img src="/assets/apps/etf-calculator/en-6.jpg" alt="Owlvest: ETF Calculator – screenshot 6" loading="lazy" width="320" height="695"></picture></div>
   </section>
-  <script>(() => {
-  const section = document.querySelector(".gallery-section"), strip = section && section.querySelector(".gallery");
-  if (!strip) return;
-  const update = () => {
-    const max = strip.scrollWidth - strip.clientWidth;
-    section.classList.toggle("scrollable", max > 4);
-    section.classList.toggle("at-start", strip.scrollLeft < 4);
-    section.classList.toggle("at-end", strip.scrollLeft > max - 4);
-  };
-  const step = dir => {
-    const img = strip.querySelector("img");
-    strip.scrollBy({ left: dir * (img ? img.offsetWidth + 22 : 300), behavior: "smooth" });
-  };
-  section.querySelector(".prev").onclick = () => step(-1);
-  section.querySelector(".next").onclick = () => step(1);
-  strip.addEventListener("scroll", update, { passive: true });
-  addEventListener("resize", update);
-  addEventListener("load", update);
-  update();
-})();</script>
 
   <section class="features">
     <h2>Features</h2>
@@ -125,7 +106,7 @@
   <div>
     <span class="genre">Learning</span>
     <h3>Cardfox</h3>
-    <p class="subtitle">Scan words, remember them</p>
+    <p class="subtitle">Scan &amp; learn languages with AI</p>
     <p class="blurb">New: vocabulary suggestions, AI memory aids, listening mode, Apple Watch and widgets. Cardfox turns any book page into flashcards – and helps you remember them.</p>
     <span class="more-link">Learn more →</span>
   </div>
@@ -143,8 +124,8 @@
   <div>
     <span class="genre">Developer tools</span>
     <h3>Python Editor</h3>
-    <p class="subtitle">Run Python 3 Code Offline</p>
-    <p class="blurb">New in 2.0: Python runs right on your device – with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
+    <p class="subtitle">Offline Compiler, IDE, Jupyter</p>
+    <p class="blurb">Python 3 right on your iPhone, iPad and Mac – offline, with numpy, matplotlib, turtle graphics, Jupyter notebooks, 20 examples and error hints in plain words.</p>
     <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/latex-editor/" style="--accent:#f43f6b">
@@ -152,8 +133,8 @@
   <div>
     <span class="genre">Math &amp; science</span>
     <h3>Texlet</h3>
-    <p class="subtitle">Math, formulas &amp; documents</p>
-    <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With a live preview, building blocks above the keyboard, syntax highlighting and PDF and image export.</p>
+    <p class="subtitle">Formula &amp; Equation Editor</p>
+    <p class="blurb">Type LaTeX and see it typeset instantly – live preview, building blocks above the keyboard, works offline. Copy formulas as images or export PDF and PNG with Texlet Pro.</p>
     <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/markdown-editor/" style="--accent:#6d7cff">
@@ -161,8 +142,8 @@
   <div>
     <span class="genre">Writing</span>
     <h3>Markdown Editor and Reader</h3>
-    <p class="subtitle">Write, preview and share .md</p>
-    <p class="blurb">Version 2.0 is here: rebuilt from scratch as a native app. With syntax highlighting, a formatting bar, live preview, folders and export to PDF and HTML.</p>
+    <p class="subtitle">Write notes &amp; preview md files</p>
+    <p class="blurb">Write Markdown with syntax highlighting, a formatting bar and a live preview. Real .md files, folders, and export to PDF and HTML – no account needed.</p>
     <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/txt-editor/" style="--accent:#14b8a6">
@@ -170,7 +151,7 @@
   <div>
     <span class="genre">Notes</span>
     <h3>txt Editor</h3>
-    <p class="subtitle">Notepad for plain .txt notes</p>
+    <p class="subtitle">Notepad, Notes, Diary &amp; Lists</p>
     <p class="blurb">Version 2.0 is here: completely rebuilt, lightning fast and more beautiful than ever. Now with folders, custom sorting, eight designs and a private folder with Face ID.</p>
     <span class="more-link">Learn more →</span>
   </div>
@@ -188,8 +169,17 @@
   <div>
     <span class="genre">Developer tools</span>
     <h3>Connect Insights</h3>
-    <p class="subtitle">Downloads, Subscriptions &amp; ASO</p>
-    <p class="blurb">Downloads, proceeds, subscriptions and rankings of all your apps – new subscriptions live within minutes, on iPhone, iPad, Mac and Apple Watch. Straight from Apple.</p>
+    <p class="subtitle">ASO &amp; Sales for App Developers</p>
+    <p class="blurb">See where your apps rank, what to change next and what it brings – plus downloads, proceeds and live subscriptions. ASO works without an API key.</p>
+    <span class="more-link">Learn more →</span>
+  </div>
+</a><a class="app-card" href="/ranktutor/" style="--accent:#5b59fa">
+  <img class="app-icon" src="/assets/apps/ranktutor/icon.png" alt="RankTutor app icon" width="88" height="88" loading="lazy">
+  <div>
+    <span class="genre">SEO</span>
+    <h3>RankTutor</h3>
+    <p class="subtitle">Your step-by-step Google plan</p>
+    <p class="blurb">Check your website in a minute and see exactly what to fix next – to get found on Google and in AI answers. With your Search Console numbers, explained.</p>
     <span class="more-link">Learn more →</span>
   </div>
 </a><a class="app-card" href="/netora/" style="--accent:#2f6fe0">
@@ -207,5 +197,6 @@
   <div><img src="/assets/logo.svg" alt="" width="28" height="28"><span>© 2026 Julian Lau</span></div>
   <nav><a href="/etf-calculator/privacy/">Privacy Policy</a><a href="/#contact">Contact</a><a href="/imprint/">Imprint</a><a href="mailto:jlauapps@gmail.com">jlauapps@gmail.com</a></nav>
 </footer>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
