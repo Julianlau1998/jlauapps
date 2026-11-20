@@ -2,3 +2,7 @@
 /about       /  301
 /rankpilot/*  /ranktutor/:splat  301
 /de/rankpilot/*  /de/ranktutor/:splat  301
+/ferrum/privacy/*  /levano/privacy/:splat  301
+/ferrum/invite/*  /levano/invite/:splat  301
+/ferrum/invite  /levano/invite/  301
+/ferrum/privacy  /levano/privacy/  301

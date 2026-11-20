@@ -10,8 +10,10 @@
       {
         "appIDs": ["HNRK32U6CL.com.julianlau.Ferrum"],
         "components": [
-          { "/": "/ferrum/invite", "comment": "Ferrum: friend invitations" },
-          { "/": "/ferrum/invite/*", "comment": "Ferrum: friend invitations" }
+          { "/": "/levano/invite", "comment": "Levano: friend invitations" },
+          { "/": "/levano/invite/*", "comment": "Levano: friend invitations" },
+          { "/": "/ferrum/invite", "comment": "Levano (old path): friend invitations" },
+          { "/": "/ferrum/invite/*", "comment": "Levano (old path): friend invitations" }
         ]
       }
     ]

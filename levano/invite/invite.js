@@ -1,8 +1,8 @@
-// Set once Ferrum is in the App Store (numeric ID from App Store Connect).
+// Set once Levano is in the App Store (numeric ID from App Store Connect).
 const APP_STORE_ID = '';
 
 // The invite lives in the fragment (#id=…&t=…&n=…), so it never reaches the server's logs.
-// With the app installed, iOS opens this link in Ferrum directly (universal link); this page is the fallback.
+// With the app installed, iOS opens this link in Levano directly (universal link); this page is the fallback.
 const params = new URLSearchParams(location.hash.slice(1));
 const id = params.get('id') || '';
 const token = params.get('t') || '';
@@ -26,21 +26,21 @@ if (valid) {
 
 if (english) {
   document.documentElement.lang = 'en';
-  document.title = 'Invitation to Ferrum';
-  document.getElementById('title').textContent = 'Train with me on Ferrum';
+  document.title = 'Invitation to Levano';
+  document.getElementById('title').textContent = 'Train with me on Levano';
   document.getElementById('f1').textContent = 'Share your workouts and records';
   document.getElementById('f2').textContent = 'Give each other high fives and comments';
   document.getElementById('f3').textContent = 'Compare your best lifts';
-  store.textContent = 'Get Ferrum';
+  store.textContent = 'Get Levano';
   soon.textContent = 'Coming soon to the App Store';
   open.textContent = 'I have the app – open invitation';
-  document.getElementById('hint').textContent = 'If you have Ferrum, the invitation opens right in the app. Otherwise get the app, then open this link again.';
+  document.getElementById('hint').textContent = 'If you have Levano, the invitation opens right in the app. Otherwise get the app, then open this link again.';
 }
 // The name comes from the link and is only shown as text; the app checks the invitation with the server.
 const text = document.getElementById('text');
 text.textContent = '';
 const strong = document.createElement('strong');
-strong.textContent = 'Ferrum';
+strong.textContent = 'Levano';
 if (name) {
   const who = document.createElement('strong');
   who.textContent = name;
